@@ -1,0 +1,906 @@
+{
+  "last_updated": "2025-11-12T19:57:27.188640Z",
+  "total_seats": 90,
+  "data": [
+    {
+      "Seat": "AMBALA CITY - 5",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Aazad Samaj Party (Kanshi Ram)",
+      "1": 84475,
+      "2": 73344,
+      "3": 2423,
+      "Rest": 5459
+    },
+    {
+      "Seat": "ADAMPUR - 47",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 65371,
+      "2": 64103,
+      "3": 1869,
+      "Rest": 4354
+    },
+    {
+      "Seat": "ASSANDH - 23",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Bahujan Samaj Party",
+      "1": 54761,
+      "2": 52455,
+      "3": 27396,
+      "Rest": 27680
+    },
+    {
+      "Seat": "AMBALA CANTT. - 4",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Independent",
+      "3rd Place": "Indian National Congress",
+      "1": 59858,
+      "2": 52581,
+      "3": 14469,
+      "Rest": 6415
+    },
+    {
+      "Seat": "ATELI - 68",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Bahujan Samaj Party",
+      "3rd Place": "Indian National Congress",
+      "1": 57737,
+      "2": 54652,
+      "3": 30037,
+      "Rest": 2814
+    },
+    {
+      "Seat": "BADKHAL - 87",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Bahujan Samaj Party",
+      "1": 79476,
+      "2": 73295,
+      "3": 2493,
+      "Rest": 4720
+    },
+    {
+      "Seat": "BADLI - 65",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Independent",
+      "1": 68160,
+      "2": 51340,
+      "3": 10820,
+      "Rest": 1980
+    },
+    {
+      "Seat": "BADHRA - 55",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 59315,
+      "2": 51730,
+      "3": 26730,
+      "Rest": 6302
+    },
+    {
+      "Seat": "BALLABGARH - 88",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Independent",
+      "3rd Place": "Independent",
+      "1": 61806,
+      "2": 44076,
+      "3": 23077,
+      "Rest": 17651
+    },
+    {
+      "Seat": "BADSHAHPUR - 76",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 145503,
+      "2": 84798,
+      "3": 30885,
+      "Rest": 21099
+    },
+    {
+      "Seat": "BARODA - 33",
+      "Leading": "Indian National Congress",
+      "Trailing": "Independent",
+      "3rd Place": "Bharatiya Janata Party",
+      "1": 54462,
+      "2": 48820,
+      "3": 22584,
+      "Rest": 4105
+    },
+    {
+      "Seat": "BAHADURGARH - 64",
+      "Leading": "Independent",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Congress",
+      "1": 73191,
+      "2": 31192,
+      "3": 28955,
+      "Rest": 25762
+    },
+    {
+      "Seat": "BARWALA - 51",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 66843,
+      "2": 39901,
+      "3": 29055,
+      "Rest": 4288
+    },
+    {
+      "Seat": "BAWAL - 72",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 86858,
+      "2": 66847,
+      "3": 1440,
+      "Rest": 1990
+    },
+    {
+      "Seat": "BAWANI KHERA - 59",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 80077,
+      "2": 58298,
+      "3": 11287,
+      "Rest": 3707
+    },
+    {
+      "Seat": "BERI - 67",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Independent",
+      "1": 60630,
+      "2": 25160,
+      "3": 24626,
+      "Rest": 8550
+    },
+    {
+      "Seat": "DABWALI - 43",
+      "Leading": "Indian National Lok Dal",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Jannayak Janta Party",
+      "1": 56074,
+      "2": 55464,
+      "3": 35261,
+      "Rest": 16134
+    },
+    {
+      "Seat": "BHIWANI - 57",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Communist Party of India (Marxist)",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 67087,
+      "2": 34373,
+      "3": 17573,
+      "Rest": 26221
+    },
+    {
+      "Seat": "ELLENABAD - 46",
+      "Leading": "Indian National Congress",
+      "Trailing": "Indian National Lok Dal",
+      "3rd Place": "Bharatiya Janata Party",
+      "1": 77865,
+      "2": 62865,
+      "3": 13320,
+      "Rest": 4404
+    },
+    {
+      "Seat": "DADRI - 56",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 65568,
+      "2": 63611,
+      "3": 3713,
+      "Rest": 9412
+    },
+    {
+      "Seat": "FARIDABAD - 89",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "None of the Above",
+      "1": 93651,
+      "2": 45263,
+      "3": 1025,
+      "Rest": 3148
+    },
+    {
+      "Seat": "FARIDABAD NIT - 86",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 91992,
+      "2": 58775,
+      "3": 29549,
+      "Rest": 13174
+    },
+    {
+      "Seat": "FEROZEPUR JHIRKA - 80",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 130497,
+      "2": 32056,
+      "3": 15638,
+      "Rest": 2975
+    },
+    {
+      "Seat": "FATEHABAD - 40",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 86172,
+      "2": 83920,
+      "3": 9681,
+      "Rest": 15503
+    },
+    {
+      "Seat": "GANAUR - 28",
+      "Leading": "Independent",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Bharatiya Janata Party",
+      "1": 77248,
+      "2": 42039,
+      "3": 17605,
+      "Rest": 4146
+    },
+    {
+      "Seat": "GARHI SAMPLA - KILOI - 61",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 108539,
+      "2": 37074,
+      "3": 1496,
+      "Rest": 2139
+    },
+    {
+      "Seat": "GHARAUNDA - 22",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 87236,
+      "2": 82705,
+      "3": 1611,
+      "Rest": 3186
+    },
+    {
+      "Seat": "GOHANA - 32",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 57055,
+      "2": 46626,
+      "3": 14761,
+      "Rest": 12344
+    },
+    {
+      "Seat": "GUHLA - 15",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Independent",
+      "1": 64611,
+      "2": 41731,
+      "3": 12437,
+      "Rest": 15097
+    },
+    {
+      "Seat": "GURGAON - 77",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Independent",
+      "3rd Place": "Indian National Congress",
+      "1": 122615,
+      "2": 54570,
+      "3": 46947,
+      "Rest": 5972
+    },
+    {
+      "Seat": "HATHIN - 82",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 79907,
+      "2": 47511,
+      "3": 37843,
+      "Rest": 22977
+    },
+    {
+      "Seat": "HANSI - 50",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 78686,
+      "2": 57226,
+      "3": 2333,
+      "Rest": 4040
+    },
+    {
+      "Seat": "HISAR - 52",
+      "Leading": "Independent",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Bharatiya Janata Party",
+      "1": 49231,
+      "2": 30290,
+      "3": 17385,
+      "Rest": 15588
+    },
+    {
+      "Seat": "HODAL - 83",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 68865,
+      "2": 66270,
+      "3": 2077,
+      "Rest": 3934
+    },
+    {
+      "Seat": "INDRI - 20",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Bahujan Samaj Party",
+      "1": 80465,
+      "2": 65316,
+      "3": 7498,
+      "Rest": 3298
+    },
+    {
+      "Seat": "ISRANA - 26",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 67538,
+      "2": 53643,
+      "3": 4283,
+      "Rest": 4190
+    },
+    {
+      "Seat": "JAGADHRI - 8",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 67403,
+      "2": 60535,
+      "3": 43813,
+      "Rest": 11281
+    },
+    {
+      "Seat": "JIND - 36",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 68920,
+      "2": 53060,
+      "3": 7639,
+      "Rest": 5617
+    },
+    {
+      "Seat": "JULANA - 34",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 65080,
+      "2": 59065,
+      "3": 10158,
+      "Rest": 4568
+    },
+    {
+      "Seat": "JHAJJAR - 66",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Jannayak Janta Party",
+      "1": 66345,
+      "2": 52790,
+      "3": 1836,
+      "Rest": 2670
+    },
+    {
+      "Seat": "KALANWALI - 42",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 66728,
+      "2": 43769,
+      "3": 24200,
+      "Rest": 5886
+    },
+    {
+      "Seat": "KAITHAL - 17",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Bahujan Samaj Party",
+      "1": 83744,
+      "2": 75620,
+      "3": 3428,
+      "Rest": 5922
+    },
+    {
+      "Seat": "KALANAUR - 63",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Independent",
+      "1": 69348,
+      "2": 57116,
+      "3": 11415,
+      "Rest": 5382
+    },
+    {
+      "Seat": "KALAYAT - 16",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Independent",
+      "1": 48142,
+      "2": 34723,
+      "3": 25302,
+      "Rest": 52246
+    },
+    {
+      "Seat": "KALKA - 1",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 60612,
+      "2": 49729,
+      "3": 31688,
+      "Rest": 3931
+    },
+    {
+      "Seat": "KARNAL - 21",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 90006,
+      "2": 56354,
+      "3": 1723,
+      "Rest": 2788
+    },
+    {
+      "Seat": "KHARKHAUDA - 30",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 58084,
+      "2": 52449,
+      "3": 1593,
+      "Rest": 1590
+    },
+    {
+      "Seat": "KOSLI - 73",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 92185,
+      "2": 74976,
+      "3": 7302,
+      "Rest": 3648
+    },
+    {
+      "Seat": "LADWA - 11",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 70177,
+      "2": 54123,
+      "3": 11191,
+      "Rest": 12577
+    },
+    {
+      "Seat": "LOHARU - 54",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 81336,
+      "2": 80544,
+      "3": 1191,
+      "Rest": 3044
+    },
+    {
+      "Seat": "MAHENDRAGARH - 69",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 63036,
+      "2": 60388,
+      "3": 20834,
+      "Rest": 11143
+    },
+    {
+      "Seat": "MULANA - 6",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 79089,
+      "2": 66224,
+      "3": 8096,
+      "Rest": 6428
+    },
+    {
+      "Seat": "MEHAM - 60",
+      "Leading": "Indian National Congress",
+      "Trailing": "Haryana Jan Sevak Party",
+      "3rd Place": "Independent",
+      "1": 56865,
+      "2": 38805,
+      "3": 29211,
+      "Rest": 24614
+    },
+    {
+      "Seat": "NANGAL CHAUDHRY - 71",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Jannayak Janta Party",
+      "1": 61989,
+      "2": 55059,
+      "3": 576,
+      "Rest": 849
+    },
+    {
+      "Seat": "NALWA - 53",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Jannayak Janta Party",
+      "1": 66330,
+      "2": 54186,
+      "3": 3891,
+      "Rest": 5139
+    },
+    {
+      "Seat": "NARAINGARH - 3",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Bahujan Samaj Party",
+      "1": 62180,
+      "2": 47086,
+      "3": 27440,
+      "Rest": 4583
+    },
+    {
+      "Seat": "NARNAUL - 70",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 57635,
+      "2": 40464,
+      "3": 6188,
+      "Rest": 2289
+    },
+    {
+      "Seat": "NARNAUND - 49",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 84801,
+      "2": 72223,
+      "3": 4628,
+      "Rest": 3428
+    },
+    {
+      "Seat": "NARWANA - 38",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 59474,
+      "2": 47975,
+      "3": 46303,
+      "Rest": 6058
+    },
+    {
+      "Seat": "NILOKHERI - 19",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 77902,
+      "2": 59057,
+      "3": 5470,
+      "Rest": 6409
+    },
+    {
+      "Seat": "NUH - 79",
+      "Leading": "Indian National Congress",
+      "Trailing": "Indian National Lok Dal",
+      "3rd Place": "Bharatiya Janata Party",
+      "1": 91833,
+      "2": 44870,
+      "3": 15902,
+      "Rest": 2351
+    },
+    {
+      "Seat": "PALWAL - 84",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Aazad Samaj Party (Kanshi Ram)",
+      "1": 109118,
+      "2": 75513,
+      "3": 2578,
+      "Rest": 5671
+    },
+    {
+      "Seat": "PANCHKULA - 2",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 67397,
+      "2": 65400,
+      "3": 3332,
+      "Rest": 4373
+    },
+    {
+      "Seat": "PANIPAT CITY - 25",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 81750,
+      "2": 46078,
+      "3": 15546,
+      "Rest": 3489
+    },
+    {
+      "Seat": "PANIPAT RURAL - 24",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 101079,
+      "2": 50867,
+      "3": 43323,
+      "Rest": 5870
+    },
+    {
+      "Seat": "PATAUDI - 75",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 98519,
+      "2": 51989,
+      "3": 3214,
+      "Rest": 4171
+    },
+    {
+      "Seat": "PUNAHANA - 81",
+      "Leading": "Indian National Congress",
+      "Trailing": "Independent",
+      "3rd Place": "Bharatiya Janata Party",
+      "1": 85300,
+      "2": 53384,
+      "3": 5072,
+      "Rest": 2523
+    },
+    {
+      "Seat": "PEHOWA - 14",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 64548,
+      "2": 57995,
+      "3": 1772,
+      "Rest": 4287
+    },
+    {
+      "Seat": "PRITHLA - 85",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Independent",
+      "1": 70262,
+      "2": 49721,
+      "3": 22023,
+      "Rest": 25185
+    },
+    {
+      "Seat": "RAI - 29",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 64614,
+      "2": 59941,
+      "3": 12262,
+      "Rest": 3402
+    },
+    {
+      "Seat": "PUNDRI - 18",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Independent",
+      "3rd Place": "Indian National Congress",
+      "1": 42805,
+      "2": 40608,
+      "3": 26341,
+      "Rest": 26220
+    },
+    {
+      "Seat": "RADAUR - 10",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Bahujan Samaj Party",
+      "1": 73348,
+      "2": 60216,
+      "3": 11182,
+      "Rest": 8272
+    },
+    {
+      "Seat": "RANIA - 44",
+      "Leading": "Indian National Lok Dal",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 43914,
+      "2": 39723,
+      "3": 36401,
+      "Rest": 24364
+    },
+    {
+      "Seat": "REWARI - 74",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 83747,
+      "2": 54978,
+      "3": 18427,
+      "Rest": 10515
+    },
+    {
+      "Seat": "RATIA - 41",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 86426,
+      "2": 64984,
+      "3": 5769,
+      "Rest": 7325
+    },
+    {
+      "Seat": "SADHAURA - 7",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Bahujan Samaj Party",
+      "1": 57534,
+      "2": 55835,
+      "3": 53496,
+      "Rest": 7285
+    },
+    {
+      "Seat": "ROHTAK - 62",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 59419,
+      "2": 58078,
+      "3": 1188,
+      "Rest": 1963
+    },
+    {
+      "Seat": "SAMALKHA - 27",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 81293,
+      "2": 61978,
+      "3": 21132,
+      "Rest": 3716
+    },
+    {
+      "Seat": "SHAHBAD - 12",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Bahujan Samaj Party",
+      "1": 61050,
+      "2": 54609,
+      "3": 1638,
+      "Rest": 3912
+    },
+    {
+      "Seat": "SIRSA - 45",
+      "Leading": "Indian National Congress",
+      "Trailing": "Haryana Lokhit Party",
+      "3rd Place": "Jannayak Janta Party",
+      "1": 79020,
+      "2": 71786,
+      "3": 1762,
+      "Rest": 5463
+    },
+    {
+      "Seat": "SAFIDON - 35",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 58983,
+      "2": 54946,
+      "3": 20114,
+      "Rest": 12612
+    },
+    {
+      "Seat": "SONIPAT - 31",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 84827,
+      "2": 55200,
+      "3": 1200,
+      "Rest": 3549
+    },
+    {
+      "Seat": "SOHNA - 78",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 61243,
+      "2": 49366,
+      "3": 49210,
+      "Rest": 43743
+    },
+    {
+      "Seat": "THANESAR - 13",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Aam Aadmi Party",
+      "1": 70076,
+      "2": 66833,
+      "3": 2948,
+      "Rest": 3355
+    },
+    {
+      "Seat": "TIGAON - 90",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Independent",
+      "3rd Place": "Indian National Congress",
+      "1": 94229,
+      "2": 56828,
+      "3": 21656,
+      "Rest": 31001
+    },
+    {
+      "Seat": "TOHANA - 39",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 88522,
+      "2": 77686,
+      "3": 9773,
+      "Rest": 4486
+    },
+    {
+      "Seat": "UKLANA - 48",
+      "Leading": "Indian National Congress",
+      "Trailing": "Bharatiya Janata Party",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 78448,
+      "2": 50356,
+      "3": 11447,
+      "Rest": 4464
+    },
+    {
+      "Seat": "TOSHAM - 58",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 76414,
+      "2": 62157,
+      "3": 15859,
+      "Rest": 6262
+    },
+    {
+      "Seat": "UCHANA KALAN - 37",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Independent",
+      "1": 48968,
+      "2": 48936,
+      "3": 31456,
+      "Rest": 36646
+    },
+    {
+      "Seat": "YAMUNANAGAR - 9",
+      "Leading": "Bharatiya Janata Party",
+      "Trailing": "Indian National Congress",
+      "3rd Place": "Indian National Lok Dal",
+      "1": 73185,
+      "2": 50748,
+      "3": 36067,
+      "Rest": 4013
+    }
+  ]
+}

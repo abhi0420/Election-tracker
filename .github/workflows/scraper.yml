@@ -27,13 +27,13 @@ jobs:
         sudo apt-get update
         sudo apt-get install -y wget gnupg
         wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
+        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
         sudo apt-get update
         sudo apt-get install -y google-chrome-stable
         
     - name: Install Python dependencies
       run: |
-        pip install --upgrade pip
+        python -m pip install --upgrade pip
         pip install -r requirements.txt
         
     - name: Run scraper
@@ -41,7 +41,9 @@ jobs:
       
     - name: Commit and push if changed
       run: |
-        git config --global user.name 'GitHub Action'
-        git config --global user.email 'action@github.com'
-        git add seat.csv seat.json
-        git diff --quiet && git diff --staged --quiet || (git commit -m "Update election data - $(date '+%Y-%m-%d %H:%M:%S UTC')" && git push)
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+        git add -A
+        timestamp=$(date -u)
+        git commit -m "Update election data: ${timestamp}" || exit 0
+        git push

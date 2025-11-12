@@ -1,8 +1,6 @@
 import concurrent.futures
 import pandas as pd
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -18,21 +16,26 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 
-# Set Chrome options
-chrome_options = Options()
-chrome_options.add_argument("--headless")  # Run in headless mode
-chrome_options.add_argument("--disable-gpu")
-chrome_options.add_argument("--window-size=1920,1080")
-chrome_options.add_argument("--disable-dev-shm-usage")
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36")
+def get_chrome_driver():
+    """Initialize Chrome driver with proper options for GitHub Actions"""
+    chrome_options = Options()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,1080")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-setuid-sandbox")
+    chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36")
+    
+    # Use system Chrome (works on GitHub Actions)
+    return webdriver.Chrome(options=chrome_options)
 
 def get_constituency_data(option_value, option_text):
     driver = None
     try:
         logging.info(f"Processing constituency: {option_text}")
         # Initialize WebDriver
-        driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+        driver = get_chrome_driver()
 
         # Construct the URL for the constituency
         constituency_url = f"https://results.eci.gov.in/AcResultGenOct2024/candidateswise-{option_value}.htm"
@@ -78,7 +81,7 @@ def main():
     logging.info("Starting election data scraper...")
 
     # Set up initial WebDriver to get dropdown options
-    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
+    driver = get_chrome_driver()
     
     try:
         driver.get("https://results.eci.gov.in/AcResultGenOct2024/partywiseresult-S07.htm")

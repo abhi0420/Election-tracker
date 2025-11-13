@@ -11,6 +11,7 @@ import pandas as pd
 import numpy as np
 import requests
 from io import StringIO
+import os
 
 
 
@@ -22,6 +23,69 @@ SHAPEFILE_PATH = "ac/Bihar_AC_with_results.shp"
 
 # Live CSV from GitHub (updates every 5 mins from scraper)
 LIVE_CSV_URL = "https://raw.githubusercontent.com/abhi0420/election-tracker/main/election_results.csv"
+
+def auto_merge_election_data():
+    """
+    Automatically merge election_results.csv with shapefile if needed
+    Returns the merged GeoDataFrame or None if merge fails
+    """
+    try:
+        print("🔄 Auto-merging election data with shapefile...")
+        
+        # Check if election_results.csv exists
+        if not os.path.exists('election_results.csv'):
+            print("⚠️ election_results.csv not found, skipping auto-merge")
+            return None
+        
+        # Read shapefile (use clean version without results)
+        clean_shapefile = 'ac/Bihar_AC_clean.shp'
+        if not os.path.exists(clean_shapefile):
+            print(f"⚠️ {clean_shapefile} not found, using current shapefile")
+            clean_shapefile = SHAPEFILE_PATH
+        
+        gdf = gpd.read_file(clean_shapefile)
+        
+        # Read CSV
+        df = pd.read_csv('election_results.csv')
+        
+        # Ensure AC_NO is the same type in both
+        gdf['AC_NO'] = gdf['AC_NO'].astype(int)
+        df['AC_NO'] = df['AC_NO'].astype(int)
+        
+        # Rename CSV columns to be shapefile-friendly
+        df_clean = df.rename(columns={
+            'winning_party': 'win_party',
+            'winner_candidate': 'win_cand',
+            'winner_votes': 'win_votes',
+            'second_party': 'sec_party',
+            'second_candidate': 'sec_cand',
+            'second_votes': 'sec_votes',
+            'third_party': 'thi_party',
+            'third_candidate': 'thi_cand',
+            'third_votes': 'thi_votes',
+            'total_votes': 'tot_votes',
+            'votes_counted_percent': 'votes_pct'
+        })
+        
+        # Keep only the renamed columns
+        cols_to_keep = ['AC_NO', 'win_party', 'win_cand', 'win_votes', 
+                        'sec_party', 'sec_cand', 'sec_votes',
+                        'thi_party', 'thi_cand', 'thi_votes', 
+                        'tot_votes', 'votes_pct']
+        df_clean = df_clean[cols_to_keep]
+        
+        # Merge on AC_NO
+        gdf_merged = gdf.merge(df_clean, on='AC_NO', how='left')
+        
+        # Save merged shapefile
+        gdf_merged.to_file(SHAPEFILE_PATH)
+        
+        print(f"✓ Auto-merge complete! {gdf_merged['win_party'].notna().sum()} constituencies merged")
+        return gdf_merged
+        
+    except Exception as e:
+        print(f"⚠️ Auto-merge failed: {e}")
+        return None
 
 def get_live_election_data():
     """Fetch latest election results CSV from GitHub"""
@@ -137,7 +201,7 @@ def create_election_map(state_name):
         state_gdf = gdf[gdf['ST_NAME'].str.contains(state_name, case=False, na=False)].copy()
         
         if len(state_gdf) == 0:
-            return None, f"State '{state_name}' not found!"
+            return None, f"State '{state_name}' not found!", {}, {}, {}
         
         # If we have live data, merge it with shapefile (replace old data with live data)
         if live_data is not None:
@@ -195,7 +259,16 @@ def create_election_map(state_name):
                           'tot_votes', 'votes_pct']
         
         if not all(col in state_gdf.columns for col in required_columns):
-            return None, "Error: Election data columns not found in shapefile. Please run merge_data.py first."
+            print("⚠️ Election data columns not found, attempting auto-merge...")
+            merged_gdf = auto_merge_election_data()
+            
+            if merged_gdf is not None:
+                # Re-read the shapefile after merge
+                gdf = gpd.read_file(SHAPEFILE_PATH)
+                state_gdf = gdf[gdf['ST_NAME'].str.contains(state_name, case=False, na=False)].copy()
+                print("✓ Using auto-merged data")
+            else:
+                return None, "Error: Election data columns not found and auto-merge failed. Please ensure election_results.csv exists.", {}, {}, {}
         
         print("✓ Using election data from shapefile")
         

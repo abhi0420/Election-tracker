@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: bihar-election-tracker
+    env: python
+    buildCommand: pip install -r requirements-flask.txt
+    startCommand: gunicorn map_app:app --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.0

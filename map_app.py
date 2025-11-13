@@ -43,48 +43,90 @@ def auto_merge_election_data():
             print(f"⚠️ {clean_shapefile} not found, using current shapefile")
             clean_shapefile = SHAPEFILE_PATH
         
+        print(f"📂 Reading shapefile: {clean_shapefile}")
         gdf = gpd.read_file(clean_shapefile)
+        print(f"   Shapefile columns: {gdf.columns.tolist()}")
         
         # Read CSV
+        print("📂 Reading election_results.csv")
         df = pd.read_csv('election_results.csv')
+        print(f"   CSV columns: {df.columns.tolist()}")
+        print(f"   CSV rows: {len(df)}")
+        
+        # Check if AC_NO exists in both
+        if 'AC_NO' not in gdf.columns:
+            print("⚠️ AC_NO not found in shapefile")
+            return None
+        
+        if 'AC_NO' not in df.columns:
+            print("⚠️ AC_NO not found in CSV")
+            return None
         
         # Ensure AC_NO is the same type in both
         gdf['AC_NO'] = gdf['AC_NO'].astype(int)
         df['AC_NO'] = df['AC_NO'].astype(int)
         
-        # Rename CSV columns to be shapefile-friendly
-        df_clean = df.rename(columns={
-            'winning_party': 'win_party',
-            'winner_candidate': 'win_cand',
-            'winner_votes': 'win_votes',
-            'second_party': 'sec_party',
-            'second_candidate': 'sec_cand',
-            'second_votes': 'sec_votes',
-            'third_party': 'thi_party',
-            'third_candidate': 'thi_cand',
-            'third_votes': 'thi_votes',
-            'total_votes': 'tot_votes',
-            'votes_counted_percent': 'votes_pct'
-        })
+        # Rename CSV columns to be shapefile-friendly (only rename if they exist)
+        rename_map = {}
+        if 'winning_party' in df.columns:
+            rename_map['winning_party'] = 'win_party'
+        if 'winner_candidate' in df.columns:
+            rename_map['winner_candidate'] = 'win_cand'
+        if 'winner_votes' in df.columns:
+            rename_map['winner_votes'] = 'win_votes'
+        if 'second_party' in df.columns:
+            rename_map['second_party'] = 'sec_party'
+        if 'second_candidate' in df.columns:
+            rename_map['second_candidate'] = 'sec_cand'
+        if 'second_votes' in df.columns:
+            rename_map['second_votes'] = 'sec_votes'
+        if 'third_party' in df.columns:
+            rename_map['third_party'] = 'thi_party'
+        if 'third_candidate' in df.columns:
+            rename_map['third_candidate'] = 'thi_cand'
+        if 'third_votes' in df.columns:
+            rename_map['third_votes'] = 'thi_votes'
+        if 'total_votes' in df.columns:
+            rename_map['total_votes'] = 'tot_votes'
+        if 'Total Votes' in df.columns:  # Handle "Total Votes" with space
+            rename_map['Total Votes'] = 'tot_votes'
+        if 'votes_counted_percent' in df.columns:
+            rename_map['votes_counted_percent'] = 'votes_pct'
         
-        # Keep only the renamed columns
-        cols_to_keep = ['AC_NO', 'win_party', 'win_cand', 'win_votes', 
-                        'sec_party', 'sec_cand', 'sec_votes',
-                        'thi_party', 'thi_cand', 'thi_votes', 
-                        'tot_votes', 'votes_pct']
+        df_clean = df.rename(columns=rename_map)
+        
+        # Add votes_pct column if missing (default to 100%)
+        if 'votes_pct' not in df_clean.columns:
+            df_clean['votes_pct'] = 100.0
+            print("   Added default votes_pct column (100%)")
+        
+        # Keep only the columns that exist
+        cols_to_keep = ['AC_NO']
+        for col in ['win_party', 'win_cand', 'win_votes', 
+                    'sec_party', 'sec_cand', 'sec_votes',
+                    'thi_party', 'thi_cand', 'thi_votes', 
+                    'tot_votes', 'votes_pct']:
+            if col in df_clean.columns:
+                cols_to_keep.append(col)
+        
         df_clean = df_clean[cols_to_keep]
+        print(f"   Columns to merge: {cols_to_keep}")
         
         # Merge on AC_NO
+        print("🔗 Merging data...")
         gdf_merged = gdf.merge(df_clean, on='AC_NO', how='left')
         
         # Save merged shapefile
+        print(f"💾 Saving to {SHAPEFILE_PATH}")
         gdf_merged.to_file(SHAPEFILE_PATH)
         
-        print(f"✓ Auto-merge complete! {gdf_merged['win_party'].notna().sum()} constituencies merged")
+        print(f"✓ Auto-merge complete! {gdf_merged['win_party'].notna().sum() if 'win_party' in gdf_merged.columns else 0} constituencies merged")
         return gdf_merged
         
     except Exception as e:
-        print(f"⚠️ Auto-merge failed: {e}")
+        import traceback
+        print(f"⚠️ Auto-merge failed with error:")
+        traceback.print_exc()
         return None
 
 def get_live_election_data():

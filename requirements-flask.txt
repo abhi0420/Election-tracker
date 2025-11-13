@@ -1,9 +1,16 @@
 Flask==3.0.0
-geopandas==0.14.1
-bokeh==3.3.0
+gunicorn==21.2.0
 pandas==2.1.3
 numpy==1.26.2
+requests==2.31.0
+
+# Geospatial dependencies (with compatible versions)
 shapely==2.0.2
 pyproj==3.6.1
-gunicorn==21.2.0
 fiona==1.9.5
+geopandas==0.14.1
+
+# Bokeh for visualization
+bokeh==3.3.0
+Jinja2==3.1.2
+pillow==10.1.0

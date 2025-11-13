@@ -9,14 +9,38 @@ from bokeh.embed import components, file_html
 from bokeh.resources import CDN
 import pandas as pd
 import numpy as np
+import requests
+from io import StringIO
 
 
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
 
-# Use Bihar-specific shapefile
+# Use Bihar-specific shapefile (local - has geometry, doesn't change)
 SHAPEFILE_PATH = "ac/Bihar_AC_with_results.shp"
+
+# Live CSV from GitHub (updates every 5 mins from scraper)
+LIVE_CSV_URL = "https://raw.githubusercontent.com/abhi0420/election-tracker/main/election_results.csv"
+
+def get_live_election_data():
+    """Fetch latest election results CSV from GitHub"""
+    try:
+        response = requests.get(LIVE_CSV_URL, timeout=10)
+        response.raise_for_status()
+        df = pd.read_csv(StringIO(response.text))
+        print(f"✓ Fetched live data: {len(df)} rows")
+        return df
+    except Exception as e:
+        print(f"⚠️ Failed to fetch live data from GitHub: {e}")
+        # Fallback to local CSV if available
+        try:
+            df = pd.read_csv("election_results.csv")
+            print(f"✓ Using local fallback data: {len(df)} rows")
+            return df
+        except:
+            print("❌ No data available")
+            return None
 
 def get_available_states():
     """Get list of all available states from shapefile"""
@@ -101,15 +125,46 @@ def create_state_map(state_name):
         return None, f"Error creating map: {str(e)}"
 
 def create_election_map(state_name):
-    """Create election results map with party data"""
+    """Create election results map with party data - now uses LIVE data from GitHub"""
     try:
         import traceback
-        # Read shapefile and filter for the state
+        
+        # Fetch LIVE election data from GitHub
+        live_data = get_live_election_data()
+        
+        # Read shapefile (has geometry only - doesn't need to update)
         gdf = gpd.read_file(SHAPEFILE_PATH)
         state_gdf = gdf[gdf['ST_NAME'].str.contains(state_name, case=False, na=False)].copy()
         
         if len(state_gdf) == 0:
             return None, f"State '{state_name}' not found!"
+        
+        # If we have live data, merge it with shapefile (replace old data with live data)
+        if live_data is not None:
+            # Drop old election columns from shapefile
+            election_columns = ['AC_NO', 'winning_party', 'winner_candidate', 'winner_votes',
+                              'second_party', 'second_candidate', 'second_votes',
+                              'third_party', 'third_candidate', 'third_votes',
+                              'total_votes', 'votes_counted_percent',
+                              'win_party', 'win_cand', 'win_votes',
+                              'sec_party', 'sec_cand', 'sec_votes',
+                              'thi_party', 'thi_cand', 'thi_votes',
+                              'tot_votes', 'votes_pct']
+            
+            for col in election_columns:
+                if col in state_gdf.columns:
+                    state_gdf = state_gdf.drop(columns=[col])
+            
+            # Merge with live data based on AC_NO
+            # Assuming shapefile has AC_NO or we can match by name
+            if 'AC_NO' in state_gdf.columns:
+                state_gdf = state_gdf.merge(live_data, on='AC_NO', how='left')
+            else:
+                # Create AC_NO from index if needed
+                state_gdf['AC_NO'] = range(1, len(state_gdf) + 1)
+                state_gdf = state_gdf.merge(live_data, on='AC_NO', how='left')
+            
+            print(f"✓ Merged live data with shapefile")
         
         # Define individual parties with their colors
         individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RJD', 'INC', 'CPIM', 'JSP', 'OTH']

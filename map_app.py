@@ -301,7 +301,7 @@ def create_election_map(state_name):
             'RJD': '#006400',
             'INC': '#1471C7',
             'CPIM': '#FF0000',
-            'AIMIM': '#006400',  # Dark green for AIMIM
+            'AIMIM': '#009C1D',  # Green for AIMIM
             'OTH': '#95A5A6',
             'AWAITED': '#CCCCCC'  # Gray for awaiting results
         }
@@ -412,7 +412,7 @@ def create_election_map(state_name):
         alliance_colors_map = {
             'NDA': '#FF9900',
             'MGB': '#1471C7',
-            'AIMIM': '#006400',  # Dark green
+            'AIMIM': '#009C1D',  # Green
             'OTH': '#95A5A6',
             'AWAITED': '#CCCCCC'  # Gray for awaiting
         }
@@ -520,7 +520,7 @@ def create_election_map(state_name):
                     'RJD': '#006400',
                     'INC': '#1471C7',
                     'CPIM': '#FF0000',
-                    'AIMIM': '#006400',
+                    'AIMIM': '#009C1D',
                     'OTH': '#95A5A6',
                     'AWAITED': '#CCCCCC'
                 };
@@ -880,7 +880,7 @@ def create_election_map(state_name):
         alliance_colors_map = {
             'NDA': '#FF9900',
             'MGB': '#1471C7',
-            'AIMIM': '#006400',
+            'AIMIM': '#009C1D',
             'OTH': '#95A5A6',
             'AWAITED': '#CCCCCC'
         }
@@ -2173,10 +2173,10 @@ def index():
             },
             'AIMIM': {
                 'parties': ['AIMIM'],
-                'color': '#006400',
+                'color': '#009C1D',
                 'description': 'All India Majlis-E-Ittehadul Muslimeen',
                 'breakdown': {
-                    'AIMIM': {'seats': actual_party_seats['AIMIM'], 'color': '#006400'}
+                    'AIMIM': {'seats': actual_party_seats['AIMIM'], 'color': '#009C1D'}
                 }
             },
             'Others': {

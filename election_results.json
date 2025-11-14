@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-14T16:59:58.429646Z",
+  "last_updated": "2025-11-14T17:24:48.215990Z",
   "total_seats": 243,
   "data": [
     {
@@ -391,15 +391,15 @@
       "Constituency": "PARIHAR",
       "win_cand": "GAYETRI DEVI",
       "win_party": "BJP",
-      "win_votes": 80043,
+      "win_votes": 82396,
       "sec_cand": "RITU JAISWAL",
       "sec_party": "OTH",
-      "sec_votes": 64600,
+      "sec_votes": 65411,
       "thi_cand": "SMITA GUPTA",
       "thi_party": "RJD",
-      "thi_votes": 47122,
-      "margin": 15443,
-      "tot_votes": 204852,
+      "thi_votes": 48173,
+      "margin": 16985,
+      "tot_votes": 209297,
       "votes_pct": 100.0
     },
     {
@@ -3239,15 +3239,15 @@
       "Constituency": "RAMGARH",
       "win_cand": "SATISH KUMAR SINGH YADAV",
       "win_party": "OTH",
-      "win_votes": 70835,
+      "win_votes": 72689,
       "sec_cand": "ASHOK KUMAR SINGH",
       "sec_party": "BJP",
-      "sec_votes": 70660,
+      "sec_votes": 72659,
       "thi_cand": "AJIT KUMAR",
       "thi_party": "RJD",
-      "thi_votes": 40206,
-      "margin": 175,
-      "tot_votes": 189549,
+      "thi_votes": 41480,
+      "margin": 30,
+      "tot_votes": 194844,
       "votes_pct": 100.0
     },
     {

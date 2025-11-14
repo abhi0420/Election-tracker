@@ -128,7 +128,8 @@ def auto_merge_election_data():
         gdf_merged['thi_cand'] = gdf_merged['thi_cand'].fillna('Awaiting Results')
         gdf_merged['thi_votes'] = gdf_merged['thi_votes'].fillna(0).astype(int)
         gdf_merged['tot_votes'] = gdf_merged['tot_votes'].fillna(0).astype(int)
-        gdf_merged['votes_pct'] = gdf_merged['votes_pct'].fillna(0).astype(int)
+        # Handle votes_pct - replace inf/nan with 0, then convert to float (not int to preserve decimals)
+        gdf_merged['votes_pct'] = gdf_merged['votes_pct'].replace([float('inf'), float('-inf')], 0).fillna(0).astype(float)
         
         # Save merged shapefile
         print(f"[AUTO-MERGE] Saving to {SHAPEFILE_PATH}")
@@ -332,27 +333,27 @@ def create_election_map(state_name):
         
         # Calculate derived fields using pandas (not stored in shapefile)
         # Ensure numeric columns are proper type first
-        state_gdf['win_votes'] = pd.to_numeric(state_gdf['win_votes'], errors='coerce')
-        state_gdf['sec_votes'] = pd.to_numeric(state_gdf['sec_votes'], errors='coerce')
-        state_gdf['thi_votes'] = pd.to_numeric(state_gdf['thi_votes'], errors='coerce')
-        state_gdf['tot_votes'] = pd.to_numeric(state_gdf['tot_votes'], errors='coerce')
-        state_gdf['votes_pct'] = pd.to_numeric(state_gdf['votes_pct'], errors='coerce')
+        state_gdf['win_votes'] = pd.to_numeric(state_gdf['win_votes'], errors='coerce').fillna(0)
+        state_gdf['sec_votes'] = pd.to_numeric(state_gdf['sec_votes'], errors='coerce').fillna(0)
+        state_gdf['thi_votes'] = pd.to_numeric(state_gdf['thi_votes'], errors='coerce').fillna(0)
+        state_gdf['tot_votes'] = pd.to_numeric(state_gdf['tot_votes'], errors='coerce').fillna(0)
+        state_gdf['votes_pct'] = pd.to_numeric(state_gdf['votes_pct'], errors='coerce').fillna(0)
         
         # Calculate percentages and margins (round to 2 decimal places)
-        state_gdf['winner_percent'] = ((state_gdf['win_votes'] / state_gdf['tot_votes'] * 100) * 100).round() / 100
-        state_gdf['second_percent'] = ((state_gdf['sec_votes'] / state_gdf['tot_votes'] * 100) * 100).round() / 100
-        state_gdf['third_percent'] = ((state_gdf['thi_votes'] / state_gdf['tot_votes'] * 100) * 100).round() / 100
-        state_gdf['lead_margin'] = (state_gdf['win_votes'] - state_gdf['sec_votes']).astype(int)
+        state_gdf['winner_percent'] = ((state_gdf['win_votes'] / state_gdf['tot_votes'].replace(0, 1) * 100) * 100).round() / 100
+        state_gdf['second_percent'] = ((state_gdf['sec_votes'] / state_gdf['tot_votes'].replace(0, 1) * 100) * 100).round() / 100
+        state_gdf['third_percent'] = ((state_gdf['thi_votes'] / state_gdf['tot_votes'].replace(0, 1) * 100) * 100).round() / 100
+        state_gdf['lead_margin'] = (state_gdf['win_votes'] - state_gdf['sec_votes']).fillna(0).astype(int)
         
         # Create friendly column aliases for use in code below
-        state_gdf['winning_party'] = state_gdf['win_party']
-        state_gdf['winner_candidate'] = state_gdf['win_cand']
+        state_gdf['winning_party'] = state_gdf['win_party'].fillna('AWAITED')
+        state_gdf['winner_candidate'] = state_gdf['win_cand'].fillna('Awaiting Results')
         state_gdf['winner_votes'] = state_gdf['win_votes']
-        state_gdf['second_party'] = state_gdf['sec_party']
-        state_gdf['second_candidate'] = state_gdf['sec_cand']
+        state_gdf['second_party'] = state_gdf['sec_party'].fillna('AWAITED')
+        state_gdf['second_candidate'] = state_gdf['sec_cand'].fillna('Awaiting Results')
         state_gdf['second_votes'] = state_gdf['sec_votes']
-        state_gdf['third_party'] = state_gdf['thi_party']
-        state_gdf['third_candidate'] = state_gdf['thi_cand']
+        state_gdf['third_party'] = state_gdf['thi_party'].fillna('AWAITED')
+        state_gdf['third_candidate'] = state_gdf['thi_cand'].fillna('Awaiting Results')
         state_gdf['third_votes'] = state_gdf['thi_votes']
         state_gdf['total_votes'] = state_gdf['tot_votes']
         state_gdf['votes_counted_percent'] = state_gdf['votes_pct']
@@ -362,11 +363,14 @@ def create_election_map(state_name):
         for idx, r in state_gdf.iterrows():
             # For now, we only have top 3 parties, so we'll use those for vote share
             # In real data, you might have all parties listed
-            constituency_votes = {
-                r['win_party']: r['win_votes'],
-                r['sec_party']: r['sec_votes'],
-                r['thi_party']: r['thi_votes']
-            }
+            # Filter out nan/null parties
+            constituency_votes = {}
+            if pd.notna(r['win_party']) and r['win_party'] != 'AWAITED':
+                constituency_votes[r['win_party']] = r['win_votes']
+            if pd.notna(r['sec_party']) and r['sec_party'] != 'AWAITED':
+                constituency_votes[r['sec_party']] = r['sec_votes']
+            if pd.notna(r['thi_party']) and r['thi_party'] != 'AWAITED':
+                constituency_votes[r['thi_party']] = r['thi_votes']
             all_party_votes.append(constituency_votes)
         
         # Convert to Web Mercator
@@ -397,7 +401,8 @@ def create_election_map(state_name):
         geosource = GeoJSONDataSource(geojson=state_gdf.to_json())
         
         # Map party names to colors for the color mapper (default: party-level)
-        state_gdf['party_color'] = state_gdf['winning_party'].map(individual_party_colors)
+        # Fill any unmapped parties with gray color
+        state_gdf['party_color'] = state_gdf['winning_party'].map(individual_party_colors).fillna('#CCCCCC')
         
         # Map alliance colors
         alliance_colors_map = {
@@ -407,8 +412,8 @@ def create_election_map(state_name):
             'OTH': '#95A5A6',
             'AWAITED': '#CCCCCC'  # Gray for awaiting
         }
-        state_gdf['alliance'] = state_gdf['winning_party'].map(party_to_alliance)
-        state_gdf['alliance_color'] = state_gdf['alliance'].map(alliance_colors_map)
+        state_gdf['alliance'] = state_gdf['winning_party'].map(party_to_alliance).fillna('AWAITED')
+        state_gdf['alliance_color'] = state_gdf['alliance'].map(alliance_colors_map).fillna('#CCCCCC')
         
         # Default color is alliance-level
         state_gdf['color'] = state_gdf['alliance_color']
@@ -565,7 +570,7 @@ def create_election_map(state_name):
                                     <!-- Awaiting Results Message -->
                                     <div style="
                                         text-align: center;
-                                        padding: 40px 20px;
+                                        padding: 30px 20px;
                                         background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
                                         border-radius: 10px;
                                         margin: 20px 0;
@@ -583,8 +588,58 @@ def create_election_map(state_name):
                                         <p style="
                                             color: #888;
                                             font-size: 14px;
-                                            margin: 0;
+                                            margin: 0 0 20px 0;
                                         ">Counting has not started for this constituency yet</p>
+                                        
+                                        <!-- Random contesting parties preview -->
+                                        <div style="
+                                            margin-top: 20px;
+                                            padding: 15px;
+                                            background: white;
+                                            border-radius: 8px;
+                                        ">
+                                            <p style="
+                                                color: #999;
+                                                font-size: 12px;
+                                                margin: 0 0 12px 0;
+                                                text-transform: uppercase;
+                                                letter-spacing: 1px;
+                                            ">Expected Contesting Parties</p>
+                                            <div style="
+                                                display: flex;
+                                                justify-content: center;
+                                                gap: 15px;
+                                                flex-wrap: wrap;
+                                            ">
+                                                <div style="
+                                                    padding: 8px 16px;
+                                                    background: linear-gradient(135deg, #FF9900 0%, #FF9900dd 100%);
+                                                    color: white;
+                                                    border-radius: 20px;
+                                                    font-size: 13px;
+                                                    font-weight: 600;
+                                                    box-shadow: 0 2px 5px rgba(255,153,0,0.3);
+                                                ">BJP</div>
+                                                <div style="
+                                                    padding: 8px 16px;
+                                                    background: linear-gradient(135deg, #006400 0%, #006400dd 100%);
+                                                    color: white;
+                                                    border-radius: 20px;
+                                                    font-size: 13px;
+                                                    font-weight: 600;
+                                                    box-shadow: 0 2px 5px rgba(0,100,0,0.3);
+                                                ">RJD</div>
+                                                <div style="
+                                                    padding: 8px 16px;
+                                                    background: linear-gradient(135deg, #190061 0%, #190061dd 100%);
+                                                    color: white;
+                                                    border-radius: 20px;
+                                                    font-size: 13px;
+                                                    font-weight: 600;
+                                                    box-shadow: 0 2px 5px rgba(25,0,97,0.3);
+                                                ">JDU</div>
+                                            </div>
+                                        </div>
                                     </div>
                                 ` : `
                                     <!-- Vote Counting Progress -->
@@ -750,8 +805,9 @@ def create_election_map(state_name):
         
         for constituency_votes in all_party_votes:
             for party, votes in constituency_votes.items():
-                party_vote_totals[party] += votes
-                grand_total_votes += votes
+                if party in party_vote_totals:  # Only count if party is in our list
+                    party_vote_totals[party] += votes
+                    grand_total_votes += votes
         
         # Aggregate votes to alliance level
         alliance_vote_totals = {}
@@ -802,7 +858,8 @@ def create_election_map(state_name):
             'NDA': '#FF9900',
             'MGB': '#1471C7',
             'JSP': '#BA06C4',
-            'OTH': '#95A5A6'
+            'OTH': '#95A5A6',
+            'AWAITED': '#CCCCCC'
         }
         sorted_parties = sorted(summary.items(), key=lambda x: x[1], reverse=True)
         

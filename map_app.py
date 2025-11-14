@@ -2114,9 +2114,8 @@ def create_election_map(state_name):
         constituency_select.js_on_change('value', select_callback)
         
         # Combine plot, info panel, and dropdowns in layout
-        # Use column layout (filters on top, map below) for better mobile support
         selectors = column(info_div, color_mode_button, reset_button, filter_type_select, filter_value_select, constituency_select)
-        layout = column(selectors, p)
+        layout = row(p, selectors)
         
         return layout, summary, party_vote_shares, party_vote_totals, individual_summary
     
@@ -2349,13 +2348,31 @@ def index():
         
         /* Mobile responsive: stack filters on top of map */
         @media (max-width: 768px) {{
+            body {{
+                padding: 10px;
+            }}
             .bk-root .bk-layout-row {{
                 display: flex !important;
-                flex-direction: column-reverse !important;
+                flex-direction: column !important;
             }}
             .bk-root .bk-layout-row > div {{
                 width: 100% !important;
                 max-width: 100% !important;
+                min-width: 100% !important;
+            }}
+            /* Make selectors (filters) appear first on mobile */
+            .bk-root .bk-layout-row > div:last-child {{
+                order: -1;
+            }}
+            /* Reduce selector widths on mobile */
+            .bk-root select, .bk-root .bk-input {{
+                width: 100% !important;
+                max-width: 100% !important;
+            }}
+            /* Make map container scrollable if needed */
+            .map-container {{
+                padding: 10px;
+                overflow-x: auto;
             }}
             header h1 {{
                 font-size: 1.8em;
@@ -2364,10 +2381,7 @@ def index():
                 font-size: 0.95em;
             }}
             .info-panel {{
-                margin: 15px;
-                padding: 20px;
-            }}
-            .map-container {{
+                margin: 10px;
                 padding: 15px;
             }}
         }}

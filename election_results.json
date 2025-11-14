@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-14T15:50:27.459994Z",
+  "last_updated": "2025-11-14T16:02:38.796556Z",
   "total_seats": 243,
   "data": [
     {
@@ -1783,15 +1783,15 @@
       "Constituency": "MAHARAJGANJ",
       "win_cand": "HEM NARAYAN SAH",
       "win_party": "JDU",
-      "win_votes": 86226,
+      "win_votes": 86813,
       "sec_cand": "VISHAL KUMAR JAISWAL",
       "sec_party": "RJD",
-      "sec_votes": 64503,
+      "sec_votes": 65714,
       "thi_cand": "SUNIL RAY",
       "thi_party": "OTH",
-      "thi_votes": 8115,
-      "margin": 21723,
-      "tot_votes": 185739,
+      "thi_votes": 8165,
+      "margin": 21099,
+      "tot_votes": 187810,
       "votes_pct": 100.0
     },
     {
@@ -3319,15 +3319,15 @@
       "Constituency": "SASARAM",
       "win_cand": "SNEHLATA",
       "win_party": "RLM",
-      "win_votes": 104701,
+      "win_votes": 105006,
       "sec_cand": "SATENDRA SAH",
       "sec_party": "RJD",
-      "sec_votes": 79046,
+      "sec_votes": 79563,
       "thi_cand": "ASHOK KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 10177,
-      "margin": 25655,
-      "tot_votes": 220009,
+      "thi_votes": 10261,
+      "margin": 25443,
+      "tot_votes": 221091,
       "votes_pct": 100.0
     },
     {
@@ -3783,16 +3783,16 @@
       "Constituency": "NAWADA",
       "win_cand": "VIBHA DEVI",
       "win_party": "JDU",
-      "win_votes": 80316,
+      "win_votes": 81334,
       "sec_cand": "KAUSHAL YADAV",
       "sec_party": "RJD",
-      "sec_votes": 49657,
+      "sec_votes": 52688,
       "thi_cand": "ANUJ SINGH",
       "thi_party": "OTH",
-      "thi_votes": 18159,
-      "margin": 30659,
-      "tot_votes": 178364,
-      "votes_pct": 92.3
+      "thi_votes": 18249,
+      "margin": 28646,
+      "tot_votes": 183763,
+      "votes_pct": 95.09
     },
     {
       "AC_NO": 238,

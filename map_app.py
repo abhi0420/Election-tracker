@@ -22,7 +22,8 @@ app.secret_key = 'your-secret-key-here-change-in-production'
 SHAPEFILE_PATH = "ac/Bihar_AC_with_results.shp"
 
 # Live CSV from GitHub (updates every 5 mins from scraper)
-LIVE_CSV_URL = "https://raw.githubusercontent.com/abhi0420/Election-tracker/main/election_results.csv"
+# Using direct download URL to bypass CDN cache issues
+LIVE_CSV_URL = "https://github.com/abhi0420/Election-tracker/raw/main/election_results.csv"
 
 def auto_merge_election_data():
     """

@@ -341,7 +341,7 @@ def create_election_map(state_name):
         state_gdf['sec_votes'] = pd.to_numeric(state_gdf['sec_votes'], errors='coerce').fillna(0)
         state_gdf['thi_votes'] = pd.to_numeric(state_gdf['thi_votes'], errors='coerce').fillna(0)
         state_gdf['tot_votes'] = pd.to_numeric(state_gdf['tot_votes'], errors='coerce').fillna(0)
-        state_gdf['votes_pct'] = pd.to_numeric(state_gdf['votes_pct'], errors='coerce').fillna(0)
+        state_gdf['votes_pct'] = pd.to_numeric(state_gdf['votes_pct'], errors='coerce').fillna(0).clip(upper=100)
         
         # Calculate percentages and margins (round to 2 decimal places)
         state_gdf['winner_percent'] = ((state_gdf['win_votes'] / state_gdf['tot_votes'].replace(0, 1) * 100) * 100).round() / 100

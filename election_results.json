@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-14T12:02:10.359746Z",
+  "last_updated": "2025-11-14T12:14:26.815783Z",
   "total_seats": 243,
   "data": [
     {
@@ -7,16 +7,16 @@
       "Constituency": "VALMIKI NAGAR",
       "win_cand": "SURENDRA PRASAD",
       "win_party": "INC",
-      "win_votes": 104528,
+      "win_votes": 106415,
       "sec_cand": "DHIRENDRA PRATAP SINGH ALIAS RINKU SINGH",
       "sec_party": "JDU",
-      "sec_votes": 103646,
+      "sec_votes": 104790,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 6204,
-      "margin": 882,
-      "tot_votes": 227316,
-      "votes_pct": 100.56
+      "thi_votes": 6339,
+      "margin": 1625,
+      "tot_votes": 230859,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 2,
@@ -32,7 +32,7 @@
       "thi_votes": 6992,
       "margin": 35680,
       "tot_votes": 212859,
-      "votes_pct": 104.77
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 3,
@@ -48,7 +48,7 @@
       "thi_votes": 5388,
       "margin": 26458,
       "tot_votes": 196691,
-      "votes_pct": 104.11
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 4,
@@ -64,7 +64,7 @@
       "thi_votes": 5799,
       "margin": 6313,
       "tot_votes": 225532,
-      "votes_pct": 102.8
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 5,
@@ -80,23 +80,23 @@
       "thi_votes": 15722,
       "margin": 26966,
       "tot_votes": 191647,
-      "votes_pct": 105.17
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 6,
       "Constituency": "NAUTAN",
       "win_cand": "NARAYAN PRASAD",
       "win_party": "BJP",
-      "win_votes": 101725,
+      "win_votes": 101952,
       "sec_cand": "AMIT KUMAR",
       "sec_party": "INC",
-      "sec_votes": 79525,
+      "sec_votes": 79880,
       "thi_cand": "SANTOSH CHAUDHARI",
       "thi_party": "OTH",
-      "thi_votes": 12028,
-      "margin": 22200,
-      "tot_votes": 207162,
-      "votes_pct": 105.49
+      "thi_votes": 12082,
+      "margin": 22072,
+      "tot_votes": 207833,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 7,
@@ -128,55 +128,55 @@
       "thi_votes": 24665,
       "margin": 22373,
       "tot_votes": 196464,
-      "votes_pct": 105.63
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 9,
       "Constituency": "SIKTA",
       "win_cand": "SAMMRIDH VARMA",
       "win_party": "JDU",
-      "win_votes": 73290,
+      "win_votes": 77232,
       "sec_cand": "KHURSHID FIROZ AHMAD",
       "sec_party": "OTH",
-      "sec_votes": 36401,
+      "sec_votes": 38113,
       "thi_cand": "BIRENDRA PRASAD GUPTA",
       "thi_party": "CPIM",
-      "thi_votes": 24782,
-      "margin": 36889,
-      "tot_votes": 153226,
-      "votes_pct": 73.25
+      "thi_votes": 26168,
+      "margin": 39119,
+      "tot_votes": 161455,
+      "votes_pct": 77.18
     },
     {
       "AC_NO": 10,
       "Constituency": "RAXAUL",
       "win_cand": "PRAMOD KUMAR SINHA",
       "win_party": "BJP",
-      "win_votes": 104749,
+      "win_votes": 106498,
       "sec_cand": "SHYAM BIHARI PRASAD",
       "sec_party": "INC",
-      "sec_votes": 85619,
+      "sec_votes": 88382,
       "thi_cand": "KAPIL DEV PRASAD",
       "thi_party": "OTH",
-      "thi_votes": 14441,
-      "margin": 19130,
-      "tot_votes": 209856,
-      "votes_pct": 102.21
+      "thi_votes": 14585,
+      "margin": 18116,
+      "tot_votes": 214599,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 11,
       "Constituency": "SUGAULI",
       "win_cand": "RAJESH KUMAR ALIAS BABLU GUPTA",
       "win_party": "LJP",
-      "win_votes": 90953,
+      "win_votes": 94957,
       "sec_cand": "SHYAM KISHOR CHAUDHARY",
       "sec_party": "OTH",
-      "sec_votes": 35810,
+      "sec_votes": 37879,
       "thi_cand": "ZULFIQUAR AFTAB",
       "thi_party": "OTH",
-      "thi_votes": 23240,
-      "margin": 55143,
-      "tot_votes": 181238,
-      "votes_pct": 94.52
+      "thi_votes": 23977,
+      "margin": 57078,
+      "tot_votes": 189659,
+      "votes_pct": 98.91
     },
     {
       "AC_NO": 12,
@@ -192,7 +192,7 @@
       "thi_votes": 7002,
       "margin": 1443,
       "tot_votes": 223643,
-      "votes_pct": 104.63
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 13,
@@ -208,7 +208,7 @@
       "thi_votes": 9568,
       "margin": 7095,
       "tot_votes": 202899,
-      "votes_pct": 103.72
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 14,
@@ -224,7 +224,7 @@
       "thi_votes": 9830,
       "margin": 32683,
       "tot_votes": 182741,
-      "votes_pct": 103.37
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 15,
@@ -240,7 +240,7 @@
       "thi_votes": 11206,
       "margin": 16340,
       "tot_votes": 176683,
-      "votes_pct": 103.53
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 16,
@@ -256,7 +256,7 @@
       "thi_votes": 5206,
       "margin": 15568,
       "tot_votes": 186215,
-      "votes_pct": 104.54
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 17,
@@ -272,7 +272,7 @@
       "thi_votes": 9487,
       "margin": 10745,
       "tot_votes": 244657,
-      "votes_pct": 104.2
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 18,
@@ -288,7 +288,7 @@
       "thi_votes": 5383,
       "margin": 5492,
       "tot_votes": 183824,
-      "votes_pct": 103.99
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 19,
@@ -304,71 +304,71 @@
       "thi_votes": 6592,
       "margin": 13563,
       "tot_votes": 214311,
-      "votes_pct": 104.53
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 20,
       "Constituency": "CHIRAIA",
       "win_cand": "LAL BABU PRASAD GUPTA",
       "win_party": "BJP",
-      "win_votes": 89291,
+      "win_votes": 90572,
       "sec_cand": "LAKSHMI NARAYAN PRASAD YADAV",
       "sec_party": "RJD",
-      "sec_votes": 49514,
+      "sec_votes": 51212,
       "thi_cand": "ACHCHHELAL PRASAD",
       "thi_party": "OTH",
-      "thi_votes": 34814,
-      "margin": 39777,
-      "tot_votes": 195015,
-      "votes_pct": 102.93
+      "thi_votes": 34874,
+      "margin": 39360,
+      "tot_votes": 198418,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 21,
       "Constituency": "DHAKA",
       "win_cand": "PAWAN KUMAR JAISWAL",
       "win_party": "BJP",
-      "win_votes": 87100,
+      "win_votes": 90834,
       "sec_cand": "FAISAL RAHMAN",
       "sec_party": "RJD",
-      "sec_votes": 81237,
+      "sec_votes": 85662,
       "thi_cand": "DOCTOR L. B. PRASAD",
       "thi_party": "OTH",
-      "thi_votes": 4979,
-      "margin": 5863,
-      "tot_votes": 182882,
-      "votes_pct": 79.1
+      "thi_votes": 5208,
+      "margin": 5172,
+      "tot_votes": 191660,
+      "votes_pct": 82.9
     },
     {
       "AC_NO": 22,
       "Constituency": "SHEOHAR",
       "win_cand": "SHWETA GUPTA",
       "win_party": "JDU",
-      "win_votes": 58126,
+      "win_votes": 63044,
       "sec_cand": "NAVNEET KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 40640,
+      "sec_votes": 43238,
       "thi_cand": "MD SHARFUDDIN",
       "thi_party": "OTH",
-      "thi_votes": 11147,
-      "margin": 17486,
-      "tot_votes": 126723,
-      "votes_pct": 62.73
+      "thi_votes": 11434,
+      "margin": 19806,
+      "tot_votes": 135737,
+      "votes_pct": 67.2
     },
     {
       "AC_NO": 23,
       "Constituency": "RIGA",
       "win_cand": "BAIDYANATH PRASAD",
       "win_party": "BJP",
-      "win_votes": 86611,
+      "win_votes": 91773,
       "sec_cand": "AMIT KUMAR",
       "sec_party": "INC",
-      "sec_votes": 61491,
+      "sec_votes": 63458,
       "thi_cand": "RAMASHISH RAY",
       "thi_party": "OTH",
-      "thi_votes": 3370,
-      "margin": 25120,
-      "tot_votes": 159689,
-      "votes_pct": 76.92
+      "thi_votes": 3472,
+      "margin": 28315,
+      "tot_votes": 167370,
+      "votes_pct": 80.62
     },
     {
       "AC_NO": 24,
@@ -391,64 +391,64 @@
       "Constituency": "PARIHAR",
       "win_cand": "GAYETRI DEVI",
       "win_party": "BJP",
-      "win_votes": 39783,
-      "sec_cand": "SMITA GUPTA",
-      "sec_party": "RJD",
-      "sec_votes": 25473,
-      "thi_cand": "RITU JAISWAL",
-      "thi_party": "OTH",
-      "thi_votes": 23314,
-      "margin": 14310,
-      "tot_votes": 94612,
-      "votes_pct": 47.27
+      "win_votes": 42796,
+      "sec_cand": "RITU JAISWAL",
+      "sec_party": "OTH",
+      "sec_votes": 27481,
+      "thi_cand": "SMITA GUPTA",
+      "thi_party": "RJD",
+      "thi_votes": 26479,
+      "margin": 15315,
+      "tot_votes": 103160,
+      "votes_pct": 51.54
     },
     {
       "AC_NO": 26,
       "Constituency": "SURSAND",
       "win_cand": "PROF. NAGENDRA RAUT",
       "win_party": "JDU",
-      "win_votes": 84939,
+      "win_votes": 88527,
       "sec_cand": "SYED ABU DOJANA",
       "sec_party": "RJD",
-      "sec_votes": 68523,
+      "sec_votes": 71698,
       "thi_cand": "USHA KIRAN",
       "thi_party": "OTH",
-      "thi_votes": 4934,
-      "margin": 16416,
-      "tot_votes": 173249,
-      "votes_pct": 86.61
+      "thi_votes": 5094,
+      "margin": 16829,
+      "tot_votes": 180686,
+      "votes_pct": 90.33
     },
     {
       "AC_NO": 27,
       "Constituency": "BAJPATTI",
       "win_cand": "RAMESHWAR KUMAR MEHTO",
       "win_party": "RLM",
-      "win_votes": 89197,
+      "win_votes": 93497,
       "sec_cand": "MUKESH KUMAR YADAV",
       "sec_party": "RJD",
-      "sec_votes": 88398,
+      "sec_votes": 91136,
       "thi_cand": "AAJAM KHAN",
       "thi_party": "OTH",
-      "thi_votes": 5571,
-      "margin": 799,
-      "tot_votes": 200283,
-      "votes_pct": 96.12
+      "thi_votes": 5830,
+      "margin": 2361,
+      "tot_votes": 208380,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 28,
       "Constituency": "SITAMARHI",
       "win_cand": "SUNIL KUMAR PINTU",
       "win_party": "BJP",
-      "win_votes": 91263,
+      "win_votes": 95621,
       "sec_cand": "SUNIL KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 89999,
+      "sec_votes": 93007,
       "thi_cand": "RAM KISHOR RAY",
       "thi_party": "OTH",
-      "thi_votes": 2406,
-      "margin": 1264,
-      "tot_votes": 193018,
-      "votes_pct": 93.97
+      "thi_votes": 2545,
+      "margin": 2614,
+      "tot_votes": 201063,
+      "votes_pct": 97.89
     },
     {
       "AC_NO": 29,
@@ -464,7 +464,7 @@
       "thi_votes": 7671,
       "margin": 19737,
       "tot_votes": 193144,
-      "votes_pct": 105.97
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 30,
@@ -487,16 +487,16 @@
       "Constituency": "HARLAKHI",
       "win_cand": "SUDHANSHU SHEKHAR",
       "win_party": "JDU",
-      "win_votes": 84460,
+      "win_votes": 85486,
       "sec_cand": "RAKESH KUMAR PANDEY",
       "sec_party": "CPIM",
-      "sec_votes": 48572,
+      "sec_votes": 49250,
       "thi_cand": "MD. SHABBIR",
       "thi_party": "OTH",
-      "thi_votes": 21727,
-      "margin": 35888,
-      "tot_votes": 181026,
-      "votes_pct": 103.22
+      "thi_votes": 22041,
+      "margin": 36236,
+      "tot_votes": 183437,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 32,
@@ -512,23 +512,23 @@
       "thi_votes": 10643,
       "margin": 23932,
       "tot_votes": 175220,
-      "votes_pct": 104.83
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 33,
       "Constituency": "KHAJAULI",
       "win_cand": "ARUN SHANKAR PRASAD",
       "win_party": "BJP",
-      "win_votes": 91553,
+      "win_votes": 97668,
       "sec_cand": "BRAJ KISHOR YADAV",
       "sec_party": "RJD",
-      "sec_votes": 78926,
+      "sec_votes": 85970,
       "thi_cand": "RUPAM KUMARI",
       "thi_party": "OTH",
-      "thi_votes": 4133,
-      "margin": 12627,
-      "tot_votes": 184665,
-      "votes_pct": 93.7
+      "thi_votes": 4421,
+      "margin": 11698,
+      "tot_votes": 198805,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 34,
@@ -544,39 +544,39 @@
       "thi_votes": 7688,
       "margin": 17973,
       "tot_votes": 205302,
-      "votes_pct": 104.76
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 35,
       "Constituency": "BISFI",
       "win_cand": "ASIF AHMAD",
       "win_party": "RJD",
-      "win_votes": 100710,
+      "win_votes": 100771,
       "sec_cand": "HARIBHUSHAN THAKUR",
       "sec_party": "BJP",
-      "sec_votes": 92272,
+      "sec_votes": 92664,
       "thi_cand": "MD MOHIUDDIN",
       "thi_party": "OTH",
-      "thi_votes": 3761,
-      "margin": 8438,
-      "tot_votes": 206773,
-      "votes_pct": 104.73
+      "thi_votes": 3772,
+      "margin": 8107,
+      "tot_votes": 207250,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 36,
       "Constituency": "MADHUBANI",
       "win_cand": "MADHAW ANAND",
       "win_party": "RLM",
-      "win_votes": 91052,
+      "win_votes": 97438,
       "sec_cand": "SAMIR KUMAR MAHASETH",
       "sec_party": "RJD",
-      "sec_votes": 72018,
+      "sec_votes": 76402,
       "thi_cand": "RASHID KHALIL",
       "thi_party": "AIMIM",
-      "thi_votes": 12236,
-      "margin": 19034,
-      "tot_votes": 196028,
-      "votes_pct": 97.58
+      "thi_votes": 12888,
+      "margin": 21036,
+      "tot_votes": 209328,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 37,
@@ -592,7 +592,7 @@
       "thi_votes": 5669,
       "margin": 42185,
       "tot_votes": 190800,
-      "votes_pct": 105.35
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 38,
@@ -608,7 +608,7 @@
       "thi_votes": 11563,
       "margin": 54849,
       "tot_votes": 193156,
-      "votes_pct": 104.5
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 39,
@@ -624,7 +624,7 @@
       "thi_votes": 6274,
       "margin": 14099,
       "tot_votes": 205223,
-      "votes_pct": 106.15
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 40,
@@ -640,23 +640,23 @@
       "thi_votes": 7572,
       "margin": 25113,
       "tot_votes": 228027,
-      "votes_pct": 104.54
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 41,
       "Constituency": "NIRMALI",
       "win_cand": "ANIRUDDHA PRASAD YADAV",
       "win_party": "JDU",
-      "win_votes": 112909,
+      "win_votes": 116978,
       "sec_cand": "BAIDYANATH MEHTA",
       "sec_party": "RJD",
-      "sec_votes": 75923,
+      "sec_votes": 79779,
       "thi_cand": "RAM PRAVESH KUMAR YADAV",
       "thi_party": "OTH",
-      "thi_votes": 6504,
-      "margin": 36986,
-      "tot_votes": 210365,
-      "votes_pct": 96.88
+      "thi_votes": 6711,
+      "margin": 37199,
+      "tot_votes": 218986,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 42,
@@ -679,80 +679,80 @@
       "Constituency": "SUPAUL",
       "win_cand": "BIJENDRA PRASAD YADAV",
       "win_party": "JDU",
-      "win_votes": 74070,
+      "win_votes": 79379,
       "sec_cand": "MINNATULLAH RAHMANI",
       "sec_party": "INC",
-      "sec_votes": 60124,
+      "sec_votes": 62931,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 3620,
-      "margin": 13946,
-      "tot_votes": 148922,
-      "votes_pct": 73.96
+      "thi_votes": 3853,
+      "margin": 16448,
+      "tot_votes": 158070,
+      "votes_pct": 78.51
     },
     {
       "AC_NO": 44,
       "Constituency": "TRIVENIGANJ",
       "win_cand": "SONAM RANI",
       "win_party": "JDU",
-      "win_votes": 101063,
+      "win_votes": 103114,
       "sec_cand": "SANTOSH KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 96463,
+      "sec_votes": 97959,
       "thi_cand": "PRADEEP RAM",
       "thi_party": "OTH",
-      "thi_votes": 4325,
-      "margin": 4600,
-      "tot_votes": 213845,
-      "votes_pct": 99.57
+      "thi_votes": 4396,
+      "margin": 5155,
+      "tot_votes": 217668,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 45,
       "Constituency": "CHHATAPUR",
       "win_cand": "NIRAJ KUMAR SINGH",
       "win_party": "BJP",
-      "win_votes": 89245,
+      "win_votes": 92409,
       "sec_cand": "DR. VIPIN KUMAR SINGH",
       "sec_party": "RJD",
-      "sec_votes": 77182,
+      "sec_votes": 81896,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 3423,
-      "margin": 12063,
-      "tot_votes": 181516,
-      "votes_pct": 76.19
+      "thi_votes": 3539,
+      "margin": 10513,
+      "tot_votes": 189854,
+      "votes_pct": 79.69
     },
     {
       "AC_NO": 46,
       "Constituency": "NARPATGANJ",
       "win_cand": "DEVANTI YADAV",
       "win_party": "BJP",
-      "win_votes": 66800,
+      "win_votes": 70727,
       "sec_cand": "MANISH YADAV",
       "sec_party": "RJD",
-      "sec_votes": 63991,
+      "sec_votes": 67631,
       "thi_cand": "ANIL KUMAR YADAV",
       "thi_party": "OTH",
-      "thi_votes": 3020,
-      "margin": 2809,
-      "tot_votes": 142438,
-      "votes_pct": 61.37
+      "thi_votes": 3194,
+      "margin": 3096,
+      "tot_votes": 150755,
+      "votes_pct": 64.95
     },
     {
       "AC_NO": 47,
       "Constituency": "RANIGANJ",
       "win_cand": "AVINASH MANGLAM",
       "win_party": "RJD",
-      "win_votes": 85929,
+      "win_votes": 89897,
       "sec_cand": "ACHMIT RISHIDEV",
       "sec_party": "JDU",
-      "sec_votes": 70467,
+      "sec_votes": 73959,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 3342,
-      "margin": 15462,
-      "tot_votes": 166006,
-      "votes_pct": 75.24
+      "thi_votes": 3490,
+      "margin": 15938,
+      "tot_votes": 173926,
+      "votes_pct": 78.83
     },
     {
       "AC_NO": 48,
@@ -768,7 +768,7 @@
       "thi_votes": 2903,
       "margin": 7387,
       "tot_votes": 242596,
-      "votes_pct": 102.96
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 49,
@@ -800,7 +800,7 @@
       "thi_votes": 35354,
       "margin": 28803,
       "tot_votes": 217385,
-      "votes_pct": 105.11
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 51,
@@ -816,23 +816,23 @@
       "thi_votes": 3789,
       "margin": 19322,
       "tot_votes": 220229,
-      "votes_pct": 104.75
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 52,
       "Constituency": "BAHADURGANJ",
       "win_cand": "MD TAUSEEF ALAM",
       "win_party": "AIMIM",
-      "win_votes": 85300,
+      "win_votes": 87136,
       "sec_cand": "MOHAMMED MASAWAR ALAM",
       "sec_party": "INC",
-      "sec_votes": 56774,
+      "sec_votes": 58072,
       "thi_cand": "MOHAMMAD KALIMUDDIN",
       "thi_party": "LJP",
-      "thi_votes": 56460,
-      "margin": 28526,
-      "tot_votes": 212320,
-      "votes_pct": 103.95
+      "thi_votes": 57087,
+      "margin": 29064,
+      "tot_votes": 216321,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 53,
@@ -848,7 +848,7 @@
       "thi_votes": 60036,
       "margin": 8822,
       "tot_votes": 245567,
-      "votes_pct": 105.11
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 54,
@@ -864,7 +864,7 @@
       "thi_votes": 51370,
       "margin": 12794,
       "tot_votes": 227042,
-      "votes_pct": 105.21
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 55,
@@ -880,7 +880,7 @@
       "thi_votes": 44858,
       "margin": 23021,
       "tot_votes": 193325,
-      "votes_pct": 105.1
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 56,
@@ -896,23 +896,23 @@
       "thi_votes": 52791,
       "margin": 38928,
       "tot_votes": 231808,
-      "votes_pct": 110.53
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 57,
       "Constituency": "BAISI",
       "win_cand": "GHULAM SARWAR",
       "win_party": "AIMIM",
-      "win_votes": 76248,
+      "win_votes": 80019,
       "sec_cand": "VINOD KUMAR",
       "sec_party": "BJP",
-      "sec_votes": 57592,
+      "sec_votes": 59114,
       "thi_cand": "ABDUS SUBAHAN",
       "thi_party": "RJD",
-      "thi_votes": 42754,
-      "margin": 18656,
-      "tot_votes": 184690,
-      "votes_pct": 88.72
+      "thi_votes": 46399,
+      "margin": 20905,
+      "tot_votes": 194049,
+      "votes_pct": 93.21
     },
     {
       "AC_NO": 58,
@@ -928,55 +928,55 @@
       "thi_votes": 34964,
       "margin": 12908,
       "tot_votes": 230695,
-      "votes_pct": 107.75
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 59,
       "Constituency": "BANMANKHI",
       "win_cand": "KRISHNA KUMAR RISHI",
       "win_party": "BJP",
-      "win_votes": 117587,
+      "win_votes": 122207,
       "sec_cand": "DEO NARAYAN RAJAK",
       "sec_party": "INC",
-      "sec_votes": 73846,
+      "sec_votes": 76864,
       "thi_cand": "MANOJ KUMAR RISHI",
       "thi_party": "OTH",
-      "thi_votes": 6480,
-      "margin": 43741,
-      "tot_votes": 205148,
-      "votes_pct": 100.72
+      "thi_votes": 6626,
+      "margin": 45343,
+      "tot_votes": 213241,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 60,
       "Constituency": "RUPAULI",
       "win_cand": "KALADHAR PRASAD MANDAL",
       "win_party": "JDU",
-      "win_votes": 100146,
+      "win_votes": 105689,
       "sec_cand": "BIMA BHARTI",
       "sec_party": "RJD",
-      "sec_votes": 44445,
+      "sec_votes": 46382,
       "thi_cand": "SHANKAR SINGH",
       "thi_party": "OTH",
-      "thi_votes": 23583,
-      "margin": 55701,
-      "tot_votes": 183138,
-      "votes_pct": 85.9
+      "thi_votes": 24931,
+      "margin": 59307,
+      "tot_votes": 192783,
+      "votes_pct": 90.42
     },
     {
       "AC_NO": 61,
       "Constituency": "DHAMDAHA",
       "win_cand": "LESHI SINGH",
       "win_party": "JDU",
-      "win_votes": 85733,
+      "win_votes": 90941,
       "sec_cand": "SANTOSH KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 43372,
+      "sec_votes": 45305,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 4368,
-      "margin": 42361,
-      "tot_votes": 141030,
-      "votes_pct": 61.9
+      "thi_votes": 4541,
+      "margin": 45636,
+      "tot_votes": 148648,
+      "votes_pct": 65.24
     },
     {
       "AC_NO": 62,
@@ -992,39 +992,39 @@
       "thi_votes": 3701,
       "margin": 33222,
       "tot_votes": 232919,
-      "votes_pct": 108.87
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 63,
       "Constituency": "KATIHAR",
       "win_cand": "TARKISHORE PRASAD",
       "win_party": "BJP",
-      "win_votes": 99977,
+      "win_votes": 100255,
       "sec_cand": "SAURAV KUMAR AGARWAL",
       "sec_party": "OTH",
-      "sec_votes": 77798,
+      "sec_votes": 78101,
       "thi_cand": "DR. RAM PRAKASH MAHTO",
       "thi_party": "OTH",
-      "thi_votes": 7390,
-      "margin": 22179,
-      "tot_votes": 197804,
-      "votes_pct": 100.24
+      "thi_votes": 7411,
+      "margin": 22154,
+      "tot_votes": 198448,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 64,
       "Constituency": "KADWA",
       "win_cand": "DULAL CHANDRA GOSWAMI",
       "win_party": "JDU",
-      "win_votes": 98478,
+      "win_votes": 98728,
       "sec_cand": "SHAKEEL AHMAD KHAN",
       "sec_party": "INC",
-      "sec_votes": 79848,
+      "sec_votes": 80852,
       "thi_cand": "MD SHAKIR REZA",
       "thi_party": "AIMIM",
-      "thi_votes": 11453,
-      "margin": 18630,
-      "tot_votes": 211054,
-      "votes_pct": 103.03
+      "thi_votes": 11540,
+      "margin": 17876,
+      "tot_votes": 212474,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 65,
@@ -1040,39 +1040,39 @@
       "thi_votes": 77922,
       "margin": 791,
       "tot_votes": 273557,
-      "votes_pct": 102.99
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 66,
       "Constituency": "PRANPUR",
       "win_cand": "NISHA SINGH",
       "win_party": "BJP",
-      "win_votes": 88303,
+      "win_votes": 93222,
       "sec_cand": "ISHRAT PARWEEN",
       "sec_party": "RJD",
-      "sec_votes": 79575,
+      "sec_votes": 83237,
       "thi_cand": "MD AFTAB ALAM",
       "thi_party": "AIMIM",
-      "thi_votes": 24385,
-      "margin": 8728,
-      "tot_votes": 204729,
-      "votes_pct": 84.12
+      "thi_votes": 25319,
+      "margin": 9985,
+      "tot_votes": 214728,
+      "votes_pct": 88.22
     },
     {
       "AC_NO": 67,
       "Constituency": "MANIHARI",
       "win_cand": "MANOHAR PRASAD SINGH",
       "win_party": "INC",
-      "win_votes": 90882,
+      "win_votes": 98831,
       "sec_cand": "SHAMBHU KUMAR SUMAN",
       "sec_party": "JDU",
-      "sec_votes": 77829,
+      "sec_votes": 84585,
       "thi_cand": "BABLU SOREN",
       "thi_party": "OTH",
-      "thi_votes": 7152,
-      "margin": 13053,
-      "tot_votes": 189085,
-      "votes_pct": 83.18
+      "thi_votes": 7301,
+      "margin": 14246,
+      "tot_votes": 204999,
+      "votes_pct": 90.18
     },
     {
       "AC_NO": 68,
@@ -1088,7 +1088,7 @@
       "thi_votes": 5765,
       "margin": 10867,
       "tot_votes": 226167,
-      "votes_pct": 102.23
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 69,
@@ -1104,39 +1104,39 @@
       "thi_votes": 4028,
       "margin": 22257,
       "tot_votes": 238305,
-      "votes_pct": 105.07
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 70,
       "Constituency": "ALAMNAGAR",
       "win_cand": "NARENDRA NARAYAN YADAV",
       "win_party": "JDU",
-      "win_votes": 90361,
+      "win_votes": 94222,
       "sec_cand": "NABIN KUMAR",
       "sec_party": "OTH",
-      "sec_votes": 48237,
+      "sec_votes": 51236,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 5071,
-      "margin": 42124,
-      "tot_votes": 158253,
-      "votes_pct": 63.68
+      "thi_votes": 5370,
+      "margin": 42986,
+      "tot_votes": 166565,
+      "votes_pct": 67.02
     },
     {
       "AC_NO": 71,
       "Constituency": "BIHARIGANJ",
       "win_cand": "NIRANJAN KUMAR MEHTA",
       "win_party": "JDU",
-      "win_votes": 110447,
+      "win_votes": 114900,
       "sec_cand": "RENU KUMARI",
       "sec_party": "RJD",
-      "sec_votes": 80765,
+      "sec_votes": 84154,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 5589,
-      "margin": 29682,
-      "tot_votes": 212038,
-      "votes_pct": 97.09
+      "thi_votes": 5847,
+      "margin": 30746,
+      "tot_votes": 220933,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 72,
@@ -1175,16 +1175,16 @@
       "Constituency": "SONBARSHA",
       "win_cand": "RATNESH SADA",
       "win_party": "JDU",
-      "win_votes": 69772,
+      "win_votes": 74054,
       "sec_cand": "SARITA DEVI",
       "sec_party": "INC",
-      "sec_votes": 55815,
+      "sec_votes": 58336,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 4043,
-      "margin": 13957,
-      "tot_votes": 142738,
-      "votes_pct": 72.48
+      "thi_votes": 4315,
+      "margin": 15718,
+      "tot_votes": 150639,
+      "votes_pct": 76.49
     },
     {
       "AC_NO": 75,
@@ -1207,16 +1207,16 @@
       "Constituency": "SIMRI BAKHTIARPUR",
       "win_cand": "SANJAY KUMAR SINGH",
       "win_party": "LJP",
-      "win_votes": 86027,
+      "win_votes": 90430,
       "sec_cand": "YUSUF SALAHUDDIN",
       "sec_party": "RJD",
-      "sec_votes": 74090,
+      "sec_votes": 75624,
       "thi_cand": "VIKASH RAJ",
       "thi_party": "OTH",
-      "thi_votes": 5692,
-      "margin": 11937,
-      "tot_votes": 176349,
-      "votes_pct": 78.52
+      "thi_votes": 5980,
+      "margin": 14806,
+      "tot_votes": 183136,
+      "votes_pct": 81.54
     },
     {
       "AC_NO": 77,
@@ -1232,7 +1232,7 @@
       "thi_votes": 6649,
       "margin": 4042,
       "tot_votes": 202394,
-      "votes_pct": 104.16
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 78,
@@ -1271,32 +1271,32 @@
       "Constituency": "BENIPUR",
       "win_cand": "BINAY KUMAR CHOUDHARY",
       "win_party": "JDU",
-      "win_votes": 65071,
+      "win_votes": 73313,
       "sec_cand": "MITHILESH KUMAR CHOUDHARY",
       "sec_party": "INC",
-      "sec_votes": 54345,
-      "thi_cand": "CHUN CHUN JHA",
+      "sec_votes": 59254,
+      "thi_cand": "AMRESH KUMAR AMAR",
       "thi_party": "OTH",
-      "thi_votes": 5151,
-      "margin": 10726,
-      "tot_votes": 146274,
-      "votes_pct": 81.01
+      "thi_votes": 5656,
+      "margin": 14059,
+      "tot_votes": 161822,
+      "votes_pct": 89.62
     },
     {
       "AC_NO": 81,
       "Constituency": "ALINAGAR",
       "win_cand": "MAITHILI THAKUR",
       "win_party": "BJP",
-      "win_votes": 84268,
+      "win_votes": 84915,
       "sec_cand": "BINOD MISHRA",
       "sec_party": "RJD",
-      "sec_votes": 72232,
+      "sec_votes": 73185,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 4714,
-      "margin": 12036,
-      "tot_votes": 171356,
-      "votes_pct": 103.76
+      "thi_votes": 4751,
+      "margin": 11730,
+      "tot_votes": 173117,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 82,
@@ -1312,7 +1312,7 @@
       "thi_votes": 16966,
       "margin": 18453,
       "tot_votes": 182374,
-      "votes_pct": 104.51
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 83,
@@ -1328,39 +1328,39 @@
       "thi_votes": 11758,
       "margin": 24593,
       "tot_votes": 196236,
-      "votes_pct": 105.67
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 84,
       "Constituency": "HAYAGHAT",
       "win_cand": "RAM CHANDRA PRASAD",
       "win_party": "BJP",
-      "win_votes": 76812,
+      "win_votes": 77222,
       "sec_cand": "SHYAM BHARTI",
       "sec_party": "CPIM",
-      "sec_votes": 64448,
+      "sec_votes": 65383,
       "thi_cand": "PRATIBHA SINGH",
       "thi_party": "OTH",
-      "thi_votes": 5671,
-      "margin": 12364,
-      "tot_votes": 167479,
-      "votes_pct": 103.05
+      "thi_votes": 5759,
+      "margin": 11839,
+      "tot_votes": 169035,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 85,
       "Constituency": "BAHADURPUR",
       "win_cand": "MADAN SAHNI",
       "win_party": "JDU",
-      "win_votes": 88152,
+      "win_votes": 92251,
       "sec_cand": "BHOLA YADAV",
       "sec_party": "RJD",
-      "sec_votes": 79338,
+      "sec_votes": 82590,
       "thi_cand": "RAM CHATUR SAHNI",
       "thi_party": "OTH",
-      "thi_votes": 5742,
-      "margin": 8814,
-      "tot_votes": 196881,
-      "votes_pct": 97.56
+      "thi_votes": 6076,
+      "margin": 9661,
+      "tot_votes": 205805,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 86,
@@ -1376,7 +1376,7 @@
       "thi_votes": 7474,
       "margin": 7305,
       "tot_votes": 192588,
-      "votes_pct": 105.03
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 87,
@@ -1408,7 +1408,7 @@
       "thi_votes": 10359,
       "margin": 22412,
       "tot_votes": 216949,
-      "votes_pct": 102.37
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 89,
@@ -1424,7 +1424,7 @@
       "thi_votes": 31430,
       "margin": 57206,
       "tot_votes": 207920,
-      "votes_pct": 105.63
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 90,
@@ -1440,87 +1440,87 @@
       "thi_votes": 7805,
       "margin": 34238,
       "tot_votes": 219843,
-      "votes_pct": 106.79
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 91,
       "Constituency": "BOCHAHAN",
       "win_cand": "BABY KUMARI",
       "win_party": "LJP",
-      "win_votes": 103201,
+      "win_votes": 107112,
       "sec_cand": "AMAR KUMAR PASWAN",
       "sec_party": "RJD",
-      "sec_votes": 83165,
+      "sec_votes": 86760,
       "thi_cand": "UMESH KUMAR RAJAK",
       "thi_party": "OTH",
-      "thi_votes": 4991,
-      "margin": 20036,
-      "tot_votes": 207952,
-      "votes_pct": 101.57
+      "thi_votes": 5175,
+      "margin": 20352,
+      "tot_votes": 216419,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 92,
       "Constituency": "SAKRA",
       "win_cand": "ADITYA KUMAR",
       "win_party": "JDU",
-      "win_votes": 90022,
+      "win_votes": 93136,
       "sec_cand": "UMESH KUMAR RAM",
       "sec_party": "INC",
-      "sec_votes": 73683,
+      "sec_votes": 77314,
       "thi_cand": "RENU KUMARI URF RENU PASWAN",
       "thi_party": "OTH",
-      "thi_votes": 5888,
-      "margin": 16339,
-      "tot_votes": 185337,
-      "votes_pct": 95.09
+      "thi_votes": 6098,
+      "margin": 15822,
+      "tot_votes": 192839,
+      "votes_pct": 98.93
     },
     {
       "AC_NO": 93,
       "Constituency": "KURHANI",
       "win_cand": "KEDAR PD GUPTA",
       "win_party": "BJP",
-      "win_votes": 103798,
+      "win_votes": 107119,
       "sec_cand": "SUNIL KUMAR SUMAN",
       "sec_party": "RJD",
-      "sec_votes": 95506,
+      "sec_votes": 97322,
       "thi_cand": "DHARMENDRA KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 6484,
-      "margin": 8292,
-      "tot_votes": 224338,
-      "votes_pct": 101.98
+      "thi_votes": 6700,
+      "margin": 9797,
+      "tot_votes": 230282,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 94,
       "Constituency": "MUZAFFARPUR",
       "win_cand": "RANJAN KUMAR",
       "win_party": "BJP",
-      "win_votes": 99840,
+      "win_votes": 100060,
       "sec_cand": "BIJENDRA CHAUDHARY",
       "sec_party": "INC",
-      "sec_votes": 67337,
+      "sec_votes": 67456,
       "thi_cand": "DR. A.K. DAS",
       "thi_party": "OTH",
-      "thi_votes": 10053,
-      "margin": 32503,
-      "tot_votes": 186788,
-      "votes_pct": 104.5
+      "thi_votes": 10077,
+      "margin": 32604,
+      "tot_votes": 187160,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 95,
       "Constituency": "KANTI",
       "win_cand": "AJIT KUMAR",
       "win_party": "JDU",
-      "win_votes": 116880,
+      "win_votes": 117299,
       "sec_cand": "MOHAMMAD ISRAIL MANSURI",
       "sec_party": "RJD",
-      "sec_votes": 90987,
+      "sec_votes": 91504,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 7797,
-      "margin": 25893,
-      "tot_votes": 231597,
-      "votes_pct": 104.82
+      "thi_votes": 7823,
+      "margin": 25795,
+      "tot_votes": 232600,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 96,
@@ -1536,7 +1536,7 @@
       "thi_votes": 19935,
       "margin": 29052,
       "tot_votes": 205509,
-      "votes_pct": 105.59
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 97,
@@ -1552,7 +1552,7 @@
       "thi_votes": 40661,
       "margin": 28827,
       "tot_votes": 228163,
-      "votes_pct": 105.94
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 98,
@@ -1568,23 +1568,23 @@
       "thi_votes": 4736,
       "margin": 13522,
       "tot_votes": 219550,
-      "votes_pct": 107.48
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 99,
       "Constituency": "BAIKUNTHPUR",
       "win_cand": "MITHILESH TIWARI",
       "win_party": "BJP",
-      "win_votes": 86734,
+      "win_votes": 90698,
       "sec_cand": "PREM SHANKAR PRASAD",
       "sec_party": "RJD",
-      "sec_votes": 71733,
+      "sec_votes": 74839,
       "thi_cand": "AJAY PRASAD",
       "thi_party": "OTH",
-      "thi_votes": 5120,
-      "margin": 15001,
-      "tot_votes": 174566,
-      "votes_pct": 86.03
+      "thi_votes": 5580,
+      "margin": 15859,
+      "tot_votes": 182650,
+      "votes_pct": 90.02
     },
     {
       "AC_NO": 100,
@@ -1600,7 +1600,7 @@
       "thi_votes": 13352,
       "margin": 12393,
       "tot_votes": 192413,
-      "votes_pct": 104.28
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 101,
@@ -1616,23 +1616,23 @@
       "thi_votes": 14225,
       "margin": 28972,
       "tot_votes": 198872,
-      "votes_pct": 105.26
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 102,
       "Constituency": "KUCHAIKOTE",
       "win_cand": "AMRENDRA KUMAR PANDEY",
       "win_party": "JDU",
-      "win_votes": 100926,
+      "win_votes": 101425,
       "sec_cand": "HARI NARAYAN SINGH",
       "sec_party": "INC",
-      "sec_votes": 76561,
+      "sec_votes": 76934,
       "thi_cand": "VIJAY KUMAR CHOUBEY",
       "thi_party": "OTH",
-      "thi_votes": 6012,
-      "margin": 24365,
-      "tot_votes": 201036,
-      "votes_pct": 108.07
+      "thi_votes": 6077,
+      "margin": 24491,
+      "tot_votes": 202020,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 103,
@@ -1648,39 +1648,39 @@
       "thi_votes": 8602,
       "margin": 16163,
       "tot_votes": 213121,
-      "votes_pct": 105.46
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 104,
       "Constituency": "HATHUA",
       "win_cand": "RAMSEWAK SINGH",
       "win_party": "JDU",
-      "win_votes": 88656,
+      "win_votes": 90710,
       "sec_cand": "RAJESH KUMAR SINGH",
       "sec_party": "RJD",
-      "sec_votes": 76297,
+      "sec_votes": 77966,
       "thi_cand": "SANJAY KUMAR SUMAN",
       "thi_party": "OTH",
-      "thi_votes": 4928,
-      "margin": 12359,
-      "tot_votes": 188287,
-      "votes_pct": 100.76
+      "thi_votes": 5018,
+      "margin": 12744,
+      "tot_votes": 192467,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 105,
       "Constituency": "SIWAN",
       "win_cand": "MANGAL PANDEY",
       "win_party": "BJP",
-      "win_votes": 90173,
+      "win_votes": 92379,
       "sec_cand": "AWADH BIHARI CHOUDHARY",
       "sec_party": "RJD",
-      "sec_votes": 80485,
+      "sec_votes": 83009,
       "thi_cand": "MOHAMMAD KAIFI SAMSHIR",
       "thi_party": "AIMIM",
-      "thi_votes": 3440,
-      "margin": 9688,
-      "tot_votes": 185625,
-      "votes_pct": 102.26
+      "thi_votes": 3493,
+      "margin": 9370,
+      "tot_votes": 190582,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 106,
@@ -1703,48 +1703,48 @@
       "Constituency": "DARAULI",
       "win_cand": "VISHNU DEO PASWAN",
       "win_party": "LJP",
-      "win_votes": 80243,
+      "win_votes": 82734,
       "sec_cand": "SATYADEO RAM",
       "sec_party": "CPIM",
-      "sec_votes": 71903,
+      "sec_votes": 73282,
       "thi_cand": "GANESH RAM",
       "thi_party": "OTH",
-      "thi_votes": 4494,
-      "margin": 8340,
-      "tot_votes": 170390,
-      "votes_pct": 101.33
+      "thi_votes": 4617,
+      "margin": 9452,
+      "tot_votes": 174732,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 108,
       "Constituency": "RAGHUNATHPUR",
       "win_cand": "OSAMA SHAHAB",
       "win_party": "RJD",
-      "win_votes": 81243,
+      "win_votes": 83095,
       "sec_cand": "VIKASH KUMAR SINGH",
       "sec_party": "JDU",
-      "sec_votes": 69622,
+      "sec_votes": 72342,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 3087,
-      "margin": 11621,
-      "tot_votes": 162229,
-      "votes_pct": 93.11
+      "thi_votes": 3204,
+      "margin": 10753,
+      "tot_votes": 167695,
+      "votes_pct": 96.25
     },
     {
       "AC_NO": 109,
       "Constituency": "DARAUNDA",
       "win_cand": "KARNJEET SINGH ALIAS VYAS SINGH",
       "win_party": "BJP",
-      "win_votes": 63094,
+      "win_votes": 66525,
       "sec_cand": "AMARNATH YADAV",
       "sec_party": "CPIM",
-      "sec_votes": 51620,
+      "sec_votes": 53733,
       "thi_cand": "GUDIYA DEVI",
       "thi_party": "OTH",
-      "thi_votes": 7893,
-      "margin": 11474,
-      "tot_votes": 136077,
-      "votes_pct": 75.67
+      "thi_votes": 8621,
+      "margin": 12792,
+      "tot_votes": 143019,
+      "votes_pct": 79.53
     },
     {
       "AC_NO": 110,
@@ -1760,23 +1760,23 @@
       "thi_votes": 4677,
       "margin": 12130,
       "tot_votes": 196083,
-      "votes_pct": 104.58
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 111,
       "Constituency": "GORIAKOTHI",
       "win_cand": "DEVESH KANT SINGH",
       "win_party": "BJP",
-      "win_votes": 66925,
+      "win_votes": 67035,
       "sec_cand": "ANWARUL HAQUE",
       "sec_party": "RJD",
-      "sec_votes": 52287,
+      "sec_votes": 52380,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 2179,
-      "margin": 14638,
-      "tot_votes": 127674,
-      "votes_pct": 62.36
+      "thi_votes": 2185,
+      "margin": 14655,
+      "tot_votes": 127906,
+      "votes_pct": 62.48
     },
     {
       "AC_NO": 112,
@@ -1815,16 +1815,16 @@
       "Constituency": "MANJHI",
       "win_cand": "RANDHIR KUMAR SINGH",
       "win_party": "JDU",
-      "win_votes": 51768,
+      "win_votes": 54244,
       "sec_cand": "DR. SATYENDRA YADAV",
       "sec_party": "CPIM",
-      "sec_votes": 43066,
+      "sec_votes": 45789,
       "thi_cand": "RANA PRATAP SINGH",
       "thi_party": "OTH",
-      "thi_votes": 16878,
-      "margin": 8702,
-      "tot_votes": 135537,
-      "votes_pct": 78.4
+      "thi_votes": 17234,
+      "margin": 8455,
+      "tot_votes": 142796,
+      "votes_pct": 82.6
     },
     {
       "AC_NO": 115,
@@ -1840,23 +1840,23 @@
       "thi_votes": 8638,
       "margin": 15436,
       "tot_votes": 200418,
-      "votes_pct": 103.57
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 116,
       "Constituency": "TARAIYA",
       "win_cand": "JANAK SINGH",
       "win_party": "BJP",
-      "win_votes": 48032,
+      "win_votes": 51645,
       "sec_cand": "SHAILENDRA PRATAP",
       "sec_party": "RJD",
-      "sec_votes": 46323,
+      "sec_votes": 49557,
       "thi_cand": "SATYENDRA KU SAHNI",
       "thi_party": "OTH",
-      "thi_votes": 2777,
-      "margin": 1709,
-      "tot_votes": 107400,
-      "votes_pct": 57.7
+      "thi_votes": 2976,
+      "margin": 2088,
+      "tot_votes": 115211,
+      "votes_pct": 61.9
     },
     {
       "AC_NO": 117,
@@ -1895,32 +1895,32 @@
       "Constituency": "GARKHA",
       "win_cand": "SURENDRA RAM",
       "win_party": "RJD",
-      "win_votes": 76051,
+      "win_votes": 79758,
       "sec_cand": "SIMANT MRINAL",
       "sec_party": "LJP",
-      "sec_votes": 69079,
+      "sec_votes": 71970,
       "thi_cand": "MUNESHWAR CHAUDHARY",
       "thi_party": "OTH",
-      "thi_votes": 8103,
-      "margin": 6972,
-      "tot_votes": 174235,
-      "votes_pct": 88.43
+      "thi_votes": 8557,
+      "margin": 7788,
+      "tot_votes": 182205,
+      "votes_pct": 92.47
     },
     {
       "AC_NO": 120,
       "Constituency": "AMNOUR",
       "win_cand": "KRISHAN KUMAR MANTOO",
       "win_party": "BJP",
-      "win_votes": 51913,
+      "win_votes": 54794,
       "sec_cand": "SUNIL KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 49170,
+      "sec_votes": 52984,
       "thi_cand": "PUJA KUMARI",
       "thi_party": "OTH",
-      "thi_votes": 3957,
-      "margin": 2743,
-      "tot_votes": 115894,
-      "votes_pct": 72.08
+      "thi_votes": 4034,
+      "margin": 1810,
+      "tot_votes": 123337,
+      "votes_pct": 76.71
     },
     {
       "AC_NO": 121,
@@ -1943,16 +1943,16 @@
       "Constituency": "SONEPUR",
       "win_cand": "VINAY KUMAR SINGH",
       "win_party": "BJP",
-      "win_votes": 79174,
+      "win_votes": 81950,
       "sec_cand": "DR. RAMANUJ PRASAD",
       "sec_party": "RJD",
-      "sec_votes": 62783,
+      "sec_votes": 68006,
       "thi_cand": "CHANDAN LAL MEHTA",
       "thi_party": "OTH",
-      "thi_votes": 11258,
-      "margin": 16391,
-      "tot_votes": 160880,
-      "votes_pct": 82.82
+      "thi_votes": 11420,
+      "margin": 13944,
+      "tot_votes": 169848,
+      "votes_pct": 87.44
     },
     {
       "AC_NO": 123,
@@ -1968,55 +1968,55 @@
       "thi_votes": 4701,
       "margin": 18509,
       "tot_votes": 225242,
-      "votes_pct": 105.45
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 124,
       "Constituency": "LALGANJ",
       "win_cand": "SANJAY KUMAR SINGH",
       "win_party": "BJP",
-      "win_votes": 106394,
+      "win_votes": 109717,
       "sec_cand": "SHIVANI SHUKLA",
       "sec_party": "RJD",
-      "sec_votes": 78799,
+      "sec_votes": 82057,
       "thi_cand": "DHIRENDRA KUMAR MAHTO",
       "thi_party": "OTH",
-      "thi_votes": 3831,
-      "margin": 27595,
-      "tot_votes": 199543,
-      "votes_pct": 87.84
+      "thi_votes": 3963,
+      "margin": 27660,
+      "tot_votes": 206610,
+      "votes_pct": 90.95
     },
     {
       "AC_NO": 125,
       "Constituency": "VAISHALI",
       "win_cand": "SIDDHARTH PATEL",
       "win_party": "JDU",
-      "win_votes": 107374,
+      "win_votes": 108377,
       "sec_cand": "AJAY KUMAR KUSHWAHA",
       "sec_party": "RJD",
-      "sec_votes": 75446,
+      "sec_votes": 75787,
       "thi_cand": "SANJEEV SINGH",
       "thi_party": "INC",
-      "thi_votes": 20304,
-      "margin": 31928,
-      "tot_votes": 235984,
-      "votes_pct": 103.94
+      "thi_votes": 20395,
+      "margin": 32590,
+      "tot_votes": 237684,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 126,
       "Constituency": "MAHUA",
       "win_cand": "SANJAY KUMAR SINGH",
       "win_party": "LJP",
-      "win_votes": 75136,
+      "win_votes": 78286,
       "sec_cand": "MUKESH KUMAR RAUSHAN",
       "sec_party": "RJD",
-      "sec_votes": 37610,
+      "sec_votes": 39582,
       "thi_cand": "TEJ PRATAP YADAV",
       "thi_party": "OTH",
-      "thi_votes": 31200,
-      "margin": 37526,
-      "tot_votes": 185065,
-      "votes_pct": 92.95
+      "thi_votes": 33385,
+      "margin": 38704,
+      "tot_votes": 193655,
+      "votes_pct": 97.26
     },
     {
       "AC_NO": 127,
@@ -2048,39 +2048,39 @@
       "thi_votes": 3945,
       "margin": 13880,
       "tot_votes": 234554,
-      "votes_pct": 105.37
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 129,
       "Constituency": "MAHNAR",
       "win_cand": "UMESH SINGH KUSHWAHA",
       "win_party": "JDU",
-      "win_votes": 79459,
+      "win_votes": 83829,
       "sec_cand": "RAVINDRA KUMAR SINGH",
       "sec_party": "RJD",
-      "sec_votes": 48493,
+      "sec_votes": 49751,
       "thi_cand": "SANJAY KUMAR RAY",
       "thi_party": "OTH",
-      "thi_votes": 12891,
-      "margin": 30966,
-      "tot_votes": 166170,
-      "votes_pct": 86.4
+      "thi_votes": 13060,
+      "margin": 34078,
+      "tot_votes": 173149,
+      "votes_pct": 90.02
     },
     {
       "AC_NO": 130,
       "Constituency": "PATEPUR",
       "win_cand": "LAKHENDRA KUMAR RAUSHAN",
       "win_party": "BJP",
-      "win_votes": 99820,
+      "win_votes": 106962,
       "sec_cand": "PREMA CHAUDHARY",
       "sec_party": "RJD",
-      "sec_votes": 79246,
+      "sec_votes": 85270,
       "thi_cand": "DASAI CHAUDHARY",
       "thi_party": "OTH",
-      "thi_votes": 3836,
-      "margin": 20574,
-      "tot_votes": 193079,
-      "votes_pct": 97.33
+      "thi_votes": 4115,
+      "margin": 21692,
+      "tot_votes": 207284,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 131,
@@ -2096,23 +2096,23 @@
       "thi_votes": 16574,
       "margin": 38586,
       "tot_votes": 239675,
-      "votes_pct": 103.26
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 132,
       "Constituency": "WARISNAGAR",
       "win_cand": "MANJARIK MRINAL",
       "win_party": "JDU",
-      "win_votes": 76692,
+      "win_votes": 84075,
       "sec_cand": "PHOOLBABU SINGH",
       "sec_party": "CPIM",
-      "sec_votes": 50171,
+      "sec_votes": 56519,
       "thi_cand": "SATYANARAYAN SAHANI",
       "thi_party": "OTH",
-      "thi_votes": 7780,
-      "margin": 26521,
-      "tot_votes": 160890,
-      "votes_pct": 72.52
+      "thi_votes": 8414,
+      "margin": 27556,
+      "tot_votes": 177602,
+      "votes_pct": 80.05
     },
     {
       "AC_NO": 133,
@@ -2128,7 +2128,7 @@
       "thi_votes": 6193,
       "margin": 13875,
       "tot_votes": 198865,
-      "votes_pct": 106.38
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 134,
@@ -2144,7 +2144,7 @@
       "thi_votes": 9502,
       "margin": 16283,
       "tot_votes": 229995,
-      "votes_pct": 105.84
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 135,
@@ -2167,16 +2167,16 @@
       "Constituency": "SARAIRANJAN",
       "win_cand": "VIJAY KUMAR CHOUDHARY",
       "win_party": "JDU",
-      "win_votes": 101116,
+      "win_votes": 102206,
       "sec_cand": "ARBIND KUMAR SAHANI",
       "sec_party": "RJD",
-      "sec_votes": 80828,
+      "sec_votes": 81479,
       "thi_cand": "KUNAL KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 6088,
-      "margin": 20288,
-      "tot_votes": 204897,
-      "votes_pct": 103.92
+      "thi_votes": 6131,
+      "margin": 20727,
+      "tot_votes": 206923,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 137,
@@ -2192,7 +2192,7 @@
       "thi_votes": 4414,
       "margin": 11682,
       "tot_votes": 183240,
-      "votes_pct": 105.31
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 138,
@@ -2208,71 +2208,71 @@
       "thi_votes": 14456,
       "margin": 10281,
       "tot_votes": 196318,
-      "votes_pct": 105.21
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 139,
       "Constituency": "ROSERA",
       "win_cand": "BIRENDRA KUMAR",
       "win_party": "BJP",
-      "win_votes": 107532,
+      "win_votes": 111428,
       "sec_cand": "BRAJ KISHORE RAVI",
       "sec_party": "INC",
-      "sec_votes": 60948,
+      "sec_votes": 64595,
       "thi_cand": "ROHIT KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 12419,
-      "margin": 46584,
-      "tot_votes": 192539,
-      "votes_pct": 90.41
+      "thi_votes": 13033,
+      "margin": 46833,
+      "tot_votes": 201119,
+      "votes_pct": 94.44
     },
     {
       "AC_NO": 140,
       "Constituency": "HASANPUR",
       "win_cand": "RAJ KUMAR RAY",
       "win_party": "JDU",
-      "win_votes": 82309,
+      "win_votes": 86028,
       "sec_cand": "MALA PUSHPAM",
       "sec_party": "RJD",
-      "sec_votes": 75432,
+      "sec_votes": 78920,
       "thi_cand": "INDU DEVI",
       "thi_party": "OTH",
-      "thi_votes": 8771,
-      "margin": 6877,
-      "tot_votes": 186099,
-      "votes_pct": 95.61
+      "thi_votes": 9143,
+      "margin": 7108,
+      "tot_votes": 194304,
+      "votes_pct": 99.82
     },
     {
       "AC_NO": 141,
       "Constituency": "CHERIA - BARIARPUR",
       "win_cand": "ABHISHEK ANAND",
       "win_party": "JDU",
-      "win_votes": 74898,
+      "win_votes": 75081,
       "sec_cand": "SUSHIL KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 70682,
+      "sec_votes": 70962,
       "thi_cand": "MRITUNJAY KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 24474,
-      "margin": 4216,
-      "tot_votes": 190666,
-      "votes_pct": 104.15
+      "thi_votes": 24595,
+      "margin": 4119,
+      "tot_votes": 191316,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 142,
       "Constituency": "BACHHWARA",
       "win_cand": "SURENDRA MEHTA",
       "win_party": "BJP",
-      "win_votes": 87852,
+      "win_votes": 91757,
       "sec_cand": "SHIV PRAKASH GARIB DAS",
       "sec_party": "INC",
-      "sec_votes": 74462,
+      "sec_votes": 77652,
       "thi_cand": "ABDESH KUMAR RAI",
       "thi_party": "CPIM",
-      "thi_votes": 20433,
-      "margin": 13390,
-      "tot_votes": 197276,
-      "votes_pct": 92.46
+      "thi_votes": 20664,
+      "margin": 14105,
+      "tot_votes": 205153,
+      "votes_pct": 96.16
     },
     {
       "AC_NO": 143,
@@ -2368,55 +2368,55 @@
       "thi_votes": 14261,
       "margin": 35732,
       "tot_votes": 179447,
-      "votes_pct": 104.04
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 149,
       "Constituency": "KHAGARIA",
       "win_cand": "BABLU KUMAR",
       "win_party": "JDU",
-      "win_votes": 80317,
+      "win_votes": 85525,
       "sec_cand": "CHANDAN KUMAR ALIAS DR. CHANDAN YADAV",
       "sec_party": "INC",
-      "sec_votes": 58930,
+      "sec_votes": 62619,
       "thi_cand": "MANISH KUMAR SINGH",
       "thi_party": "OTH",
-      "thi_votes": 4958,
-      "margin": 21387,
-      "tot_votes": 155184,
-      "votes_pct": 88.17
+      "thi_votes": 5145,
+      "margin": 22906,
+      "tot_votes": 164991,
+      "votes_pct": 93.74
     },
     {
       "AC_NO": 150,
       "Constituency": "BELDAUR",
       "win_cand": "PANNA LAL SINGH PATEL",
       "win_party": "JDU",
-      "win_votes": 79513,
+      "win_votes": 85509,
       "sec_cand": "MITHILESH KUMAR NISHAD",
       "sec_party": "INC",
-      "sec_votes": 49563,
+      "sec_votes": 51207,
       "thi_cand": "TANISHA BHARTI",
       "thi_party": "INC",
-      "thi_votes": 6731,
-      "margin": 29950,
-      "tot_votes": 156168,
-      "votes_pct": 74.29
+      "thi_votes": 7258,
+      "margin": 34302,
+      "tot_votes": 165431,
+      "votes_pct": 78.7
     },
     {
       "AC_NO": 151,
       "Constituency": "PARBATTA",
       "win_cand": "BABULAL SHORYA",
       "win_party": "LJP",
-      "win_votes": 90688,
+      "win_votes": 99558,
       "sec_cand": "DOCTOR SANJEEV KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 66833,
+      "sec_votes": 72959,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 3569,
-      "margin": 23855,
-      "tot_votes": 166963,
-      "votes_pct": 80.55
+      "thi_votes": 3885,
+      "margin": 26599,
+      "tot_votes": 182755,
+      "votes_pct": 88.17
     },
     {
       "AC_NO": 152,
@@ -2432,39 +2432,39 @@
       "thi_votes": 8821,
       "margin": 30025,
       "tot_votes": 174555,
-      "votes_pct": 104.45
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 153,
       "Constituency": "GOPALPUR",
       "win_cand": "SHAILESH KUMAR ALIAS BULO MANDAL",
       "win_party": "JDU",
-      "win_votes": 104714,
+      "win_votes": 108630,
       "sec_cand": "PREM SAGAR ALIAS DABLU YADAV",
       "sec_party": "OTH",
-      "sec_votes": 48848,
+      "sec_votes": 50495,
       "thi_cand": "NARENDRA KUMAR NIRAJ",
       "thi_party": "OTH",
-      "thi_votes": 12019,
-      "margin": 55866,
-      "tot_votes": 184692,
-      "votes_pct": 99.46
+      "thi_votes": 12686,
+      "margin": 58135,
+      "tot_votes": 191402,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 154,
       "Constituency": "PIRPAINTI",
       "win_cand": "MURARI PASAVAN",
       "win_party": "BJP",
-      "win_votes": 129321,
+      "win_votes": 134919,
       "sec_cand": "RAM VILASH PASAVAN",
       "sec_party": "RJD",
-      "sec_votes": 81544,
+      "sec_votes": 83600,
       "thi_cand": "GHANSHYAM DAS",
       "thi_party": "OTH",
-      "thi_votes": 5253,
-      "margin": 47777,
-      "tot_votes": 228833,
-      "votes_pct": 93.56
+      "thi_votes": 5470,
+      "margin": 51319,
+      "tot_votes": 237154,
+      "votes_pct": 96.97
     },
     {
       "AC_NO": 155,
@@ -2487,16 +2487,16 @@
       "Constituency": "BHAGALPUR",
       "win_cand": "ROHIT PANDEY",
       "win_party": "BJP",
-      "win_votes": 95954,
+      "win_votes": 100316,
       "sec_cand": "AJEET SHARMA",
       "sec_party": "INC",
-      "sec_votes": 85589,
+      "sec_votes": 86484,
       "thi_cand": "ABHAY KANT JHA",
       "thi_party": "OTH",
-      "thi_votes": 3046,
-      "margin": 10365,
-      "tot_votes": 190188,
-      "votes_pct": 0.1
+      "thi_votes": 3188,
+      "margin": 13832,
+      "tot_votes": 195786,
+      "votes_pct": 0.11
     },
     {
       "AC_NO": 157,
@@ -2512,39 +2512,39 @@
       "thi_votes": 4402,
       "margin": 31136,
       "tot_votes": 209814,
-      "votes_pct": 104.85
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 158,
       "Constituency": "NATHNAGAR",
       "win_cand": "MITHUN KUMAR",
       "win_party": "LJP",
-      "win_votes": 89441,
+      "win_votes": 91748,
       "sec_cand": "SHEIKH ZEYAUL HASSAN",
       "sec_party": "RJD",
-      "sec_votes": 73585,
+      "sec_votes": 76809,
       "thi_cand": "MD ISMAIL",
       "thi_party": "AIMIM",
-      "thi_votes": 7311,
-      "margin": 15856,
-      "tot_votes": 187351,
-      "votes_pct": 81.03
+      "thi_votes": 7486,
+      "margin": 14939,
+      "tot_votes": 193533,
+      "votes_pct": 83.71
     },
     {
       "AC_NO": 159,
       "Constituency": "AMARPUR",
       "win_cand": "JAYANT RAJ",
       "win_party": "JDU",
-      "win_votes": 70212,
+      "win_votes": 79888,
       "sec_cand": "JITENDRA SINGH",
       "sec_party": "INC",
-      "sec_votes": 49486,
+      "sec_votes": 53563,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 4069,
-      "margin": 20726,
-      "tot_votes": 132580,
-      "votes_pct": 70.16
+      "thi_votes": 4506,
+      "margin": 26325,
+      "tot_votes": 147812,
+      "votes_pct": 78.22
     },
     {
       "AC_NO": 160,
@@ -2567,96 +2567,96 @@
       "Constituency": "BANKA",
       "win_cand": "RAM NARAYAN MANDAL",
       "win_party": "BJP",
-      "win_votes": 64426,
+      "win_votes": 68097,
       "sec_cand": "SANJAY KUMAR",
       "sec_party": "CPIM",
-      "sec_votes": 47755,
+      "sec_votes": 50118,
       "thi_cand": "KAUSHAL KUMAR SINGH",
       "thi_party": "OTH",
-      "thi_votes": 4697,
-      "margin": 16671,
-      "tot_votes": 131008,
-      "votes_pct": 70.06
+      "thi_votes": 4946,
+      "margin": 17979,
+      "tot_votes": 137658,
+      "votes_pct": 73.62
     },
     {
       "AC_NO": 162,
       "Constituency": "KATORIA",
       "win_cand": "PURAN LAL TUDU",
       "win_party": "BJP",
-      "win_votes": 91224,
+      "win_votes": 94260,
       "sec_cand": "SWEETY SIMA HEMBROM",
       "sec_party": "RJD",
-      "sec_votes": 80711,
+      "sec_votes": 83274,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 4974,
-      "margin": 10513,
-      "tot_votes": 189898,
-      "votes_pct": 99.42
+      "thi_votes": 5187,
+      "margin": 10986,
+      "tot_votes": 196105,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 163,
       "Constituency": "BELHAR",
       "win_cand": "MANOJ YADAV",
       "win_party": "JDU",
-      "win_votes": 89348,
+      "win_votes": 93388,
       "sec_cand": "CHANAKYA PRAKASH RANJAN",
       "sec_party": "RJD",
-      "sec_votes": 58004,
+      "sec_votes": 60351,
       "thi_cand": "BRAJ KISHOR PANDIT",
       "thi_party": "OTH",
-      "thi_votes": 6670,
-      "margin": 31344,
-      "tot_votes": 173752,
-      "votes_pct": 78.15
+      "thi_votes": 6759,
+      "margin": 33037,
+      "tot_votes": 181613,
+      "votes_pct": 81.68
     },
     {
       "AC_NO": 164,
       "Constituency": "TARAPUR",
       "win_cand": "SAMRAT CHOUDHARY",
       "win_party": "BJP",
-      "win_votes": 122199,
+      "win_votes": 122480,
       "sec_cand": "ARUN KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 76379,
+      "sec_votes": 76637,
       "thi_cand": "SANTOSH KUMAR SINGH",
       "thi_party": "OTH",
-      "thi_votes": 3862,
-      "margin": 45820,
-      "tot_votes": 215156,
-      "votes_pct": 103.35
+      "thi_votes": 3898,
+      "margin": 45843,
+      "tot_votes": 215758,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 165,
       "Constituency": "MUNGER",
       "win_cand": "KUMAR PRANAY",
       "win_party": "BJP",
-      "win_votes": 99724,
+      "win_votes": 104146,
       "sec_cand": "AVINASH KUMAR VIDYARTHI",
       "sec_party": "RJD",
-      "sec_votes": 82870,
+      "sec_votes": 86089,
       "thi_cand": "MONAZIR HASSAN",
       "thi_party": "AIMIM",
-      "thi_votes": 3509,
-      "margin": 16854,
-      "tot_votes": 195583,
-      "votes_pct": 94.79
+      "thi_votes": 3543,
+      "margin": 18057,
+      "tot_votes": 203787,
+      "votes_pct": 98.77
     },
     {
       "AC_NO": 166,
       "Constituency": "JAMALPUR",
       "win_cand": "NACHIKETA",
       "win_party": "JDU",
-      "win_votes": 68943,
+      "win_votes": 71948,
       "sec_cand": "NARENDRA KUMAR",
       "sec_party": "INC",
-      "sec_votes": 44995,
+      "sec_votes": 47162,
       "thi_cand": "SHIVDEEP W LANDE",
       "thi_party": "OTH",
-      "thi_votes": 13938,
-      "margin": 23948,
-      "tot_votes": 146759,
-      "votes_pct": 75.29
+      "thi_votes": 14494,
+      "margin": 24786,
+      "tot_votes": 153708,
+      "votes_pct": 78.85
     },
     {
       "AC_NO": 167,
@@ -2679,16 +2679,16 @@
       "Constituency": "LAKHISARAI",
       "win_cand": "VIJAY KUMAR SINHA",
       "win_party": "BJP",
-      "win_votes": 84134,
+      "win_votes": 87735,
       "sec_cand": "AMARESH KUMAR",
       "sec_party": "INC",
-      "sec_votes": 66928,
+      "sec_votes": 69489,
       "thi_cand": "SURAJ KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 5792,
-      "margin": 17206,
-      "tot_votes": 170220,
-      "votes_pct": 70.65
+      "thi_votes": 6036,
+      "margin": 18246,
+      "tot_votes": 177220,
+      "votes_pct": 73.55
     },
     {
       "AC_NO": 169,
@@ -2704,23 +2704,23 @@
       "thi_votes": 4184,
       "margin": 22547,
       "tot_votes": 163341,
-      "votes_pct": 100.87
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 170,
       "Constituency": "BARBIGHA",
       "win_cand": "DR. KUMAR PUSPANJAY",
       "win_party": "JDU",
-      "win_votes": 59273,
+      "win_votes": 61286,
       "sec_cand": "TRISHULDHARI SINGH",
       "sec_party": "INC",
-      "sec_votes": 33061,
+      "sec_votes": 35686,
       "thi_cand": "SUDARSHAN KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 27572,
-      "margin": 26212,
-      "tot_votes": 136903,
-      "votes_pct": 98.0
+      "thi_votes": 28162,
+      "margin": 25600,
+      "tot_votes": 142705,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 171,
@@ -2736,23 +2736,23 @@
       "thi_votes": 15962,
       "margin": 40708,
       "tot_votes": 173699,
-      "votes_pct": 104.1
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 172,
       "Constituency": "BIHARSHARIF",
       "win_cand": "DR. SUNIL KUMAR",
       "win_party": "BJP",
-      "win_votes": 94761,
+      "win_votes": 99466,
       "sec_cand": "OMAIR KHAN",
       "sec_party": "INC",
-      "sec_votes": 61470,
+      "sec_votes": 62713,
       "thi_cand": "MANOJ KUMAR TANTI",
       "thi_party": "OTH",
-      "thi_votes": 5866,
-      "margin": 33291,
-      "tot_votes": 178728,
-      "votes_pct": 87.59
+      "thi_votes": 5969,
+      "margin": 36753,
+      "tot_votes": 185385,
+      "votes_pct": 90.86
     },
     {
       "AC_NO": 173,
@@ -2768,39 +2768,39 @@
       "thi_votes": 9916,
       "margin": 55428,
       "tot_votes": 186290,
-      "votes_pct": 103.54
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 174,
       "Constituency": "ISLAMPUR",
       "win_cand": "RUHAIL RANJAN",
       "win_party": "JDU",
-      "win_votes": 85028,
+      "win_votes": 88741,
       "sec_cand": "RAKESH KUMAR RAUSHAN",
       "sec_party": "RJD",
-      "sec_votes": 58701,
+      "sec_votes": 60344,
       "thi_cand": "TANUJA KUMARI",
       "thi_party": "OTH",
-      "thi_votes": 4321,
-      "margin": 26327,
-      "tot_votes": 159866,
-      "votes_pct": 89.82
+      "thi_votes": 4426,
+      "margin": 28397,
+      "tot_votes": 165827,
+      "votes_pct": 93.17
     },
     {
       "AC_NO": 175,
       "Constituency": "HILSA",
       "win_cand": "KRISHNA MURARI SHARAN",
       "win_party": "JDU",
-      "win_votes": 87019,
+      "win_votes": 90964,
       "sec_cand": "ATRI MUNI URF SHAKTI SINGH YADAV",
       "sec_party": "RJD",
-      "sec_votes": 76179,
+      "sec_votes": 77481,
       "thi_cand": "UMESH KUMAR VERMA",
       "thi_party": "OTH",
-      "thi_votes": 3855,
-      "margin": 10840,
-      "tot_votes": 178837,
-      "votes_pct": 97.29
+      "thi_votes": 4033,
+      "margin": 13483,
+      "tot_votes": 184746,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 176,
@@ -2832,7 +2832,7 @@
       "thi_votes": 7927,
       "margin": 48335,
       "tot_votes": 192162,
-      "votes_pct": 103.77
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 178,
@@ -2848,23 +2848,23 @@
       "thi_votes": 19365,
       "margin": 28206,
       "tot_votes": 184921,
-      "votes_pct": 102.59
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 179,
       "Constituency": "BARH",
       "win_cand": "SIYARAM SINGH",
       "win_party": "BJP",
-      "win_votes": 99172,
+      "win_votes": 99446,
       "sec_cand": "KARNVEER SINGH YADAV",
       "sec_party": "RJD",
-      "sec_votes": 74494,
+      "sec_votes": 74633,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 3627,
-      "margin": 24678,
-      "tot_votes": 188938,
-      "votes_pct": 102.73
+      "thi_votes": 3631,
+      "margin": 24813,
+      "tot_votes": 189390,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 180,
@@ -2880,23 +2880,23 @@
       "thi_votes": 6581,
       "margin": 981,
       "tot_votes": 196100,
-      "votes_pct": 103.39
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 181,
       "Constituency": "DIGHA",
       "win_cand": "SANJIV CHAURASIA",
       "win_party": "BJP",
-      "win_votes": 110301,
+      "win_votes": 110559,
       "sec_cand": "DIVYA GAUTAM",
       "sec_party": "CPIM",
-      "sec_votes": 51713,
+      "sec_votes": 51789,
       "thi_cand": "Ritesh Ranjan Singh Alias Bittu Singh",
       "thi_party": "OTH",
-      "thi_votes": 21869,
-      "margin": 58588,
-      "tot_votes": 194971,
-      "votes_pct": 104.8
+      "thi_votes": 21947,
+      "margin": 58770,
+      "tot_votes": 195417,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 182,
@@ -2912,7 +2912,7 @@
       "thi_votes": 7717,
       "margin": 51936,
       "tot_votes": 156885,
-      "votes_pct": 103.92
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 183,
@@ -2928,7 +2928,7 @@
       "thi_votes": 15017,
       "margin": 47524,
       "tot_votes": 173506,
-      "votes_pct": 104.85
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 184,
@@ -2944,7 +2944,7 @@
       "thi_votes": 5263,
       "margin": 38900,
       "tot_votes": 235152,
-      "votes_pct": 108.81
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 185,
@@ -2960,7 +2960,7 @@
       "thi_votes": 8598,
       "margin": 7992,
       "tot_votes": 198180,
-      "votes_pct": 106.37
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 186,
@@ -2976,7 +2976,7 @@
       "thi_votes": 3242,
       "margin": 29133,
       "tot_votes": 220307,
-      "votes_pct": 107.0
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 187,
@@ -2992,7 +2992,7 @@
       "thi_votes": 5041,
       "margin": 20034,
       "tot_votes": 226143,
-      "votes_pct": 104.77
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 188,
@@ -3024,7 +3024,7 @@
       "thi_votes": 5146,
       "margin": 7643,
       "tot_votes": 225819,
-      "votes_pct": 103.73
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 190,
@@ -3040,7 +3040,7 @@
       "thi_votes": 6612,
       "margin": 6655,
       "tot_votes": 182320,
-      "votes_pct": 104.41
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 191,
@@ -3056,7 +3056,7 @@
       "thi_votes": 4937,
       "margin": 5601,
       "tot_votes": 215202,
-      "votes_pct": 104.33
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 192,
@@ -3072,23 +3072,23 @@
       "thi_votes": 6040,
       "margin": 27,
       "tot_votes": 183230,
-      "votes_pct": 106.72
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 193,
       "Constituency": "BARHARA",
       "win_cand": "RAGHVENDRA PRATAP SINGH",
       "win_party": "BJP",
-      "win_votes": 79377,
+      "win_votes": 79593,
       "sec_cand": "ASHOK KUMAR SINGH",
       "sec_party": "RJD",
-      "sec_votes": 65069,
+      "sec_votes": 65190,
       "thi_cand": "SURYA BHAN SINGH",
       "thi_party": "OTH",
-      "thi_votes": 9260,
-      "margin": 14308,
-      "tot_votes": 181628,
-      "votes_pct": 107.35
+      "thi_votes": 9268,
+      "margin": 14403,
+      "tot_votes": 182096,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 194,
@@ -3104,7 +3104,7 @@
       "thi_votes": 5800,
       "margin": 19581,
       "tot_votes": 184778,
-      "votes_pct": 105.61
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 195,
@@ -3127,32 +3127,32 @@
       "Constituency": "TARARI",
       "win_cand": "VISHAL PRASHANT",
       "win_party": "BJP",
-      "win_votes": 96712,
+      "win_votes": 96887,
       "sec_cand": "MADAN SINGH S/O-KUMI SINGH",
       "sec_party": "CPIM",
-      "sec_votes": 85189,
+      "sec_votes": 85423,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 4069,
-      "margin": 11523,
-      "tot_votes": 194957,
-      "votes_pct": 108.27
+      "thi_votes": 4078,
+      "margin": 11464,
+      "tot_votes": 195382,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 197,
       "Constituency": "JAGDISHPUR",
       "win_cand": "SRIBHAGWAN SINGH KUSHWAHA",
       "win_party": "JDU",
-      "win_votes": 87059,
+      "win_votes": 90082,
       "sec_cand": "KISHORE KUNAL",
       "sec_party": "RJD",
-      "sec_votes": 71376,
+      "sec_votes": 73712,
       "thi_cand": "VIJAY SINGH",
       "thi_party": "OTH",
-      "thi_votes": 4684,
-      "margin": 15683,
-      "tot_votes": 177701,
-      "votes_pct": 100.79
+      "thi_votes": 4942,
+      "margin": 16370,
+      "tot_votes": 183794,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 198,
@@ -3168,55 +3168,55 @@
       "thi_votes": 3752,
       "margin": 15491,
       "tot_votes": 172215,
-      "votes_pct": 102.21
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 199,
       "Constituency": "BRAHAMPUR",
       "win_cand": "SHAMBHU NATH YADAV",
       "win_party": "RJD",
-      "win_votes": 80876,
+      "win_votes": 84666,
       "sec_cand": "HULAS PANDE",
       "sec_party": "LJP",
-      "sec_votes": 80841,
+      "sec_votes": 83637,
       "thi_cand": "MAHAVIR YADAV",
       "thi_party": "OTH",
-      "thi_votes": 4230,
-      "margin": 35,
-      "tot_votes": 177812,
-      "votes_pct": 89.44
+      "thi_votes": 4289,
+      "margin": 1029,
+      "tot_votes": 184712,
+      "votes_pct": 92.91
     },
     {
       "AC_NO": 200,
       "Constituency": "BUXAR",
       "win_cand": "ANAND MISHRA",
       "win_party": "BJP",
-      "win_votes": 80208,
+      "win_votes": 82458,
       "sec_cand": "SANJAY KUMAR TIWARI URF MUNNA TIWARI",
       "sec_party": "INC",
-      "sec_votes": 52808,
+      "sec_votes": 54992,
       "thi_cand": "ABHIMNYU MAURY",
       "thi_party": "OTH",
-      "thi_votes": 25505,
-      "margin": 27400,
-      "tot_votes": 175309,
-      "votes_pct": 96.38
+      "thi_votes": 27656,
+      "margin": 27466,
+      "tot_votes": 182560,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 201,
       "Constituency": "DUMRAON",
       "win_cand": "RAHUL KUMAR SINGH",
       "win_party": "JDU",
-      "win_votes": 72391,
+      "win_votes": 75330,
       "sec_cand": "DR. AJIT KUMAR SINGH",
       "sec_party": "CPIM",
-      "sec_votes": 70000,
+      "sec_votes": 72791,
       "thi_cand": "DADAN YADAV",
       "thi_party": "OTH",
-      "thi_votes": 10144,
-      "margin": 2391,
-      "tot_votes": 179221,
-      "votes_pct": 94.18
+      "thi_votes": 10422,
+      "margin": 2539,
+      "tot_votes": 186101,
+      "votes_pct": 97.79
     },
     {
       "AC_NO": 202,
@@ -3239,64 +3239,64 @@
       "Constituency": "RAMGARH",
       "win_cand": "SATISH KUMAR SINGH YADAV",
       "win_party": "OTH",
-      "win_votes": 62640,
+      "win_votes": 65548,
       "sec_cand": "ASHOK KUMAR SINGH",
       "sec_party": "BJP",
-      "sec_votes": 61395,
+      "sec_votes": 64267,
       "thi_cand": "AJIT KUMAR",
       "thi_party": "RJD",
-      "thi_votes": 35337,
-      "margin": 1245,
-      "tot_votes": 166420,
-      "votes_pct": 89.26
+      "thi_votes": 36590,
+      "margin": 1281,
+      "tot_votes": 173662,
+      "votes_pct": 93.14
     },
     {
       "AC_NO": 204,
       "Constituency": "MOHANIA",
       "win_cand": "SANGITA KUMARI",
       "win_party": "BJP",
-      "win_votes": 71557,
+      "win_votes": 75126,
       "sec_cand": "RAVI SHANKAR PASWAN",
       "sec_party": "OTH",
-      "sec_votes": 54196,
+      "sec_votes": 56517,
       "thi_cand": "OMPRAKASH NARAYAN",
       "thi_party": "OTH",
-      "thi_votes": 30706,
-      "margin": 17361,
-      "tot_votes": 179817,
-      "votes_pct": 97.67
+      "thi_votes": 31653,
+      "margin": 18609,
+      "tot_votes": 187592,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 205,
       "Constituency": "BHABUA",
       "win_cand": "BHARAT BIND",
       "win_party": "BJP",
-      "win_votes": 72246,
+      "win_votes": 76034,
       "sec_cand": "BIRENDRA KUMAR SINGH",
       "sec_party": "RJD",
-      "sec_votes": 48913,
+      "sec_votes": 52489,
       "thi_cand": "VIKASH SINGH",
       "thi_party": "OTH",
-      "thi_votes": 35572,
-      "margin": 23333,
-      "tot_votes": 172529,
-      "votes_pct": 93.36
+      "thi_votes": 36765,
+      "margin": 23545,
+      "tot_votes": 182143,
+      "votes_pct": 98.56
     },
     {
       "AC_NO": 206,
       "Constituency": "CHAINPUR",
       "win_cand": "MD. ZAMA KHAN",
       "win_party": "JDU",
-      "win_votes": 46133,
+      "win_votes": 48570,
       "sec_cand": "BRIJ KISHOR BIND",
       "sec_party": "RJD",
-      "sec_votes": 37538,
+      "sec_votes": 39113,
       "thi_cand": "DHIRAJ KUMAR SINGH",
       "thi_party": "OTH",
-      "thi_votes": 31613,
-      "margin": 8595,
-      "tot_votes": 140832,
-      "votes_pct": 63.57
+      "thi_votes": 33260,
+      "margin": 9457,
+      "tot_votes": 147660,
+      "votes_pct": 66.66
     },
     {
       "AC_NO": 207,
@@ -3351,96 +3351,96 @@
       "Constituency": "DINARA",
       "win_cand": "ALOK KUMAR SINGH",
       "win_party": "RLM",
-      "win_votes": 50298,
+      "win_votes": 53354,
       "sec_cand": "SHASHI SHANKAR KUMAR ALIAS RAJESH YADAV",
       "sec_party": "RJD",
-      "sec_votes": 37802,
+      "sec_votes": 40818,
       "thi_cand": "JAI KUMAR SINGH",
       "thi_party": "OTH",
-      "thi_votes": 13050,
-      "margin": 12496,
-      "tot_votes": 118499,
-      "votes_pct": 66.18
+      "thi_votes": 13738,
+      "margin": 12536,
+      "tot_votes": 125924,
+      "votes_pct": 70.33
     },
     {
       "AC_NO": 211,
       "Constituency": "NOKHA",
       "win_cand": "NAGENDRA CHANDRAVANSHI",
       "win_party": "JDU",
-      "win_votes": 89997,
+      "win_votes": 90375,
       "sec_cand": "ANITA DEVI",
       "sec_party": "RJD",
-      "sec_votes": 67172,
+      "sec_votes": 67623,
       "thi_cand": "NASRULLAH KHAN",
       "thi_party": "OTH",
-      "thi_votes": 4645,
-      "margin": 22825,
-      "tot_votes": 176534,
-      "votes_pct": 101.52
+      "thi_votes": 4710,
+      "margin": 22752,
+      "tot_votes": 177462,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 212,
       "Constituency": "DEHRI",
       "win_cand": "RAJEEV RANJAN SINGH",
       "win_party": "LJP",
-      "win_votes": 91055,
+      "win_votes": 96202,
       "sec_cand": "GUDDU KUMAR CHANDRAWANSI",
       "sec_party": "RJD",
-      "sec_votes": 59206,
+      "sec_votes": 62089,
       "thi_cand": "PHATE BAHADUR SINGH",
       "thi_party": "OTH",
-      "thi_votes": 6455,
-      "margin": 31849,
-      "tot_votes": 167911,
-      "votes_pct": 92.57
+      "thi_votes": 6598,
+      "margin": 34113,
+      "tot_votes": 176508,
+      "votes_pct": 97.31
     },
     {
       "AC_NO": 213,
       "Constituency": "KARAKAT",
       "win_cand": "ARUN SINGH (VILL-AJNAP TOLA)",
       "win_party": "CPIM",
-      "win_votes": 67919,
+      "win_votes": 70160,
       "sec_cand": "MAHABALI SINGH",
       "sec_party": "JDU",
-      "sec_votes": 66036,
+      "sec_votes": 68341,
       "thi_cand": "JYOTI SINGH",
       "thi_party": "OTH",
-      "thi_votes": 20889,
-      "margin": 1883,
-      "tot_votes": 181522,
-      "votes_pct": 96.32
+      "thi_votes": 21948,
+      "margin": 1819,
+      "tot_votes": 187978,
+      "votes_pct": 99.74
     },
     {
       "AC_NO": 214,
       "Constituency": "ARWAL",
       "win_cand": "MANOJ KUMAR",
       "win_party": "BJP",
-      "win_votes": 64961,
+      "win_votes": 67278,
       "sec_cand": "MAHANAND SINGH",
       "sec_party": "CPIM",
-      "sec_votes": 52664,
+      "sec_votes": 56540,
       "thi_cand": "SHEKHAR RAM",
       "thi_party": "OTH",
-      "thi_votes": 3121,
-      "margin": 12297,
-      "tot_votes": 137419,
-      "votes_pct": 83.1
+      "thi_votes": 3258,
+      "margin": 10738,
+      "tot_votes": 144622,
+      "votes_pct": 87.45
     },
     {
       "AC_NO": 215,
       "Constituency": "KURTHA",
       "win_cand": "PAPPU KUMAR VERMA",
       "win_party": "JDU",
-      "win_votes": 73618,
+      "win_votes": 74466,
       "sec_cand": "KUMAR KRISHNA MOHAN URF SUDAY YADAV",
       "sec_party": "RJD",
-      "sec_votes": 67993,
+      "sec_votes": 68985,
       "thi_cand": "RAMBALI SINGH",
       "thi_party": "OTH",
-      "thi_votes": 4970,
-      "margin": 5625,
-      "tot_votes": 163783,
-      "votes_pct": 103.1
+      "thi_votes": 5030,
+      "margin": 5481,
+      "tot_votes": 165867,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 216,
@@ -3456,7 +3456,7 @@
       "thi_votes": 5703,
       "margin": 255,
       "tot_votes": 191442,
-      "votes_pct": 103.73
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 217,
@@ -3472,23 +3472,23 @@
       "thi_votes": 3520,
       "margin": 9944,
       "tot_votes": 164409,
-      "votes_pct": 100.63
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 218,
       "Constituency": "MAKHDUMPUR",
       "win_cand": "SUBEDAR DAS",
       "win_party": "RJD",
-      "win_votes": 68607,
+      "win_votes": 70932,
       "sec_cand": "RANI KUMARI",
       "sec_party": "LJP",
-      "sec_votes": 64773,
+      "sec_votes": 68540,
       "thi_cand": "SHANKAR SWARUP",
       "thi_party": "OTH",
-      "thi_votes": 4349,
-      "margin": 3834,
-      "tot_votes": 150041,
-      "votes_pct": 94.37
+      "thi_votes": 4536,
+      "margin": 2392,
+      "tot_votes": 157082,
+      "votes_pct": 98.8
     },
     {
       "AC_NO": 219,
@@ -3511,16 +3511,16 @@
       "Constituency": "OBRA",
       "win_cand": "PRAKASH CHANDRA",
       "win_party": "LJP",
-      "win_votes": 60765,
+      "win_votes": 64018,
       "sec_cand": "RISHI KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 49538,
+      "sec_votes": 52145,
       "thi_cand": "SANJAY KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 4503,
-      "margin": 11227,
-      "tot_votes": 132567,
-      "votes_pct": 68.27
+      "thi_votes": 4946,
+      "margin": 11873,
+      "tot_votes": 139679,
+      "votes_pct": 71.94
     },
     {
       "AC_NO": 221,
@@ -3543,16 +3543,16 @@
       "Constituency": "KUTUMBA",
       "win_cand": "LALAN RAM",
       "win_party": "HAM",
-      "win_votes": 66096,
+      "win_votes": 69242,
       "sec_cand": "RAJESH KUMAR",
       "sec_party": "INC",
-      "sec_votes": 51436,
+      "sec_votes": 53652,
       "thi_cand": "RAM JANAM RAM",
       "thi_party": "OTH",
-      "thi_votes": 5031,
-      "margin": 14660,
-      "tot_votes": 138152,
-      "votes_pct": 83.34
+      "thi_votes": 5344,
+      "margin": 15590,
+      "tot_votes": 144580,
+      "votes_pct": 87.22
     },
     {
       "AC_NO": 223,
@@ -3575,32 +3575,32 @@
       "Constituency": "RAFIGANJ",
       "win_cand": "GHULAM SHAHID",
       "win_party": "RJD",
-      "win_votes": 57419,
+      "win_votes": 61301,
       "sec_cand": "PRAMOD KUMAR SINGH",
       "sec_party": "JDU",
-      "sec_votes": 53392,
+      "sec_votes": 56090,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 2610,
-      "margin": 4027,
-      "tot_votes": 120599,
-      "votes_pct": 56.44
+      "thi_votes": 2779,
+      "margin": 5211,
+      "tot_votes": 127775,
+      "votes_pct": 59.8
     },
     {
       "AC_NO": 225,
       "Constituency": "GURUA",
       "win_cand": "UPENDRA PRASAD",
       "win_party": "BJP",
-      "win_votes": 86310,
+      "win_votes": 89982,
       "sec_cand": "VINAY KUMAR",
       "sec_party": "RJD",
-      "sec_votes": 66554,
+      "sec_votes": 68897,
       "thi_cand": "RAGHVENDRA NARAYAN YADAV",
       "thi_party": "OTH",
-      "thi_votes": 7343,
-      "margin": 19756,
-      "tot_votes": 177720,
-      "votes_pct": 91.43
+      "thi_votes": 7610,
+      "margin": 21085,
+      "tot_votes": 184671,
+      "votes_pct": 95.0
     },
     {
       "AC_NO": 226,
@@ -3616,7 +3616,7 @@
       "thi_votes": 18970,
       "margin": 13739,
       "tot_votes": 201054,
-      "votes_pct": 104.09
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 227,
@@ -3632,23 +3632,23 @@
       "thi_votes": 11912,
       "margin": 25856,
       "tot_votes": 206281,
-      "votes_pct": 105.13
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 228,
       "Constituency": "BARACHATTI",
       "win_cand": "JYOTI DEVI",
       "win_party": "HAM",
-      "win_votes": 99704,
+      "win_votes": 104549,
       "sec_cand": "TANUSHREE KUMARI",
       "sec_party": "RJD",
-      "sec_votes": 92285,
+      "sec_votes": 96214,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 4007,
-      "margin": 7419,
-      "tot_votes": 211110,
-      "votes_pct": 97.36
+      "thi_votes": 4189,
+      "margin": 8335,
+      "tot_votes": 220720,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 229,
@@ -3664,7 +3664,7 @@
       "thi_votes": 10181,
       "margin": 881,
       "tot_votes": 231073,
-      "votes_pct": 104.62
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 230,
@@ -3680,23 +3680,23 @@
       "thi_votes": 4479,
       "margin": 26423,
       "tot_votes": 166958,
-      "votes_pct": 108.52
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 231,
       "Constituency": "TIKARI",
       "win_cand": "AJAY KUMAR",
       "win_party": "RJD",
-      "win_votes": 80278,
+      "win_votes": 83755,
       "sec_cand": "ANIL KUMAR",
       "sec_party": "HAM",
-      "sec_votes": 77991,
+      "sec_votes": 80877,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 3589,
-      "margin": 2287,
-      "tot_votes": 175147,
-      "votes_pct": 86.3
+      "thi_votes": 3723,
+      "margin": 2878,
+      "tot_votes": 182137,
+      "votes_pct": 89.74
     },
     {
       "AC_NO": 232,
@@ -3712,23 +3712,23 @@
       "thi_votes": 3074,
       "margin": 2882,
       "tot_votes": 205019,
-      "votes_pct": 106.25
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 233,
       "Constituency": "ATRI",
       "win_cand": "ROMIT KUMAR",
       "win_party": "HAM",
-      "win_votes": 95797,
+      "win_votes": 101280,
       "sec_cand": "BAIJAYANTI DEVI",
       "sec_party": "RJD",
-      "sec_votes": 74022,
+      "sec_votes": 76107,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 3414,
-      "margin": 21775,
-      "tot_votes": 188304,
-      "votes_pct": 99.03
+      "thi_votes": 3499,
+      "margin": 25173,
+      "tot_votes": 196495,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 234,
@@ -3744,7 +3744,7 @@
       "thi_votes": 14157,
       "margin": 12985,
       "tot_votes": 207861,
-      "votes_pct": 104.05
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 235,
@@ -3760,39 +3760,39 @@
       "thi_votes": 4262,
       "margin": 3762,
       "tot_votes": 200186,
-      "votes_pct": 103.09
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 236,
       "Constituency": "HISUA",
       "win_cand": "ANIL SINGH",
       "win_party": "BJP",
-      "win_votes": 52051,
+      "win_votes": 54462,
       "sec_cand": "NITU KUMARI",
       "sec_party": "INC",
-      "sec_votes": 39124,
+      "sec_votes": 41934,
       "thi_cand": "DHARMENDRA KUMAR",
       "thi_party": "OTH",
-      "thi_votes": 16980,
-      "margin": 12927,
-      "tot_votes": 120873,
-      "votes_pct": 58.24
+      "thi_votes": 17917,
+      "margin": 12528,
+      "tot_votes": 127859,
+      "votes_pct": 61.61
     },
     {
       "AC_NO": 237,
       "Constituency": "NAWADA",
       "win_cand": "VIBHA DEVI",
       "win_party": "JDU",
-      "win_votes": 42851,
+      "win_votes": 46068,
       "sec_cand": "KAUSHAL YADAV",
       "sec_party": "RJD",
-      "sec_votes": 26425,
+      "sec_votes": 27771,
       "thi_cand": "ANUJ SINGH",
       "thi_party": "OTH",
-      "thi_votes": 12020,
-      "margin": 16426,
-      "tot_votes": 96368,
-      "votes_pct": 49.87
+      "thi_votes": 12592,
+      "margin": 18297,
+      "tot_votes": 102877,
+      "votes_pct": 53.24
     },
     {
       "AC_NO": 238,
@@ -3808,87 +3808,87 @@
       "thi_votes": 39813,
       "margin": 22906,
       "tot_votes": 180900,
-      "votes_pct": 103.36
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 239,
       "Constituency": "WARSALIGANJ",
       "win_cand": "ANITA",
       "win_party": "RJD",
-      "win_votes": 69631,
+      "win_votes": 73561,
       "sec_cand": "ARUNA DEVI",
       "sec_party": "BJP",
-      "sec_votes": 65174,
+      "sec_votes": 67271,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 2915,
-      "margin": 4457,
-      "tot_votes": 143880,
-      "votes_pct": 73.93
+      "thi_votes": 3059,
+      "margin": 6290,
+      "tot_votes": 150242,
+      "votes_pct": 77.2
     },
     {
       "AC_NO": 240,
       "Constituency": "SIKANDRA",
       "win_cand": "PRAPHULL KUMAR MANJHI",
       "win_party": "HAM",
-      "win_votes": 77627,
+      "win_votes": 79814,
       "sec_cand": "UDAY NARAIN CHOUDHARY",
       "sec_party": "RJD",
-      "sec_votes": 51859,
+      "sec_votes": 55794,
       "thi_cand": "SUBHASH CHANDRA BOSH",
       "thi_party": "OTH",
-      "thi_votes": 10925,
-      "margin": 25768,
-      "tot_votes": 155793,
-      "votes_pct": 82.73
+      "thi_votes": 11254,
+      "margin": 24020,
+      "tot_votes": 163728,
+      "votes_pct": 86.94
     },
     {
       "AC_NO": 241,
       "Constituency": "JAMUI",
       "win_cand": "SHREYASI SINGH",
       "win_party": "BJP",
-      "win_votes": 109309,
+      "win_votes": 114042,
       "sec_cand": "MOHAMMAD SHAMSAD ALAM",
       "sec_party": "RJD",
-      "sec_votes": 62379,
+      "sec_votes": 64262,
       "thi_cand": "ANIL PRASAD SAH",
       "thi_party": "OTH",
-      "thi_votes": 5244,
-      "margin": 46930,
-      "tot_votes": 192505,
-      "votes_pct": 91.69
+      "thi_votes": 5471,
+      "margin": 49780,
+      "tot_votes": 200038,
+      "votes_pct": 95.28
     },
     {
       "AC_NO": 242,
       "Constituency": "JHAJHA",
       "win_cand": "DAMODAR RAWAT",
       "win_party": "JDU",
-      "win_votes": 102909,
+      "win_votes": 105608,
       "sec_cand": "JAY PRAKASH NARAYAN YADAV",
       "sec_party": "RJD",
-      "sec_votes": 98830,
+      "sec_votes": 102781,
       "thi_cand": "MOHAMMAD IRFAN",
       "thi_party": "OTH",
-      "thi_votes": 8445,
-      "margin": 4079,
-      "tot_votes": 230640,
-      "votes_pct": 97.59
+      "thi_votes": 9329,
+      "margin": 2827,
+      "tot_votes": 239131,
+      "votes_pct": 100.0
     },
     {
       "AC_NO": 243,
       "Constituency": "CHAKAI",
       "win_cand": "SAVITRI DEVI",
       "win_party": "RJD",
-      "win_votes": 61417,
+      "win_votes": 64736,
       "sec_cand": "SUMIT KUMAR SINGH",
       "sec_party": "JDU",
-      "sec_votes": 53152,
+      "sec_votes": 54969,
       "thi_cand": "SANJAY PRASAD",
       "thi_party": "OTH",
-      "thi_votes": 34951,
-      "margin": 8265,
-      "tot_votes": 176035,
-      "votes_pct": 77.91
+      "thi_votes": 36597,
+      "margin": 9767,
+      "tot_votes": 183794,
+      "votes_pct": 81.34
     }
   ]
 }

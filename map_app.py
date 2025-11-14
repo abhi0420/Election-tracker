@@ -2428,6 +2428,41 @@ def index():
     </div>
     
     <script>
+        // Mobile layout fix: Move filters below map on mobile devices
+        function reorganizeLayoutForMobile() {{
+            const isMobile = window.innerWidth <= 768;
+            const bokehRow = document.querySelector('.bk-root .bk-layout-row');
+            
+            if (bokehRow && isMobile) {{
+                const children = Array.from(bokehRow.children);
+                if (children.length === 2) {{
+                    // Map is first child, selectors is second
+                    const map = children[0];
+                    const selectors = children[1];
+                    
+                    // Make it column layout
+                    bokehRow.style.flexDirection = 'column';
+                    bokehRow.style.display = 'flex';
+                    
+                    // Set full width for both
+                    map.style.width = '100%';
+                    map.style.maxWidth = '100%';
+                    selectors.style.width = '100%';
+                    selectors.style.maxWidth = '100%';
+                    
+                    // Move selectors before map
+                    bokehRow.insertBefore(selectors, map);
+                }}
+            }}
+        }}
+        
+        // Run on load and resize
+        window.addEventListener('DOMContentLoaded', reorganizeLayoutForMobile);
+        window.addEventListener('load', function() {{
+            setTimeout(reorganizeLayoutForMobile, 500); // Wait for Bokeh to fully render
+        }});
+        window.addEventListener('resize', reorganizeLayoutForMobile);
+        
         let currentFilter = null;
         
         // Alliance to parties mapping

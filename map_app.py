@@ -30,36 +30,36 @@ def auto_merge_election_data():
     Returns the merged GeoDataFrame or None if merge fails
     """
     try:
-        print("🔄 Auto-merging election data with shapefile...")
+        print("[AUTO-MERGE] Starting auto-merge of election data with shapefile...")
         
         # Check if election_results.csv exists
         if not os.path.exists('election_results.csv'):
-            print("⚠️ election_results.csv not found, skipping auto-merge")
+            print("[AUTO-MERGE] election_results.csv not found, skipping auto-merge")
             return None
         
         # Read shapefile (use clean version without results)
         clean_shapefile = 'ac/Bihar_AC_clean.shp'
         if not os.path.exists(clean_shapefile):
-            print(f"⚠️ {clean_shapefile} not found, using current shapefile")
+            print(f"[AUTO-MERGE] {clean_shapefile} not found, using current shapefile")
             clean_shapefile = SHAPEFILE_PATH
         
-        print(f"📂 Reading shapefile: {clean_shapefile}")
+        print(f"[AUTO-MERGE] Reading shapefile: {clean_shapefile}")
         gdf = gpd.read_file(clean_shapefile)
-        print(f"   Shapefile columns: {gdf.columns.tolist()}")
+        print(f"[AUTO-MERGE] Shapefile columns: {gdf.columns.tolist()}")
         
         # Read CSV
-        print("📂 Reading election_results.csv")
+        print("[AUTO-MERGE] Reading election_results.csv")
         df = pd.read_csv('election_results.csv')
-        print(f"   CSV columns: {df.columns.tolist()}")
-        print(f"   CSV rows: {len(df)}")
+        print(f"[AUTO-MERGE] CSV columns: {df.columns.tolist()}")
+        print(f"[AUTO-MERGE] CSV rows: {len(df)}")
         
         # Check if AC_NO exists in both
         if 'AC_NO' not in gdf.columns:
-            print("⚠️ AC_NO not found in shapefile")
+            print("[AUTO-MERGE] AC_NO not found in shapefile")
             return None
         
         if 'AC_NO' not in df.columns:
-            print("⚠️ AC_NO not found in CSV")
+            print("[AUTO-MERGE] AC_NO not found in CSV")
             return None
         
         # Ensure AC_NO is the same type in both
@@ -110,22 +110,22 @@ def auto_merge_election_data():
                 cols_to_keep.append(col)
         
         df_clean = df_clean[cols_to_keep]
-        print(f"   Columns to merge: {cols_to_keep}")
+        print(f"[AUTO-MERGE] Columns to merge: {cols_to_keep}")
         
         # Merge on AC_NO
-        print("🔗 Merging data...")
+        print("[AUTO-MERGE] Merging data...")
         gdf_merged = gdf.merge(df_clean, on='AC_NO', how='left')
         
         # Save merged shapefile
-        print(f"💾 Saving to {SHAPEFILE_PATH}")
+        print(f"[AUTO-MERGE] Saving to {SHAPEFILE_PATH}")
         gdf_merged.to_file(SHAPEFILE_PATH)
         
-        print(f"✓ Auto-merge complete! {gdf_merged['win_party'].notna().sum() if 'win_party' in gdf_merged.columns else 0} constituencies merged")
+        print(f"[AUTO-MERGE] Complete! {gdf_merged['win_party'].notna().sum() if 'win_party' in gdf_merged.columns else 0} constituencies merged")
         return gdf_merged
         
     except Exception as e:
         import traceback
-        print(f"⚠️ Auto-merge failed with error:")
+        print(f"[AUTO-MERGE] Failed with error:")
         traceback.print_exc()
         return None
 
@@ -135,17 +135,17 @@ def get_live_election_data():
         response = requests.get(LIVE_CSV_URL, timeout=10)
         response.raise_for_status()
         df = pd.read_csv(StringIO(response.text))
-        print(f"✓ Fetched live data: {len(df)} rows")
+        print(f"[LIVE DATA] Fetched live data: {len(df)} rows")
         return df
     except Exception as e:
-        print(f"⚠️ Failed to fetch live data from GitHub: {e}")
+        print(f"[LIVE DATA] Failed to fetch from GitHub: {e}")
         # Fallback to local CSV if available
         try:
             df = pd.read_csv("election_results.csv")
-            print(f"✓ Using local fallback data: {len(df)} rows")
+            print(f"[LIVE DATA] Using local fallback data: {len(df)} rows")
             return df
         except:
-            print("❌ No data available")
+            print("[LIVE DATA] No data available")
             return None
 
 def get_available_states():
@@ -270,7 +270,7 @@ def create_election_map(state_name):
                 state_gdf['AC_NO'] = range(1, len(state_gdf) + 1)
                 state_gdf = state_gdf.merge(live_data, on='AC_NO', how='left')
             
-            print(f"✓ Merged live data with shapefile")
+            print("[MERGE] Merged live data with shapefile")
         
         # Define individual parties with their colors
         individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RJD', 'INC', 'CPIM', 'JSP', 'OTH']
@@ -301,18 +301,18 @@ def create_election_map(state_name):
                           'tot_votes', 'votes_pct']
         
         if not all(col in state_gdf.columns for col in required_columns):
-            print("⚠️ Election data columns not found, attempting auto-merge...")
+            print("[AUTO-MERGE] Election data columns not found, attempting auto-merge...")
             merged_gdf = auto_merge_election_data()
             
             if merged_gdf is not None:
                 # Re-read the shapefile after merge
                 gdf = gpd.read_file(SHAPEFILE_PATH)
                 state_gdf = gdf[gdf['ST_NAME'].str.contains(state_name, case=False, na=False)].copy()
-                print("✓ Using auto-merged data")
+                print("[AUTO-MERGE] Using auto-merged data")
             else:
                 return None, "Error: Election data columns not found and auto-merge failed. Please ensure election_results.csv exists.", {}, {}, {}
         
-        print("✓ Using election data from shapefile")
+        print("[DATA] Using election data from shapefile")
         
         # Calculate derived fields using pandas (not stored in shapefile)
         # Ensure numeric columns are proper type first

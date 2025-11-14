@@ -102,6 +102,13 @@ def get_chrome_driver():
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-setuid-sandbox")
+    chrome_options.add_argument("--disable-crash-reporter")  # Prevent crash dumps
+    chrome_options.add_argument("--disable-extensions")
+    chrome_options.add_argument("--disable-in-process-stack-traces")
+    chrome_options.add_argument("--disable-logging")
+    chrome_options.add_argument("--disable-dev-tools")
+    chrome_options.add_argument("--log-level=3")  # Suppress logs
+    chrome_options.add_argument("--silent")
     chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36")
     
     # Use system Chrome (works on GitHub Actions)
@@ -109,49 +116,76 @@ def get_chrome_driver():
 
 def get_constituency_data(option_value, option_text, ac_no):
     driver = None
-    try:
-        logging.info(f"Processing constituency {ac_no}: {option_text}")
-        # Initialize WebDriver
-        driver = get_chrome_driver()
+    max_retries = 3
+    retry_count = 0
+    
+    while retry_count < max_retries:
+        try:
+            if retry_count > 0:
+                logging.info(f"Retry {retry_count}/{max_retries} for constituency {ac_no}: {option_text}")
+            else:
+                logging.info(f"Processing constituency {ac_no}: {option_text}")
+            
+            # Initialize WebDriver
+            driver = get_chrome_driver()
+            driver.set_page_load_timeout(30)  # 30 second page load timeout
 
-        # Construct the URL for the constituency (new format for November 2025)
-        constituency_url = f"https://results.eci.gov.in/ResultAcGenNov2025/candidateswise-{option_value}.htm"
-        driver.get(constituency_url)
+            # Construct the URL for the constituency (new format for November 2025)
+            constituency_url = f"https://results.eci.gov.in/ResultAcGenNov2025/candidateswise-{option_value}.htm"
+            driver.get(constituency_url)
 
-        # Wait for the "Constituency Wise Table View" link
-        table_view_link = WebDriverWait(driver, 8).until(
-            EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
-        )
-        table_view_link.click()
+            # Wait for the "Constituency Wise Table View" link (increased timeout)
+            table_view_link = WebDriverWait(driver, 15).until(
+                EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
+            )
+            table_view_link.click()
 
-        # Wait for the new page to load and locate the table
-        WebDriverWait(driver, 3).until(
-            EC.presence_of_element_located((By.XPATH, "//table"))
-        )
-        table = driver.find_element(By.XPATH, "//table")
+            # Wait for the new page to load and locate the table (increased timeout)
+            WebDriverWait(driver, 10).until(
+                EC.presence_of_element_located((By.XPATH, "//table"))
+            )
+            table = driver.find_element(By.XPATH, "//table")
 
-        # Extract header and rows
-        header = [th.text for th in table.find_elements(By.TAG_NAME, "th")]
-        rows = table.find_elements(By.TAG_NAME, "tr")
-        table_data = [
-            [td.text for td in row.find_elements(By.TAG_NAME, "td")]
-            for row in rows if row.find_elements(By.TAG_NAME, "td")
-        ]
-        
-        # IMPORTANT: Only return if we have data
-        if not table_data or len(table_data) == 0:
-            logging.warning(f"No table data found for {option_text}")
-            return ac_no, option_text, None, None
+            # Extract header and rows
+            header = [th.text for th in table.find_elements(By.TAG_NAME, "th")]
+            rows = table.find_elements(By.TAG_NAME, "tr")
+            table_data = [
+                [td.text for td in row.find_elements(By.TAG_NAME, "td")]
+                for row in rows if row.find_elements(By.TAG_NAME, "td")
+            ]
+            
+            # IMPORTANT: Only return if we have data
+            if not table_data or len(table_data) == 0:
+                logging.warning(f"No table data found for {option_text}")
+                if driver:
+                    driver.quit()
+                    driver = None
+                retry_count += 1
+                if retry_count >= max_retries:
+                    return ac_no, option_text, None, None
+                time.sleep(2)  # Wait before retry
+                continue
 
-        # Return the extracted data with AC number
-        return ac_no, option_text, header, table_data
+            # Success - return the extracted data with AC number
+            return ac_no, option_text, header, table_data
 
-    except Exception as e:
-        logging.error(f"Error processing constituency {option_text}: {e}")
-        return ac_no, option_text, None, None
-    finally:
-        if driver:
-            driver.quit()
+        except Exception as e:
+            logging.error(f"Error processing constituency {option_text}: {e}")
+            retry_count += 1
+            if retry_count >= max_retries:
+                logging.error(f"Failed after {max_retries} retries for {option_text}")
+                return ac_no, option_text, None, None
+            time.sleep(2)  # Wait before retry
+        finally:
+            if driver:
+                try:
+                    driver.quit()
+                except:
+                    pass
+                driver = None
+    
+    # If we get here, all retries failed
+    return ac_no, option_text, None, None
 
 
 def main():
@@ -204,9 +238,9 @@ def main():
         # Dictionary to store results
         results = {}
 
-        # Use ThreadPoolExecutor for concurrent scraping (MAXIMUM workers for speed)
-        # Each worker gets its own Chrome driver instance
-        with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
+        # Use ThreadPoolExecutor for concurrent scraping
+        # Reduced workers to prevent crashes and timeouts (8 workers for stability)
+        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
             futures = []
             for constituency in all_constituencies:
                 # New URL format: candidateswise-S04{number}.htm

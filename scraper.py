@@ -35,8 +35,10 @@ PARTY_NAME_MAP = {
     'BSP': 'OTH',
     'Samajwadi Party': 'OTH',
     'Aam Aadmi Party': 'OTH',
-    'All India Majlis-E-Ittehadul Muslimeen': 'OTH',
-    'AIMIM': 'OTH',
+    'All India Majlis-E-Ittehadul Muslimeen': 'AIMIM',
+    'AIMIM': 'AIMIM',
+    'Rashtriya Lok Morcha': 'RLM',
+    'RLM': 'RLM',
     'Independent': 'OTH',
     'IND': 'OTH',
     'None of the Above': 'OTH',
@@ -79,13 +81,11 @@ def normalize_party_name(party_name):
     elif 'JSP' in party_upper or 'JANSATTA' in party_upper:
         return 'OTH'  # Map JSP to OTH
     elif 'BSP' in party_upper or 'BAHUJAN SAMAJ' in party_upper:
-        return 'BSP'
+        return 'OTH'  # Map BSP to OTH
     elif 'SP' in party_upper or 'SAMAJWADI' in party_upper:
         return 'OTH'  # Map to OTH as not in our display list
     elif 'AAP' in party_upper or 'AAM AADMI' in party_upper:
         return 'OTH'  # Map to OTH as not in our display list
-    elif 'BSP' in party_upper or 'BAHUJAN SAMAJ' in party_upper:
-        return 'OTH'  # Map BSP to OTH
     elif 'INDEPENDENT' in party_upper or 'IND' == party_upper:
         return 'OTH'  # Map independents to OTH
     elif 'NOTA' in party_upper or 'NONE OF THE ABOVE' in party_upper:

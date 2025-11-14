@@ -2114,8 +2114,9 @@ def create_election_map(state_name):
         constituency_select.js_on_change('value', select_callback)
         
         # Combine plot, info panel, and dropdowns in layout
+        # Use column layout (filters on top, map below) for better mobile support
         selectors = column(info_div, color_mode_button, reset_button, filter_type_select, filter_value_select, constituency_select)
-        layout = row(p, selectors)
+        layout = column(selectors, p)
         
         return layout, summary, party_vote_shares, party_vote_totals, individual_summary
     

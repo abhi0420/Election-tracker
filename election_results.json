@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-14T17:24:48.215990Z",
+  "last_updated": "2025-11-14T17:43:13.655774Z",
   "total_seats": 243,
   "data": [
     {
@@ -391,15 +391,15 @@
       "Constituency": "PARIHAR",
       "win_cand": "GAYETRI DEVI",
       "win_party": "BJP",
-      "win_votes": 82396,
+      "win_votes": 82644,
       "sec_cand": "RITU JAISWAL",
       "sec_party": "OTH",
-      "sec_votes": 65411,
+      "sec_votes": 65455,
       "thi_cand": "SMITA GUPTA",
       "thi_party": "RJD",
-      "thi_votes": 48173,
-      "margin": 16985,
-      "tot_votes": 209297,
+      "thi_votes": 48534,
+      "margin": 17189,
+      "tot_votes": 209977,
       "votes_pct": 100.0
     },
     {

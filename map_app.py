@@ -2345,6 +2345,31 @@ def index():
             font-style: italic;
             opacity: 0.7;
         }}
+        
+        /* Mobile responsive: stack filters on top of map */
+        @media (max-width: 768px) {{
+            .bk-root .bk-layout-row {{
+                display: flex !important;
+                flex-direction: column-reverse !important;
+            }}
+            .bk-root .bk-layout-row > div {{
+                width: 100% !important;
+                max-width: 100% !important;
+            }}
+            header h1 {{
+                font-size: 1.8em;
+            }}
+            .subtitle {{
+                font-size: 0.95em;
+            }}
+            .info-panel {{
+                margin: 15px;
+                padding: 20px;
+            }}
+            .map-container {{
+                padding: 15px;
+            }}
+        }}
     </style>
 </head>
 <body>

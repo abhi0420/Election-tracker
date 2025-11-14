@@ -291,25 +291,26 @@ def create_election_map(state_name):
                 return None, "AC_NO column missing from shapefile", {}, {}, {}
         
         # Define individual parties with their colors
-        individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RJD', 'INC', 'CPIM', 'JSP', 'OTH', 'AWAITED']
+        individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RLM', 'RJD', 'INC', 'CPIM', 'AIMIM', 'OTH', 'AWAITED']
         individual_party_colors = {
             'BJP': '#FF9900',
             'JDU': '#190061',
             'LJP': '#FFF300',
             'HAM': '#4C007A',
+            'RLM': '#8B4789',  # Violet for Rashtriya Lok Morcha
             'RJD': '#006400',
             'INC': '#1471C7',
             'CPIM': '#FF0000',
-            'JSP': '#BA06C4',
+            'AIMIM': '#006400',  # Dark green for AIMIM
             'OTH': '#95A5A6',
             'AWAITED': '#CCCCCC'  # Gray for awaiting results
         }
         
         # Party to alliance mapping
         party_to_alliance = {
-            'BJP': 'NDA', 'JDU': 'NDA', 'LJP': 'NDA', 'HAM': 'NDA',
+            'BJP': 'NDA', 'JDU': 'NDA', 'LJP': 'NDA', 'HAM': 'NDA', 'RLM': 'NDA',
             'RJD': 'MGB', 'INC': 'MGB', 'CPIM': 'MGB',
-            'JSP': 'JSP',
+            'AIMIM': 'AIMIM',
             'OTH': 'OTH',
             'AWAITED': 'AWAITED'  # Special category
         }
@@ -411,7 +412,7 @@ def create_election_map(state_name):
         alliance_colors_map = {
             'NDA': '#FF9900',
             'MGB': '#1471C7',
-            'JSP': '#BA06C4',
+            'AIMIM': '#006400',  # Dark green
             'OTH': '#95A5A6',
             'AWAITED': '#CCCCCC'  # Gray for awaiting
         }
@@ -515,10 +516,11 @@ def create_election_map(state_name):
                     'JDU': '#190061',
                     'LJP': '#FFF300',
                     'HAM': '#4C007A',
+                    'RLM': '#8B4789',
                     'RJD': '#006400',
                     'INC': '#1471C7',
                     'CPIM': '#FF0000',
-                    'JSP': '#BA06C4',
+                    'AIMIM': '#006400',
                     'OTH': '#95A5A6',
                     'AWAITED': '#CCCCCC'
                 };
@@ -811,7 +813,7 @@ def create_election_map(state_name):
         individual_summary = {party: party_counts.get(party, 0) for party in individual_parties}
         
         # Aggregate to alliance level for display
-        alliance_list = ['NDA', 'MGB', 'JSP', 'OTH', 'AWAITED']
+        alliance_list = ['NDA', 'MGB', 'AIMIM', 'OTH', 'AWAITED']
         summary = {}
         for alliance in alliance_list:
             alliance_seats = 0
@@ -878,7 +880,7 @@ def create_election_map(state_name):
         alliance_colors_map = {
             'NDA': '#FF9900',
             'MGB': '#1471C7',
-            'JSP': '#BA06C4',
+            'AIMIM': '#006400',
             'OTH': '#95A5A6',
             'AWAITED': '#CCCCCC'
         }
@@ -2150,12 +2152,13 @@ def index():
             'NDA': {
                 'parties': ['NDA'],
                 'color': '#FF9900',
-                'description': 'BJP, JDU, LJP, HAM',
+                'description': 'BJP, JDU, LJP, HAM, RLM',
                 'breakdown': {
                     'BJP': {'seats': actual_party_seats['BJP'], 'color': '#FF9900'},
                     'JDU': {'seats': actual_party_seats['JDU'], 'color': '#190061'},
                     'LJP': {'seats': actual_party_seats['LJP'], 'color': '#FFF300'},
-                    'HAM': {'seats': actual_party_seats['HAM'], 'color': '#4C007A'}
+                    'HAM': {'seats': actual_party_seats['HAM'], 'color': '#4C007A'},
+                    'RLM': {'seats': actual_party_seats['RLM'], 'color': '#8B4789'}
                 }
             },
             'MGB': {
@@ -2168,12 +2171,12 @@ def index():
                     'CPIM': {'seats': actual_party_seats['CPIM'], 'color': '#FF0000'}
                 }
             },
-            'JSP': {
-                'parties': ['JSP'],
-                'color': '#BA06C4',
-                'description': 'Janta Dal (Socialist)',
+            'AIMIM': {
+                'parties': ['AIMIM'],
+                'color': '#006400',
+                'description': 'All India Majlis-E-Ittehadul Muslimeen',
                 'breakdown': {
-                    'JSP': {'seats': actual_party_seats['JSP'], 'color': '#BA06C4'}
+                    'AIMIM': {'seats': actual_party_seats['AIMIM'], 'color': '#006400'}
                 }
             },
             'Others': {

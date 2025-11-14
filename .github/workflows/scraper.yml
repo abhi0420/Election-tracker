@@ -51,4 +51,18 @@ jobs:
         git add -A
         timestamp=$(date -u)
         git commit -m "Update election data: ${timestamp}" || exit 0
-        git push
+        
+        # Retry push up to 3 times in case of conflicts
+        max_attempts=3
+        attempt=1
+        until git push
+        do
+          if [ $attempt -ge $max_attempts ]; then
+            echo "Failed to push after $max_attempts attempts"
+            exit 1
+          fi
+          echo "Push failed, pulling and retrying (attempt $attempt/$max_attempts)..."
+          git pull --rebase
+          attempt=$((attempt + 1))
+          sleep 2
+        done

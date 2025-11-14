@@ -64,6 +64,8 @@ def normalize_party_name(party_name):
         return 'LJP'
     elif 'HAM' in party_upper or 'HINDUSTANI AWAM' in party_upper:
         return 'HAM'
+    elif 'RLM' in party_upper or 'RASHTRIYA LOK MORCHA' in party_upper or 'RSHTLKM' in party_upper:
+        return 'RLM'
     elif 'RJD' in party_upper or 'RASHTRIYA JANATA' in party_upper:
         return 'RJD'
     elif 'INC' in party_upper or 'CONGRESS' in party_upper:
@@ -72,16 +74,16 @@ def normalize_party_name(party_name):
         return 'CPIM'
     elif 'CPI' in party_upper or 'COMMUNIST' in party_upper:
         return 'CPIM'  # Map all CPI variants to CPIM for our display
+    elif 'AIMIM' in party_upper or 'MAJLIS' in party_upper or 'ITTEHADUL' in party_upper:
+        return 'AIMIM'
     elif 'JSP' in party_upper or 'JANSATTA' in party_upper:
-        return 'JSP'
+        return 'OTH'  # Map JSP to OTH
     elif 'BSP' in party_upper or 'BAHUJAN SAMAJ' in party_upper:
         return 'BSP'
     elif 'SP' in party_upper or 'SAMAJWADI' in party_upper:
         return 'OTH'  # Map to OTH as not in our display list
     elif 'AAP' in party_upper or 'AAM AADMI' in party_upper:
         return 'OTH'  # Map to OTH as not in our display list
-    elif 'AIMIM' in party_upper or 'MAJLIS' in party_upper:
-        return 'OTH'  # Map AIMIM to OTH
     elif 'BSP' in party_upper or 'BAHUJAN SAMAJ' in party_upper:
         return 'OTH'  # Map BSP to OTH
     elif 'INDEPENDENT' in party_upper or 'IND' == party_upper:

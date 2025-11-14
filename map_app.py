@@ -268,8 +268,8 @@ def create_election_map(state_name):
         
         # If we have live data, merge it with shapefile (replace old data with live data)
         if live_data is not None:
-            # Drop old election columns from shapefile
-            election_columns = ['AC_NO', 'winning_party', 'winner_candidate', 'winner_votes',
+            # Drop old election columns from shapefile (but KEEP AC_NO for merging!)
+            election_columns = ['winning_party', 'winner_candidate', 'winner_votes',
                               'second_party', 'second_candidate', 'second_votes',
                               'third_party', 'third_candidate', 'third_votes',
                               'total_votes', 'votes_counted_percent',
@@ -282,16 +282,13 @@ def create_election_map(state_name):
                 if col in state_gdf.columns:
                     state_gdf = state_gdf.drop(columns=[col])
             
-            # Merge with live data based on AC_NO
-            # Assuming shapefile has AC_NO or we can match by name
+            # Merge with live data based on AC_NO (AC_NO must exist in shapefile!)
             if 'AC_NO' in state_gdf.columns:
                 state_gdf = state_gdf.merge(live_data, on='AC_NO', how='left')
+                print("[MERGE] Merged live data with shapefile on AC_NO")
             else:
-                # Create AC_NO from index if needed
-                state_gdf['AC_NO'] = range(1, len(state_gdf) + 1)
-                state_gdf = state_gdf.merge(live_data, on='AC_NO', how='left')
-            
-            print("[MERGE] Merged live data with shapefile")
+                print("[ERROR] AC_NO not found in shapefile - cannot merge!")
+                return None, "AC_NO column missing from shapefile", {}, {}, {}
         
         # Define individual parties with their colors
         individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RJD', 'INC', 'CPIM', 'JSP', 'OTH', 'AWAITED']
@@ -461,17 +458,35 @@ def create_election_map(state_name):
         tap = TapTool()
         p.add_tools(tap)
         
-        # Create click callback to show popup
+        # Create click callback to show popup  
         callback = CustomJS(args=dict(source=geosource), code="""
             const indices = source.selected.indices;
             
             // Check if this is a single-click (for popup) vs multi-select (for filtering)
             if (indices.length === 1) {
-                const idx = indices[0];
+                const clicked_idx = indices[0];
                 const data = source.data;
                 
+                // Get the AC_NO from the clicked polygon
+                const clicked_ac_no = data['AC_NO'][clicked_idx];
+                
+                // CRITICAL FIX: Find the index where AC_NO matches (data might not be in AC_NO order)
+                const ac_no_array = data['AC_NO'];
+                let idx = clicked_idx;  // default to clicked index
+                
+                // Search for matching AC_NO in the data
+                for (let i = 0; i < ac_no_array.length; i++) {
+                    if (ac_no_array[i] === clicked_ac_no) {
+                        idx = i;
+                        break;
+                    }
+                }
+                
+                const ac_no = data['AC_NO'][idx];
                 const constituency = data['AC_NAME'][idx];
                 const district = data['DIST_NAME'][idx];
+                
+                console.log('DEBUG: Clicked idx=' + clicked_idx + ', Clicked AC_NO=' + clicked_ac_no + ', Found idx=' + idx + ', Data AC_NO=' + ac_no);
                 
                 const winner_party = data['winning_party'][idx];
                 const winner_candidate = data['winner_candidate'][idx];
@@ -567,7 +582,7 @@ def create_election_map(state_name):
                                 " onmouseover="this.style.background='rgba(255,255,255,0.3)'" 
                                    onmouseout="this.style.background='rgba(255,255,255,0.2)'">×</button>
                                 <h2 style="margin: 0; font-size: 24px;">${constituency}</h2>
-                                <p style="margin: 5px 0 0 0; opacity: 0.9;">District: ${district}</p>
+                                <p style="margin: 5px 0 0 0; opacity: 0.9;">District: ${district} | AC_NO: ${ac_no} | IDX: ${idx}</p>
                             </div>
                             
                             <!-- Content -->

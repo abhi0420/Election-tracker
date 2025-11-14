@@ -1,3 +1,4 @@
+import concurrent.futures
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -26,148 +27,268 @@ def get_chrome_driver():
     chrome_options.add_argument("--disable-setuid-sandbox")
     chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36")
     
+    # Use system Chrome (works on GitHub Actions)
     return webdriver.Chrome(options=chrome_options)
 
-def extract_candidate_info(text):
-    """Extract candidate name and party from text like 'SHRI RAMCHANDRA PASWAN\n(JDU)'"""
-    if not text or '\n' not in text:
-        return '', ''
-    parts = text.split('\n')
-    candidate = parts[0].strip()
-    party = parts[1].strip('()') if len(parts) > 1 else ''
-    return candidate, party
+def get_constituency_data(option_value, option_text, ac_no):
+    driver = None
+    try:
+        logging.info(f"Processing constituency {ac_no}: {option_text}")
+        # Initialize WebDriver
+        driver = get_chrome_driver()
 
-def clean_votes(text):
-    """Convert vote text to integer, handling commas and zeros"""
-    if not text or text == '-':
-        return 0
-    # Remove commas and convert to int
-    return int(text.replace(',', ''))
+        # Construct the URL for the constituency (new format for November 2025)
+        constituency_url = f"https://results.eci.gov.in/ResultAcGenNov2025/candidateswise-{option_value}.htm"
+        driver.get(constituency_url)
+
+        # Wait for the "Constituency Wise Table View" link
+        table_view_link = WebDriverWait(driver, 8).until(
+            EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
+        )
+        table_view_link.click()
+
+        # Wait for the new page to load and locate the table
+        WebDriverWait(driver, 3).until(
+            EC.presence_of_element_located((By.XPATH, "//table"))
+        )
+        table = driver.find_element(By.XPATH, "//table")
+
+        # Extract header and rows
+        header = [th.text for th in table.find_elements(By.TAG_NAME, "th")]
+        rows = table.find_elements(By.TAG_NAME, "tr")
+        table_data = [
+            [td.text for td in row.find_elements(By.TAG_NAME, "td")]
+            for row in rows if row.find_elements(By.TAG_NAME, "td")
+        ]
+        
+        # IMPORTANT: Only return if we have data
+        if not table_data or len(table_data) == 0:
+            logging.warning(f"No table data found for {option_text}")
+            return ac_no, option_text, None, None
+
+        # Return the extracted data with AC number
+        return ac_no, option_text, header, table_data
+
+    except Exception as e:
+        logging.error(f"Error processing constituency {option_text}: {e}")
+        return ac_no, option_text, None, None
+    finally:
+        if driver:
+            driver.quit()
+
 
 def main():
     start = time.time()
-    logging.info("Starting FAST election data scraper...")
-    logging.info("Scraping summary tables directly from all 13 pages...")
+    logging.info("Starting election data scraper...")
 
+    # Set up initial WebDriver to get constituency list from table
     driver = get_chrome_driver()
-    all_results = []
     
     try:
-        # Scrape all 13 pages of constituency summary tables
-        for page_num in range(1, 14):
-            url = f"https://results.eci.gov.in/ResultAcGenNov2025/statewiseS04{page_num}.htm"
+        # New URL for November 2025 elections
+        driver.get("https://results.eci.gov.in/ResultAcGenNov2025/statewiseS041.htm")
+        
+        # Wait for table to load
+        WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.TAG_NAME, "table"))
+        )
+        
+        # Get all constituency rows from all pages (there are 13 pages total)
+        all_constituencies = []
+        
+        for page_num in range(1, 14):  # Pages 1-13
+            if page_num == 1:
+                url = "https://results.eci.gov.in/ResultAcGenNov2025/statewiseS041.htm"
+            else:
+                url = f"https://results.eci.gov.in/ResultAcGenNov2025/statewiseS04{page_num}.htm"
             
-            logging.info(f"Fetching page {page_num}/13: {url}")
+            logging.info(f"Fetching constituency list from page {page_num}/13...")
             driver.get(url)
+            time.sleep(1)
             
-            # Wait for table
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.TAG_NAME, "table"))
-            )
-            
-            # Find the main table with all constituencies
+            # Find all table rows
             table = driver.find_element(By.TAG_NAME, "table")
             rows = table.find_elements(By.TAG_NAME, "tr")
             
-            # Process each row (skip header)
-            for row in rows[1:]:  # Skip header row
+            for row in rows:
                 cells = row.find_elements(By.TAG_NAME, "td")
-                
-                # Check if this is a valid data row
-                if len(cells) >= 6:
-                    try:
-                        # Extract data from cells
-                        constituency_name = cells[0].text.strip()
-                        ac_no = cells[1].text.strip()
-                        
-                        # Leading candidate (column 2)
-                        leading_text = cells[2].text.strip()
-                        leading_cand, leading_party = extract_candidate_info(leading_text)
-                        
-                        # Leading votes (column 3)
-                        leading_votes = clean_votes(cells[3].text.strip())
-                        
-                        # Trailing candidate (column 4)
-                        trailing_text = cells[4].text.strip()
-                        trailing_cand, trailing_party = extract_candidate_info(trailing_text)
-                        
-                        # Trailing votes (column 5)
-                        trailing_votes = clean_votes(cells[5].text.strip())
-                        
-                        # Calculate margin
-                        margin = leading_votes - trailing_votes
-                        
-                        # Only add if we have valid data
-                        if constituency_name and ac_no.isdigit():
-                            all_results.append({
-                                'AC_NO': int(ac_no),
-                                'Constituency': constituency_name,
-                                'win_cand': leading_cand,
-                                'win_party': leading_party,
-                                'win_votes': leading_votes,
-                                'sec_cand': trailing_cand,
-                                'sec_party': trailing_party,
-                                'sec_votes': trailing_votes,
-                                'margin': margin
-                            })
-                            
-                    except Exception as e:
-                        logging.warning(f"Error processing row: {e}")
-                        continue
+                if len(cells) >= 2:  # Has constituency name and number
+                    constituency_name = cells[0].text.strip()
+                    constituency_num = cells[1].text.strip()
+                    
+                    if constituency_name and constituency_num and constituency_num.isdigit():
+                        all_constituencies.append({
+                            "name": constituency_name,
+                            "number": constituency_num
+                        })
+        
+        logging.info(f"Found {len(all_constituencies)} constituencies to process")
+        
+        # TESTING: Only scrape first 25 constituencies for faster testing
+        all_constituencies = all_constituencies[:25]
+        logging.info(f"[TEST MODE] Limiting to first {len(all_constituencies)} constituencies")
+
+        # Dictionary to store results
+        results = {}
+
+        # Use ThreadPoolExecutor for concurrent scraping (MAXIMUM workers for speed)
+        # Each worker gets its own Chrome driver instance
+        with concurrent.futures.ThreadPoolExecutor(max_workers=16) as executor:
+            futures = []
+            for constituency in all_constituencies:
+                # New URL format: candidateswise-S04{number}.htm
+                constituency_value = f"S04{constituency['number']}"
+                futures.append(executor.submit(
+                    get_constituency_data, 
+                    constituency_value, 
+                    constituency['name'],
+                    int(constituency['number'])
+                ))
+
+            # Collect the results
+            for future in concurrent.futures.as_completed(futures):
+                ac_no, option_text, header, data = future.result()
+                if header and data:
+                    results[ac_no] = {
+                        "name": option_text,
+                        "header": header,
+                        "data": data,
+                    }
+                    logging.info(f"✓ Data successfully retrieved for AC {ac_no}: {option_text}")
+
+        # Convert results to election_results.csv format (for map)
+        election_data = []
+        for ac_no in sorted(results.keys()):
+            result = results[ac_no]
             
-            logging.info(f"✓ Extracted {len([r for r in all_results if r])} constituencies so far")
+            try:
+                # Get table data rows
+                table_rows = result["data"]
+                if not table_rows or len(table_rows) == 0:
+                    continue
+                
+                # Determine the number of columns from first row
+                num_cols = len(table_rows[0])
+                
+                # Create appropriate column names based on number of columns
+                if num_cols >= 7:
+                    # Standard format: SNo, Candidate, Party, EVM Votes, Postal Votes, Total Votes, % of Votes
+                    col_names = ['SNo', 'Candidate', 'Party', 'EVM Votes', 'Postal Votes', 'Total Votes', '% of Votes'][:num_cols]
+                else:
+                    # Fallback: generic column names
+                    col_names = [f'Col{i}' for i in range(num_cols)]
+                
+                # Create DataFrame
+                df = pd.DataFrame(table_rows, columns=col_names)
+                
+                # Find the columns we need
+                candidate_col = 'Candidate' if 'Candidate' in df.columns else None
+                party_col = 'Party' if 'Party' in df.columns else None
+                votes_col = 'Total Votes' if 'Total Votes' in df.columns else None
+                
+                # Skip if we don't have required columns
+                if not all([candidate_col, party_col, votes_col]):
+                    logging.warning(f"Skipping AC {ac_no}: Missing required columns. Columns: {df.columns.tolist()}")
+                    continue
+                
+                # Clean votes column
+                df[votes_col] = df[votes_col].apply(lambda x: int(str(x).replace(',', '')) if x and str(x).strip() and str(x) != '-' else 0)
+                
+                # Sort by total votes
+                df = df.sort_values(by=votes_col, ascending=False)
+                
+                # Get top 3 candidates
+                if len(df) >= 3:
+                    win_cand = df[candidate_col].iloc[0]
+                    win_party = df[party_col].iloc[0]
+                    win_votes = df[votes_col].iloc[0]
+                    
+                    sec_cand = df[candidate_col].iloc[1]
+                    sec_party = df[party_col].iloc[1]
+                    sec_votes = df[votes_col].iloc[1]
+                    
+                    thi_cand = df[candidate_col].iloc[2]
+                    thi_party = df[party_col].iloc[2]
+                    thi_votes = df[votes_col].iloc[2]
+                    
+                    margin = win_votes - sec_votes
+                    total_votes = df[votes_col].sum()
+                    
+                    election_data.append({
+                        'AC_NO': ac_no,
+                        'Constituency': result['name'],
+                        'win_cand': win_cand,
+                        'win_party': win_party,
+                        'win_votes': win_votes,
+                        'sec_cand': sec_cand,
+                        'sec_party': sec_party,
+                        'sec_votes': sec_votes,
+                        'thi_cand': thi_cand,
+                        'thi_party': thi_party,
+                        'thi_votes': thi_votes,
+                        'margin': margin,
+                        'tot_votes': total_votes
+                    })
+                else:
+                    logging.warning(f"Skipping AC {ac_no}: Less than 3 candidates")
+                    
+            except Exception as e:
+                logging.warning(f"Error processing data for AC {ac_no}: {e}")
+                continue
+
+        # Save to election_results.csv
+        if len(election_data) > 0:
+            election_df = pd.DataFrame(election_data)
+            election_df = election_df.sort_values('AC_NO').reset_index(drop=True)
+            election_df.to_csv("election_results.csv", index=False)
+            logging.info(f"✓ CSV saved: election_results.csv ({len(election_df)} constituencies)")
+        else:
+            logging.error("No election data collected! Check if constituencies have data available.")
+            # Create empty file
+            pd.DataFrame(columns=['AC_NO', 'Constituency', 'win_cand', 'win_party', 'win_votes', 
+                                  'sec_cand', 'sec_party', 'sec_votes', 'thi_cand', 'thi_party', 
+                                  'thi_votes', 'margin', 'tot_votes']).to_csv("election_results.csv", index=False)
+            election_df = pd.DataFrame()
         
-        # Create DataFrame
-        df = pd.DataFrame(all_results)
-        
-        # Sort by AC_NO
-        df = df.sort_values('AC_NO').reset_index(drop=True)
-        
-        # Save to CSV - format for election_results.csv (matches our map)
-        output_df = df[['AC_NO', 'Constituency', 'win_cand', 'win_party', 'win_votes', 
-                        'sec_cand', 'sec_party', 'sec_votes', 'margin']]
-        
-        output_df.to_csv("election_results.csv", index=False)
-        logging.info(f"✓ CSV saved: election_results.csv ({len(df)} constituencies)")
-        
-        # Also create the old format for backward compatibility
-        seat_df = pd.DataFrame({
-            'Seat': df['Constituency'],
-            'Leading': df['win_party'],
-            'Trailing': df['sec_party'],
-            '3rd Place': '',  # Not available in summary
-            '1': df['win_votes'],
-            '2': df['sec_votes'],
-            '3': 0,  # Not available in summary
-            'Rest': 0  # Not available in summary
-        })
-        seat_df.to_csv("seat.csv", index=False)
-        logging.info(f"✓ Legacy CSV saved: seat.csv")
-        
-        # Save JSON with metadata
-        timestamp = datetime.utcnow().isoformat() + 'Z'
-        json_data = {
-            "last_updated": timestamp,
-            "total_seats": len(df),
-            "data": df.to_dict(orient='records')
-        }
-        
-        with open("election_results.json", "w") as f:
-            json.dump(json_data, f, indent=2)
-        logging.info("✓ JSON saved: election_results.json")
+        # Also create legacy seat.csv format
+        if len(election_df) > 0:
+            seat_df = pd.DataFrame({
+                'Seat': election_df['Constituency'],
+                'Leading': election_df['win_party'],
+                'Trailing': election_df['sec_party'],
+                '3rd Place': election_df['thi_party'],
+                '1': election_df['win_votes'],
+                '2': election_df['sec_votes'],
+                '3': election_df['thi_votes'],
+                'Rest': election_df['tot_votes'] - election_df['win_votes'] - election_df['sec_votes'] - election_df['thi_votes']
+            })
+            seat_df.to_csv("seat.csv", index=False)
+            logging.info("✓ Legacy CSV saved: seat.csv")
+            
+            # Save JSON with metadata
+            timestamp = datetime.utcnow().isoformat() + 'Z'
+            json_data = {
+                "last_updated": timestamp,
+                "total_seats": len(election_df),
+                "data": election_df.to_dict(orient='records')
+            }
+            
+            with open("election_results.json", "w") as f:
+                json.dump(json_data, f, indent=2)
+            logging.info("✓ JSON saved: election_results.json")
         
         # Print summary
         end = time.time()
-        logging.info(f"✓ FAST scraping completed in {end - start:.2f} seconds!")
-        logging.info(f"✓ Total constituencies: {len(df)}/243")
+        logging.info(f"✓ Scraping completed in {end - start:.2f} seconds")
+        logging.info(f"✓ Total constituencies processed: {len(results)}/{len(all_constituencies)}")
         
-        # Show sample data
-        if len(df) > 0:
+        # Show sample
+        if len(election_df) > 0:
             logging.info("\nSample results:")
-            logging.info(df.head(3).to_string())
+            logging.info(election_df.head(3)[['AC_NO', 'Constituency', 'win_party', 'win_votes', 'sec_party', 'sec_votes', 'margin']].to_string())
         
     except Exception as e:
-        logging.error(f"Fatal error: {e}")
+        logging.error(f"Fatal error in main: {e}")
         raise
     finally:
         driver.quit()

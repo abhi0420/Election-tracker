@@ -116,6 +116,20 @@ def auto_merge_election_data():
         print("[AUTO-MERGE] Merging data...")
         gdf_merged = gdf.merge(df_clean, on='AC_NO', how='left')
         
+        # Fill missing data with "Awaiting Results"
+        print("[AUTO-MERGE] Filling missing constituencies with 'Awaiting Results'...")
+        gdf_merged['win_party'] = gdf_merged['win_party'].fillna('AWAITED')
+        gdf_merged['win_cand'] = gdf_merged['win_cand'].fillna('Awaiting Results')
+        gdf_merged['win_votes'] = gdf_merged['win_votes'].fillna(0).astype(int)
+        gdf_merged['sec_party'] = gdf_merged['sec_party'].fillna('AWAITED')
+        gdf_merged['sec_cand'] = gdf_merged['sec_cand'].fillna('Awaiting Results')
+        gdf_merged['sec_votes'] = gdf_merged['sec_votes'].fillna(0).astype(int)
+        gdf_merged['thi_party'] = gdf_merged['thi_party'].fillna('AWAITED')
+        gdf_merged['thi_cand'] = gdf_merged['thi_cand'].fillna('Awaiting Results')
+        gdf_merged['thi_votes'] = gdf_merged['thi_votes'].fillna(0).astype(int)
+        gdf_merged['tot_votes'] = gdf_merged['tot_votes'].fillna(0).astype(int)
+        gdf_merged['votes_pct'] = gdf_merged['votes_pct'].fillna(0).astype(int)
+        
         # Save merged shapefile
         print(f"[AUTO-MERGE] Saving to {SHAPEFILE_PATH}")
         gdf_merged.to_file(SHAPEFILE_PATH)
@@ -273,7 +287,7 @@ def create_election_map(state_name):
             print("[MERGE] Merged live data with shapefile")
         
         # Define individual parties with their colors
-        individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RJD', 'INC', 'CPIM', 'JSP', 'OTH']
+        individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RJD', 'INC', 'CPIM', 'JSP', 'OTH', 'AWAITED']
         individual_party_colors = {
             'BJP': '#FF9900',
             'JDU': '#190061',
@@ -283,7 +297,8 @@ def create_election_map(state_name):
             'INC': '#1471C7',
             'CPIM': '#FF0000',
             'JSP': '#BA06C4',
-            'OTH': '#95A5A6'
+            'OTH': '#95A5A6',
+            'AWAITED': '#CCCCCC'  # Gray for awaiting results
         }
         
         # Party to alliance mapping
@@ -291,7 +306,8 @@ def create_election_map(state_name):
             'BJP': 'NDA', 'JDU': 'NDA', 'LJP': 'NDA', 'HAM': 'NDA',
             'RJD': 'MGB', 'INC': 'MGB', 'CPIM': 'MGB',
             'JSP': 'JSP',
-            'OTH': 'OTH'
+            'OTH': 'OTH',
+            'AWAITED': 'AWAITED'  # Special category
         }
         
         # Check if election data columns exist in shapefile (clean column names from merge_data.py)
@@ -388,7 +404,8 @@ def create_election_map(state_name):
             'NDA': '#FF9900',
             'MGB': '#1471C7',
             'JSP': '#BA06C4',
-            'OTH': '#95A5A6'
+            'OTH': '#95A5A6',
+            'AWAITED': '#CCCCCC'  # Gray for awaiting
         }
         state_gdf['alliance'] = state_gdf['winning_party'].map(party_to_alliance)
         state_gdf['alliance_color'] = state_gdf['alliance'].map(alliance_colors_map)
@@ -463,6 +480,9 @@ def create_election_map(state_name):
                 const votes_counted = data['votes_counted_percent'][idx];
                 const total_votes = data['total_votes'][idx];
                 
+                // Check if results are awaited
+                const isAwaited = winner_party === 'AWAITED' || winner_candidate === 'Awaiting Results';
+                
                 // Color mapping
                 const colors = {
                     'BJP': '#FF9900',
@@ -473,7 +493,8 @@ def create_election_map(state_name):
                     'INC': '#1471C7',
                     'CPIM': '#FF0000',
                     'JSP': '#BA06C4',
-                    'OTH': '#95A5A6'
+                    'OTH': '#95A5A6',
+                    'AWAITED': '#CCCCCC'
                 };
                 
                 // Remove existing modal if any
@@ -510,7 +531,7 @@ def create_election_map(state_name):
                         ">
                             <!-- Header -->
                             <div style="
-                                background: ${colors[winner_party]};
+                                background: ${isAwaited ? '#CCCCCC' : colors[winner_party]};
                                 color: white;
                                 padding: 25px;
                                 border-radius: 15px 15px 0 0;
@@ -540,30 +561,56 @@ def create_election_map(state_name):
                             
                             <!-- Content -->
                             <div style="padding: 25px;">
-                                <!-- Vote Counting Progress -->
-                                <div style="margin-bottom: 20px;">
-                                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
-                                        <span style="color: #666; font-size: 14px; font-weight: 600;">Votes Counted</span>
-                                        <span style="color: #28a745; font-size: 16px; font-weight: bold;">${votes_counted}%</span>
-                                    </div>
+                                ${isAwaited ? `
+                                    <!-- Awaiting Results Message -->
                                     <div style="
-                                        width: 100%;
-                                        height: 8px;
-                                        background: #e0e0e0;
+                                        text-align: center;
+                                        padding: 40px 20px;
+                                        background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
                                         border-radius: 10px;
-                                        overflow: hidden;
+                                        margin: 20px 0;
                                     ">
                                         <div style="
-                                            width: ${votes_counted}%;
-                                            height: 100%;
-                                            background: linear-gradient(90deg, #28a745, #20c997);
-                                            border-radius: 10px;
-                                            transition: width 0.3s ease;
-                                        "></div>
+                                            font-size: 48px;
+                                            margin-bottom: 15px;
+                                        ">⏳</div>
+                                        <h3 style="
+                                            color: #666;
+                                            font-size: 20px;
+                                            margin: 0 0 10px 0;
+                                            font-weight: 600;
+                                        ">Awaiting Results</h3>
+                                        <p style="
+                                            color: #888;
+                                            font-size: 14px;
+                                            margin: 0;
+                                        ">Counting has not started for this constituency yet</p>
                                     </div>
-                                </div>
-                                
-                                <!-- 1st Place -->
+                                ` : `
+                                    <!-- Vote Counting Progress -->
+                                    <div style="margin-bottom: 20px;">
+                                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                                            <span style="color: #666; font-size: 14px; font-weight: 600;">Votes Counted</span>
+                                            <span style="color: #28a745; font-size: 16px; font-weight: bold;">${votes_counted}%</span>
+                                        </div>
+                                        <div style="
+                                            width: 100%;
+                                            height: 8px;
+                                            background: #e0e0e0;
+                                            border-radius: 10px;
+                                            overflow: hidden;
+                                        ">
+                                            <div style="
+                                                width: ${votes_counted}%;
+                                                height: 100%;
+                                                background: linear-gradient(90deg, #28a745, #20c997);
+                                                border-radius: 10px;
+                                                transition: width 0.3s ease;
+                                            "></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <!-- 1st Place -->
                                 <div style="
                                     margin-bottom: 12px;
                                     padding: 15px;
@@ -638,6 +685,7 @@ def create_election_map(state_name):
                                         <div style="font-size: 16px; font-weight: bold; color: ${colors[third_party]};">${third_percent}%</div>
                                     </div>
                                 </div>
+                                `}
                             </div>
                         </div>
                     </div>
@@ -687,7 +735,7 @@ def create_election_map(state_name):
         individual_summary = {party: party_counts.get(party, 0) for party in individual_parties}
         
         # Aggregate to alliance level for display
-        alliance_list = ['NDA', 'MGB', 'JSP', 'OTH']
+        alliance_list = ['NDA', 'MGB', 'JSP', 'OTH', 'AWAITED']
         summary = {}
         for alliance in alliance_list:
             alliance_seats = 0

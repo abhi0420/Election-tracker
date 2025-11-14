@@ -37,8 +37,8 @@ def get_constituency_data(option_value, option_text):
         # Initialize WebDriver
         driver = get_chrome_driver()
 
-        # Construct the URL for the constituency
-        constituency_url = f"https://results.eci.gov.in/AcResultGenOct2024/candidateswise-{option_value}.htm"
+        # Construct the URL for the constituency (new format for November 2025)
+        constituency_url = f"https://results.eci.gov.in/ResultAcGenNov2025/candidateswise-{option_value}.htm"
         driver.get(constituency_url)
 
         # Wait for the "Constituency Wise Table View" link
@@ -80,23 +80,48 @@ def main():
     start = time.time()
     logging.info("Starting election data scraper...")
 
-    # Set up initial WebDriver to get dropdown options
+    # Set up initial WebDriver to get constituency list from table
     driver = get_chrome_driver()
     
     try:
-        driver.get("https://results.eci.gov.in/AcResultGenOct2024/partywiseresult-S07.htm")
-
-        # Locate dropdown and fetch options
-        dropdown = WebDriverWait(driver, 3).until(
-            EC.presence_of_element_located((By.ID, "ctl00_ContentPlaceHolder1_Result1_ddlState"))
-        )
-        options = dropdown.find_elements(By.TAG_NAME, "option")
-        option_data = [
-            {"value": option.get_attribute("value"), "text": option.text}
-            for option in options[1:]
-        ]
+        # New URL for November 2025 elections
+        driver.get("https://results.eci.gov.in/ResultAcGenNov2025/statewiseS041.htm")
         
-        logging.info(f"Found {len(option_data)} constituencies to process")
+        # Wait for table to load
+        WebDriverWait(driver, 5).until(
+            EC.presence_of_element_located((By.TAG_NAME, "table"))
+        )
+        
+        # Get all constituency rows from all pages (there are 13 pages total)
+        all_constituencies = []
+        
+        for page_num in range(1, 14):  # Pages 1-13
+            if page_num == 1:
+                url = "https://results.eci.gov.in/ResultAcGenNov2025/statewiseS041.htm"
+            else:
+                url = f"https://results.eci.gov.in/ResultAcGenNov2025/statewiseS04{page_num}.htm"
+            
+            logging.info(f"Fetching page {page_num}/13...")
+            driver.get(url)
+            time.sleep(1)
+            
+            # Find all table rows
+            table = driver.find_element(By.TAG_NAME, "table")
+            rows = table.find_elements(By.TAG_NAME, "tr")
+            
+            for row in rows:
+                cells = row.find_elements(By.TAG_NAME, "td")
+                if len(cells) >= 2:  # Has constituency name and number
+                    constituency_name = cells[0].text.strip()
+                    constituency_num = cells[1].text.strip()
+                    
+                    if constituency_name and constituency_num and constituency_num.isdigit():
+                        all_constituencies.append({
+                            "name": constituency_name,
+                            "number": constituency_num
+                        })
+        
+        logging.info(f"Found {len(all_constituencies)} constituencies to process")
 
         # Dictionary to store results
         results = {}
@@ -104,8 +129,14 @@ def main():
         # Use ThreadPoolExecutor for concurrent scraping
         with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
             futures = []
-            for constituency in option_data:
-                futures.append(executor.submit(get_constituency_data, constituency["value"], constituency["text"]))
+            for constituency in all_constituencies:
+                # New URL format: candidateswise-S04{number}.htm
+                constituency_value = f"S04{constituency['number']}"
+                futures.append(executor.submit(
+                    get_constituency_data, 
+                    constituency_value, 
+                    constituency['name']
+                ))
 
             # Collect the results
             for future in concurrent.futures.as_completed(futures):
@@ -148,7 +179,7 @@ def main():
         # Print summary
         end = time.time()
         logging.info(f"✓ Scraping completed in {end - start:.2f} seconds")
-        logging.info(f"✓ Total constituencies processed: {len(results)}/{len(option_data)}")
+        logging.info(f"✓ Total constituencies processed: {len(results)}/{len(all_constituencies)}")
         
     except Exception as e:
         logging.error(f"Fatal error in main: {e}")

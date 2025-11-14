@@ -201,10 +201,6 @@ def main():
         
         logging.info(f"Found {len(all_constituencies)} constituencies to process")
         
-        # TESTING: Only scrape first 25 constituencies for faster testing
-        all_constituencies = all_constituencies[:25]
-        logging.info(f"[TEST MODE] Limiting to first {len(all_constituencies)} constituencies")
-
         # Dictionary to store results
         results = {}
 

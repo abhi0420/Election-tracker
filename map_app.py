@@ -385,7 +385,7 @@ def create_election_map(state_name):
         
         # Create plot
         p = figure(
-            title=f"{state_name} - Election Results (Sample Data)",
+            title=f"{state_name} - Live Election Results 2025",
             width=900,
             height=700,
             tools="pan,wheel_zoom,box_zoom,reset",
@@ -2326,8 +2326,8 @@ def index():
 <body>
     <div class="container">
         <header>
-            <h1>🗺️ Bihar Election Results</h1>
-            <p class="subtitle">Interactive Constituency Map with Sample Data</p>
+            <h1>🗺️ Bihar Election Results 2025</h1>
+            <p class="subtitle">Live Interactive Constituency Map - Updated Every 5 Minutes</p>
         </header>
 
         <div class="info-panel">

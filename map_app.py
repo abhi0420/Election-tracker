@@ -148,7 +148,12 @@ def auto_merge_election_data():
 def get_live_election_data():
     """Fetch latest election results CSV from GitHub"""
     try:
-        response = requests.get(LIVE_CSV_URL, timeout=10)
+        # Add headers to mimic browser request
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+        }
+        response = requests.get(LIVE_CSV_URL, headers=headers, timeout=10)
         response.raise_for_status()
         df = pd.read_csv(StringIO(response.text))
         print(f"[LIVE DATA] Fetched live data: {len(df)} rows")

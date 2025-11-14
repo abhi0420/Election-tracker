@@ -2,9 +2,14 @@ name: Election Data Scraper
 
 on:
   schedule:
-    # Runs every 10 minutes
-    - cron: '*/10 * * * *'
+    # Runs every 5 minutes (safe buffer - job takes ~5 mins, won't overlap)
+    - cron: '*/5 * * * *'
   workflow_dispatch: # Allows manual trigger from GitHub Actions tab
+  
+  # Prevent concurrent runs to avoid git conflicts
+concurrency:
+  group: election-scraper
+  cancel-in-progress: false  # Wait for current job to finish
   
 permissions:
   contents: write  # Required for private repos to commit

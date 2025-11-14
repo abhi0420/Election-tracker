@@ -365,9 +365,11 @@ def main():
                 # Calculate votes counted percentage
                 # tot_votes = votes counted so far
                 # total_votes_cast = total votes cast (from electors file)
+                # Cap at 100% since total_votes_cast is an estimation
                 election_df['votes_pct'] = (
                     (election_df['tot_votes'] / election_df['total_votes_cast'] * 100)
                     .fillna(0)
+                    .clip(upper=100)  # Cap at 100%
                     .round(2)
                 )
                 

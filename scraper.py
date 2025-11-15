@@ -24,6 +24,8 @@ PARTY_NAME_MAP = {
     'Hindustani Awam Morcha (Secular)': 'HAM',
     'Rashtriya Janata Dal': 'RJD',
     'Indian National Congress': 'INC',
+    'Indian Inclusive Party': 'IIP',
+    'IIP': 'IIP',
     'Communist Party of India (Marxist)': 'CPIM',
     'Communist Party of India (Marxist-Leninist) (Liberation)': 'CPIM',
     'Communist Party of India': 'CPIM',
@@ -70,8 +72,10 @@ def normalize_party_name(party_name):
         return 'RLM'
     elif 'RJD' in party_upper or 'RASHTRIYA JANATA' in party_upper:
         return 'RJD'
-    elif 'INC' in party_upper or 'CONGRESS' in party_upper:
+    elif 'INC' == party_upper or 'CONGRESS' in party_upper or party_upper == 'INDIAN NATIONAL CONGRESS':
         return 'INC'
+    elif 'IIP' in party_upper or 'INDIAN INCLUSIVE' in party_upper or 'INCLUSIVE PARTY' in party_upper:
+        return 'IIP'
     elif 'CPI(M)' in party_upper or ('COMMUNIST' in party_upper and 'MARXIST' in party_upper):
         return 'CPIM'
     elif 'CPI' in party_upper or 'COMMUNIST' in party_upper:

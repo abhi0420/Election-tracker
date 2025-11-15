@@ -291,7 +291,7 @@ def create_election_map(state_name):
                 return None, "AC_NO column missing from shapefile", {}, {}, {}
         
         # Define individual parties with their colors
-        individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RLM', 'RJD', 'INC', 'CPIM', 'AIMIM', 'OTH', 'AWAITED']
+        individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RLM', 'RJD', 'INC', 'IIP', 'CPIM', 'AIMIM', 'OTH', 'AWAITED']
         individual_party_colors = {
             'BJP': '#FF9900',
             'JDU': '#190061',
@@ -300,6 +300,7 @@ def create_election_map(state_name):
             'RLM': '#8B4789',  # Violet for Rashtriya Lok Morcha
             'RJD': '#006400',
             'INC': '#1471C7',
+            'IIP': '#00CED1',  # Dark Turquoise for Indian Inclusive Party
             'CPIM': '#FF0000',
             'AIMIM': '#009C1D',  # Green for AIMIM
             'OTH': '#95A5A6',
@@ -309,7 +310,7 @@ def create_election_map(state_name):
         # Party to alliance mapping
         party_to_alliance = {
             'BJP': 'NDA', 'JDU': 'NDA', 'LJP': 'NDA', 'HAM': 'NDA', 'RLM': 'NDA',
-            'RJD': 'MGB', 'INC': 'MGB', 'CPIM': 'MGB',
+            'RJD': 'MGB', 'INC': 'MGB', 'IIP': 'MGB', 'CPIM': 'MGB',
             'AIMIM': 'AIMIM',
             'OTH': 'OTH',
             'AWAITED': 'AWAITED'  # Special category
@@ -519,6 +520,7 @@ def create_election_map(state_name):
                     'RLM': '#8B4789',
                     'RJD': '#006400',
                     'INC': '#1471C7',
+                    'IIP': '#00CED1',
                     'CPIM': '#FF0000',
                     'AIMIM': '#009C1D',
                     'OTH': '#95A5A6',
@@ -2164,10 +2166,11 @@ def index():
             'MGB': {
                 'parties': ['MGB'],
                 'color': '#1471C7',
-                'description': 'RJD, INC, CPIM',
+                'description': 'RJD, INC, IIP, CPIM',
                 'breakdown': {
                     'RJD': {'seats': actual_party_seats['RJD'], 'color': '#006400'},
                     'INC': {'seats': actual_party_seats['INC'], 'color': '#1471C7'},
+                    'IIP': {'seats': actual_party_seats['IIP'], 'color': '#00CED1'},
                     'CPIM': {'seats': actual_party_seats['CPIM'], 'color': '#FF0000'}
                 }
             },

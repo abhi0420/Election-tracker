@@ -27,14 +27,14 @@ GITHUB_FILE = "election_results.csv"
 GITHUB_BRANCH = "main"
 
 def get_github_url():
-    """Generate GitHub raw URL with optional token for private repos"""
+    """Generate GitHub API URL with optional token for private repos"""
     token = os.environ.get('GITHUB_TOKEN', '')
     if token:
-        # Authenticated URL for private repos
-        return f"https://{token}@raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{GITHUB_FILE}"
+        # Use GitHub API for private repos (returns base64 encoded content)
+        return f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_FILE}?ref={GITHUB_BRANCH}", token
     else:
-        # Public URL (for local development or public repos)
-        return f"https://raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{GITHUB_FILE}"
+        # Public raw URL (for local development or public repos)
+        return f"https://raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{GITHUB_FILE}", None
 
 def auto_merge_election_data():
     """
@@ -160,11 +160,16 @@ def get_live_election_data():
     """Fetch latest election results CSV from GitHub"""
     try:
         # Fetch from GitHub (works with both public and private repos)
-        csv_url = get_github_url()
+        csv_url, token = get_github_url()
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
+            'Accept': 'application/vnd.github.v3.raw',
         }
+        
+        if token:
+            # Add authorization header for private repos
+            headers['Authorization'] = f'token {token}'
+        
         response = requests.get(csv_url, headers=headers, timeout=10)
         response.raise_for_status()
         df = pd.read_csv(StringIO(response.text))

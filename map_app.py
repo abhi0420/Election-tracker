@@ -21,9 +21,20 @@ app.secret_key = 'your-secret-key-here-change-in-production'
 # Use Bihar-specific shapefile (local - has geometry, doesn't change)
 SHAPEFILE_PATH = "ac/Bihar_AC_with_results.shp"
 
-# Live CSV from GitHub (updates every 5 mins from scraper)
-# Using direct download URL to bypass CDN cache issues
-LIVE_CSV_URL = "https://github.com/abhi0420/Election-tracker/raw/main/election_results.csv"
+# GitHub repository info for fetching live data
+GITHUB_REPO = "abhi0420/Election-tracker"
+GITHUB_FILE = "election_results.csv"
+GITHUB_BRANCH = "main"
+
+def get_github_url():
+    """Generate GitHub raw URL with optional token for private repos"""
+    token = os.environ.get('GITHUB_TOKEN', '')
+    if token:
+        # Authenticated URL for private repos
+        return f"https://{token}@raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{GITHUB_FILE}"
+    else:
+        # Public URL (for local development or public repos)
+        return f"https://raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{GITHUB_FILE}"
 
 def auto_merge_election_data():
     """
@@ -148,25 +159,26 @@ def auto_merge_election_data():
 def get_live_election_data():
     """Fetch latest election results CSV from GitHub"""
     try:
-        # Add headers to mimic browser request
+        # Fetch from GitHub (works with both public and private repos)
+        csv_url = get_github_url()
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
         }
-        response = requests.get(LIVE_CSV_URL, headers=headers, timeout=10)
+        response = requests.get(csv_url, headers=headers, timeout=10)
         response.raise_for_status()
         df = pd.read_csv(StringIO(response.text))
-        print(f"[LIVE DATA] Fetched live data: {len(df)} rows")
+        print(f"[LIVE DATA] Fetched from GitHub: {len(df)} rows")
         return df
     except Exception as e:
         print(f"[LIVE DATA] Failed to fetch from GitHub: {e}")
         # Fallback to local CSV if available
         try:
             df = pd.read_csv("election_results.csv")
-            print(f"[LIVE DATA] Using local fallback data: {len(df)} rows")
+            print(f"[LIVE DATA] Using local fallback: {len(df)} rows")
             return df
-        except:
-            print("[LIVE DATA] No data available")
+        except Exception as e2:
+            print(f"[LIVE DATA] No data available: {e2}")
             return None
 
 def get_available_states():

@@ -2425,8 +2425,8 @@ def index():
         </div>
 
         <footer>
-            <p>Data Source: India Assembly Constituencies Shapefile</p>
-            <p class="note">Note: Election data is randomly generated for demonstration purposes</p>
+            <p>Data Source: Election Commission of India (ECI)</p>
+            <p class="note">Live results updated every 5 minutes via automated scraping</p>
         </footer>
     </div>
     

@@ -1,144 +1,286 @@
-# Bihar Election Tracker 2025 🗳️# 🗳️ Live Election Results Tracker
+# Bihar Election Tracker 2025 🗳️# Bihar Election Tracker 2025 🗳️# 🗳️ Live Election Results Tracker
 
 
 
-Live interactive election results tracker for Bihar Assembly Elections 2025, built with Flask, Selenium, and Bokeh.Automated election results tracker that scrapes data every 5 minutes and provides a live web dashboard.
+**Live interactive election results tracker for Bihar Assembly Elections 2025**
 
 
 
-## 🎯 Features## 🚀 Features
+🔗 **Live Website**: [bihar-election-tracker.onrender.com](https://bihar-election-tracker.onrender.com)Live interactive election results tracker for Bihar Assembly Elections 2025, built with Flask, Selenium, and Bokeh.Automated election results tracker that scrapes data every 5 minutes and provides a live web dashboard.
 
 
 
-- **Live Data Scraping**: Automatically scrapes all 243 constituencies from ECI website every 5 minutes- ✅ Automated scraping every 5 minutes via GitHub Actions
+---
 
-- **Interactive Map**: Clickable constituency map with detailed candidate information- ✅ Generates both CSV and JSON outputs
+
+
+## 📊 Final Results (November 23, 2025)## 🎯 Features## 🚀 Features
+
+
+
+| Alliance | Seats | Party Breakdown |
+
+|----------|-------|-----------------|
+
+| **NDA** | **201** | BJP (96), JDU (85), LJP (19), HAM (5), RLM (4) |- **Live Data Scraping**: Automatically scrapes all 243 constituencies from ECI website every 5 minutes- ✅ Automated scraping every 5 minutes via GitHub Actions
+
+| **MGB** | **36** | RJD (24), INC (2), CPIM (2) |
+
+| **AIMIM** | **5** | AIMIM (5) |- **Interactive Map**: Clickable constituency map with detailed candidate information- ✅ Generates both CSV and JSON outputs
+
+| **Others** | **1** | Others (1) |
 
 - **Real-time Updates**: GitHub Actions workflow updates data automatically- ✅ Live web dashboard with auto-refresh
 
+**Total: 243 Constituencies**
+
 - **Mobile Responsive**: Fully accessible on phones with optimized layout- ✅ Completely free hosting using GitHub
+
+---
 
 - **Advanced Filtering**: Filter by Parliament Seat, District, Party, or Lead Margin- ✅ No server maintenance required
 
+## 🎯 What This Is
+
 - **Party Breakdowns**: Detailed alliance and party-wise seat distribution
+
+An automated live election results tracker that:
 
 - **Vote Tracking**: Shows votes counted percentage per constituency## 📋 Setup Instructions
 
+- ✅ **Scrapes all 243 constituencies** from the Election Commission of India website every 5 minutes
 
+- ✅ **Displays interactive map** with clickable constituencies showing candidate details
 
-## 📊 Final Results (November 23, 2025)### Step 1: Create GitHub Repository
+- ✅ **Updates automatically** via GitHub Actions - no manual intervention needed
 
+- ✅ **Mobile responsive** - fully accessible on phones## 📊 Final Results (November 23, 2025)### Step 1: Create GitHub Repository
 
+- ✅ **Advanced filtering** - filter by Parliament Seat, District, Party, or Lead Margin
 
-- **NDA**: 201 seats (BJP 96, JDU 85, LJP 19, HAM 5, RLM 4)1. Go to [GitHub](https://github.com) and create a new repository
-
-- **MGB**: 36 seats (RJD 24, INC 2, CPIM 2)2. Name it something like `election-tracker`
-
-- **AIMIM**: 5 seats3. Make it **Private** (keeps your data secure)
-
-- **Others**: 1 seat4. Initialize with a README (optional)
-
-
-
-**Total**: 243 constituencies### Step 2: Push Your Code
+- ✅ **Party breakdowns** - detailed alliance and party-wise seat distribution
 
 
 
-## 🚀 Tech StackOpen terminal in your project folder and run:
+---- **NDA**: 201 seats (BJP 96, JDU 85, LJP 19, HAM 5, RLM 4)1. Go to [GitHub](https://github.com) and create a new repository
 
 
 
-- **Backend**: Flask 3.0.0```bash
+## 🗺️ Features- **MGB**: 36 seats (RJD 24, INC 2, CPIM 2)2. Name it something like `election-tracker`
+
+
+
+### Interactive Map- **AIMIM**: 5 seats3. Make it **Private** (keeps your data secure)
+
+- **Click any constituency** to see detailed results with top 3 candidates
+
+- **Color-coded** by winning party/alliance- **Others**: 1 seat4. Initialize with a README (optional)
+
+- **Hover tooltips** showing constituency name and winner
+
+- **Zoom and pan** for detailed exploration
+
+
+
+### Filtering Options**Total**: 243 constituencies### Step 2: Push Your Code
+
+- **Parliament Seat**: Filter constituencies by Lok Sabha seat
+
+- **District**: View results for specific districts
+
+- **Party/Alliance**: Show only constituencies won by specific parties
+
+- **Lead Margin**: Filter by victory margin (<5K, 5K-10K, 10K-25K, 25K-50K, >50K)## 🚀 Tech StackOpen terminal in your project folder and run:
+
+
+
+### Real-time Updates
+
+- **Automated scraping** every 5 minutes during counting
+
+- **Vote percentage tracking** shows how many votes counted per constituency- **Backend**: Flask 3.0.0```bash
+
+- **Live alliance totals** updated automatically
 
 - **Scraping**: Selenium 4.15.2 with Chrome WebDrivergit init
 
-- **Mapping**: Bokeh 3.3.0 with GeoPandasgit add .
+### Mobile Support
 
-- **Automation**: GitHub Actions (cron: every 5 minutes)git commit -m "Initial commit"
+- **Responsive layout** - filters appear above map on phones- **Mapping**: Bokeh 3.3.0 with GeoPandasgit add .
 
-- **Deployment**: Render (auto-deploy from main branch)git branch -M main
+- **Touch-friendly** constituency selection
 
-- **Data Storage**: CSV/JSON files in Gitgit remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
-
-git push -u origin main
-
-## 📁 Project Structure```
+- **Full accessibility** on all screen sizes- **Automation**: GitHub Actions (cron: every 5 minutes)git commit -m "Initial commit"
 
 
+
+---- **Deployment**: Render (auto-deploy from main branch)git branch -M main
+
+
+
+## 🚀 Technology- **Data Storage**: CSV/JSON files in Gitgit remote add origin https://github.com/YOUR-USERNAME/YOUR-REPO-NAME.git
+
+
+
+- **Backend**: Flask (Python web framework)git push -u origin main
+
+- **Scraping**: Selenium with Chrome WebDriver
+
+- **Mapping**: Bokeh with GeoPandas## 📁 Project Structure```
+
+- **Automation**: GitHub Actions (cron job every 5 minutes)
+
+- **Deployment**: Render (free tier with auto-deploy)
+
+- **Data**: CSV/JSON files stored in Git repository
 
 ```Replace `YOUR-USERNAME` and `YOUR-REPO-NAME` with your actual GitHub username and repository name.
 
+---
+
 Tracker/
+
+## 🎨 Design
 
 ├── scraper.py              # Main scraper (243 constituencies, 8 workers)### Step 3: Enable GitHub Actions
 
-├── map_app.py              # Flask app with interactive Bokeh map
+### Party Colors
 
-├── .github/workflows/      1. Go to your repository on GitHub
+- **BJP**: Orange (#FF9900)├── map_app.py              # Flask app with interactive Bokeh map
 
-│   └── scraper.yml         # GitHub Actions automation2. Click the **Actions** tab
+- **JDU**: Dark Blue (#190061)
+
+- **RJD**: Dark Green (#006400)├── .github/workflows/      1. Go to your repository on GitHub
+
+- **INC**: Blue (#1471C7)
+
+- **AIMIM**: Green (#009C1D)│   └── scraper.yml         # GitHub Actions automation2. Click the **Actions** tab
+
+- **Others**: Gray (#95A5A6)
 
 ├── ac/                     # Shapefiles for Bihar constituencies3. If prompted, click "I understand my workflows, go ahead and enable them"
 
-├── election_results.csv    # Latest election data4. The workflow will start running automatically every 5 minutes
+### Alliance Colors
 
-├── electors_after_deletion.csv  # Voter count per constituency
+- **NDA**: Orange (#FF9900)├── election_results.csv    # Latest election data4. The workflow will start running automatically every 5 minutes
+
+- **MGB**: Blue (#1471C7)
+
+- **AIMIM**: Green (#009C1D)├── electors_after_deletion.csv  # Voter count per constituency
+
+- **Others**: Gray (#95A5A6)
 
 ├── requirements.txt        # Python dependenciesYou can also manually trigger it:
 
+---
+
 └── README.md              # This file- Go to **Actions** tab
+
+## 📈 Performance Stats
 
 ```- Click **Election Data Scraper** workflow
 
-- Click **Run workflow** button
+- **Scraping Time**: 5-7 minutes for all 243 constituencies
 
-## 🛠️ Setup & Installation
+- **Page Load**: <2 seconds- Click **Run workflow** button
+
+- **Updates**: Every 5 minutes during live counting
+
+- **Uptime**: 100% during election counting day## 🛠️ Setup & Installation
+
+- **Traffic**: ~147 requests served on election day
 
 ### Step 4: Create GitHub Personal Access Token (for private repo access)
 
+---
+
 ### Prerequisites
+
+## 📱 How to Use
 
 - Python 3.11+1. Go to GitHub **Settings** → **Developer settings** → **Personal access tokens** → **Tokens (classic)**
 
-- Chrome/Chromium browser2. Click **Generate new token (classic)**
+1. **Visit** [bihar-election-tracker.onrender.com](https://bihar-election-tracker.onrender.com)
 
-- Git3. Name it "Election Tracker Access"
+2. **Explore** the interactive map by clicking constituencies- Chrome/Chromium browser2. Click **Generate new token (classic)**
+
+3. **Filter** results using the dropdown menus on the right (desktop) or top (mobile)
+
+4. **Expand** alliance cards to see party-wise breakdown- Git3. Name it "Election Tracker Access"
+
+5. **Switch** between Alliance and Party view modes
 
 4. Select expiration (recommend "No expiration" for continuous access)
 
+---
+
 ### Local Development5. Check **only** the `repo` scope (Full control of private repositories)
+
+## 🏆 Highlights
 
 6. Click **Generate token**
 
-1. **Clone the repository**7. **COPY THE TOKEN** - you won't see it again!
+- ✅ **Real-time scraping** from ECI official website
 
-   ```bash
+- ✅ **Fully automated** - no manual updates needed1. **Clone the repository**7. **COPY THE TOKEN** - you won't see it again!
+
+- ✅ **Mobile-first design** - accessible to everyone
+
+- ✅ **Free hosting** - GitHub + Render free tier   ```bash
+
+- ✅ **Open source** - transparent and verifiable
 
    git clone https://github.com/abhi0420/Election-tracker.git### Step 5: Host Your Dashboard
 
+---
+
    cd Election-tracker
+
+## 🔮 Future Plans
 
    ```**Option A: Local Hosting (Recommended)**
 
-- Simply open `index.html` in your browser
+Planning to expand this for **5 state elections in 2026**:
 
-2. **Create virtual environment**- Data stays private on your machine
+- Tamil Nadu (234 seats)- Simply open `index.html` in your browser
 
-   ```bash- Free and secure
+- Kerala (140 seats)
 
-   python -m venv .venv
+- West Bengal (294 seats)2. **Create virtual environment**- Data stays private on your machine
 
-   .venv\Scripts\activate  # Windows**Option B: Private Web Host**
+- Assam (126 seats)
 
-   # source .venv/bin/activate  # Linux/Mac- Deploy to Vercel/Netlify with password protection
-
-   ```- Update `index.html` to use authenticated GitHub API:
+- Mizoram (40 seats)   ```bash- Free and secure
 
 
+
+**Total: ~834 constituencies across 5 states**   python -m venv .venv
+
+
+
+---   .venv\Scripts\activate  # Windows**Option B: Private Web Host**
+
+
+
+## 📝 Data Source   # source .venv/bin/activate  # Linux/Mac- Deploy to Vercel/Netlify with password protection
+
+
+
+All election data is scraped from the **Election Commission of India** official results website:   ```- Update `index.html` to use authenticated GitHub API:
+
+- URL: https://results.eci.gov.in/ResultAcGenNov2025/
+
+
+
+---
 
 3. **Install dependencies**```javascript
 
+**Built with ❤️ for Bihar Elections 2025**
+
    ```bashconst DATA_URL = 'https://api.github.com/repos/YOUR-USERNAME/YOUR-REPO/contents/seat.json';
+
+*Last Updated: November 23, 2025 (Final Results)*
 
    pip install -r requirements.txtconst TOKEN = 'YOUR_GITHUB_TOKEN'; // From Step 4
 

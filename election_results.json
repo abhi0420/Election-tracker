@@ -1,5 +1,5 @@
 {
-  "last_updated": "2025-11-15T11:39:47.707528Z",
+  "last_updated": "2025-11-15T11:45:45.049088Z",
   "total_seats": 243,
   "data": [
     {
@@ -1190,7 +1190,7 @@
       "AC_NO": 75,
       "Constituency": "SAHARSA",
       "win_cand": "INDRAJEET PRASAD GUPTA",
-      "win_party": "INC",
+      "win_party": "IIP",
       "win_votes": 115036,
       "sec_cand": "ALOK RANJAN",
       "sec_party": "BJP",
@@ -2396,7 +2396,7 @@
       "sec_party": "INC",
       "sec_votes": 71087,
       "thi_cand": "TANISHA BHARTI",
-      "thi_party": "INC",
+      "thi_party": "IIP",
       "thi_votes": 9188,
       "margin": 35175,
       "tot_votes": 217416,
@@ -2649,7 +2649,7 @@
       "win_party": "JDU",
       "win_votes": 96683,
       "sec_cand": "NARENDRA KUMAR",
-      "sec_party": "INC",
+      "sec_party": "IIP",
       "sec_votes": 60455,
       "thi_cand": "SHIVDEEP W LANDE",
       "thi_party": "OTH",

@@ -2426,7 +2426,6 @@ def index():
 
         <footer>
             <p>Data Source: Election Commission of India (ECI)</p>
-            <p class="note">Live results updated every 5 minutes via automated scraping</p>
         </footer>
     </div>
     

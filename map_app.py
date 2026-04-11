@@ -12,56 +12,67 @@ import numpy as np
 import requests
 from io import StringIO
 import os
+from state_config import ALL_STATES, DEFAULT_STATE, get_state_config, get_party_to_alliance, get_alliance_colors, normalize_party_name as normalize_party
 
 
 
 app = Flask(__name__)
 app.secret_key = 'your-secret-key-here-change-in-production'
 
-# Use Bihar-specific shapefile (local - has geometry, doesn't change)
-SHAPEFILE_PATH = "ac/Bihar_AC_with_results.shp"
+# Shapefile paths per state (clean = geometry only, results = merged with data)
+STATE_SHAPEFILE_MAP = {
+    'tn': {'clean': 'ac/TN_AC_clean.shp', 'results': 'ac/TN_AC_with_results.shp'},
+    'wb': {'clean': 'ac/WB_AC_clean.shp', 'results': 'ac/WB_AC_with_results.shp'},
+    'assam': {'clean': 'ac/Assam_AC_clean.shp', 'results': 'ac/Assam_AC_with_results.shp'},
+    'kerala': {'clean': 'ac/Kerala_AC_clean.shp', 'results': 'ac/Kerala_AC_with_results.shp'},
+    'puducherry': {'clean': 'ac/Puducherry_AC_clean.shp', 'results': 'ac/Puducherry_AC_with_results.shp'},
+}
 
 # GitHub repository info for fetching live data
 GITHUB_REPO = "abhi0420/Election-tracker"
-GITHUB_FILE = "election_results.csv"
 GITHUB_BRANCH = "main"
 
-def get_github_url():
+def get_github_url(csv_filename='election_results.csv'):
     """Generate GitHub API URL with optional token for private repos"""
     token = os.environ.get('GITHUB_TOKEN', '')
     if token:
-        # Use GitHub API for private repos (returns base64 encoded content)
-        return f"https://api.github.com/repos/{GITHUB_REPO}/contents/{GITHUB_FILE}?ref={GITHUB_BRANCH}", token
+        return f"https://api.github.com/repos/{GITHUB_REPO}/contents/{csv_filename}?ref={GITHUB_BRANCH}", token
     else:
-        # Public raw URL (for local development or public repos)
-        return f"https://raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{GITHUB_FILE}", None
+        return f"https://raw.githubusercontent.com/{GITHUB_REPO}/{GITHUB_BRANCH}/{csv_filename}", None
 
-def auto_merge_election_data():
+def auto_merge_election_data(state_code=None):
     """
-    Automatically merge election_results.csv with shapefile if needed
+    Automatically merge election CSV with shapefile if needed
     Returns the merged GeoDataFrame or None if merge fails
     """
+    if state_code is None:
+        state_code = DEFAULT_STATE
     try:
-        print("[AUTO-MERGE] Starting auto-merge of election data with shapefile...")
+        sc = get_state_config(state_code)
+        csv_file = sc['csv_file']
+        paths = STATE_SHAPEFILE_MAP.get(state_code)
+        results_shapefile = paths['results']
+
+        print(f"[AUTO-MERGE] Starting auto-merge for {sc['name']}...")
         
-        # Check if election_results.csv exists
-        if not os.path.exists('election_results.csv'):
-            print("[AUTO-MERGE] election_results.csv not found, skipping auto-merge")
+        # Check if CSV exists
+        if not os.path.exists(csv_file):
+            print(f"[AUTO-MERGE] {csv_file} not found, skipping auto-merge")
             return None
         
         # Read shapefile (use clean version without results)
-        clean_shapefile = 'ac/Bihar_AC_clean.shp'
+        clean_shapefile = paths['clean']
         if not os.path.exists(clean_shapefile):
-            print(f"[AUTO-MERGE] {clean_shapefile} not found, using current shapefile")
-            clean_shapefile = SHAPEFILE_PATH
+            print(f"[AUTO-MERGE] {clean_shapefile} not found, using results shapefile")
+            clean_shapefile = results_shapefile
         
         print(f"[AUTO-MERGE] Reading shapefile: {clean_shapefile}")
         gdf = gpd.read_file(clean_shapefile)
         print(f"[AUTO-MERGE] Shapefile columns: {gdf.columns.tolist()}")
         
         # Read CSV
-        print("[AUTO-MERGE] Reading election_results.csv")
-        df = pd.read_csv('election_results.csv')
+        print(f"[AUTO-MERGE] Reading {csv_file}")
+        df = pd.read_csv(csv_file)
         print(f"[AUTO-MERGE] CSV columns: {df.columns.tolist()}")
         print(f"[AUTO-MERGE] CSV rows: {len(df)}")
         
@@ -144,8 +155,8 @@ def auto_merge_election_data():
         gdf_merged['votes_pct'] = gdf_merged['votes_pct'].replace([float('inf'), float('-inf')], 0).fillna(0).astype(float)
         
         # Save merged shapefile
-        print(f"[AUTO-MERGE] Saving to {SHAPEFILE_PATH}")
-        gdf_merged.to_file(SHAPEFILE_PATH)
+        print(f"[AUTO-MERGE] Saving to {results_shapefile}")
+        gdf_merged.to_file(results_shapefile)
         
         print(f"[AUTO-MERGE] Complete! {gdf_merged['win_party'].notna().sum() if 'win_party' in gdf_merged.columns else 0} constituencies merged")
         return gdf_merged
@@ -156,11 +167,14 @@ def auto_merge_election_data():
         traceback.print_exc()
         return None
 
-def get_live_election_data():
+def get_live_election_data(state_code=None):
     """Fetch latest election results CSV from GitHub"""
+    if state_code is None:
+        state_code = DEFAULT_STATE
+    sc = get_state_config(state_code)
+    csv_file = sc['csv_file']
     try:
-        # Fetch from GitHub (works with both public and private repos)
-        csv_url, token = get_github_url()
+        csv_url, token = get_github_url(csv_file)
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
             'Accept': 'application/vnd.github.v3.raw',
@@ -179,7 +193,7 @@ def get_live_election_data():
         print(f"[LIVE DATA] Failed to fetch from GitHub: {e}")
         # Fallback to local CSV if available
         try:
-            df = pd.read_csv("election_results.csv")
+            df = pd.read_csv(csv_file)
             print(f"[LIVE DATA] Using local fallback: {len(df)} rows")
             return df
         except Exception as e2:
@@ -187,20 +201,14 @@ def get_live_election_data():
             return None
 
 def get_available_states():
-    """Get list of all available states from shapefile"""
-    try:
-        gdf = gpd.read_file(SHAPEFILE_PATH)
-        states = sorted(gdf['ST_NAME'].unique().tolist())
-        return states
-    except Exception as e:
-        print(f"Error reading shapefile: {e}")
-        return []
+    """Get list of all available states"""
+    return sorted([sc['name'] for sc in ALL_STATES.values()])
 
 def create_state_map(state_name):
     """Create a Bokeh map for the specified state"""
     try:
         # Read shapefile and filter for the state
-        gdf = gpd.read_file(SHAPEFILE_PATH)
+        gdf = gpd.read_file('ac/India_AC.shp')
         state_gdf = gdf[gdf['ST_NAME'].str.contains(state_name, case=False, na=False)].copy()
         
         if len(state_gdf) == 0:
@@ -268,20 +276,40 @@ def create_state_map(state_name):
     except Exception as e:
         return None, f"Error creating map: {str(e)}"
 
-def create_election_map(state_name):
+def create_election_map(state_name, state_code=None):
     """Create election results map with party data - now uses LIVE data from GitHub"""
     try:
         import traceback
         
-        # Fetch LIVE election data from GitHub
-        live_data = get_live_election_data()
+        # Resolve state_code from state_name if not provided
+        if state_code is None:
+            # Try to find state_code from state_name
+            for code, cfg in ALL_STATES.items():
+                if cfg['name'].lower() == state_name.lower():
+                    state_code = code
+                    break
+            if state_code is None:
+                state_code = DEFAULT_STATE
         
-        # Read shapefile (has geometry only - doesn't need to update)
-        gdf = gpd.read_file(SHAPEFILE_PATH)
-        state_gdf = gdf[gdf['ST_NAME'].str.contains(state_name, case=False, na=False)].copy()
+        sc = get_state_config(state_code)
+        if sc is None:
+            return None, f"Unknown state code: {state_code}", {}, {}, {}
+        
+        state_name = sc['name']
+        
+        # Fetch LIVE election data from GitHub
+        live_data = get_live_election_data(state_code=state_code)
+        
+        # Read shapefile
+        paths = STATE_SHAPEFILE_MAP.get(state_code)
+        if paths is None:
+            return None, f"No shapefile configured for state: {state_code}", {}, {}, {}
+        shapefile_path = paths['results'] if os.path.exists(paths['results']) else paths['clean']
+        gdf = gpd.read_file(shapefile_path)
+        state_gdf = gdf.copy()  # Already state-specific shapefile
         
         if len(state_gdf) == 0:
-            return None, f"State '{state_name}' not found!", {}, {}, {}
+            return None, f"State '{state_name}' not found in shapefile!", {}, {}, {}
         
         # If we have live data, merge it with shapefile (replace old data with live data)
         if live_data is not None:
@@ -307,31 +335,12 @@ def create_election_map(state_name):
                 print("[ERROR] AC_NO not found in shapefile - cannot merge!")
                 return None, "AC_NO column missing from shapefile", {}, {}, {}
         
-        # Define individual parties with their colors
-        individual_parties = ['BJP', 'JDU', 'LJP', 'HAM', 'RLM', 'RJD', 'INC', 'IIP', 'CPIM', 'AIMIM', 'OTH', 'AWAITED']
-        individual_party_colors = {
-            'BJP': '#FF9900',
-            'JDU': '#190061',
-            'LJP': '#FFF300',
-            'HAM': '#4C007A',
-            'RLM': '#8B4789',  # Violet for Rashtriya Lok Morcha
-            'RJD': '#006400',
-            'INC': '#1471C7',
-            'IIP': '#00CED1',  # Dark Turquoise for Indian Inclusive Party
-            'CPIM': '#FF0000',
-            'AIMIM': '#009C1D',  # Green for AIMIM
-            'OTH': '#95A5A6',
-            'AWAITED': '#CCCCCC'  # Gray for awaiting results
-        }
-        
-        # Party to alliance mapping
-        party_to_alliance = {
-            'BJP': 'NDA', 'JDU': 'NDA', 'LJP': 'NDA', 'HAM': 'NDA', 'RLM': 'NDA',
-            'RJD': 'MGB', 'INC': 'MGB', 'IIP': 'MGB', 'CPIM': 'MGB',
-            'AIMIM': 'AIMIM',
-            'OTH': 'OTH',
-            'AWAITED': 'AWAITED'  # Special category
-        }
+        # Use state config for parties, colors, alliances
+        individual_parties = sc['parties']
+        individual_party_colors = sc['party_colors']
+        party_to_alliance = get_party_to_alliance(sc)
+        alliance_colors_map = get_alliance_colors(sc)
+        alliance_list = list(sc['alliances'].keys()) + ['AWAITED']
         
         # Check if election data columns exist in shapefile (clean column names from merge_data.py)
         required_columns = ['win_party', 'win_cand', 'win_votes',
@@ -341,15 +350,24 @@ def create_election_map(state_name):
         
         if not all(col in state_gdf.columns for col in required_columns):
             print("[AUTO-MERGE] Election data columns not found, attempting auto-merge...")
-            merged_gdf = auto_merge_election_data()
+            merged_gdf = auto_merge_election_data(state_code=state_code)
             
             if merged_gdf is not None:
                 # Re-read the shapefile after merge
-                gdf = gpd.read_file(SHAPEFILE_PATH)
-                state_gdf = gdf[gdf['ST_NAME'].str.contains(state_name, case=False, na=False)].copy()
+                gdf = gpd.read_file(shapefile_path)
+                state_gdf = gdf.copy()
                 print("[AUTO-MERGE] Using auto-merged data")
             else:
-                return None, "Error: Election data columns not found and auto-merge failed. Please ensure election_results.csv exists.", {}, {}, {}
+                # No data available — fill all constituencies with AWAITED
+                print("[AUTO-MERGE] No data available, showing all seats as AWAITED")
+                for col in required_columns:
+                    if col not in state_gdf.columns:
+                        if 'party' in col:
+                            state_gdf[col] = 'AWAITED'
+                        elif 'cand' in col:
+                            state_gdf[col] = 'Awaiting Results'
+                        else:
+                            state_gdf[col] = 0
         
         print("[DATA] Using election data from shapefile")
         
@@ -407,7 +425,7 @@ def create_election_map(state_name):
         
         # Create plot
         p = figure(
-            title=f"{state_name} - Live Election Results 2025",
+            title=f"{state_name} - Live Election Results {sc['year']}",
             width=900,
             height=700,
             tools="pan,wheel_zoom,box_zoom,reset",
@@ -426,14 +444,7 @@ def create_election_map(state_name):
         # Fill any unmapped parties with gray color
         state_gdf['party_color'] = state_gdf['winning_party'].map(individual_party_colors).fillna('#CCCCCC')
         
-        # Map alliance colors
-        alliance_colors_map = {
-            'NDA': '#FF9900',
-            'MGB': '#1471C7',
-            'AIMIM': '#009C1D',  # Green
-            'OTH': '#95A5A6',
-            'AWAITED': '#CCCCCC'  # Gray for awaiting
-        }
+        # Map alliance colors (use dynamic state config, not hardcoded)
         state_gdf['alliance'] = state_gdf['winning_party'].map(party_to_alliance).fillna('AWAITED')
         state_gdf['alliance_color'] = state_gdf['alliance'].map(alliance_colors_map).fillna('#CCCCCC')
         
@@ -477,7 +488,14 @@ def create_election_map(state_name):
         tap = TapTool()
         p.add_tools(tap)
         
-        # Create click callback to show popup  
+        # Create click callback to show popup
+        import json as _json
+        _colors_js = _json.dumps(individual_party_colors)
+        _top_parties_js = ''.join(
+            f'<div style="padding: 8px 16px; background: linear-gradient(135deg, {color} 0%, {color}dd 100%); color: white; border-radius: 20px; font-size: 13px; font-weight: 600; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">{party}</div>'
+            for party, color in list(individual_party_colors.items())[:3]
+            if party not in ('OTH', 'AWAITED')
+        )
         callback = CustomJS(args=dict(source=geosource), code="""
             const indices = source.selected.indices;
             
@@ -529,20 +547,7 @@ def create_election_map(state_name):
                 const isAwaited = winner_party === 'AWAITED' || winner_candidate === 'Awaiting Results';
                 
                 // Color mapping
-                const colors = {
-                    'BJP': '#FF9900',
-                    'JDU': '#190061',
-                    'LJP': '#FFF300',
-                    'HAM': '#4C007A',
-                    'RLM': '#8B4789',
-                    'RJD': '#006400',
-                    'INC': '#1471C7',
-                    'IIP': '#00CED1',
-                    'CPIM': '#FF0000',
-                    'AIMIM': '#009C1D',
-                    'OTH': '#95A5A6',
-                    'AWAITED': '#CCCCCC'
-                };
+                const colors = __PARTY_COLORS__;
                 
                 // Remove existing modal if any
                 const existingModal = document.getElementById('constituency-modal');
@@ -653,33 +658,7 @@ def create_election_map(state_name):
                                                 gap: 15px;
                                                 flex-wrap: wrap;
                                             ">
-                                                <div style="
-                                                    padding: 8px 16px;
-                                                    background: linear-gradient(135deg, #FF9900 0%, #FF9900dd 100%);
-                                                    color: white;
-                                                    border-radius: 20px;
-                                                    font-size: 13px;
-                                                    font-weight: 600;
-                                                    box-shadow: 0 2px 5px rgba(255,153,0,0.3);
-                                                ">BJP</div>
-                                                <div style="
-                                                    padding: 8px 16px;
-                                                    background: linear-gradient(135deg, #006400 0%, #006400dd 100%);
-                                                    color: white;
-                                                    border-radius: 20px;
-                                                    font-size: 13px;
-                                                    font-weight: 600;
-                                                    box-shadow: 0 2px 5px rgba(0,100,0,0.3);
-                                                ">RJD</div>
-                                                <div style="
-                                                    padding: 8px 16px;
-                                                    background: linear-gradient(135deg, #190061 0%, #190061dd 100%);
-                                                    color: white;
-                                                    border-radius: 20px;
-                                                    font-size: 13px;
-                                                    font-weight: 600;
-                                                    box-shadow: 0 2px 5px rgba(25,0,97,0.3);
-                                                ">JDU</div>
+                                                __TOP_PARTIES__
                                             </div>
                                         </div>
                                     </div>
@@ -823,7 +802,7 @@ def create_election_map(state_name):
                     closeButton.addEventListener('click', restoreFilter);
                 }
             }
-        """)
+        """.replace('__PARTY_COLORS__', _colors_js).replace('__TOP_PARTIES__', _top_parties_js))
         
         geosource.selected.js_on_change('indices', callback)
         
@@ -832,7 +811,7 @@ def create_election_map(state_name):
         individual_summary = {party: party_counts.get(party, 0) for party in individual_parties}
         
         # Aggregate to alliance level for display
-        alliance_list = ['NDA', 'MGB', 'AIMIM', 'OTH', 'AWAITED']
+        # alliance_list is already defined dynamically from state config above
         summary = {}
         for alliance in alliance_list:
             alliance_seats = 0
@@ -896,13 +875,6 @@ def create_election_map(state_name):
         
         # Create dynamic info panel (replaces legend)
         # Sort alliances by seat count (highest first)
-        alliance_colors_map = {
-            'NDA': '#FF9900',
-            'MGB': '#1471C7',
-            'AIMIM': '#009C1D',
-            'OTH': '#95A5A6',
-            'AWAITED': '#CCCCCC'
-        }
         sorted_parties = sorted(summary.items(), key=lambda x: x[1], reverse=True)
         
         party_boxes = ""
@@ -1143,7 +1115,7 @@ def create_election_map(state_name):
         # Prepare data for cascading filter
         pc_names = sorted(state_gdf['PC_NAME'].unique().tolist())
         district_names = sorted(state_gdf['DIST_NAME'].unique().tolist())
-        individual_parties = ['NDA', 'MGB', 'JSP', 'OTH', 'BJP', 'JDU', 'LJP', 'HAM', 'RJD', 'INC', 'CPIM']
+        individual_parties_for_filter = list(sc['alliances'].keys()) + [p for p in individual_parties if p not in ('AWAITED',)]
         lead_margin_options = ["Less than 1,000", "Less than 5,000", "Greater than 5,000", "Greater than 10,000", "Greater than 25,000"]
         
         # Callback to populate filter_value_select based on filter_type_select
@@ -1156,7 +1128,7 @@ def create_election_map(state_name):
             const filterType = filter_type.value;
             const pcNames = {json.dumps(pc_names)};
             const districtNames = {json.dumps(district_names)};
-            const parties = {json.dumps(individual_parties)};
+            const parties = {json.dumps(individual_parties_for_filter)};
             const leadMargins = {json.dumps(lead_margin_options)};
             
             if (filterType === "None") {{
@@ -2143,73 +2115,55 @@ def create_election_map(state_name):
         traceback.print_exc()
         return None, f"Error creating election map: {str(e)}", {}, {}, {}
 
+@app.route('/state/<state_code>')
+def state_map_redirect(state_code):
+    """Redirect old /state/<code> URLs to /?state=<code>"""
+    return redirect(f'/?state={state_code}', code=301)
+
 @app.route('/')
 def index():
-    """Main page - automatically loads Bihar election map"""
-    print("Index page loaded - generating Bihar election map")
+    """Single-page election map with state switcher"""
+    state_code = request.args.get('state', DEFAULT_STATE).lower()
+    sc = get_state_config(state_code)
+    if sc is None:
+        return f"<h1>Error</h1><p>Unknown state: {state_code}</p>", 404
+    
+    state_name = sc['name']
+    print(f"Generating election map for {state_name}")
     
     try:
-        # Automatically generate Bihar election map
-        plot, summary, party_vote_shares, party_vote_totals, actual_party_seats = create_election_map("Bihar")
+        plot, summary, party_vote_shares, party_vote_totals, actual_party_seats = create_election_map(state_name, state_code=state_code)
         
         if plot is None:
             return f"<h1>Error</h1><p>{summary}</p>", 500
         
         # Generate Bokeh HTML
-        bokeh_html = file_html(plot, CDN, "Bihar Election Results")
+        bokeh_html = file_html(plot, CDN, f"{state_name} Election Results")
         
-        # Party colors
-        party_colors = {
-            'NDA': '#FF9900',
-            'MGB': '#1471C7',
-            'JSP': '#BA06C4',
-            'OTH': '#95A5A6'
-        }
-        
-        # Define alliances with constituent parties and their ACTUAL seat allocations
-        alliances = {
-            'NDA': {
-                'parties': ['NDA'],
-                'color': '#FF9900',
-                'description': 'BJP, JDU, LJP, HAM, RLM',
-                'breakdown': {
-                    'BJP': {'seats': actual_party_seats['BJP'], 'color': '#FF9900'},
-                    'JDU': {'seats': actual_party_seats['JDU'], 'color': '#190061'},
-                    'LJP': {'seats': actual_party_seats['LJP'], 'color': '#FFF300'},
-                    'HAM': {'seats': actual_party_seats['HAM'], 'color': '#4C007A'},
-                    'RLM': {'seats': actual_party_seats['RLM'], 'color': '#8B4789'}
+        # Build alliances dynamically from state config
+        alliances = {}
+        for alliance_name, alliance_info in sc['alliances'].items():
+            breakdown = {}
+            for party in alliance_info['parties']:
+                breakdown[party] = {
+                    'seats': actual_party_seats.get(party, 0),
+                    'color': sc['party_colors'].get(party, '#95A5A6')
                 }
-            },
-            'MGB': {
-                'parties': ['MGB'],
-                'color': '#1471C7',
-                'description': 'RJD, INC, IIP, CPIM',
-                'breakdown': {
-                    'RJD': {'seats': actual_party_seats['RJD'], 'color': '#006400'},
-                    'INC': {'seats': actual_party_seats['INC'], 'color': '#1471C7'},
-                    'IIP': {'seats': actual_party_seats['IIP'], 'color': '#00CED1'},
-                    'CPIM': {'seats': actual_party_seats['CPIM'], 'color': '#FF0000'}
-                }
-            },
-            'AIMIM': {
-                'parties': ['AIMIM'],
-                'color': '#009C1D',
-                'description': 'All India Majlis-E-Ittehadul Muslimeen',
-                'breakdown': {
-                    'AIMIM': {'seats': actual_party_seats['AIMIM'], 'color': '#009C1D'}
-                }
-            },
-            'Others': {
-                'parties': ['OTH'],
-                'color': '#95A5A6',
-                'description': 'Other Parties',
-                'breakdown': {
-                    'OTH': {'seats': actual_party_seats['OTH'], 'color': '#95A5A6'}
-                }
+            alliances[alliance_name] = {
+                'parties': [alliance_name],
+                'color': alliance_info['color'],
+                'description': alliance_info['description'],
+                'breakdown': breakdown
             }
-        }
         
         total_seats = sum(summary.values())
+        
+        # Build state navigation bar
+        state_nav_html = ""
+        for code, cfg in ALL_STATES.items():
+            is_active = code == state_code
+            style = "background: white; color: #667eea; font-weight: 700;" if is_active else "background: rgba(255,255,255,0.2); color: white;"
+            state_nav_html += f'<a href="/?state={code}" style="padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.9em; transition: all 0.2s; {style}">{cfg["name"]}</a>'
         
         # Build alliance cards HTML with party breakdown
         alliance_results_html = ""
@@ -2272,13 +2226,15 @@ def index():
 """
         
         # Create wrapper with header and info panel
+        import json
+        _alliance_parties_js = json.dumps({name: [name] for name in sc['alliances'].keys()})
         final_html = f"""
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bihar Election Results - Interactive Map</title>
+    <title>{state_name} Election Results - Interactive Map</title>
     <style>
         body {{
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -2410,8 +2366,11 @@ def index():
 <body>
     <div class="container">
         <header>
-            <h1>🗺️ Bihar Election Results 2025</h1>
+            <h1>🗺️ {state_name} Election Results {sc['year']}</h1>
             <p class="subtitle">Live Interactive Constituency Map - Updated Every 5 Minutes</p>
+            <nav style="margin-top: 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                {state_nav_html}
+            </nav>
         </header>
 
         <div class="info-panel">
@@ -2475,22 +2434,39 @@ def index():
             }}
         }}
         
+        // Disable pan/zoom on mobile so touch gestures scroll the page
+        function disableMapDragOnMobile() {{
+            const isMobile = window.innerWidth <= 768 || 'ontouchstart' in window;
+            if (isMobile && window.Bokeh && window.Bokeh.documents && window.Bokeh.documents.length > 0) {{
+                const doc = window.Bokeh.documents[0];
+                const models = doc._all_models;
+                if (models) {{
+                    for (const [, model] of models) {{
+                        if (model.type === 'PanTool' || model.type === 'WheelZoomTool') {{
+                            model.active = false;
+                        }}
+                    }}
+                }}
+                // Also block touch events on the Bokeh canvas so they pass through to page scroll
+                const canvases = document.querySelectorAll('.bk-canvas-events');
+                canvases.forEach(function(canvas) {{
+                    canvas.style.touchAction = 'auto';
+                }});
+            }}
+        }}
+
         // Run on load and resize
         window.addEventListener('DOMContentLoaded', reorganizeLayoutForMobile);
         window.addEventListener('load', function() {{
             setTimeout(reorganizeLayoutForMobile, 500); // Wait for Bokeh to fully render
+            setTimeout(disableMapDragOnMobile, 600);
         }});
         window.addEventListener('resize', reorganizeLayoutForMobile);
         
         let currentFilter = null;
         
         // Alliance to parties mapping
-        const allianceParties = {{
-            'NDA': ['NDA'],
-            'MGB': ['MGB'],
-            'JSP': ['JSP'],
-            'Others': ['OTH']
-        }};
+        const allianceParties = {_alliance_parties_js};
         
         function toggleBreakdown(card, allianceName) {{
             const breakdown = card.querySelector('.breakdown');
@@ -2573,11 +2549,11 @@ def index():
 </html>
 """
         
-        print(f"Bihar map generated successfully with {total_seats} constituencies")
+        print(f"{state_name} map generated successfully with {total_seats} constituencies")
         return final_html
         
     except Exception as e:
-        print(f"Error generating Bihar map: {str(e)}")
+        print(f"Error generating {state_name} map: {str(e)}")
         import traceback
         traceback.print_exc()
         return f"<h1>Error</h1><pre>{str(e)}</pre>", 500

@@ -7,96 +7,16 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import json
+import sys
 from datetime import datetime
 import logging
+from state_config import get_state_config, normalize_party_name as _normalize_party, ALL_STATES, DEFAULT_STATE
 
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
-
-# Party name mapping - convert full names to short codes
-PARTY_NAME_MAP = {
-    'Bharatiya Janata Party': 'BJP',
-    'Janata Dal (United)': 'JDU',
-    'Lok Janshakti Party (Ram Vilas)': 'LJP',
-    'Hindustani Awam Morcha (Secular)': 'HAM',
-    'Rashtriya Janata Dal': 'RJD',
-    'Indian National Congress': 'INC',
-    'Indian Inclusive Party': 'IIP',
-    'IIP': 'IIP',
-    'Communist Party of India (Marxist)': 'CPIM',
-    'Communist Party of India (Marxist-Leninist) (Liberation)': 'CPIM',
-    'Communist Party of India': 'CPIM',
-    'CPI': 'CPIM',
-    'CPI(M)': 'CPIM',
-    'CPIM': 'CPIM',
-    'Jharkhand Mukti Morcha': 'OTH',
-    'Bahujan Samaj Party': 'OTH',
-    'BSP': 'OTH',
-    'Samajwadi Party': 'OTH',
-    'Aam Aadmi Party': 'OTH',
-    'All India Majlis-E-Ittehadul Muslimeen': 'AIMIM',
-    'AIMIM': 'AIMIM',
-    'Rashtriya Lok Morcha': 'RLM',
-    'RLM': 'RLM',
-    'Independent': 'OTH',
-    'IND': 'OTH',
-    'None of the Above': 'OTH',
-    'NOTA': 'OTH'
-}
-
-def normalize_party_name(party_name):
-    """Convert full party name to short code"""
-    if not party_name or pd.isna(party_name):
-        return 'OTH'
-    
-    party_name = str(party_name).strip()
-    
-    # Direct match
-    if party_name in PARTY_NAME_MAP:
-        return PARTY_NAME_MAP[party_name]
-    
-    # Partial match for variations
-    party_upper = party_name.upper()
-    if 'BJP' in party_upper or 'BHARATIYA JANATA' in party_upper:
-        return 'BJP'
-    elif 'JD(U)' in party_upper or 'JANATA DAL (UNITED)' in party_upper:
-        return 'JDU'
-    elif 'LJP' in party_upper or 'LOK JANSHAKTI' in party_upper:
-        return 'LJP'
-    elif 'HAM' in party_upper or 'HINDUSTANI AWAM' in party_upper:
-        return 'HAM'
-    elif 'RLM' in party_upper or 'RASHTRIYA LOK MORCHA' in party_upper or 'RSHTLKM' in party_upper:
-        return 'RLM'
-    elif 'RJD' in party_upper or 'RASHTRIYA JANATA' in party_upper:
-        return 'RJD'
-    elif 'INC' == party_upper or 'CONGRESS' in party_upper or party_upper == 'INDIAN NATIONAL CONGRESS':
-        return 'INC'
-    elif 'IIP' in party_upper or 'INDIAN INCLUSIVE' in party_upper or 'INCLUSIVE PARTY' in party_upper:
-        return 'IIP'
-    elif 'CPI(M)' in party_upper or ('COMMUNIST' in party_upper and 'MARXIST' in party_upper):
-        return 'CPIM'
-    elif 'CPI' in party_upper or 'COMMUNIST' in party_upper:
-        return 'CPIM'  # Map all CPI variants to CPIM for our display
-    elif 'AIMIM' in party_upper or 'MAJLIS' in party_upper or 'ITTEHADUL' in party_upper:
-        return 'AIMIM'
-    elif 'JSP' in party_upper or 'JANSATTA' in party_upper:
-        return 'OTH'  # Map JSP to OTH
-    elif 'BSP' in party_upper or 'BAHUJAN SAMAJ' in party_upper:
-        return 'OTH'  # Map BSP to OTH
-    elif 'SP' in party_upper or 'SAMAJWADI' in party_upper:
-        return 'OTH'  # Map to OTH as not in our display list
-    elif 'AAP' in party_upper or 'AAM AADMI' in party_upper:
-        return 'OTH'  # Map to OTH as not in our display list
-    elif 'INDEPENDENT' in party_upper or 'IND' == party_upper:
-        return 'OTH'  # Map independents to OTH
-    elif 'NOTA' in party_upper or 'NONE OF THE ABOVE' in party_upper:
-        return 'OTH'  # Map NOTA to OTH
-    else:
-        # Unknown party - map to OTH
-        return 'OTH'
 
 
 def get_chrome_driver():
@@ -120,7 +40,7 @@ def get_chrome_driver():
     # Use system Chrome (works on GitHub Actions)
     return webdriver.Chrome(options=chrome_options)
 
-def get_constituency_data(option_value, option_text, ac_no):
+def get_constituency_data(option_value, option_text, ac_no, election_event):
     driver = None
     max_retries = 3
     retry_count = 0
@@ -136,8 +56,8 @@ def get_constituency_data(option_value, option_text, ac_no):
             driver = get_chrome_driver()
             driver.set_page_load_timeout(30)  # 30 second page load timeout
 
-            # Construct the URL for the constituency (new format for November 2025)
-            constituency_url = f"https://results.eci.gov.in/ResultAcGenNov2025/candidateswise-{option_value}.htm"
+            # Construct the URL for the constituency
+            constituency_url = f"https://results.eci.gov.in/{election_event}/candidateswise-{option_value}.htm"
             driver.get(constituency_url)
 
             # Wait for the "Constituency Wise Table View" link (increased timeout)
@@ -194,32 +114,42 @@ def get_constituency_data(option_value, option_text, ac_no):
     return ac_no, option_text, None, None
 
 
-def main():
+def main(state_code=None):
+    if state_code is None:
+        state_code = DEFAULT_STATE
+    
+    sc = get_state_config(state_code)
+    if sc is None:
+        logging.error(f"Unknown state code: {state_code}")
+        return
+    
+    election_event = sc['election_event']
+    eci_state_code = sc['eci_state_code']
+    total_pages = sc['total_pages']
+    csv_file = sc['csv_file']
+    electors_file = sc['electors_file']
+    
     start = time.time()
-    logging.info("Starting election data scraper...")
+    logging.info(f"Starting election data scraper for {sc['name']}...")
 
     # Set up initial WebDriver to get constituency list from table
     driver = get_chrome_driver()
     
     try:
-        # New URL for November 2025 elections
-        driver.get("https://results.eci.gov.in/ResultAcGenNov2025/statewiseS041.htm")
+        driver.get(f"https://results.eci.gov.in/{election_event}/statewise{eci_state_code}1.htm")
         
         # Wait for table to load
         WebDriverWait(driver, 5).until(
             EC.presence_of_element_located((By.TAG_NAME, "table"))
         )
         
-        # Get all constituency rows from all pages (there are 13 pages total)
+        # Get all constituency rows from all pages
         all_constituencies = []
         
-        for page_num in range(1, 14):  # Pages 1-13
-            if page_num == 1:
-                url = "https://results.eci.gov.in/ResultAcGenNov2025/statewiseS041.htm"
-            else:
-                url = f"https://results.eci.gov.in/ResultAcGenNov2025/statewiseS04{page_num}.htm"
+        for page_num in range(1, total_pages + 1):
+            url = f"https://results.eci.gov.in/{election_event}/statewise{eci_state_code}{page_num}.htm"
             
-            logging.info(f"Fetching constituency list from page {page_num}/13...")
+            logging.info(f"Fetching constituency list from page {page_num}/{total_pages}...")
             driver.get(url)
             time.sleep(1)
             
@@ -249,13 +179,14 @@ def main():
         with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
             futures = []
             for constituency in all_constituencies:
-                # New URL format: candidateswise-S04{number}.htm
-                constituency_value = f"S04{constituency['number']}"
+                # New URL format: candidateswise-{eci_state_code}{number}.htm
+                constituency_value = f"{eci_state_code}{constituency['number']}"
                 futures.append(executor.submit(
                     get_constituency_data, 
                     constituency_value, 
                     constituency['name'],
-                    int(constituency['number'])
+                    int(constituency['number']),
+                    election_event
                 ))
 
             # Collect the results
@@ -313,15 +244,15 @@ def main():
                 # Get top 3 candidates
                 if len(df) >= 3:
                     win_cand = df[candidate_col].iloc[0]
-                    win_party = normalize_party_name(df[party_col].iloc[0])
+                    win_party = _normalize_party(df[party_col].iloc[0], sc)
                     win_votes = df[votes_col].iloc[0]
                     
                     sec_cand = df[candidate_col].iloc[1]
-                    sec_party = normalize_party_name(df[party_col].iloc[1])
+                    sec_party = _normalize_party(df[party_col].iloc[1], sc)
                     sec_votes = df[votes_col].iloc[1]
                     
                     thi_cand = df[candidate_col].iloc[2]
-                    thi_party = normalize_party_name(df[party_col].iloc[2])
+                    thi_party = _normalize_party(df[party_col].iloc[2], sc)
                     thi_votes = df[votes_col].iloc[2]
                     
                     margin = win_votes - sec_votes
@@ -356,7 +287,7 @@ def main():
             
             # Merge with electors data to calculate votes counted percentage
             try:
-                electors_df = pd.read_csv('electors_after_deletion.csv')
+                electors_df = pd.read_csv(electors_file)
                 electors_df = electors_df.rename(columns={'AC_No': 'AC_NO', 'Total Votes': 'total_votes_cast'})
                 
                 # Merge on AC_NO
@@ -383,20 +314,20 @@ def main():
                 logging.info(f"✓ Merged with electors data and calculated votes counted %")
                 
             except FileNotFoundError:
-                logging.warning("electors_after_deletion.csv not found - using 100% as default")
+                logging.warning(f"{electors_file} not found - using 100% as default")
                 election_df['votes_pct'] = 100
             except Exception as e:
                 logging.warning(f"Error merging electors data: {e} - using 100% as default")
                 election_df['votes_pct'] = 100
             
-            election_df.to_csv("election_results.csv", index=False)
-            logging.info(f"✓ CSV saved: election_results.csv ({len(election_df)} constituencies)")
+            election_df.to_csv(csv_file, index=False)
+            logging.info(f"✓ CSV saved: {csv_file} ({len(election_df)} constituencies)")
         else:
             logging.error("No election data collected! Check if constituencies have data available.")
             # Create empty file
             pd.DataFrame(columns=['AC_NO', 'Constituency', 'win_cand', 'win_party', 'win_votes', 
                                   'sec_cand', 'sec_party', 'sec_votes', 'thi_cand', 'thi_party', 
-                                  'thi_votes', 'margin', 'tot_votes', 'votes_pct']).to_csv("election_results.csv", index=False)
+                                  'thi_votes', 'margin', 'tot_votes', 'votes_pct']).to_csv(csv_file, index=False)
             election_df = pd.DataFrame()
         
         # Also create legacy seat.csv format
@@ -422,9 +353,10 @@ def main():
                 "data": election_df.to_dict(orient='records')
             }
             
-            with open("election_results.json", "w") as f:
+            json_file = csv_file.replace('.csv', '.json')
+            with open(json_file, "w") as f:
                 json.dump(json_data, f, indent=2)
-            logging.info("✓ JSON saved: election_results.json")
+            logging.info(f"✓ JSON saved: {json_file}")
         
         # Print summary
         end = time.time()
@@ -443,4 +375,6 @@ def main():
         driver.quit()
 
 if __name__ == "__main__":
-    main()
+    # Accept state code as command-line argument: python scraper.py tn
+    target_state = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_STATE
+    main(target_state)

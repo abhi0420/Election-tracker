@@ -1,6 +1,6 @@
 services:
   - type: web
-    name: bihar-election-tracker
+    name: election-tracker
     env: python
     runtime: python
     region: oregon

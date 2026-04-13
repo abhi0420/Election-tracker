@@ -17,7 +17,7 @@ from state_config import ALL_STATES, DEFAULT_STATE, get_state_config, get_party_
 
 
 app = Flask(__name__)
-app.secret_key = 'your-secret-key-here-change-in-production'
+app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-for-local-testing')
 
 # Shapefile paths per state (clean = geometry only, results = merged with data)
 STATE_SHAPEFILE_MAP = {

@@ -88,5 +88,5 @@ jobs:
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add election_results_bihar.csv election_results_bihar.json || true
-          git diff --cached --quiet || git commit -m "TEST: Bihar results $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git diff --cached --quiet || git commit -m "TEST: Bihar results $(date -u +'%Y-%m-%d %H:%M UTC') [skip render]"
           git push

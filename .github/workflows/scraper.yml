@@ -1,68 +1,152 @@
 name: Election Data Scraper
 
+# Schedule (all times UTC — India is UTC+5:30)
+# Peak    IST  9:00am–3:00pm  =  UTC  3:30am–9:30am   →  */5  3-9  * * *
+# Mid     IST  3:00pm–7:00pm  =  UTC  9:30am–1:30pm   →  */10 10-13 * * *
+# Off-peak IST 7:00pm–9:00am  =  UTC  1:30pm–3:30am   →  */15 14-23,0-2 * * *
 on:
   schedule:
-    # Runs every 5 minutes (safe buffer - job takes ~5 mins, won't overlap)
-    - cron: '*/5 * * * *'
-  workflow_dispatch: # Allows manual trigger from GitHub Actions tab
-  
-  # Prevent concurrent runs to avoid git conflicts
+    - cron: '*/5  3-9  * * *'    # Peak:     every 5 min  (IST 9am–3pm)
+    - cron: '*/10 10-13 * * *'   # Mid:      every 10 min (IST 3pm–7pm)
+    - cron: '*/15 14-23 * * *'   # Off-peak: every 15 min (IST 7pm–5:30am)
+    - cron: '*/15 0-2   * * *'   # Off-peak: every 15 min (IST 5:30am–8:30am)
+  workflow_dispatch:              # Allow manual trigger at any time
+
+# Cancel any in-progress run when a new trigger fires — always use freshest data
 concurrency:
   group: election-scraper
-  cancel-in-progress: false  # Wait for current job to finish
-  
+  cancel-in-progress: true
+
 permissions:
-  contents: write  # Required for private repos to commit
+  contents: write
 
 jobs:
+  # ═══════════════════════════════════════════════════════════════════════════
+  # SCRAPE JOBS — 8 parallel workers, one per chunk
+  # ═══════════════════════════════════════════════════════════════════════════
   scrape:
+    name: Scrape ${{ matrix.state }} AC ${{ matrix.start }}-${{ matrix.end }}
     runs-on: ubuntu-latest
-    
+    strategy:
+      fail-fast: false   # Don't cancel sibling jobs if one fails
+      matrix:
+        include:
+          # Tamil Nadu — 234 seats, 2 chunks
+          - state: tn
+            start: 1
+            end: 117
+          - state: tn
+            start: 118
+            end: 234
+
+          # West Bengal — 294 seats, 3 chunks
+          - state: wb
+            start: 1
+            end: 100
+          - state: wb
+            start: 101
+            end: 200
+          - state: wb
+            start: 201
+            end: 294
+
+          # Assam — 126 seats, 1 chunk
+          - state: assam
+            start: 1
+            end: 126
+
+          # Kerala — 140 seats, 1 chunk
+          - state: kerala
+            start: 1
+            end: 140
+
+          # Puducherry — 30 seats, 1 chunk
+          - state: puducherry
+            start: 1
+            end: 30
+
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
-      
-    - name: Set up Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
-        
-    - name: Install Chrome
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y wget gnupg
-        wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-        sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
-        sudo apt-get update
-        sudo apt-get install -y google-chrome-stable
-        
-    - name: Install Python dependencies
-      run: |
-        python -m pip install --upgrade pip
-        pip install -r requirements.txt
-        
-    - name: Run scraper
-      run: python scraper.py
-      
-    - name: Commit and push if changed
-      run: |
-        git config --global user.email "github-actions[bot]@users.noreply.github.com"
-        git config --global user.name "github-actions[bot]"
-        git add -A
-        timestamp=$(date -u)
-        git commit -m "Update election data: ${timestamp}" || exit 0
-        
-        # Retry push up to 3 times in case of conflicts
-        max_attempts=3
-        attempt=1
-        until git push
-        do
-          if [ $attempt -ge $max_attempts ]; then
-            echo "Failed to push after $max_attempts attempts"
-            exit 1
-          fi
-          echo "Push failed, pulling and retrying (attempt $attempt/$max_attempts)..."
-          git pull --rebase
-          attempt=$((attempt + 1))
-          sleep 2
-        done
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Chrome
+        run: |
+          wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+          sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google-chrome.list'
+          sudo apt-get update -q
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Install Python dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Scrape chunk
+        run: python scraper.py --state ${{ matrix.state }} --start ${{ matrix.start }} --end ${{ matrix.end }}
+
+      - name: Upload chunk artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: chunk-${{ matrix.state }}-${{ matrix.start }}-${{ matrix.end }}
+          path: chunks/
+          retention-days: 1
+
+  # ═══════════════════════════════════════════════════════════════════════════
+  # MERGE JOB — runs after ALL scrape jobs, does a single git commit
+  # ═══════════════════════════════════════════════════════════════════════════
+  merge:
+    name: Merge & Commit
+    needs: scrape
+    runs-on: ubuntu-latest
+    if: always()   # Run even if some scrape jobs failed — commit whatever was collected
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: pip install pandas
+
+      - name: Download all chunk artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: chunk-*
+          path: chunks/
+          merge-multiple: true   # Flatten all artifacts into chunks/
+
+      - name: List downloaded chunks
+        run: ls -la chunks/ || echo "No chunks downloaded"
+
+      - name: Merge chunks into final CSVs
+        run: python merge_chunks.py
+
+      - name: Commit and push if changed
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add election_results_*.csv election_results_*.json
+          git commit -m "Update election data: $(date -u)" || exit 0
+
+          max_attempts=3
+          attempt=1
+          until git push; do
+            if [ $attempt -ge $max_attempts ]; then
+              echo "Failed to push after $max_attempts attempts"
+              exit 1
+            fi
+            echo "Push failed, rebasing and retrying (attempt $attempt/$max_attempts)..."
+            git pull --rebase
+            attempt=$((attempt + 1))
+            sleep 2
+          done
+

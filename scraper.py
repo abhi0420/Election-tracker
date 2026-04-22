@@ -1,4 +1,6 @@
+import argparse
 import concurrent.futures
+import os
 import pandas as pd
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
@@ -22,7 +24,7 @@ logging.basicConfig(
 def get_chrome_driver():
     """Initialize Chrome driver with proper options for GitHub Actions"""
     chrome_options = Options()
-    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--headless=new")
     chrome_options.add_argument("--disable-gpu")
     chrome_options.add_argument("--window-size=1920,1080")
     chrome_options.add_argument("--disable-dev-shm-usage")
@@ -114,7 +116,8 @@ def get_constituency_data(option_value, option_text, ac_no, election_event):
     return ac_no, option_text, None, None
 
 
-def main(state_code=None):
+def main(state_code=None, ac_start=None, ac_end=None):
+    chunk_mode = ac_start is not None and ac_end is not None
     if state_code is None:
         state_code = DEFAULT_STATE
     
@@ -130,7 +133,10 @@ def main(state_code=None):
     electors_file = sc['electors_file']
     
     start = time.time()
-    logging.info(f"Starting election data scraper for {sc['name']}...")
+    if chunk_mode:
+        logging.info(f"Starting chunked scraper for {sc['name']} ACs {ac_start}-{ac_end}...")
+    else:
+        logging.info(f"Starting election data scraper for {sc['name']}...")
 
     # Set up initial WebDriver to get constituency list from table
     driver = get_chrome_driver()
@@ -170,6 +176,14 @@ def main(state_code=None):
                         })
         
         logging.info(f"Found {len(all_constituencies)} constituencies to process")
+        
+        # Apply range filter in chunk mode
+        if chunk_mode:
+            all_constituencies = [
+                c for c in all_constituencies
+                if ac_start <= int(c['number']) <= ac_end
+            ]
+            logging.info(f"Chunk mode: filtered to {len(all_constituencies)} constituencies (ACs {ac_start}-{ac_end})")
         
         # Dictionary to store results
         results = {}
@@ -280,83 +294,62 @@ def main(state_code=None):
                 logging.warning(f"Error processing data for AC {ac_no}: {e}")
                 continue
 
-        # Save to election_results.csv
+        # Save results
         if len(election_data) > 0:
             election_df = pd.DataFrame(election_data)
             election_df = election_df.sort_values('AC_NO').reset_index(drop=True)
-            
-            # Merge with electors data to calculate votes counted percentage
-            try:
-                electors_df = pd.read_csv(electors_file)
-                electors_df = electors_df.rename(columns={'AC_No': 'AC_NO', 'Total Votes': 'total_votes_cast'})
-                
-                # Merge on AC_NO
-                election_df = election_df.merge(
-                    electors_df[['AC_NO', 'total_votes_cast']], 
-                    on='AC_NO', 
-                    how='left'
-                )
-                
-                # Calculate votes counted percentage
-                # tot_votes = votes counted so far
-                # total_votes_cast = total votes cast (from electors file)
-                # Cap at 100% since total_votes_cast is an estimation
-                election_df['votes_pct'] = (
-                    (election_df['tot_votes'] / election_df['total_votes_cast'] * 100)
-                    .fillna(0)
-                    .clip(upper=100)  # Cap at 100%
-                    .round(2)
-                )
-                
-                # Drop total_votes_cast column (we don't need it in final CSV)
-                election_df = election_df.drop(columns=['total_votes_cast'])
-                
-                logging.info(f"✓ Merged with electors data and calculated votes counted %")
-                
-            except FileNotFoundError:
-                logging.warning(f"{electors_file} not found - using 100% as default")
-                election_df['votes_pct'] = 100
-            except Exception as e:
-                logging.warning(f"Error merging electors data: {e} - using 100% as default")
-                election_df['votes_pct'] = 100
-            
-            election_df.to_csv(csv_file, index=False)
-            logging.info(f"✓ CSV saved: {csv_file} ({len(election_df)} constituencies)")
+
+            if chunk_mode:
+                # Chunk mode: save raw data to chunks/ — no electors merge, no JSON
+                # Merge job will handle combining and finalization
+                os.makedirs('chunks', exist_ok=True)
+                chunk_file = f"chunks/{state_code}_{ac_start}_{ac_end}.csv"
+                election_df.to_csv(chunk_file, index=False)
+                logging.info(f"✓ Chunk CSV saved: {chunk_file} ({len(election_df)} constituencies)")
+            else:
+                # Full mode: merge with electors and save final CSV + JSON
+                election_df = _merge_electors(election_df, electors_file)
+                election_df.to_csv(csv_file, index=False)
+                logging.info(f"✓ CSV saved: {csv_file} ({len(election_df)} constituencies)")
+
+                # Legacy seat.csv
+                seat_df = pd.DataFrame({
+                    'Seat': election_df['Constituency'],
+                    'Leading': election_df['win_party'],
+                    'Trailing': election_df['sec_party'],
+                    '3rd Place': election_df['thi_party'],
+                    '1': election_df['win_votes'],
+                    '2': election_df['sec_votes'],
+                    '3': election_df['thi_votes'],
+                    'Rest': election_df['tot_votes'] - election_df['win_votes'] - election_df['sec_votes'] - election_df['thi_votes']
+                })
+                seat_df.to_csv("seat.csv", index=False)
+                logging.info("✓ Legacy CSV saved: seat.csv")
+
+                timestamp = datetime.utcnow().isoformat() + 'Z'
+                json_data = {
+                    "last_updated": timestamp,
+                    "total_seats": len(election_df),
+                    "data": election_df.to_dict(orient='records')
+                }
+                json_file = csv_file.replace('.csv', '.json')
+                with open(json_file, "w") as f:
+                    json.dump(json_data, f, indent=2)
+                logging.info(f"✓ JSON saved: {json_file}")
         else:
             logging.error("No election data collected! Check if constituencies have data available.")
-            # Create empty file
-            pd.DataFrame(columns=['AC_NO', 'Constituency', 'win_cand', 'win_party', 'win_votes', 
-                                  'sec_cand', 'sec_party', 'sec_votes', 'thi_cand', 'thi_party', 
-                                  'thi_votes', 'margin', 'tot_votes', 'votes_pct']).to_csv(csv_file, index=False)
+            if chunk_mode:
+                # Write empty chunk so merge job knows this chunk ran
+                os.makedirs('chunks', exist_ok=True)
+                chunk_file = f"chunks/{state_code}_{ac_start}_{ac_end}.csv"
+                pd.DataFrame(columns=['AC_NO', 'Constituency', 'win_cand', 'win_party', 'win_votes',
+                                      'sec_cand', 'sec_party', 'sec_votes', 'thi_cand', 'thi_party',
+                                      'thi_votes', 'margin', 'tot_votes']).to_csv(chunk_file, index=False)
+            else:
+                pd.DataFrame(columns=['AC_NO', 'Constituency', 'win_cand', 'win_party', 'win_votes',
+                                      'sec_cand', 'sec_party', 'sec_votes', 'thi_cand', 'thi_party',
+                                      'thi_votes', 'margin', 'tot_votes', 'votes_pct']).to_csv(csv_file, index=False)
             election_df = pd.DataFrame()
-        
-        # Also create legacy seat.csv format
-        if len(election_df) > 0:
-            seat_df = pd.DataFrame({
-                'Seat': election_df['Constituency'],
-                'Leading': election_df['win_party'],
-                'Trailing': election_df['sec_party'],
-                '3rd Place': election_df['thi_party'],
-                '1': election_df['win_votes'],
-                '2': election_df['sec_votes'],
-                '3': election_df['thi_votes'],
-                'Rest': election_df['tot_votes'] - election_df['win_votes'] - election_df['sec_votes'] - election_df['thi_votes']
-            })
-            seat_df.to_csv("seat.csv", index=False)
-            logging.info("✓ Legacy CSV saved: seat.csv")
-            
-            # Save JSON with metadata
-            timestamp = datetime.utcnow().isoformat() + 'Z'
-            json_data = {
-                "last_updated": timestamp,
-                "total_seats": len(election_df),
-                "data": election_df.to_dict(orient='records')
-            }
-            
-            json_file = csv_file.replace('.csv', '.json')
-            with open(json_file, "w") as f:
-                json.dump(json_data, f, indent=2)
-            logging.info(f"✓ JSON saved: {json_file}")
         
         # Print summary
         end = time.time()
@@ -364,9 +357,10 @@ def main(state_code=None):
         logging.info(f"✓ Total constituencies processed: {len(results)}/{len(all_constituencies)}")
         
         # Show sample
-        if len(election_df) > 0:
+        if len(election_data) > 0:
+            sample_df = pd.DataFrame(election_data).head(3)
             logging.info("\nSample results:")
-            logging.info(election_df.head(3)[['AC_NO', 'Constituency', 'win_party', 'win_votes', 'sec_party', 'sec_votes', 'margin']].to_string())
+            logging.info(sample_df[['AC_NO', 'Constituency', 'win_party', 'win_votes', 'sec_party', 'sec_votes', 'margin']].to_string())
         
     except Exception as e:
         logging.error(f"Fatal error in main: {e}")
@@ -374,7 +368,37 @@ def main(state_code=None):
     finally:
         driver.quit()
 
+
+def _merge_electors(election_df, electors_file):
+    """Merge election results with electors data to compute votes_pct."""
+    try:
+        electors_df = pd.read_csv(electors_file)
+        electors_df = electors_df.rename(columns={'AC_No': 'AC_NO', 'Total Votes': 'total_votes_cast'})
+        election_df = election_df.merge(electors_df[['AC_NO', 'total_votes_cast']], on='AC_NO', how='left')
+        election_df['votes_pct'] = (
+            (election_df['tot_votes'] / election_df['total_votes_cast'] * 100)
+            .fillna(0).clip(upper=100).round(2)
+        )
+        election_df = election_df.drop(columns=['total_votes_cast'])
+        logging.info("✓ Merged with electors data and calculated votes_pct")
+    except FileNotFoundError:
+        logging.warning(f"{electors_file} not found - using 100% as default")
+        election_df['votes_pct'] = 100
+    except Exception as e:
+        logging.warning(f"Error merging electors data: {e} - using 100% as default")
+        election_df['votes_pct'] = 100
+    return election_df
+
+
 if __name__ == "__main__":
-    # Accept state code as command-line argument: python scraper.py tn
-    target_state = sys.argv[1] if len(sys.argv) > 1 else DEFAULT_STATE
-    main(target_state)
+    # Mode 1 (legacy):  python scraper.py tn
+    # Mode 2 (chunk):   python scraper.py --state tn --start 1 --end 117
+    parser = argparse.ArgumentParser(description='ECI election data scraper')
+    parser.add_argument('state_positional', nargs='?', default=None, help='State code (positional, legacy)')
+    parser.add_argument('--state', dest='state_flag', default=None, help='State code')
+    parser.add_argument('--start', type=int, default=None, help='First AC number (inclusive)')
+    parser.add_argument('--end', type=int, default=None, help='Last AC number (inclusive)')
+    args = parser.parse_args()
+
+    target_state = args.state_flag or args.state_positional or DEFAULT_STATE
+    main(target_state, ac_start=args.start, ac_end=args.end)

@@ -1,0 +1,92 @@
+name: TEST — Bihar Pipeline Speed Check
+
+# Manual trigger only — no schedule
+on:
+  workflow_dispatch:
+
+concurrency:
+  group: test-scraper
+  cancel-in-progress: true
+
+jobs:
+  # ── 3 parallel scrape jobs, each covering ~81 Bihar seats ─────────────────
+  scrape:
+    name: "Scrape Bihar ${{ matrix.start }}-${{ matrix.end }}"
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - start: 1
+            end: 81
+          - start: 82
+            end: 162
+          - start: 163
+            end: 243
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Chrome
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -y google-chrome-stable
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Scrape Bihar chunk ${{ matrix.start }}-${{ matrix.end }}
+        run: |
+          python scraper.py --state bihar --start ${{ matrix.start }} --end ${{ matrix.end }}
+
+      - name: Upload chunk artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: chunk-bihar-${{ matrix.start }}-${{ matrix.end }}
+          path: chunks/
+          retention-days: 1
+
+  # ── Merge job — waits for all 3 scrape jobs ────────────────────────────────
+  merge:
+    name: Merge Bihar chunks & commit
+    runs-on: ubuntu-latest
+    needs: scrape
+    if: always()
+
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install Python deps
+        run: pip install -r requirements.txt
+
+      - name: Download all chunk artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: chunk-bihar-*
+          path: chunks/
+          merge-multiple: true
+
+      - name: Merge chunks into election_results_bihar.csv
+        run: python merge_chunks.py
+
+      - name: Commit & push Bihar results
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add election_results_bihar.csv election_results_bihar.json || true
+          git diff --cached --quiet || git commit -m "TEST: Bihar results $(date -u +'%Y-%m-%d %H:%M UTC')"
+          git push

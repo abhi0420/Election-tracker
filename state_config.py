@@ -320,6 +320,64 @@ PUDUCHERRY = {
 }
 
 
+# ── Bihar (TEST — real Nov 2025 results, used for pipeline speed testing) ────
+
+BIHAR = {
+    'name': 'Bihar',
+    'code': 'bihar',
+    'year': 2025,
+    'election_event': 'ResultAcGenNov2025',
+    'eci_state_code': 'S04',
+    'total_pages': 13,   # 243 seats / ~20 per page
+    'total_seats': 243,
+    'shapefile_st_name': 'BIHAR',
+    'csv_file': 'election_results_bihar.csv',
+    'electors_file': 'electors_after_deletion_bihar.csv',  # not present — votes_pct defaults to 100
+
+    'parties': ['JDU', 'BJP', 'RJD', 'INC', 'CPIM-L', 'HAM', 'BSP', 'OTH', 'AWAITED'],
+
+    'party_colors': {
+        'JDU':    '#1E8449',
+        'BJP':    '#FF9900',
+        'RJD':    '#FF0000',
+        'INC':    '#1471C7',
+        'CPIM-L': '#CC0000',
+        'HAM':    '#8B0000',
+        'BSP':    '#0000FF',
+        'OTH':    '#95A5A6',
+        'AWAITED': '#CCCCCC',
+    },
+
+    'alliances': {
+        'NDA': {
+            'parties': ['JDU', 'BJP', 'HAM'],
+            'color': '#FF9900',
+            'description': 'JDU, BJP, HAM',
+        },
+        'Mahagathbandhan': {
+            'parties': ['RJD', 'INC', 'CPIM-L'],
+            'color': '#FF0000',
+            'description': 'RJD, INC, CPI(ML)',
+        },
+        'OTH': {
+            'parties': ['BSP', 'OTH'],
+            'color': '#95A5A6',
+            'description': 'Other Parties & Independents',
+        },
+    },
+
+    'party_name_map': {
+        'Janata Dal (United)':                    'JDU',
+        'Bharatiya Janata Party':                 'BJP',
+        'Rashtriya Janata Dal':                   'RJD',
+        'Indian National Congress':               'INC',
+        'Communist Party of India (Marxist-Leninist) (Liberation)': 'CPIM-L',
+        'Hindustani Awam Morcha (Secular)':       'HAM',
+        'Bahujan Samaj Party':                    'BSP',
+    },
+}
+
+
 # ── Registry ─────────────────────────────────────────────────────────────────
 
 ALL_STATES = {
@@ -328,6 +386,7 @@ ALL_STATES = {
     'assam': ASSAM,
     'kerala': KERALA,
     'puducherry': PUDUCHERRY,
+    'bihar': BIHAR,   # TEST — remove after verifying pipeline
 }
 
 DEFAULT_STATE = 'tn'

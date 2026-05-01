@@ -3095,32 +3095,23 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
                 width: 100% !important;
                 max-width: 100% !important;
             }}
-            /* Make map container scrollable if needed */
-            .map-container {{
-                padding: 10px;
-                overflow-x: auto;
-                width: 100%;
-                box-sizing: border-box;
-            }}
-            /* Scale Bokeh map to fit phone screen */
-            .map-container .bk-root {{
-                transform-origin: top left;
-                transform: scale(0.36);
-                width: 278% !important;
-                height: 36vh !important;
-            }}
+            /* Make map container fit phone screen */
             .map-container {{
                 padding: 0 !important;
-                height: 36vh !important;
+                width: 100% !important;
                 overflow: hidden !important;
+                box-sizing: border-box;
             }}
-            /* Voteshare: center filter above chart on mobile */
+            /* zoom shrinks layout + visual, survives Bokeh inline styles */
+            .map-container .bk-root,
+            .map-container .bk-root > * {{
+                zoom: 0.42 !important;
+            }}
+            /* Voteshare: stack filter centered above chart */
             #district-filter-bar {{
                 flex-direction: column !important;
                 align-items: center !important;
-                text-align: center !important;
                 width: 100% !important;
-                display: flex !important;
             }}
             #district-filter-bar select {{
                 width: 100% !important;
@@ -3179,7 +3170,7 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
                 {bokeh_html}
             </div>
             <div id="view-voteshare" style="display:none; flex:1; min-width:0; padding:16px; background:white; overflow-y:auto;">
-                <div id="district-filter-bar" style="margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                <div id="district-filter-bar" style="margin-bottom:16px; display:flex; gap:12px; flex-wrap:wrap;">
                     <label style="font-weight:700;font-size:0.9em;color:#444;">Filter by District:</label>
                     <select id="district-pie-select" onchange="filterPieByDistrict(this.value)" style="padding:7px 14px;border-radius:8px;border:1.5px solid #c5caff;font-size:0.9em;background:white;color:#333;cursor:pointer;">
                         <option value="">All Districts (State-wide)</option>

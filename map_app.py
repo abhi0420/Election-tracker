@@ -3127,7 +3127,7 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
         </div>
 
         <!-- Map + vertical toggle on the right -->
-        <div style="display:flex; align-items:flex-start;">
+        <div id="views-wrapper" style="display:flex; align-items:flex-start;">
 
             <div id="view-map" class="map-container" style="flex:1; min-width:0;">
                 {bokeh_html}
@@ -3151,8 +3151,8 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
                 {swing_html}
             </div>
 
-            <!-- Vertical toggle strip -->
-            <div style="
+            <!-- Vertical toggle strip (desktop) / Horizontal tab bar (mobile) -->
+            <div id="view-toggle-strip" style="
                 display:flex; flex-direction:column; gap:10px;
                 padding:16px 12px;
                 background:#f8f9ff;
@@ -3195,6 +3195,29 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
                 ">🔄 Swings</button>
             </div>
         </div>
+        <style>
+        @media (max-width: 768px) {{
+            #views-wrapper {{
+                flex-direction: column !important;
+            }}
+            #view-toggle-strip {{
+                flex-direction: row !important;
+                flex-wrap: nowrap !important;
+                overflow-x: auto !important;
+                align-self: stretch !important;
+                border-left: none !important;
+                border-top: 1px solid #e0e4ff !important;
+                padding: 10px 8px !important;
+                min-width: unset !important;
+                gap: 8px !important;
+                order: -1;
+            }}
+            #view-toggle-strip button {{
+                flex: 0 0 auto !important;
+                width: auto !important;
+            }}
+        }}
+        </style>
 
         <footer>
             <p>Data Source: Election Commission of India (ECI)</p>

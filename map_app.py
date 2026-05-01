@@ -3079,6 +3079,8 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
             .map-container {{
                 padding: 10px;
                 overflow-x: auto;
+                width: 100%;
+                box-sizing: border-box;
             }}
             header h1 {{
                 font-size: 1.8em;
@@ -3199,6 +3201,17 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
         @media (max-width: 768px) {{
             #views-wrapper {{
                 flex-direction: column !important;
+            }}
+            #views-wrapper > div[id^="view-"] {{
+                width: 100% !important;
+                min-width: 0 !important;
+                overflow-x: auto !important;
+                box-sizing: border-box !important;
+            }}
+            #view-voteshare,
+            #view-trends,
+            #view-swing {{
+                padding: 14px !important;
             }}
             #view-toggle-strip {{
                 flex-direction: row !important;

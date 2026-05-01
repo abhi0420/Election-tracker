@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, jsonify, redirect, url_for, session
 import geopandas as gpd
 from bokeh.plotting import figure
-from bokeh.models import HoverTool, GeoJSONDataSource, Legend, LegendItem, Div, TapTool, CustomJS, Select
+from bokeh.models import HoverTool, GeoJSONDataSource, Legend, LegendItem, Div, TapTool, CustomJS, Select, Range1d
 from bokeh.layouts import row, column
 from bokeh.palettes import Category20
 from bokeh.transform import factor_cmap
@@ -12,12 +12,153 @@ import numpy as np
 import requests
 from io import StringIO
 import os
+import json
+import re
 from state_config import ALL_STATES, DEFAULT_STATE, get_state_config, get_party_to_alliance, get_alliance_colors, normalize_party_name as normalize_party
 
 
 
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-for-local-testing')
+
+# ── Previous election results cache + fetcher ─────────────────────────────────
+_prev_results_cache = {}
+
+from html.parser import HTMLParser
+
+class _EciTableParser(HTMLParser):
+    """Lightweight HTML table parser for ECI result archive pages."""
+    def __init__(self):
+        super().__init__()
+        self._tables = []
+        self._cur_table = None
+        self._cur_row = None
+        self._cur_cell = None
+
+    def handle_starttag(self, tag, attrs):
+        if tag == 'table':
+            self._cur_table = []
+        elif tag == 'tr' and self._cur_table is not None:
+            self._cur_row = []
+        elif tag in ('td', 'th') and self._cur_row is not None:
+            self._cur_cell = ''
+
+    def handle_endtag(self, tag):
+        if tag == 'table' and self._cur_table is not None:
+            self._tables.append(self._cur_table)
+            self._cur_table = None
+        elif tag == 'tr' and self._cur_table is not None and self._cur_row is not None:
+            if self._cur_row:
+                self._cur_table.append(self._cur_row)
+            self._cur_row = None
+        elif tag in ('td', 'th') and self._cur_row is not None and self._cur_cell is not None:
+            self._cur_row.append(self._cur_cell.strip())
+            self._cur_cell = None
+
+    def handle_data(self, data):
+        if self._cur_cell is not None:
+            self._cur_cell += data
+
+    @property
+    def tables(self):
+        return self._tables
+
+
+@app.route('/api/prev-results/<state_code>/<int:ac_no>')
+def prev_results_api(state_code, ac_no):
+    """Fetch previous election constituency results from ECI archive."""
+    cache_key = f"{state_code}_{ac_no}"
+    if cache_key in _prev_results_cache:
+        return jsonify(_prev_results_cache[cache_key])
+
+    sc = get_state_config(state_code)
+    if sc is None:
+        return jsonify({'error': 'Unknown state'}), 404
+    if 'prev_election_event' not in sc:
+        return jsonify({'error': '2021 election data not available for this seat'}), 404
+
+    prev_event = sc['prev_election_event']
+    eci_code = sc['eci_state_code']
+    prev_year = sc.get('prev_year', 'Previous')
+    party_name_map = sc.get('party_name_map', {})
+
+    hdrs = {'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'}
+    urls = [
+        f"https://results.eci.gov.in/{prev_event}/Constituencywise-{eci_code}{ac_no}.htm",
+        f"https://results.eci.gov.in/{prev_event}/candidateswise-{eci_code}{ac_no}.htm",
+    ]
+
+    table_rows = None
+    page_text = ''
+    for url in urls:
+        try:
+            resp = requests.get(url, timeout=15, headers=hdrs)
+            if resp.status_code != 200:
+                continue
+            page_text = resp.text
+            parser = _EciTableParser()
+            parser.feed(page_text)
+            for tbl in parser.tables:
+                if len(tbl) >= 3:
+                    table_rows = tbl
+                    break
+            if table_rows:
+                break
+        except Exception:
+            continue
+
+    if not table_rows:
+        result = {'error': 'Previous results not available (ECI archive unreachable or no data).'}
+        return jsonify(result), 503
+
+    # Determine column indices (standard ECI format: SNo, Candidate, Party, EVM, Postal, Total, %)
+    def _to_int(v):
+        try:
+            return int(str(v).replace(',', '').strip())
+        except Exception:
+            return 0
+
+    def _to_float(v):
+        try:
+            return round(float(str(v).replace('%', '').strip()), 2)
+        except Exception:
+            return 0.0
+
+    candidates = []
+    for row in table_rows:
+        if len(row) < 4:
+            continue
+        # Skip header rows
+        if any(cell.lower() in ('candidate', 'party', 'sno', 'sl. no.', 'sl no', 'serial no') for cell in row[:3]):
+            continue
+        ncols = len(row)
+        cand = row[1].strip() if ncols > 1 else ''
+        party_raw = row[2].strip() if ncols > 2 else ''
+        total = _to_int(row[5]) if ncols > 5 else _to_int(row[3])
+        pct = _to_float(row[6]) if ncols > 6 else (_to_float(row[4]) if ncols > 4 else 0.0)
+        if cand and total > 0:
+            party = party_name_map.get(party_raw, party_raw)
+            candidates.append({'candidate': cand, 'party': party, 'votes': total, 'percent': pct})
+
+    if not candidates:
+        result = {'error': 'Could not parse candidate data from previous results.'}
+        return jsonify(result), 503
+
+    candidates.sort(key=lambda x: -x['votes'])
+    if len(candidates) >= 2:
+        candidates[0]['margin'] = candidates[0]['votes'] - candidates[1]['votes']
+
+    # Try to extract constituency name from page title
+    m = re.search(r'<title[^>]*>(.*?)</title>', page_text, re.IGNORECASE | re.DOTALL)
+    cname = m.group(1).strip() if m else f'AC {ac_no}'
+
+    result = {
+        'year': prev_year,
+        'constituency': cname,
+        'results': candidates[:3],
+    }
+    _prev_results_cache[cache_key] = result
+    return jsonify(result)
 
 # Shapefile paths per state (clean = geometry only, results = merged with data)
 STATE_SHAPEFILE_MAP = {
@@ -173,32 +314,25 @@ def get_live_election_data(state_code=None):
         state_code = DEFAULT_STATE
     sc = get_state_config(state_code)
     csv_file = sc['csv_file']
+    url, token = get_github_url(csv_file)
     try:
-        csv_url, token = get_github_url(csv_file)
-        headers = {
-            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
-            'Accept': 'application/vnd.github.v3.raw',
-        }
-        
+        hdrs = {}
         if token:
-            # Add authorization header for private repos
-            headers['Authorization'] = f'token {token}'
-        
-        response = requests.get(csv_url, headers=headers, timeout=10)
-        response.raise_for_status()
-        df = pd.read_csv(StringIO(response.text))
-        print(f"[LIVE DATA] Fetched from GitHub: {len(df)} rows")
+            hdrs['Authorization'] = f'token {token}'
+        resp = requests.get(url, timeout=15, headers=hdrs)
+        resp.raise_for_status()
+        if token:
+            import base64 as _b64
+            data = json.loads(resp.text)
+            content = _b64.b64decode(data['content']).decode('utf-8')
+        else:
+            content = resp.text
+        df = pd.read_csv(StringIO(content))
+        print(f"[GITHUB DATA] Read {len(df)} rows from {csv_file}")
         return df
     except Exception as e:
-        print(f"[LIVE DATA] Failed to fetch from GitHub: {e}")
-        # Fallback to local CSV if available
-        try:
-            df = pd.read_csv(csv_file)
-            print(f"[LIVE DATA] Using local fallback: {len(df)} rows")
-            return df
-        except Exception as e2:
-            print(f"[LIVE DATA] No data available: {e2}")
-            return None
+        print(f"[GITHUB DATA] Failed to fetch {csv_file}: {e}")
+        return None
 
 def get_available_states():
     """Get list of all available states"""
@@ -422,19 +556,39 @@ def create_election_map(state_name, state_code=None):
         y_range = (bounds[1], bounds[3])
         x_pad = (x_range[1] - x_range[0]) * 0.1
         y_pad = (y_range[1] - y_range[0]) * 0.1
-        
+
+        # Use per-state default bounds if configured (e.g. Puducherry zooms to main enclave)
+        default_bounds = sc.get('map_default_bounds')
+        if default_bounds:
+            ix0, ix1 = default_bounds['x']
+            iy0, iy1 = default_bounds['y']
+            print(f"[BOUNDS] Using custom bounds: x={default_bounds['x']}, y={default_bounds['y']}")
+        else:
+            ix0, ix1 = x_range[0] - x_pad, x_range[1] + x_pad
+            iy0, iy1 = y_range[0] - y_pad, y_range[1] + y_pad
+
+        init_x_range = Range1d(ix0, ix1)
+        init_y_range = Range1d(iy0, iy1)
+
+        # Compute figure height from the initial view aspect ratio
+        map_width = 800
+        x_span = (ix1 - ix0) or 1
+        y_span = (iy1 - iy0) or 1
+        aspect = y_span / x_span
+        map_height = int(max(450, min(950, map_width * aspect)))
+
         # Create plot
         p = figure(
             title=f"{state_name} - Live Election Results {sc['year']}",
-            width=900,
-            height=700,
+            width=map_width,
+            height=map_height,
             tools="pan,wheel_zoom,box_zoom,reset",
             toolbar_location=None,  # Remove toolbar
             x_axis_type="mercator",
             y_axis_type="mercator",
             background_fill_color="#f0f0f0",
-            x_range=(x_range[0] - x_pad, x_range[1] + x_pad),
-            y_range=(y_range[0] - y_pad, y_range[1] + y_pad)
+            x_range=init_x_range,
+            y_range=init_y_range
         )
         
         # Convert to GeoJSON
@@ -613,6 +767,20 @@ def create_election_map(state_name, state_code=None):
                             
                             <!-- Content -->
                             <div style="padding: 25px;">
+                                <!-- Year toggle -->
+                                <div style="display:flex;margin-bottom:16px;border-radius:8px;overflow:hidden;border:1.5px solid #e0e0e0;box-shadow:0 2px 6px rgba(0,0,0,0.07);">
+                                    <button id="btn-prev-${ac_no}"
+                                        onclick="window._loadPrevResults(${ac_no});this.style.cssText='flex:1;padding:9px 0;font-size:13px;font-weight:700;background:#6c757d;color:white;border:none;cursor:pointer;';document.getElementById('btn-cur-'+${ac_no}).style.cssText='flex:1;padding:9px 0;font-size:13px;font-weight:600;background:white;color:#666;border:none;cursor:pointer;border-left:1.5px solid #e0e0e0;';"
+                                        style="flex:1;padding:9px 0;font-size:13px;font-weight:600;background:white;color:#666;border:none;cursor:pointer;">
+                                        __PREV_YEAR__ Results
+                                    </button>
+                                    <button id="btn-cur-${ac_no}"
+                                        onclick="window._restoreCurResults(${ac_no});this.style.cssText='flex:1;padding:9px 0;font-size:13px;font-weight:700;background:#1471C7;color:white;border:none;cursor:pointer;border-left:1.5px solid #e0e0e0;';document.getElementById('btn-prev-'+${ac_no}).style.cssText='flex:1;padding:9px 0;font-size:13px;font-weight:600;background:white;color:#666;border:none;cursor:pointer;';"
+                                        style="flex:1;padding:9px 0;font-size:13px;font-weight:700;background:#1471C7;color:white;border:none;cursor:pointer;border-left:1.5px solid #e0e0e0;">
+                                        __CUR_YEAR__ Results
+                                    </button>
+                                </div>
+                                <div id="results-box-${ac_no}">
                                 ${isAwaited ? `
                                     <!-- Awaiting Results Message -->
                                     <div style="
@@ -762,6 +930,7 @@ def create_election_map(state_name, state_code=None):
                                     </div>
                                 </div>
                                 `}
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -780,6 +949,11 @@ def create_election_map(state_name, state_code=None):
                 
                 // Add modal to document
                 document.body.insertAdjacentHTML('beforeend', modalHTML);
+                
+                // Save current results HTML so toggle can restore it
+                window._savedResults = window._savedResults || {};
+                const _rb = document.getElementById('results-box-' + ac_no);
+                if (_rb) window._savedResults[ac_no] = _rb.innerHTML;
                 
                 // Function to restore filter when modal closes
                 function restoreFilter() {
@@ -802,7 +976,7 @@ def create_election_map(state_name, state_code=None):
                     closeButton.addEventListener('click', restoreFilter);
                 }
             }
-        """.replace('__PARTY_COLORS__', _colors_js).replace('__TOP_PARTIES__', _top_parties_js))
+        """.replace('__PARTY_COLORS__', _colors_js).replace('__TOP_PARTIES__', _top_parties_js).replace('__CUR_YEAR__', str(sc['year'])).replace('__PREV_YEAR__', str(sc.get('prev_year', 'Previous'))))
         
         geosource.selected.js_on_change('indices', callback)
         
@@ -858,6 +1032,20 @@ def create_election_map(state_name, state_code=None):
                 district_alliance_counts[alliance] = alliance_seats
             district_stats[district] = district_alliance_counts
         
+        # Compute district-wise party vote totals (for voteshare filter)
+        district_vote_totals = {}
+        district_party_seats_map = {}
+        for district in state_gdf['DIST_NAME'].unique():
+            dist_rows = state_gdf[state_gdf['DIST_NAME'] == district]
+            dv = {}
+            for _, r in dist_rows.iterrows():
+                for pcol, vcol in [('win_party', 'win_votes'), ('sec_party', 'sec_votes'), ('thi_party', 'thi_votes')]:
+                    party_name = r.get(pcol)
+                    if pd.notna(party_name) and party_name not in ('AWAITED', '', None):
+                        dv[party_name] = dv.get(party_name, 0) + float(r.get(vcol, 0) or 0)
+            district_vote_totals[str(district)] = dv
+            district_party_seats_map[str(district)] = dist_rows['winning_party'].value_counts().to_dict()
+
         # Calculate parliament constituency-wise seat distribution aggregated by alliance
         pc_stats = {}
         for pc in state_gdf['PC_NAME'].unique():
@@ -880,7 +1068,7 @@ def create_election_map(state_name, state_code=None):
         party_boxes = ""
         for party, seats in sorted_parties:
             party_boxes += f"""
-                <div style="background: linear-gradient(135deg, {alliance_colors_map[party]} 0%, {alliance_colors_map[party]}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
+                <div onclick="filterByAlliance('{party}');" style="background: linear-gradient(135deg, {alliance_colors_map[party]} 0%, {alliance_colors_map[party]}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
                     <div style="color: white; font-size: 9px; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">{party}</div>
                     <div style="color: white; font-size: 22px; font-weight: 900; line-height: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">{seats}</div>
                     <div style="color: rgba(255,255,255,0.9); font-size: 7px; margin-top: 2px; font-weight: 500;">SEATS</div>
@@ -892,7 +1080,7 @@ def create_election_map(state_name, state_code=None):
             <h3 style="margin: 0 0 12px 0; font-size: 14px; color: #2c3e50; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 8px; border-bottom: 3px solid #667eea; font-weight: 800; letter-spacing: 0.5px;">
                 <span id="info-title">📊 OVERALL RESULTS (ALLIANCE)</span>
             </h3>
-            <div id="info-content" style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 8px 6px; justify-items: start; padding: 8px 0;">
+            <div id="info-content" style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 6px; justify-items: start; padding: 8px 0; max-height: 360px; overflow-y: auto;">
                 {party_boxes}
             </div>
             <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid #e9ecef; font-size: 11px; color: #495057; text-align: center; width: 100%; background: rgba(102, 126, 234, 0.05); border-radius: 6px; padding: 8px; font-weight: 600;">
@@ -901,7 +1089,7 @@ def create_election_map(state_name, state_code=None):
         </div>
         """
         
-        info_div = Div(text=info_html, width=350, height=400)
+        info_div = Div(text=info_html, width=350)
         
         # Style
         p.title.text_font_size = "16pt"
@@ -913,7 +1101,6 @@ def create_election_map(state_name, state_code=None):
         p.outline_line_color = None  # Remove border
         
         # Prepare district stats, PC stats, and summary for JavaScript
-        import json
         district_stats_json = json.dumps(district_stats)
         pc_stats_json = json.dumps(pc_stats)
         summary_json = json.dumps(summary)
@@ -983,9 +1170,21 @@ def create_election_map(state_name, state_code=None):
                         summary_to_use[party] = (summary_to_use[party] || 0) + 1;
                     }}
                 }} else if (window.currentPartyFilter && window.currentPartyFilter !== "All Parties") {{
-                    title = `📊 ${{window.currentPartyFilter}}`;
-                    summary_to_use = {{}};
-                    summary_to_use[window.currentPartyFilter] = window.currentFilteredIndices.length;
+                    const filterVal = window.currentPartyFilter;
+                    // If the filter value is an alliance name (has no party color), break down by party
+                    if (alliance_colors[filterVal] && !party_colors[filterVal]) {{
+                        title = `📊 ${{filterVal}} (PARTY)`;
+                        summary_to_use = {{}};
+                        const winning_parties = data['winning_party'];
+                        for (let idx of window.currentFilteredIndices) {{
+                            const party = winning_parties[idx];
+                            summary_to_use[party] = (summary_to_use[party] || 0) + 1;
+                        }}
+                    }} else {{
+                        title = `📊 ${{filterVal}}`;
+                        summary_to_use = {{}};
+                        summary_to_use[filterVal] = window.currentFilteredIndices.length;
+                    }}
                 }} else if (window.currentLeadMarginFilter && window.currentLeadMarginFilter !== "All Margins") {{
                     title = `📊 ${{window.currentLeadMarginFilter}} (PARTY)`;
                     summary_to_use = {{}};
@@ -1002,7 +1201,7 @@ def create_election_map(state_name, state_code=None):
                 for (const [party, seats] of sorted_parties) {{
                     total += seats || 0;
                     party_boxes += `
-                        <div onclick="filter_type.value='Party'; filter_type.change.emit(); setTimeout(() => {{ filter_value.value='${{party}}'; filter_value.change.emit(); }}, 50);" style="background: linear-gradient(135deg, ${{party_colors[party]}} 0%, ${{party_colors[party]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
+                        <div onclick="filterByParty('${{party}}');" style="background: linear-gradient(135deg, ${{party_colors[party]}} 0%, ${{party_colors[party]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
                             <div style="color: white; font-size: 9px; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">${{party}}</div>
                             <div style="color: white; font-size: 22px; font-weight: 900; line-height: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${{seats || 0}}</div>
                             <div style="color: rgba(255,255,255,0.9); font-size: 7px; margin-top: 2px; font-weight: 500;">SEATS</div>
@@ -1015,7 +1214,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 12px 0; font-size: 14px; color: #2c3e50; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 8px; border-bottom: 3px solid #667eea; font-weight: 800; letter-spacing: 0.5px;">
                         ${{title}}
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 8px 6px; justify-items: start; padding: 8px 0;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 6px; justify-items: start; padding: 8px 0; max-height: 360px; overflow-y: auto;">
                         ${{party_boxes}}
                     </div>
                     <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid #e9ecef; font-size: 11px; color: #495057; text-align: center; width: 100%; background: rgba(102, 126, 234, 0.05); border-radius: 6px; padding: 8px; font-weight: 600;">
@@ -1043,9 +1242,10 @@ def create_election_map(state_name, state_code=None):
                     summary_to_use = district_stats[window.currentDistrictFilter];
                 }} else if (window.currentPartyFilter && window.currentPartyFilter !== "All Parties") {{
                     // For party filter, convert to alliance
-                    const party = window.currentPartyFilter;
-                    const alliance = party_to_alliance[party];
-                    title = `📊 ${{party}} (${{alliance}})`;
+                    const filterVal = window.currentPartyFilter;
+                    // If already an alliance name, use it directly; otherwise look up
+                    const alliance = alliance_colors[filterVal] ? filterVal : (party_to_alliance[filterVal] || filterVal);
+                    title = `📊 ${{filterVal}} (${{alliance}})`;
                     summary_to_use = {{}};
                     summary_to_use[alliance] = window.currentFilteredIndices.length;
                 }} else if (window.currentLeadMarginFilter && window.currentLeadMarginFilter !== "All Margins") {{
@@ -1065,7 +1265,7 @@ def create_election_map(state_name, state_code=None):
                 for (const [alliance, seats] of sorted_alliances) {{
                     total += seats || 0;
                     alliance_boxes += `
-                        <div style="background: linear-gradient(135deg, ${{alliance_colors[alliance]}} 0%, ${{alliance_colors[alliance]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
+                        <div onclick="filterByAlliance('${{alliance}}');" style="background: linear-gradient(135deg, ${{alliance_colors[alliance]}} 0%, ${{alliance_colors[alliance]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
                             <div style="color: white; font-size: 9px; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">${{alliance}}</div>
                             <div style="color: white; font-size: 22px; font-weight: 900; line-height: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${{seats || 0}}</div>
                             <div style="color: rgba(255,255,255,0.9); font-size: 7px; margin-top: 2px; font-weight: 500;">SEATS</div>
@@ -1078,7 +1278,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 12px 0; font-size: 14px; color: #2c3e50; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 8px; border-bottom: 3px solid #667eea; font-weight: 800; letter-spacing: 0.5px;">
                         ${{title}}
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 8px 6px; justify-items: start; padding: 8px 0;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 6px; justify-items: start; padding: 8px 0; max-height: 360px; overflow-y: auto;">
                         ${{alliance_boxes}}
                     </div>
                     <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid #e9ecef; font-size: 11px; color: #495057; text-align: center; width: 100%; background: rgba(102, 126, 234, 0.05); border-radius: 6px; padding: 8px; font-weight: 600;">
@@ -1164,7 +1364,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 8px 0; font-size: 12px; color: #333; border-bottom: 2px solid #667eea; padding-bottom: 5px;">
                         Overall Results
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 6px 6px; justify-items: start;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 6px; justify-items: start; max-height: 360px; overflow-y: auto;">
                         ${{overall_boxes}}
                     </div>
                     <div style="margin-top: 10px; padding-top: 5px; border-top: 1px solid #ddd; font-size: 9px; color: #666; text-align: center; width: 100%;">
@@ -1245,7 +1445,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 8px 0; font-size: 12px; color: #333; border-bottom: 2px solid #667eea; padding-bottom: 5px;">
                         Overall Results
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 6px 6px; justify-items: start;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 6px; justify-items: start; max-height: 360px; overflow-y: auto;">
                         ${{overall_boxes}}
                     </div>
                     <div style="margin-top: 10px; padding-top: 5px; border-top: 1px solid #ddd; font-size: 9px; color: #666; text-align: center; width: 100%;">
@@ -1287,7 +1487,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 8px 0; font-size: 12px; color: #333; border-bottom: 2px solid #667eea; padding-bottom: 5px;">
                         ${{filterValue}}
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 6px 6px; justify-items: start;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 6px; justify-items: start; max-height: 360px; overflow-y: auto;">
                         ${{pc_boxes}}
                     </div>
                     <div style="margin-top: 10px; padding-top: 5px; border-top: 1px solid #ddd; font-size: 9px; color: #666; text-align: center; width: 100%;">
@@ -1329,7 +1529,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 8px 0; font-size: 12px; color: #333; border-bottom: 2px solid #667eea; padding-bottom: 5px;">
                         ${{filterValue}}
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 6px 6px; justify-items: start;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 6px; justify-items: start; max-height: 360px; overflow-y: auto;">
                         ${{district_boxes}}
                     </div>
                     <div style="margin-top: 10px; padding-top: 5px; border-top: 1px solid #ddd; font-size: 9px; color: #666; text-align: center; width: 100%;">
@@ -1339,12 +1539,13 @@ def create_election_map(state_name, state_code=None):
                 `;
                 
             }} else if (filterType === "Party") {{
-                // Filter by Party
+                // Filter by Party or Alliance (alliance name matches all parties belonging to it)
                 window.currentPartyFilter = filterValue;
                 const winning_parties = data['winning_party'];
                 const selectedIndices = [];
                 for (let i = 0; i < winning_parties.length; i++) {{
-                    if (winning_parties[i] === filterValue) {{
+                    const p = winning_parties[i];
+                    if (p === filterValue || party_to_alliance[p] === filterValue) {{
                         selectedIndices.push(i);
                     }}
                 }}
@@ -1414,7 +1615,7 @@ def create_election_map(state_name, state_code=None):
                 let alliance_boxes = '';
                 for (const [alliance, seats] of sorted_alliances) {{
                     alliance_boxes += `
-                        <div style="background: ${{alliance_colors[alliance]}}; border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 6px; width: 60px; height: 60px; display: flex; flex-direction: column; justify-content: center; align-items: center;">
+                        <div onclick="filterByAlliance('${{alliance}}');" style="background: ${{alliance_colors[alliance]}}; border-radius: 4px; padding: 8px; text-align: center; margin-bottom: 6px; width: 60px; height: 60px; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: pointer;">
                             <div style="color: white; font-size: 8px; font-weight: 600; margin-bottom: 3px;">${{alliance}}</div>
                             <div style="color: white; font-size: 18px; font-weight: bold; line-height: 1;">${{seats}}</div>
                         </div>
@@ -1426,7 +1627,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 8px 0; font-size: 12px; color: #333; border-bottom: 2px solid #667eea; padding-bottom: 5px;">
                         Lead Margin: ${{filterValue}}
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 6px 6px; justify-items: start;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 6px; justify-items: start; max-height: 360px; overflow-y: auto;">
                         ${{alliance_boxes}}
                     </div>
                     <div style="margin-top: 10px; padding-top: 5px; border-top: 1px solid #ddd; font-size: 9px; color: #666; text-align: center; width: 100%;">
@@ -1495,7 +1696,7 @@ def create_election_map(state_name, state_code=None):
                 for (const [party, seats] of sorted_parties) {{
                     party_total += seats || 0;
                     party_boxes += `
-                        <div onclick="filter_type.value='Party'; filter_type.change.emit(); setTimeout(() => {{ filter_value.value='${{party}}'; filter_value.change.emit(); }}, 50);" style="background: linear-gradient(135deg, ${{party_colors[party]}} 0%, ${{party_colors[party]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
+                        <div onclick="filterByParty('${{party}}');" style="background: linear-gradient(135deg, ${{party_colors[party]}} 0%, ${{party_colors[party]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
                             <div style="color: white; font-size: 9px; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">${{party}}</div>
                             <div style="color: white; font-size: 22px; font-weight: 900; line-height: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${{seats || 0}}</div>
                             <div style="color: rgba(255,255,255,0.9); font-size: 7px; margin-top: 2px; font-weight: 500;">SEATS</div>
@@ -1508,7 +1709,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 12px 0; font-size: 14px; color: #2c3e50; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 8px; border-bottom: 3px solid #667eea; font-weight: 800; letter-spacing: 0.5px;">
                         Overall Results (PARTY)
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 8px 2px; justify-items: start; padding: 8px 0;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(auto-fill, minmax(70px, 1fr)); gap: 8px 2px; justify-items: start; padding: 8px 0; max-height: 360px; overflow-y: auto;">
                         ${{party_boxes}}
                     </div>
                     <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid #e9ecef; font-size: 11px; color: #495057; text-align: center; width: 100%; background: rgba(102, 126, 234, 0.05); border-radius: 6px; padding: 8px; font-weight: 600;">
@@ -1538,7 +1739,7 @@ def create_election_map(state_name, state_code=None):
                     <h3 style="margin: 0 0 8px 0; font-size: 12px; color: #333; border-bottom: 2px solid #667eea; padding-bottom: 5px;">
                         Overall Results
                     </h3>
-                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 6px 6px; justify-items: start;">
+                    <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 6px 6px; justify-items: start; max-height: 360px; overflow-y: auto;">
                         ${{overall_boxes}}
                     </div>
                     <div style="margin-top: 10px; padding-top: 5px; border-top: 1px solid #ddd; font-size: 9px; color: #666; text-align: center; width: 100%;">
@@ -1928,7 +2129,7 @@ def create_election_map(state_name, state_code=None):
                         <h3 style="margin: 0 0 12px 0; font-size: 14px; color: #2c3e50; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 8px; border-bottom: 3px solid #667eea; font-weight: 800; letter-spacing: 0.5px;">
                             📊 OVERALL RESULTS (ALLIANCE)
                         </h3>
-                        <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 8px 6px; justify-items: start; padding: 8px 0;">
+                        <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 6px; justify-items: start; padding: 8px 0; max-height: 360px; overflow-y: auto;">
                             ${{alliance_boxes}}
                         </div>
                         <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid #e9ecef; font-size: 11px; color: #495057; text-align: center; width: 100%; background: rgba(102, 126, 234, 0.05); border-radius: 6px; padding: 8px; font-weight: 600;">
@@ -1943,7 +2144,7 @@ def create_election_map(state_name, state_code=None):
                     for (const [party, seats] of sorted_parties) {{
                         total += seats || 0;
                         party_boxes += `
-                            <div onclick="filter_type.value='Party'; filter_type.change.emit(); setTimeout(() => {{ filter_value.value='${{party}}'; filter_value.change.emit(); }}, 50);" style="background: linear-gradient(135deg, ${{party_colors[party]}} 0%, ${{party_colors[party]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
+                            <div onclick="filterByParty('${{party}}');" style="background: linear-gradient(135deg, ${{party_colors[party]}} 0%, ${{party_colors[party]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
                                 <div style="color: white; font-size: 9px; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">${{party}}</div>
                                 <div style="color: white; font-size: 22px; font-weight: 900; line-height: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${{seats || 0}}</div>
                                 <div style="color: rgba(255,255,255,0.9); font-size: 7px; margin-top: 2px; font-weight: 500;">SEATS</div>
@@ -1956,7 +2157,7 @@ def create_election_map(state_name, state_code=None):
                         <h3 style="margin: 0 0 12px 0; font-size: 14px; color: #2c3e50; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 8px; border-bottom: 3px solid #667eea; font-weight: 800; letter-spacing: 0.5px;">
                             📊 OVERALL RESULTS (PARTY)
                         </h3>
-                        <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 8px 6px; justify-items: start; padding: 8px 0;">
+                        <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 6px; justify-items: start; padding: 8px 0; max-height: 360px; overflow-y: auto;">
                             ${{party_boxes}}
                         </div>
                         <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid #e9ecef; font-size: 11px; color: #495057; text-align: center; width: 100%; background: rgba(102, 126, 234, 0.05); border-radius: 6px; padding: 8px; font-weight: 600;">
@@ -2030,7 +2231,7 @@ def create_election_map(state_name, state_code=None):
                         <h3 style="margin: 0 0 12px 0; font-size: 14px; color: #2c3e50; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 8px; border-bottom: 3px solid #667eea; font-weight: 800; letter-spacing: 0.5px;">
                             📊 ${{margin_filter}} (ALLIANCE)
                         </h3>
-                        <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 8px 6px; justify-items: start; padding: 8px 0;">
+                        <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 6px; justify-items: start; padding: 8px 0; max-height: 360px; overflow-y: auto;">
                             ${{alliance_boxes}}
                         </div>
                         <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid #e9ecef; font-size: 11px; color: #495057; text-align: center; width: 100%; background: rgba(102, 126, 234, 0.05); border-radius: 6px; padding: 8px; font-weight: 600;">
@@ -2045,7 +2246,7 @@ def create_election_map(state_name, state_code=None):
                     for (const [party, seats] of sorted_parties) {{
                         total += seats || 0;
                         party_boxes += `
-                            <div onclick="filter_type.value='Party'; filter_type.change.emit(); setTimeout(() => {{ filter_value.value='${{party}}'; filter_value.change.emit(); }}, 50);" style="background: linear-gradient(135deg, ${{party_colors[party]}} 0%, ${{party_colors[party]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
+                            <div onclick="filterByParty('${{party}}');" style="background: linear-gradient(135deg, ${{party_colors[party]}} 0%, ${{party_colors[party]}}dd 100%); border-radius: 8px; padding: 10px; text-align: center; margin-bottom: 6px; width: 70px; height: 70px; display: flex; flex-direction: column; justify-content: center; align-items: center; box-shadow: 0 3px 8px rgba(0,0,0,0.15); transition: transform 0.2s, box-shadow 0.2s; cursor: pointer;" onmouseover="this.style.transform='translateY(-2px) scale(1.05)'; this.style.boxShadow='0 5px 15px rgba(0,0,0,0.25)';" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 3px 8px rgba(0,0,0,0.15)';">
                                 <div style="color: white; font-size: 9px; font-weight: 700; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.5px; text-shadow: 0 1px 2px rgba(0,0,0,0.2);">${{party}}</div>
                                 <div style="color: white; font-size: 22px; font-weight: 900; line-height: 1; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">${{seats || 0}}</div>
                                 <div style="color: rgba(255,255,255,0.9); font-size: 7px; margin-top: 2px; font-weight: 500;">SEATS</div>
@@ -2058,7 +2259,7 @@ def create_election_map(state_name, state_code=None):
                         <h3 style="margin: 0 0 12px 0; font-size: 14px; color: #2c3e50; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; padding-bottom: 8px; border-bottom: 3px solid #667eea; font-weight: 800; letter-spacing: 0.5px;">
                             📊 ${{margin_filter}} (PARTY)
                         </h3>
-                        <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); grid-auto-flow: column; grid-template-rows: repeat(4, auto); gap: 8px 6px; justify-items: start; padding: 8px 0;">
+                        <div style="font-size: 11px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 6px; justify-items: start; padding: 8px 0; max-height: 360px; overflow-y: auto;">
                             ${{party_boxes}}
                         </div>
                         <div style="margin-top: 12px; padding-top: 10px; border-top: 2px solid #e9ecef; font-size: 11px; color: #495057; text-align: center; width: 100%; background: rgba(102, 126, 234, 0.05); border-radius: 6px; padding: 8px; font-weight: 600;">
@@ -2106,14 +2307,171 @@ def create_election_map(state_name, state_code=None):
         
         # Combine plot, info panel, and dropdowns in layout
         selectors = column(info_div, color_mode_button, reset_button, filter_type_select, filter_value_select, constituency_select)
-        layout = row(p, selectors)
+        layout = row(selectors, p)
         
-        return layout, summary, party_vote_shares, party_vote_totals, individual_summary
+        # Build per-seat data list for trends/swing views
+        seat_data = []
+        for _, row_d in state_gdf.iterrows():
+            ac_no = int(row_d.get('AC_NO', 0))
+            wp = str(row_d.get('winning_party', row_d.get('win_party', 'AWAITED')))
+            vp = float(row_d.get('votes_pct', 0) or 0)
+            wv = int(row_d.get('win_votes', 0) or 0)
+            sv = int(row_d.get('sec_votes', 0) or 0)
+            seat_data.append({
+                'ac_no': ac_no,
+                'ac_name': str(row_d.get('AC_NAME', f'AC {ac_no}')),
+                'win_party': wp,
+                'votes_pct': vp,
+                'margin': wv - sv,
+            })
+
+        return layout, summary, party_vote_shares, party_vote_totals, individual_summary, district_vote_totals, district_party_seats_map, seat_data
     
     except Exception as e:
         import traceback
         traceback.print_exc()
-        return None, f"Error creating election map: {str(e)}", {}, {}, {}
+        return None, f"Error creating election map: {str(e)}", {}, {}, {}, {}, {}, []
+
+
+def _build_pie_html(actual_party_seats, party_vote_totals, sc):
+    """Build a styled SVG donut chart + legend for party vote shares."""
+    from math import pi, cos, sin
+
+    individual_parties  = sc['parties']
+    party_colors        = sc['party_colors']
+    party_to_alliance   = get_party_to_alliance(sc)
+
+    # Only include parties with votes, sorted descending
+    pie_parties = sorted(
+        [p for p in individual_parties if p not in ('AWAITED',) and party_vote_totals.get(p, 0) > 0],
+        key=lambda p: party_vote_totals[p], reverse=True
+    )
+    if not pie_parties:
+        return '<p style="padding:40px;color:#888;">No vote data available.</p>'
+
+    pie_votes  = [party_vote_totals[p] for p in pie_parties]
+    pie_colors = [party_colors.get(p, '#CCCCCC') for p in pie_parties]
+    grand      = sum(pie_votes) or 1
+    pie_pcts   = [v / grand * 100 for v in pie_votes]
+    pie_seats  = [actual_party_seats.get(p, 0) for p in pie_parties]
+
+    # SVG donut wedges — outer radius R, inner hole radius r
+    cx, cy, R, r = 200, 200, 170, 80
+    GAP = 0.012   # radians gap between slices for cleaner look
+    angle = -pi / 2
+    paths = []
+    for i, (votes, color, party, pct) in enumerate(zip(pie_votes, pie_colors, pie_parties, pie_pcts)):
+        sweep = max(votes / grand * 2 * pi - GAP, 0.001)
+        a0, a1 = angle + GAP / 2, angle + GAP / 2 + sweep
+
+        ox1, oy1 = cx + R * cos(a0), cy + R * sin(a0)
+        ox2, oy2 = cx + R * cos(a1), cy + R * sin(a1)
+        ix1, iy1 = cx + r * cos(a1), cy + r * sin(a1)
+        ix2, iy2 = cx + r * cos(a0), cy + r * sin(a0)
+        large = 1 if sweep > pi else 0
+        d = (f"M{ox1:.2f},{oy1:.2f} "
+             f"A{R},{R} 0 {large},1 {ox2:.2f},{oy2:.2f} "
+             f"L{ix1:.2f},{iy1:.2f} "
+             f"A{r},{r} 0 {large},0 {ix2:.2f},{iy2:.2f} Z")
+
+        votes_fmt = f"{votes:,}"
+        label_esc = party.replace("'", "\\'")
+        paths.append(
+            f'<path d="{d}" fill="{color}" stroke="white" stroke-width="1.5" '
+            f'style="cursor:pointer;transition:transform 0.18s,filter 0.18s;" '
+            f'onmouseover="pieHover(this,\'{label_esc}\',\'{pct:.1f}%\',\'{votes_fmt} votes\')" '
+            f'onmouseout="pieOut(this)"/>'
+        )
+        angle += votes / grand * 2 * pi
+
+    tooltip = '''<g id="pie-tooltip" style="pointer-events:none;display:none;">
+        <rect id="pie-tt-bg" rx="8" ry="8" fill="rgba(30,30,40,0.88)" />
+        <text id="pie-tt-party"  x="0" y="0" fill="white" font-size="13" font-weight="700" font-family="Segoe UI,sans-serif"/>
+        <text id="pie-tt-pct"    x="0" y="0" fill="#ccc"  font-size="12" font-family="Segoe UI,sans-serif"/>
+        <text id="pie-tt-votes"  x="0" y="0" fill="#aaa"  font-size="11" font-family="Segoe UI,sans-serif"/>
+    </g>'''
+
+    center_label = f'''
+        <text x="{cx}" y="{cy - 10}" text-anchor="middle" fill="#444"
+              font-size="13" font-weight="600" font-family="Segoe UI,sans-serif">PARTY</text>
+        <text x="{cx}" y="{cy + 10}" text-anchor="middle" fill="#444"
+              font-size="13" font-weight="600" font-family="Segoe UI,sans-serif">VOTE SHARE</text>'''
+
+    svg = (f'<svg id="pie-svg" viewBox="0 0 400 400" width="360" height="360" '
+           f'style="display:block;margin:0 auto;overflow:visible;">'
+           f'{"".join(paths)}{center_label}{tooltip}</svg>')
+
+    # Legend rows
+    rows = ''
+    for party, pct, seats, color, votes in zip(pie_parties, pie_pcts, pie_seats, pie_colors, pie_votes):
+        alliance = party_to_alliance.get(party, '')
+        alliance_tag = f'<span style="font-size:0.75em;color:#aaa;margin-left:5px;">· {alliance}</span>' if alliance else ''
+        bar_w = max(2, round(pct * 1.6))
+        votes_fmt = f"{votes:,}"
+        rows += f'''
+        <div style="display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #f0f0f0;">
+            <div style="width:13px;height:13px;border-radius:3px;background:{color};flex-shrink:0;
+                        box-shadow:0 1px 4px rgba(0,0,0,0.25);"></div>
+            <div style="flex:1;min-width:0;">
+                <div style="font-weight:700;font-size:0.9em;color:#1a1a2e;">{party}{alliance_tag}</div>
+                <div style="background:#eee;border-radius:6px;height:6px;margin-top:4px;">
+                    <div style="width:{bar_w}%;background:{color};height:6px;border-radius:6px;
+                                transition:width 0.4s ease;"></div>
+                </div>
+                <div style="font-size:0.72em;color:#999;margin-top:2px;">{votes_fmt} votes &nbsp;·&nbsp; {seats} seats</div>
+            </div>
+            <div style="text-align:right;flex-shrink:0;">
+                <div style="font-weight:900;font-size:1.05em;color:#1a1a2e;">{pct:.1f}%</div>
+            </div>
+        </div>'''
+
+    js = '''
+    <script>
+    function pieHover(el, party, pct, votes) {
+        el.style.filter = 'brightness(1.15) drop-shadow(0 4px 10px rgba(0,0,0,0.3))';
+        el.style.transform = 'scale(1.04)';
+        el.style.transformOrigin = '200px 200px';
+        var tt   = document.getElementById('pie-tooltip');
+        var bg   = document.getElementById('pie-tt-bg');
+        var tp   = document.getElementById('pie-tt-party');
+        var tpct = document.getElementById('pie-tt-pct');
+        var tv   = document.getElementById('pie-tt-votes');
+        tp.textContent   = party;
+        tpct.textContent = pct;
+        tv.textContent   = votes;
+        tp.setAttribute('x', 200); tp.setAttribute('y', 242);
+        tpct.setAttribute('x', 200); tpct.setAttribute('y', 258);
+        tv.setAttribute('x', 200); tv.setAttribute('y', 272);
+        tp.setAttribute('text-anchor','middle');
+        tpct.setAttribute('text-anchor','middle');
+        tv.setAttribute('text-anchor','middle');
+        bg.setAttribute('x', 130); bg.setAttribute('y', 228);
+        bg.setAttribute('width', 140); bg.setAttribute('height', 54);
+        tt.style.display = 'block';
+    }
+    function pieOut(el) {
+        el.style.filter = '';
+        el.style.transform = '';
+        document.getElementById('pie-tooltip').style.display = 'none';
+    }
+    </script>'''
+
+    return f'''
+    <div style="max-width:900px;margin:0 auto;display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap;padding:16px 0;">
+        <div style="flex:0 0 360px;">
+            <h3 style="text-align:center;color:#1a1a2e;font-size:1em;margin-bottom:8px;
+                        font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:0.7;">
+                Party Vote Share
+            </h3>
+            {svg}
+        </div>
+        <div style="flex:1;min-width:260px;max-height:420px;overflow-y:auto;padding-right:8px;">
+            <h3 style="color:#1a1a2e;font-size:1em;margin-bottom:10px;font-weight:700;
+                        letter-spacing:1px;text-transform:uppercase;opacity:0.7;">Breakdown</h3>
+            {rows}
+        </div>
+    </div>{js}'''
+
 
 @app.route('/state/<state_code>')
 def state_map_redirect(state_code):
@@ -2132,13 +2490,220 @@ def index():
     print(f"Generating election map for {state_name}")
     
     try:
-        plot, summary, party_vote_shares, party_vote_totals, actual_party_seats = create_election_map(state_name, state_code=state_code)
+        plot, summary, party_vote_shares, party_vote_totals, actual_party_seats, district_vote_totals, district_party_seats_map, seat_data = create_election_map(state_name, state_code=state_code)
         
         if plot is None:
             return f"<h1>Error</h1><p>{summary}</p>", 500
         
         # Generate Bokeh HTML
         bokeh_html = file_html(plot, CDN, f"{state_name} Election Results")
+
+        # Load previous election results from GitHub
+        prev_data = {}
+        prev_csv_path = f"prev_results_{state_code}.csv"
+        prev_url, prev_token = get_github_url(prev_csv_path)
+        try:
+            prev_hdrs = {}
+            if prev_token:
+                prev_hdrs['Authorization'] = f'token {prev_token}'
+            prev_resp = requests.get(prev_url, timeout=10, headers=prev_hdrs)
+            if prev_resp.status_code == 200:
+                if prev_token:
+                    import base64 as _b64
+                    prev_content = _b64.b64decode(json.loads(prev_resp.text)['content']).decode('utf-8')
+                else:
+                    prev_content = prev_resp.text
+                prev_df = pd.read_csv(StringIO(prev_content))
+                for _, prev_row in prev_df.iterrows():
+                    try:
+                        ac = int(prev_row['AC_NO'])
+                        prev_data[str(ac)] = {
+                            'win_cand':  str(prev_row.get('prev_win_cand', '')),
+                            'win_party': str(prev_row.get('prev_win_party', '')),
+                            'win_votes': int(prev_row.get('prev_win_votes', 0) or 0),
+                            'win_pct':   float(prev_row.get('prev_win_pct', 0) or 0),
+                            'sec_cand':  str(prev_row.get('prev_sec_cand', '')),
+                            'sec_party': str(prev_row.get('prev_sec_party', '')),
+                            'sec_votes': int(prev_row.get('prev_sec_votes', 0) or 0),
+                            'sec_pct':   float(prev_row.get('prev_sec_pct', 0) or 0),
+                            'margin':    int(prev_row.get('prev_margin', 0) or 0),
+                        }
+                    except Exception:
+                        pass
+                print(f"Loaded {len(prev_data)} prev rows from GitHub:{prev_csv_path}")
+        except Exception as e:
+            print(f"Could not load {prev_csv_path} from GitHub: {e}")
+        _prev_data_json = json.dumps(prev_data)
+
+        # Build SVG pie chart from party_vote_totals
+        pie_html = _build_pie_html(actual_party_seats, party_vote_totals, sc)
+
+        # ── Trends view ──────────────────────────────────────────────────────
+        _p2a_trends = get_party_to_alliance(sc)
+        _alliance_colors_trends = get_alliance_colors(sc)
+        total_seats = len(seat_data)
+        reporting = sum(1 for s in seat_data if s['votes_pct'] > 0)
+        declared  = sum(1 for s in seat_data if s['votes_pct'] >= 99.9)
+        # Per-alliance won/leading counts
+        from collections import defaultdict
+        _al_won     = defaultdict(int)
+        _al_leading = defaultdict(int)
+        for s in seat_data:
+            if s['win_party'] == 'AWAITED':
+                continue
+            al = _p2a_trends.get(s['win_party'], s['win_party'])
+            if s['votes_pct'] >= 99.9:
+                _al_won[al] += 1
+            elif s['votes_pct'] > 0:
+                _al_leading[al] += 1
+        # Build table rows sorted by total (won+leading)
+        _all_alliances = sorted(
+            set(list(_al_won.keys()) + list(_al_leading.keys())),
+            key=lambda a: -(_al_won[a] + _al_leading[a])
+        )
+        _trends_rows = ''
+        for al in _all_alliances:
+            won_n = _al_won[al]
+            lead_n = _al_leading[al]
+            total_n = won_n + lead_n
+            color = _alliance_colors_trends.get(al, '#95A5A6')
+            _trends_rows += f'''
+            <tr>
+                <td style="padding:8px 10px;">
+                    <span style="display:inline-block;width:12px;height:12px;border-radius:3px;background:{color};margin-right:6px;vertical-align:middle;"></span>
+                    <strong>{al}</strong>
+                </td>
+                <td style="padding:8px 10px;text-align:center;color:#27ae60;font-weight:700;">{won_n}</td>
+                <td style="padding:8px 10px;text-align:center;color:#e67e22;font-weight:700;">{lead_n}</td>
+                <td style="padding:8px 10px;text-align:center;font-weight:800;font-size:1.05em;">{total_n}</td>
+            </tr>'''
+        majority = total_seats // 2 + 1
+        trends_html = f'''
+        <div style="max-width:700px;margin:0 auto;">
+            <h2 style="font-size:1.3em;font-weight:800;color:#2c3e50;margin:0 0 6px 0;">📈 Seat Tally</h2>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;">
+                <div style="background:#f0f4ff;border-radius:10px;padding:10px 18px;text-align:center;">
+                    <div style="font-size:1.6em;font-weight:800;color:#667eea;">{reporting}</div>
+                    <div style="font-size:0.75em;color:#666;font-weight:600;">REPORTING</div>
+                </div>
+                <div style="background:#f0fff4;border-radius:10px;padding:10px 18px;text-align:center;">
+                    <div style="font-size:1.6em;font-weight:800;color:#27ae60;">{declared}</div>
+                    <div style="font-size:0.75em;color:#666;font-weight:600;">DECLARED</div>
+                </div>
+                <div style="background:#fff8f0;border-radius:10px;padding:10px 18px;text-align:center;">
+                    <div style="font-size:1.6em;font-weight:800;color:#e67e22;">{total_seats - reporting}</div>
+                    <div style="font-size:0.75em;color:#666;font-weight:600;">AWAITED</div>
+                </div>
+                <div style="background:#f8f0ff;border-radius:10px;padding:10px 18px;text-align:center;">
+                    <div style="font-size:1.6em;font-weight:800;color:#8e44ad;">{majority}</div>
+                    <div style="font-size:0.75em;color:#666;font-weight:600;">MAJORITY MARK</div>
+                </div>
+            </div>
+            <table style="width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <thead>
+                    <tr style="background:#f0f4ff;">
+                        <th style="padding:10px 10px;text-align:left;font-size:0.85em;color:#555;">ALLIANCE / PARTY</th>
+                        <th style="padding:10px;text-align:center;font-size:0.85em;color:#27ae60;">✅ WON</th>
+                        <th style="padding:10px;text-align:center;font-size:0.85em;color:#e67e22;">📊 LEADING</th>
+                        <th style="padding:10px;text-align:center;font-size:0.85em;color:#333;">TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody>{_trends_rows}</tbody>
+            </table>
+            <p style="font-size:0.75em;color:#aaa;margin-top:10px;">Won = counting complete (100%). Leading = counting in progress.</p>
+        </div>'''
+
+        # ── Swing Seats view ─────────────────────────────────────────────────
+        _swing_seats = []
+        for s in seat_data:
+            ac_str = str(s['ac_no'])
+            if ac_str not in prev_data:
+                continue
+            prev_p = prev_data[ac_str].get('win_party', '')
+            curr_p = s['win_party']
+            if not prev_p or curr_p == 'AWAITED' or prev_p == curr_p:
+                continue
+            prev_al = _p2a_trends.get(prev_p, prev_p)
+            curr_al = _p2a_trends.get(curr_p, curr_p)
+            if prev_al == curr_al:
+                continue  # within same alliance, not a real swing
+            _swing_seats.append({
+                'ac_name': s['ac_name'],
+                'prev_party': prev_p,
+                'curr_party': curr_p,
+                'prev_al': prev_al,
+                'curr_al': curr_al,
+                'margin': s['margin'],
+                'votes_pct': s['votes_pct'],
+            })
+        # Direction summary
+        _direction_counts = defaultdict(int)
+        for sw in _swing_seats:
+            _direction_counts[(sw['prev_al'], sw['curr_al'])] += 1
+        _direction_rows = ''
+        for (frm, to), cnt in sorted(_direction_counts.items(), key=lambda x: -x[1]):
+            frm_color = _alliance_colors_trends.get(frm, '#95A5A6')
+            to_color  = _alliance_colors_trends.get(to,  '#95A5A6')
+            _direction_rows += f'''
+            <div style="display:flex;align-items:center;gap:8px;background:#f8f9ff;border-radius:8px;padding:8px 14px;font-size:0.9em;">
+                <span style="background:{frm_color};color:white;padding:3px 9px;border-radius:5px;font-weight:700;">{frm}</span>
+                <span style="color:#888;font-size:1.1em;">→</span>
+                <span style="background:{to_color};color:white;padding:3px 9px;border-radius:5px;font-weight:700;">{to}</span>
+                <span style="margin-left:auto;font-weight:800;font-size:1.05em;">{cnt} seats</span>
+            </div>'''
+        # Individual swing seat rows (sorted by declared first, then by margin)
+        _seat_rows = ''
+        for sw in sorted(_swing_seats, key=lambda x: (-x['votes_pct'], -x['margin'])):
+            frm_color = _alliance_colors_trends.get(sw['prev_al'], '#95A5A6')
+            to_color  = _alliance_colors_trends.get(sw['curr_al'], '#95A5A6')
+            status = '✅' if sw['votes_pct'] >= 99.9 else '📊'
+            margin_str = f"+{sw['margin']:,}" if sw['margin'] >= 0 else f"{sw['margin']:,}"
+            _seat_rows += f'''
+            <tr style="border-bottom:1px solid #f0f0f0;">
+                <td style="padding:7px 10px;font-weight:600;font-size:0.88em;">{status} {sw["ac_name"]}</td>
+                <td style="padding:7px 8px;text-align:center;">
+                    <span style="background:{frm_color};color:white;padding:2px 7px;border-radius:4px;font-size:0.8em;font-weight:700;">{sw["prev_party"]}</span>
+                </td>
+                <td style="padding:7px 4px;text-align:center;color:#888;">→</td>
+                <td style="padding:7px 8px;text-align:center;">
+                    <span style="background:{to_color};color:white;padding:2px 7px;border-radius:4px;font-size:0.8em;font-weight:700;">{sw["curr_party"]}</span>
+                </td>
+                <td style="padding:7px 10px;text-align:right;font-size:0.85em;color:#555;">{margin_str}</td>
+            </tr>'''
+        prev_yr = sc.get('prev_year', 'Previous')
+        swing_html = f'''
+        <div style="max-width:700px;margin:0 auto;">
+            <h2 style="font-size:1.3em;font-weight:800;color:#2c3e50;margin:0 0 6px 0;">🔄 Swing from {prev_yr}</h2>
+            <p style="color:#666;font-size:0.88em;margin:0 0 14px 0;">{len(_swing_seats)} seats have flipped alliance from {prev_yr} results</p>
+            {"<p style='color:#aaa;font-size:0.88em;'>No swing data yet — previous results not loaded.</p>" if not prev_data else ""}
+            <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:20px;">{_direction_rows}</div>
+            {"" if not _seat_rows else f"""
+            <table style="width:100%;border-collapse:collapse;background:white;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
+                <thead>
+                    <tr style="background:#f0f4ff;">
+                        <th style="padding:9px 10px;text-align:left;font-size:0.82em;color:#555;">CONSTITUENCY</th>
+                        <th style="padding:9px 8px;text-align:center;font-size:0.82em;color:#555;">{prev_yr}</th>
+                        <th style="padding:9px 4px;"></th>
+                        <th style="padding:9px 8px;text-align:center;font-size:0.82em;color:#555;">NOW</th>
+                        <th style="padding:9px 10px;text-align:right;font-size:0.82em;color:#555;">MARGIN</th>
+                    </tr>
+                </thead>
+                <tbody>{_seat_rows}</tbody>
+            </table>"""}
+        </div>'''
+
+        # District filter data for voteshare JS
+        _p2a = get_party_to_alliance(sc)
+        _district_vote_totals_json = json.dumps(district_vote_totals)
+        _district_party_seats_json = json.dumps(district_party_seats_map)
+        _state_vote_totals_json = json.dumps(party_vote_totals)
+        _state_seats_json = json.dumps(actual_party_seats)
+        _pie_party_colors_json = json.dumps(sc['party_colors'])
+        _pie_party_to_alliance_json = json.dumps(_p2a)
+        _district_options_html = ''.join(
+            f'<option value="{d}">{d}</option>'
+            for d in sorted(district_vote_totals.keys())
+        )
         
         # Build alliances dynamically from state config
         alliances = {}
@@ -2163,8 +2728,8 @@ def index():
         for code, cfg in ALL_STATES.items():
             is_active = code == state_code
             style = "background: white; color: #667eea; font-weight: 700;" if is_active else "background: rgba(255,255,255,0.2); color: white;"
-            state_nav_html += f'<a href="/?state={code}" style="padding: 8px 16px; border-radius: 20px; text-decoration: none; font-size: 0.9em; transition: all 0.2s; {style}">{cfg["name"]}</a>'
-        
+            state_nav_html += f'<a href="/?state={code}" style="flex:1;text-align:center;padding: 8px 0; border-radius: 6px; text-decoration: none; font-size: 0.9em; transition: all 0.2s; {style}">{cfg["name"]}</a>'
+
         # Build alliance cards HTML with party breakdown
         alliance_results_html = ""
         for alliance_name, alliance_info in alliances.items():
@@ -2226,8 +2791,111 @@ def index():
 """
         
         # Create wrapper with header and info panel
-        import json
         _alliance_parties_js = json.dumps({name: [name] for name in sc['alliances'].keys()})
+
+        # District pie filter: data script (f-string) + logic script (plain string, no escaping needed)
+        _district_data_script = (
+            '<script>'
+            f'const _districtVotes={_district_vote_totals_json};'
+            f'const _districtSeats={_district_party_seats_json};'
+            f'const _stateVotes={_state_vote_totals_json};'
+            f'const _stateSeats={_state_seats_json};'
+            f'const _piePartyColors={_pie_party_colors_json};'
+            f'const _piePartyToAlliance={_pie_party_to_alliance_json};'
+            '</script>'
+        )
+        _district_pie_js = '''<script>
+function filterPieByDistrict(district) {
+    var votes = district ? _districtVotes[district] : _stateVotes;
+    var seats = district ? _districtSeats[district] : _stateSeats;
+    var title = district ? district + " \u2014 Party Vote Share" : "State-wide \u2014 Party Vote Share";
+    renderDistrictPieChart(votes, seats, title);
+}
+function renderDistrictPieChart(partyVotes, partySeats, title) {
+    var entries = Object.entries(partyVotes || {}).filter(function(e){return e[0]!=="AWAITED"&&e[1]>0;}).sort(function(a,b){return b[1]-a[1];});
+    if (!entries.length) {
+        document.getElementById("pie-chart-container").innerHTML = "<p style=\'padding:40px;color:#888;\'>No vote data available.</p>";
+        return;
+    }
+    var total = entries.reduce(function(s,e){return s+e[1];},0) || 1;
+    var NS = "http://www.w3.org/2000/svg";
+    var cx=200,cy=200,R=170,r=80,GAP=0.012;
+    var svg = document.createElementNS(NS,"svg");
+    svg.setAttribute("id","pie-svg"); svg.setAttribute("viewBox","0 0 400 400");
+    svg.setAttribute("width","360"); svg.setAttribute("height","360");
+    svg.style.cssText = "display:block;margin:0 auto;overflow:visible;";
+    var angle = -Math.PI/2;
+    for (var i=0;i<entries.length;i++) {
+        var party=entries[i][0], votes=entries[i][1];
+        var sweep = Math.max(votes/total*2*Math.PI-GAP,0.001);
+        var a0=angle+GAP/2, a1=angle+GAP/2+sweep;
+        var ox1=cx+R*Math.cos(a0),oy1=cy+R*Math.sin(a0);
+        var ox2=cx+R*Math.cos(a1),oy2=cy+R*Math.sin(a1);
+        var ix1=cx+r*Math.cos(a1),iy1=cy+r*Math.sin(a1);
+        var ix2=cx+r*Math.cos(a0),iy2=cy+r*Math.sin(a0);
+        var large=sweep>Math.PI?1:0;
+        var d="M"+ox1.toFixed(2)+","+oy1.toFixed(2)+" A"+R+","+R+" 0 "+large+",1 "+ox2.toFixed(2)+","+oy2.toFixed(2)+" L"+ix1.toFixed(2)+","+iy1.toFixed(2)+" A"+r+","+r+" 0 "+large+",0 "+ix2.toFixed(2)+","+iy2.toFixed(2)+" Z";
+        var color=(_piePartyColors[party]||"#ccc");
+        var pct=(votes/total*100).toFixed(1);
+        var vfmt=votes.toLocaleString();
+        var path=document.createElementNS(NS,"path");
+        path.setAttribute("d",d); path.setAttribute("fill",color);
+        path.setAttribute("stroke","white"); path.setAttribute("stroke-width","1.5");
+        path.style.cssText="cursor:pointer;transition:transform 0.18s,filter 0.18s;";
+        (function(el,p,pc,v){
+            el.addEventListener("mouseover",function(){pieHover(el,p,pc,v);});
+            el.addEventListener("mouseout",function(){pieOut(el);});
+        })(path,party,pct+"%",vfmt+" votes");
+        svg.appendChild(path);
+        angle+=votes/total*2*Math.PI;
+    }
+    var labels=[["PARTY",-10],["VOTE SHARE",10]];
+    for (var j=0;j<labels.length;j++) {
+        var t=document.createElementNS(NS,"text");
+        t.setAttribute("x",cx); t.setAttribute("y",cy+labels[j][1]);
+        t.setAttribute("text-anchor","middle"); t.setAttribute("fill","#444");
+        t.setAttribute("font-size","13"); t.setAttribute("font-weight","600");
+        t.setAttribute("font-family","Segoe UI,sans-serif");
+        t.textContent=labels[j][0]; svg.appendChild(t);
+    }
+    svg.insertAdjacentHTML("beforeend","<g id=\\"pie-tooltip\\" style=\\"pointer-events:none;display:none;\\"><rect id=\\"pie-tt-bg\\" rx=\\"8\\" ry=\\"8\\" fill=\\"rgba(30,30,40,0.88)\\"/><text id=\\"pie-tt-party\\" x=\\"0\\" y=\\"0\\" fill=\\"white\\" font-size=\\"13\\" font-weight=\\"700\\" font-family=\\"Segoe UI,sans-serif\\"/><text id=\\"pie-tt-pct\\" x=\\"0\\" y=\\"0\\" fill=\\"#ccc\\" font-size=\\"12\\" font-family=\\"Segoe UI,sans-serif\\"/><text id=\\"pie-tt-votes\\" x=\\"0\\" y=\\"0\\" fill=\\"#aaa\\" font-size=\\"11\\" font-family=\\"Segoe UI,sans-serif\\"/></g>");
+    var rows="";
+    for (var k=0;k<entries.length;k++) {
+        var ep=entries[k][0],ev=entries[k][1];
+        var epct=(ev/total*100).toFixed(1);
+        var eseats=(partySeats&&partySeats[ep])||0;
+        var ecolor=(_piePartyColors[ep]||"#ccc");
+        var barW=Math.max(2,Math.round(parseFloat(epct)*1.6));
+        var alliance=(_piePartyToAlliance[ep]||"");
+        var alTag=alliance?"<span style=\\"font-size:0.75em;color:#aaa;margin-left:5px;\\">\\u00b7 "+alliance+"</span>":"";
+        rows+="<div style=\\"display:flex;align-items:center;gap:12px;padding:8px 0;border-bottom:1px solid #f0f0f0;\\">"
+             +"<div style=\\"width:13px;height:13px;border-radius:3px;background:"+ecolor+";flex-shrink:0;box-shadow:0 1px 4px rgba(0,0,0,0.25);\\"></div>"
+             +"<div style=\\"flex:1;min-width:0;\\">"
+             +"<div style=\\"font-weight:700;font-size:0.9em;color:#1a1a2e;\\">"+ep+alTag+"</div>"
+             +"<div style=\\"background:#eee;border-radius:6px;height:6px;margin-top:4px;\\">"
+             +"<div style=\\"width:"+barW+"%;background:"+ecolor+";height:6px;border-radius:6px;transition:width 0.4s ease;\\"></div>"
+             +"</div>"
+             +"<div style=\\"font-size:0.72em;color:#999;margin-top:2px;\\">"+ev.toLocaleString()+" votes \u00a0\u00b7\u00a0 "+eseats+" seats</div>"
+             +"</div>"
+             +"<div style=\\"text-align:right;flex-shrink:0;\\"><div style=\\"font-weight:900;font-size:1.05em;color:#1a1a2e;\\">"+epct+"%</div></div>"
+             +"</div>";
+    }
+    var container=document.getElementById("pie-chart-container");
+    container.innerHTML="";
+    var wrapper=document.createElement("div");
+    wrapper.style.cssText="max-width:900px;margin:0 auto;display:flex;gap:36px;align-items:flex-start;flex-wrap:wrap;padding:16px 0;";
+    var svgDiv=document.createElement("div"); svgDiv.style.cssText="flex:0 0 360px;";
+    var h3=document.createElement("h3");
+    h3.style.cssText="text-align:center;color:#1a1a2e;font-size:1em;margin-bottom:8px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:0.7;";
+    h3.textContent=title; svgDiv.appendChild(h3); svgDiv.appendChild(svg);
+    var legendDiv=document.createElement("div");
+    legendDiv.style.cssText="flex:1;min-width:260px;max-height:420px;overflow-y:auto;padding-right:8px;";
+    legendDiv.innerHTML="<h3 style=\\"color:#1a1a2e;font-size:1em;margin-bottom:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;opacity:0.7;\\">Breakdown</h3>"+rows;
+    wrapper.appendChild(svgDiv); wrapper.appendChild(legendDiv);
+    container.appendChild(wrapper);
+}
+</script>'''
+
         final_html = f"""
 <!DOCTYPE html>
 <html lang="en">
@@ -2306,6 +2974,71 @@ def index():
             padding: 30px;
             background: white;
         }}
+
+        /* ── Bokeh Tabs: vertical pill toggle on the RIGHT of the map ───── */
+        /* Tabs notebook: flex-row so header goes to the right */
+        .bk-root .bk-tabs-header {{
+            display: flex !important;
+            flex-direction: column !important;
+            justify-content: flex-start !important;
+            gap: 8px !important;
+            padding: 12px 8px !important;
+            background: transparent !important;
+            border: none !important;
+            order: 2 !important;
+            align-self: flex-start !important;
+            margin-top: 8px !important;
+        }}
+        /* Hide the default scrollbuttons */
+        .bk-root .bk-tabs-header .bk-btn-group {{
+            display: flex !important;
+            flex-direction: column !important;
+            gap: 8px !important;
+        }}
+        .bk-root .bk-headers-wrapper {{
+            display: flex !important;
+            flex-direction: column !important;
+        }}
+        /* Each tab button */
+        .bk-root .bk-tab {{
+            display: block !important;
+            padding: 10px 18px !important;
+            border-radius: 24px !important;
+            border: 2px solid #667eea !important;
+            background: white !important;
+            color: #667eea !important;
+            font-weight: 600 !important;
+            font-size: 0.85em !important;
+            cursor: pointer !important;
+            transition: all 0.2s ease !important;
+            text-align: center !important;
+            white-space: nowrap !important;
+            letter-spacing: 0.3px !important;
+            box-shadow: 0 2px 8px rgba(102, 126, 234, 0.15) !important;
+            min-width: 90px !important;
+        }}
+        .bk-root .bk-tab:hover {{
+            background: #667eea !important;
+            color: white !important;
+            transform: translateX(-3px) !important;
+            box-shadow: 0 4px 14px rgba(102, 126, 234, 0.35) !important;
+        }}
+        .bk-root .bk-tab.bk-active {{
+            background: linear-gradient(135deg, #667eea, #764ba2) !important;
+            color: white !important;
+            border-color: transparent !important;
+            box-shadow: 0 4px 14px rgba(102, 126, 234, 0.4) !important;
+        }}
+        /* The notebook container: row layout so content left, buttons right */
+        .bk-root .bk-notebook {{
+            display: flex !important;
+            flex-direction: row !important;
+            background: transparent !important;
+        }}
+        .bk-root .bk-notebook > .bk-panel-models-layouts-GridBox,
+        .bk-root .bk-notebook > div:first-child {{
+            order: 1 !important;
+        }}
         footer {{
             background: #2c3e50;
             color: white;
@@ -2336,10 +3069,7 @@ def index():
                 max-width: 100% !important;
                 min-width: 100% !important;
             }}
-            /* Make selectors (filters) appear first on mobile */
-            .bk-root .bk-layout-row > div:last-child {{
-                order: -1;
-            }}
+            /* Selectors panel is already first in DOM — no reorder needed */
             /* Reduce selector widths on mobile */
             .bk-root select, .bk-root .bk-input {{
                 width: 100% !important;
@@ -2367,8 +3097,8 @@ def index():
     <div class="container">
         <header>
             <h1>🗺️ {state_name} Election Results {sc['year']}</h1>
-            <p class="subtitle">Live Interactive Constituency Map - Updated Every 5 Minutes</p>
-            <nav style="margin-top: 15px; display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+            <p class="subtitle">Live Interactive Analysis</p>
+            <nav style="margin-top: 15px; display: flex; gap: 8px;">
                 {state_nav_html}
             </nav>
         </header>
@@ -2396,8 +3126,74 @@ def index():
             </p>
         </div>
 
-        <div class="map-container">
-            {bokeh_html}
+        <!-- Map + vertical toggle on the right -->
+        <div style="display:flex; align-items:flex-start;">
+
+            <div id="view-map" class="map-container" style="flex:1; min-width:0;">
+                {bokeh_html}
+            </div>
+            <div id="view-voteshare" style="display:none; flex:1; min-width:0; padding:30px; background:white; overflow-y:auto;">
+                <div style="margin-bottom:16px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;">
+                    <label style="font-weight:700;font-size:0.9em;color:#444;">Filter by District:</label>
+                    <select id="district-pie-select" onchange="filterPieByDistrict(this.value)" style="padding:7px 14px;border-radius:8px;border:1.5px solid #c5caff;font-size:0.9em;background:white;color:#333;cursor:pointer;">
+                        <option value="">All Districts (State-wide)</option>
+                        {_district_options_html}
+                    </select>
+                </div>
+                <div id="pie-chart-container">
+                    {pie_html}
+                </div>
+            </div>
+            <div id="view-trends" style="display:none; flex:1; min-width:0; padding:30px; background:white; overflow-y:auto;">
+                {trends_html}
+            </div>
+            <div id="view-swing" style="display:none; flex:1; min-width:0; padding:30px; background:white; overflow-y:auto;">
+                {swing_html}
+            </div>
+
+            <!-- Vertical toggle strip -->
+            <div style="
+                display:flex; flex-direction:column; gap:10px;
+                padding:16px 12px;
+                background:#f8f9ff;
+                border-left:1px solid #e0e4ff;
+                align-self:stretch;
+                align-items:center;
+                min-width:115px;
+            ">
+                <button id="btn-map" onclick="showView('map')" style="
+                    padding:12px 16px; border:none; cursor:pointer;
+                    background:linear-gradient(135deg,#667eea,#764ba2);
+                    color:white; font-weight:700; font-size:0.88em;
+                    border-radius:10px; letter-spacing:0.3px;
+                    box-shadow:0 4px 12px rgba(102,126,234,0.35);
+                    transition:all 0.2s; white-space:nowrap; width:100%;
+                ">🗺️ Map</button>
+                <button id="btn-voteshare" onclick="showView('voteshare')" style="
+                    padding:12px 16px; border:none; cursor:pointer;
+                    background:#e9ecef; color:#555;
+                    font-weight:600; font-size:0.88em;
+                    border-radius:10px; letter-spacing:0.3px;
+                    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+                    transition:all 0.2s; white-space:nowrap; width:100%;
+                ">📊 Vote Share</button>
+                <button id="btn-trends" onclick="showView('trends')" style="
+                    padding:12px 16px; border:none; cursor:pointer;
+                    background:#e9ecef; color:#555;
+                    font-weight:600; font-size:0.88em;
+                    border-radius:10px; letter-spacing:0.3px;
+                    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+                    transition:all 0.2s; white-space:nowrap; width:100%;
+                ">📈 Trends</button>
+                <button id="btn-swing" onclick="showView('swing')" style="
+                    padding:12px 16px; border:none; cursor:pointer;
+                    background:#e9ecef; color:#555;
+                    font-weight:600; font-size:0.88em;
+                    border-radius:10px; letter-spacing:0.3px;
+                    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+                    transition:all 0.2s; white-space:nowrap; width:100%;
+                ">🔄 Swings</button>
+            </div>
         </div>
 
         <footer>
@@ -2406,6 +3202,22 @@ def index():
     </div>
     
     <script>
+        const _views = ['map', 'voteshare', 'trends', 'swing'];
+        function showView(view) {{
+            _views.forEach(v => {{
+                const el  = document.getElementById('view-' + v);
+                const btn = document.getElementById('btn-' + (v === 'voteshare' ? 'voteshare' : v));
+                const active = v === view;
+                if (el)  el.style.display = active ? 'flex' : 'none';
+                if (btn) {{
+                    btn.style.background  = active ? 'linear-gradient(135deg,#667eea,#764ba2)' : '#e9ecef';
+                    btn.style.color       = active ? 'white' : '#555';
+                    btn.style.fontWeight  = active ? '700' : '600';
+                    btn.style.boxShadow   = active ? '0 4px 12px rgba(102,126,234,0.35)' : '0 2px 6px rgba(0,0,0,0.08)';
+                }}
+            }});
+        }}
+
         // Mobile layout fix: Move filters below map on mobile devices
         function reorganizeLayoutForMobile() {{
             const isMobile = window.innerWidth <= 768;
@@ -2462,6 +3274,49 @@ def index():
             setTimeout(disableMapDragOnMobile, 600);
         }});
         window.addEventListener('resize', reorganizeLayoutForMobile);
+        
+        // Previous election comparison helpers
+        window._partyColors = {json.dumps(sc['party_colors'])};
+        window._allianceColors = {json.dumps(get_alliance_colors(sc))};
+        window._partyToAlliance = {json.dumps(get_party_to_alliance(sc))};
+        window._savedResults = {{}};
+        window._prevData = {_prev_data_json};
+
+        window._loadPrevResults = function(acNo) {{
+            const box = document.getElementById('results-box-' + acNo);
+            if (!box) return;
+            const data = (window._prevData || {{}})[String(acNo)];
+            if (!data || !data.win_party) {{
+                box.innerHTML = '<div style="padding:24px;text-align:center;color:#888;font-size:14px;">No {sc.get("prev_year", "previous")} results available.<br><small style="color:#bbb;">Run scrape_prev_results.py {state_code} to fetch them.</small></div>';
+                return;
+            }}
+            const colors = window._partyColors ;
+            const alColors = window._allianceColors || {{}};
+            const p2a = window._partyToAlliance || {{}};
+            function prevColor(party) {{
+                return alColors[p2a[party]] || colors[party] || '#95A5A6';
+            }}
+            const c1 = prevColor(data.win_party);
+            const c2 = prevColor(data.sec_party);
+            let html = '';
+            html += '<div style="margin-bottom:12px;padding:15px;background:linear-gradient(to right,' + c1 + '15,white);border-radius:10px;border-left:5px solid ' + c1 + ';box-shadow:0 2px 8px rgba(0,0,0,0.08);display:flex;justify-content:space-between;align-items:center;">';
+            html += '<div><div style="font-size:16px;font-weight:bold;color:' + c1 + ';margin-bottom:4px;">' + data.win_party + '</div><div style="color:#666;font-size:14px;">' + data.win_cand + '</div></div>';
+            html += '<div style="text-align:right;"><div style="background:' + c1 + ';color:white;padding:4px 10px;border-radius:5px;font-size:11px;font-weight:bold;margin-bottom:6px;display:inline-block;">WON BY ' + data.margin.toLocaleString() + '</div><div style="font-size:20px;font-weight:bold;color:#333;">' + data.win_votes.toLocaleString() + '</div><div style="font-size:16px;font-weight:bold;color:' + c1 + ';">' + data.win_pct + '%</div></div>';
+            html += '</div>';
+            if (data.sec_party) {{
+                html += '<div style="margin-bottom:12px;padding:15px;background:linear-gradient(to right,' + c2 + '10,white);border-radius:10px;border-left:5px solid ' + c2 + ';box-shadow:0 2px 8px rgba(0,0,0,0.05);display:flex;justify-content:space-between;align-items:center;">';
+                html += '<div><div style="font-size:16px;font-weight:bold;color:' + c2 + ';margin-bottom:4px;">' + data.sec_party + '</div><div style="color:#666;font-size:14px;">' + data.sec_cand + '</div></div>';
+                html += '<div style="text-align:right;"><div style="font-size:20px;font-weight:bold;color:#333;">' + data.sec_votes.toLocaleString() + '</div><div style="font-size:16px;font-weight:bold;color:' + c2 + ';">' + data.sec_pct + '%</div></div>';
+                html += '</div>';
+            }}
+            box.innerHTML = html;
+        }};
+
+        window._restoreCurResults = function(acNo) {{
+            const box = document.getElementById('results-box-' + acNo);
+            const saved = (window._savedResults || {{}})[acNo];
+            if (box && saved !== undefined) box.innerHTML = saved;
+        }};
         
         let currentFilter = null;
         
@@ -2545,6 +3400,8 @@ def index():
             }}
         }}
     </script>
+    {_district_data_script}
+    {_district_pie_js}
 </body>
 </html>
 """
@@ -2624,7 +3481,7 @@ def get_states():
 
 if __name__ == '__main__':
     import os
-    # Use PORT from environment (for Render/Railway) or default to 5000
-    port = int(os.environ.get('PORT', 5000))
+    # Use PORT from environment (for Render/Railway) or default to 5080
+    port = int(os.environ.get('PORT', 5087))
     # Set debug=False for production
     app.run(host='0.0.0.0', port=port, debug=False)

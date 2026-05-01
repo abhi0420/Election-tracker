@@ -1,18 +1,18 @@
 AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi_cand,thi_party,thi_votes,margin,tot_votes,votes_pct
-1,Mannadipet,D. Patel,BJP,66421,M. Gupta,ADMK,54501,C. Sharma,NR,13035,11920,146345,59.12
+1,Mannadipet,D. Patel,TVK,66421,M. Gupta,ADMK,54501,C. Sharma,NR,13035,11920,146345,59.12
 2,Thirubhuvanai (Sc),A. Kumar,INC,82969,D. Patel,DMK,57381,W. Banerjee,ADMK,12665,25588,164557,76.39
 3,Oussudu (Sc),D. Patel,AINRC,59478,X. Sen,INC,41218,F. Nair,BJP,10111,18260,117159,68.71
 4,Mangalam,P. Bose,INC,52991,I. Mehta,ADMK,39115,F. Nair,BJP,6387,13876,105527,68.37
 5,Villianur,Y. Ghosh,AINRC,44090,A. Kumar,INC,32300,W. Banerjee,OTH,7547,11790,89501,77.32
 6,Ozhukarai,B. Singh,AINRC,79139,V. Mukherjee,ADMK,60762,R. Sinha,OTH,9381,18377,165592,62.71
-7,Kadirgamam,Y. Ghosh,INC,68651,G. Rao,DMK,38259,I. Mehta,ADMK,6600,30392,118967,79.73
+7,Kadirgamam,Y. Ghosh,TVK,68651,G. Rao,DMK,38259,I. Mehta,ADMK,6600,30392,118967,79.73
 8,Indira Nagar,V. Mukherjee,AINRC,72254,C. Sharma,DMK,60240,I. Mehta,OTH,18877,12014,168233,59.18
 9,Thattanchavady,K. Iyer,AINRC,49794,S. Tiwari,INC,43347,W. Banerjee,BJP,8141,6447,113292,58.02
-10,Kamraj Nagar,A. Kumar,INC,42798,N. Joshi,AINRC,31716,W. Banerjee,DMK,7943,11082,98237,75.38
+10,Kamraj Nagar,A. Kumar,TVK,42798,N. Joshi,AINRC,31716,W. Banerjee,DMK,7943,11082,98237,75.38
 11,Lawspet,C. Sharma,DMK,60180,H. Das,AINRC,42032,P. Bose,INC,14262,18148,133148,68.4
 12,Kalapet,I. Mehta,OTH,66926,D. Patel,ADMK,51638,V. Mukherjee,DMK,11939,15288,148141,72.34
 13,Muthialpet,V. Mukherjee,INC,43810,P. Bose,OTH,37030,C. Sharma,BJP,10090,6780,104302,71.01
-14,Raj Bhavan,A. Kumar,INC,80680,I. Mehta,NR,44221,B. Singh,OTH,10699,36459,147620,73.93
+14,Raj Bhavan,A. Kumar,TVK,80680,I. Mehta,NR,44221,B. Singh,OTH,10699,36459,147620,73.93
 15,Oupalam,L. Verma,DMK,40497,Q. Menon,INC,28367,J. Pillai,BJP,5606,12130,91353,69.95
 16,Orleampeth,E. Reddy,OTH,83394,J. Pillai,NR,42439,M. Gupta,BJP,17327,40955,154957,71.2
 17,Nellithope,X. Sen,INC,43713,K. Iyer,DMK,28488,L. Verma,BJP,12766,15225,94035,75.04

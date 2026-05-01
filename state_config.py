@@ -10,6 +10,7 @@ TAMIL_NADU = {
     'code': 'tn',
     'year': 2026,
     'election_event': 'ResultAcGenMay2026',  # placeholder – update when ECI publishes
+    'prev_year': 2021,
     'eci_state_code': 'S23',
     'total_pages': 12,  # 234 seats / ~20 per page
     'total_seats': 234,
@@ -17,43 +18,48 @@ TAMIL_NADU = {
     'csv_file': 'election_results_tn.csv',
     'electors_file': 'electors_after_deletion_tn.csv',
 
-    'parties': ['DMK', 'ADMK', 'BJP', 'INC', 'PMK', 'MDMK', 'VCK', 'CPI', 'CPIM', 'TMC(M)', 'NTK', 'AMMK', 'OTH', 'AWAITED'],
+    'parties': ['DMK', 'ADMK', 'BJP', 'IUML', 'INC', 'PMK', 'MDMK', 'VCK', 'CPI', 'CPIM', 'TMC(M)', 'NTK', 'AMMK', 'OTH', 'SDPI','KMDK','MMK','TVK','AWAITED'],
 
     'party_colors': {
         'DMK': '#FF0000',
         'ADMK': '#006400',
         'BJP': '#FF9900',
         'INC': '#1471C7',
-        'PMK': '#FFFF00',
+        'PMK': "#989F03FF",
         'MDMK': '#8B0000',
         'VCK': '#0000FF',
-        'CPI': '#FF0000',
-        'CPIM': '#CC0000',
-        'TMC(M)': '#FFD700',
+        'CPI': "#FF78789E",     
+        'CPIM': "#FF5757",
+        'TMC(M)': "#FFC800",
         'NTK': '#800080',
-        'AMMK': '#228B22',
+        'AMMK': "#324501",
+        'IUML': "#35FF02",
         'OTH': '#95A5A6',
+        'SDPI': '#FF1493',
         'AWAITED': '#CCCCCC',
+        'KMDK': '#00CED1',
+        'MMK': "#2E0530",
+        'TVK': "#E7DF01",
     },
 
     'alliances': {
         'DMK+': {
-            'parties': ['DMK', 'INC', 'CPIM', 'CPI', 'VCK', 'MDMK'],
+            'parties': ['DMK', 'INC', 'CPIM', 'CPI', 'VCK', 'MDMK','IUML','SDPI','KMDK','MMK'],
             'color': '#FF0000',
-            'description': 'DMK, INC, CPIM, CPI, VCK, MDMK',
+            'description': 'DMK, INC, CPIM, CPI, VCK, MDMK, IUML, SDPI, KMDK, MMK',
         },
         'ADMK+': {
             'parties': ['ADMK', 'BJP', 'PMK', 'TMC(M)'],
             'color': '#006400',
             'description': 'ADMK, BJP, PMK, TMC(M)',
         },
-        'NTK': {
-            'parties': ['NTK'],
-            'color': '#800080',
-            'description': 'Naam Tamilar Katchi',
+        'TVK': {
+            'parties': ['TVK'],
+            'color': "#FFE120",
+            'description': 'Tamilaga Vettri Kazhagam',
         },
         'OTH': {
-            'parties': ['OTH', 'AMMK'],
+            'parties': ['OTH', 'AMMK', 'NTK'],
             'color': '#95A5A6',
             'description': 'Other Parties & Independents',
         },
@@ -72,6 +78,11 @@ TAMIL_NADU = {
         'Tamil Maanila Congress (Moopanar)': 'TMC(M)',
         'Naam Tamilar Katchi': 'NTK',
         'All India Anna Dravida Munnetra Kazhagam (Ammaa)': 'AMMK',
+        'Indian Union Muslim League': 'IUML',
+        'Social Democratic Party of India': 'SDPI',
+        'Kongunadu Makkal Desia Katchi': 'KMDK', 
+        'Manithaneya Makkal Katchi': 'MMK',
+        'Tamilaga Vettri Kazhagam': 'TVK',
     },
 }
 
@@ -82,6 +93,8 @@ WEST_BENGAL = {
     'code': 'wb',
     'year': 2026,
     'election_event': 'ResultAcGenMay2026',
+    'prev_election_event': 'ResultAcGenMay2021',
+    'prev_year': 2021,
     'eci_state_code': 'S28',
     'total_pages': 15,  # 294 seats / ~20 per page
     'total_seats': 294,
@@ -89,35 +102,41 @@ WEST_BENGAL = {
     'csv_file': 'election_results_wb.csv',
     'electors_file': 'electors_after_deletion_wb.csv',
 
-    'parties': ['TMC', 'BJP', 'INC', 'CPIM', 'RSP', 'AITC', 'ISF', 'OTH', 'AWAITED'],
+    'parties': ['TMC', 'BJP', 'INC', 'CPIM', 'RSP', 'AITC', 'ISF', 'BGPM','OTH', 'AWAITED'],
 
     'party_colors': {
-        'TMC': '#00BFFF',
+        'TMC': "#23C000",
         'BJP': '#FF9900',
         'INC': '#1471C7',
         'CPIM': '#FF0000',
         'RSP': '#DC143C',
         'AITC': '#00BFFF',
-        'ISF': '#006400',
-        'OTH': '#95A5A6',
+        'ISF': "#014C01",
+        'OTH': '#95A5A6',   
+        'BGPM': '#800080',
         'AWAITED': '#CCCCCC',
     },
 
     'alliances': {
         'TMC': {
-            'parties': ['TMC', 'AITC'],
-            'color': '#00BFFF',
-            'description': 'All India Trinamool Congress',
+            'parties': ['TMC', 'BGPM'],
+            'color': "#29B200",
+            'description': 'All India Trinamool Congress and allies',
         },
         'NDA': {
             'parties': ['BJP'],
             'color': '#FF9900',
             'description': 'Bharatiya Janata Party',
         },
-        'INDIA': {
-            'parties': ['INC', 'CPIM', 'RSP'],
+        'INC': {
+            'parties': ['INC'],
             'color': '#1471C7',
-            'description': 'INC, CPIM, RSP',
+            'description': 'Indian National Congress',
+        },
+        'LEFT': {
+            'parties': ['CPIM', 'RSP'],
+            'color': '#FF0000',
+            'description': 'CPIM, RSP',
         },
         'OTH': {
             'parties': ['ISF', 'OTH'],
@@ -133,6 +152,7 @@ WEST_BENGAL = {
         'Communist Party of India (Marxist)': 'CPIM',
         'Revolutionary Socialist Party': 'RSP',
         'Indian Secular Front': 'ISF',
+        'Bharatiya Gorkha Prajatantrik Morcha': 'BGPM',
     },
 }
 
@@ -143,6 +163,8 @@ ASSAM = {
     'code': 'assam',
     'year': 2026,
     'election_event': 'ResultAcGenMay2026',
+    'prev_election_event': 'ResultAcGenMay2021',
+    'prev_year': 2021,
     'eci_state_code': 'S03',
     'total_pages': 7,  # 126 seats / ~20 per page
     'total_seats': 126,
@@ -164,21 +186,22 @@ ASSAM = {
         'AJP': '#4169E1',
         'OTH': '#95A5A6',
         'AWAITED': '#CCCCCC',
+        'RD': "#EE5D44",
     },
 
     'alliances': {
         'NDA': {
-            'parties': ['BJP', 'AGP', 'UPPL'],
+            'parties': ['BJP', 'AGP', 'BPF'],
             'color': '#FF9900',
-            'description': 'BJP, AGP, UPPL',
+            'description': 'BJP, AGP, BPF',
         },
         'UPA': {
-            'parties': ['INC', 'AIUDF', 'BPF', 'CPI', 'CPIM', 'AJP'],
+            'parties': ['INC', 'CPI', 'CPIM', 'AJP'],
             'color': '#1471C7',
-            'description': 'INC, AIUDF, BPF, CPI, CPIM, AJP',
+            'description': 'INC, CPI, CPIM, AJP',
         },
         'OTH': {
-            'parties': ['OTH'],
+            'parties': ['OTH', 'AIUDF', 'UPPL'],
             'color': '#95A5A6',
             'description': 'Other Parties & Independents',
         },
@@ -194,6 +217,7 @@ ASSAM = {
         'Communist Party of India': 'CPI',
         'Communist Party of India (Marxist)': 'CPIM',
         'Assam Jatiya Parishad': 'AJP',
+        'Raijor Dal': 'RD',
     },
 }
 
@@ -204,6 +228,8 @@ KERALA = {
     'code': 'kerala',
     'year': 2026,
     'election_event': 'ResultAcGenMay2026',
+    'prev_election_event': 'ResultAcGenMay2021',
+    'prev_year': 2021,
     'eci_state_code': 'S12',
     'total_pages': 8,  # 140 seats / ~20 per page
     'total_seats': 140,
@@ -211,7 +237,7 @@ KERALA = {
     'csv_file': 'election_results_kerala.csv',
     'electors_file': 'electors_after_deletion_kerala.csv',
 
-    'parties': ['CPIM', 'CPI', 'INC', 'IUML', 'KC(M)', 'NCP', 'BJP', 'RSP', 'JD(S)', 'KEC', 'OTH', 'AWAITED'],
+    'parties': ['CPIM', 'CPI', 'INC', 'RJD','IUML', 'KC(M)', 'NCP', 'BJP', 'RSP', 'JD(S)', 'KEC', 'OTH', 'ISJD','AWAITED'],
 
     'party_colors': {
         'CPIM': '#FF0000',
@@ -221,23 +247,27 @@ KERALA = {
         'KC(M)': '#FFD700',
         'NCP': '#00BFFF',
         'BJP': '#FF9900',
-        'RSP': '#DC143C',
+        'RSP(L)': '#DC143C',
         'JD(S)': '#228B22',
         'KEC': '#8B008B',
         'OTH': '#95A5A6',
         'AWAITED': '#CCCCCC',
+        'RJD': "#0C6249",   
+        'ISJD'  : "#800000",
+        'KC' : "#880048",
+        'RSP': "#FF6347",
     },
 
     'alliances': {
         'LDF': {
-            'parties': ['CPIM', 'CPI', 'RSP', 'JD(S)', 'KEC', 'NCP'],
+            'parties': ['CPIM', 'CPI', 'RSP(L)', 'JD(S)', 'KEC', 'NCP', 'RJD', 'KC(M)', 'ISJD'],
             'color': '#FF0000',
-            'description': 'CPIM, CPI, RSP, JD(S), KEC, NCP',
+            'description': 'CPIM, CPI, RSP(L), JD(S), KEC, NCP, RJD, KC(M), ISJD',
         },
         'UDF': {
-            'parties': ['INC', 'IUML', 'KC(M)'],
+            'parties': ['INC', 'IUML', 'KC','RSP'],
             'color': '#1471C7',
-            'description': 'INC, IUML, KC(M)',
+            'description': 'INC, IUML, KC, RSP',
         },
         'NDA': {
             'parties': ['BJP'],
@@ -262,6 +292,11 @@ KERALA = {
         'Revolutionary Socialist Party': 'RSP',
         'Janata Dal (Secular)': 'JD(S)',
         'Kerala Congress': 'KEC',
+        'Rashtriya Janata Dal': 'RJD',
+        'Indian Socialist Janata Dal': 'ISJD',
+        'Kerala Congress': 'KC',
+        'Kerala Congress (M)': 'KC(M)',
+        'Revolutionary Socialist Party (Leninist)': 'RSP(L)',
     },
 }
 
@@ -272,6 +307,8 @@ PUDUCHERRY = {
     'code': 'puducherry',
     'year': 2026,
     'election_event': 'ResultAcGenMay2026',
+    'prev_election_event': 'ResultAcGenMay2021',
+    'prev_year': 2021,
     'eci_state_code': 'U05',  # Union Territory
     'total_pages': 2,  # 30 seats / ~20 per page
     'total_seats': 30,
@@ -279,7 +316,7 @@ PUDUCHERRY = {
     'csv_file': 'election_results_puducherry.csv',
     'electors_file': 'electors_after_deletion_puducherry.csv',
 
-    'parties': ['BJP', 'INC', 'DMK', 'AINRC', 'ADMK', 'NR', 'OTH', 'AWAITED'],
+    'parties': ['BJP', 'INC', 'DMK', 'AINRC', 'ADMK', 'NR', 'OTH','TVK', 'AWAITED'],
 
     'party_colors': {
         'BJP': '#FF9900',
@@ -288,6 +325,7 @@ PUDUCHERRY = {
         'AINRC': '#006400',
         'ADMK': '#228B22',
         'NR': '#800080',
+        'TVK': '#E7DF01',
         'OTH': '#95A5A6',
         'AWAITED': '#CCCCCC',
     },
@@ -303,6 +341,11 @@ PUDUCHERRY = {
             'color': '#1471C7',
             'description': 'INC, DMK',
         },
+        'TVK': {
+            'parties': ['TVK'], 
+            'color': '#E7DF01',
+            'description': 'Tamilaga Vettri Kazhagam',
+        },
         'OTH': {
             'parties': ['NR', 'OTH'],
             'color': '#95A5A6',
@@ -316,6 +359,16 @@ PUDUCHERRY = {
         'Dravida Munnetra Kazhagam': 'DMK',
         'All India N.R. Congress': 'AINRC',
         'All India Anna Dravida Munnetra Kazhagam': 'ADMK',
+        'Tamilaga Vettri Kazhagam': 'TVK',
+    },
+
+    # Default view: zoom into Puducherry town (20+ seats in a ~35km box).
+    # Users can scroll out to see Karaikal (5 seats, ~130km south),
+    # Mahe (1 seat, far west) and Yanam (1 seat, far NE).
+    # Coordinates are Web Mercator (EPSG:3857).
+    'map_default_bounds': {
+        'x': (8858000, 8898000),
+        'y': (1318000, 1358000),
     },
 }
 
@@ -327,6 +380,8 @@ BIHAR = {
     'code': 'bihar',
     'year': 2025,
     'election_event': 'ResultAcGenNov2025',
+    'prev_election_event': 'ResultAcGenNov2020',
+    'prev_year': 2020,
     'eci_state_code': 'S04',
     'total_pages': 13,   # 243 seats / ~20 per page
     'total_seats': 243,
@@ -386,7 +441,7 @@ ALL_STATES = {
     'assam': ASSAM,
     'kerala': KERALA,
     'puducherry': PUDUCHERRY,
-    'bihar': BIHAR,   # TEST — remove after verifying pipeline
+    # 'bihar': BIHAR,   # hidden from nav
 }
 
 DEFAULT_STATE = 'tn'

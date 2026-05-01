@@ -1,11 +1,11 @@
 AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi_cand,thi_party,thi_votes,margin,tot_votes,votes_pct
-1,Mekliganj (Sc),F. Nair,OTH,56999,S. Tiwari,BJP,49999,G. Rao,RSP,8171,7000,126805,70.74
+1,Mekliganj (Sc),F. Nair,OTH,80000,S. Tiwari,BJP,56950,G. Rao,RSP,8171,7000,126805,120
 2,Mathabhanga (Sc),M. Gupta,TMC,76237,A. Kumar,OTH,59308,V. Mukherjee,RSP,15115,16929,167206,60.37
-3,Coochbehar Uttar (Sc),S. Tiwari,TMC,44222,D. Patel,OTH,28662,T. Pandey,BJP,6058,15560,94930,76.57
+3,Coochbehar Uttar (Sc),S. Tiwari,TMC,44222,D. Patel,OTH,44200,T. Pandey,BJP,6058,15560,94930,76.57
 4,Coochbehar Dakshin,T. Pandey,BJP,61440,M. Gupta,OTH,40518,V. Mukherjee,CPIM,14352,20922,131424,59.31
 5,Sitalkuchi (Sc),S. Tiwari,BJP,40255,C. Sharma,CPIM,27010,X. Sen,ISF,5676,13245,84057,72.34
 6,Sitai (Sc),E. Reddy,BJP,52438,T. Pandey,RSP,41363,N. Joshi,ISF,13347,11075,122719,78.27
-7,Dinhata,J. Pillai,TMC,62846,E. Reddy,INC,46707,G. Rao,RSP,13406,16139,128116,67.12
+7,Dinhata,J. Pillai,BJP,62846,E. Reddy,INC,46707,G. Rao,RSP,13406,16139,128116,67.12
 8,Natabari,Q. Menon,TMC,65067,V. Mukherjee,RSP,43788,P. Bose,ISF,14537,21279,136398,59.18
 9,Tufanganj,B. Singh,BJP,61349,J. Pillai,INC,50272,I. Mehta,CPIM,13480,11077,142758,74.15
 10,Kumargram (St),D. Patel,BJP,103007,J. Pillai,TMC,72255,T. Pandey,ISF,19349,30752,212062,72.97
@@ -33,7 +33,7 @@ AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi
 32,Karandighi,C. Sharma,BJP,68120,K. Iyer,OTH,57120,Y. Ghosh,ISF,7423,11000,139075,78.12
 33,Hemtabad (Sc),J. Pillai,TMC,68198,W. Banerjee,ISF,44460,X. Sen,TMC,10554,23738,128397,59.1
 34,Kaliaganj (Sc),I. Mehta,OTH,48314,F. Nair,RSP,41037,N. Joshi,OTH,9789,7277,106074,74.29
-35,Raiganj,Q. Menon,TMC,94485,C. Sharma,RSP,69996,J. Pillai,CPIM,14689,24489,192538,64.0
+35,Raiganj,Q. Menon,TMC,94485,C. Sharma,RSP,69996,J. Pillai,CPIM,14689,24489,192538,64
 36,Itahar,L. Verma,TMC,67208,F. Nair,ISF,52686,J. Pillai,INC,18243,14522,146879,73.52
 37,Kushmandi (Sc),B. Singh,TMC,69531,Q. Menon,BJP,38002,M. Gupta,INC,15262,31529,128374,68.82
 38,Kumarganj,H. Das,ISF,71742,L. Verma,OTH,43677,I. Mehta,CPIM,14508,28065,144291,64.32
@@ -91,7 +91,7 @@ AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi
 90,Ranaghat Dakshin (Sc),W. Banerjee,BJP,71718,U. Chatterjee,CPIM,60332,I. Mehta,OTH,11132,11386,151757,66.67
 91,Chakdaha,S. Tiwari,BJP,80857,D. Patel,ISF,72274,A. Kumar,RSP,15992,8583,183321,71.18
 92,Kalyani (Sc),D. Patel,BJP,67953,Q. Menon,CPIM,50704,C. Sharma,OTH,13686,17249,141621,71.4
-93,Haringhata (Sc),G. Rao,OTH,71783,E. Reddy,ISF,46086,S. Tiwari,INC,19838,25697,155978,70.0
+93,Haringhata (Sc),G. Rao,OTH,71783,E. Reddy,ISF,46086,S. Tiwari,INC,19838,25697,155978,70
 94,Bagda (Sc),X. Sen,BJP,79781,A. Kumar,OTH,45695,V. Mukherjee,INC,11513,34086,148350,73.42
 95,Bangaon Uttar (Sc),K. Iyer,BJP,53182,Y. Ghosh,ISF,40332,X. Sen,INC,9091,12850,118612,63.96
 96,Bangaon Dakshin (Sc),R. Sinha,TMC,41214,F. Nair,INC,33109,K. Iyer,OTH,9350,8105,97832,74.07
@@ -164,7 +164,7 @@ AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi
 163,Entally,B. Singh,BJP,40018,I. Mehta,RSP,30145,R. Sinha,CPIM,5849,9873,84399,67.95
 164,Beleghata,B. Singh,BJP,45395,C. Sharma,RSP,38998,W. Banerjee,CPIM,11555,6397,105428,75.87
 165,Jorasanko,M. Gupta,TMC,59788,V. Mukherjee,ISF,51214,N. Joshi,BJP,7090,8574,127213,64.41
-166,Shyampukur,L. Verma,CPIM,82094,M. Gupta,ISF,62242,R. Sinha,RSP,15654,19852,167266,66.0
+166,Shyampukur,L. Verma,CPIM,82094,M. Gupta,ISF,62242,R. Sinha,RSP,15654,19852,167266,66
 167,Maniktala,I. Mehta,TMC,39863,G. Rao,ISF,31249,E. Reddy,OTH,11200,8614,98143,60.76
 168,Kashipurbelgachhia,P. Bose,INC,55992,W. Banerjee,OTH,37817,Q. Menon,TMC,15468,18175,114644,61.09
 169,Bally,E. Reddy,TMC,44965,V. Mukherjee,ISF,24136,R. Sinha,INC,5248,20829,82298,67.92
@@ -280,7 +280,7 @@ AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi
 279,Jamuria,S. Tiwari,BJP,45867,U. Chatterjee,CPIM,32573,L. Verma,ISF,9801,13294,101395,67.31
 280,Asansol Dakshin,W. Banerjee,TMC,29968,J. Pillai,ISF,22797,G. Rao,INC,8483,7171,78330,76.2
 281,Asansol Uttar,K. Iyer,BJP,88647,M. Gupta,RSP,46784,T. Pandey,TMC,11896,41863,156941,61.36
-282,Kulti,R. Sinha,TMC,46241,K. Iyer,CPIM,29794,A. Kumar,ISF,9559,16447,100686,79.0
+282,Kulti,R. Sinha,TMC,46241,K. Iyer,CPIM,29794,A. Kumar,ISF,9559,16447,100686,79
 283,Barabani,K. Iyer,INC,72440,W. Banerjee,BJP,54777,Q. Menon,CPIM,11902,17663,154395,66.52
 284,Dubrajpur (Sc),N. Joshi,CPIM,86054,Y. Ghosh,INC,63870,B. Singh,RSP,18467,22184,182487,68.4
 285,Suri,L. Verma,TMC,60498,C. Sharma,OTH,37828,F. Nair,CPIM,8904,22670,120983,76.06

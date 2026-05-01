@@ -1,0 +1,295 @@
+AC_NO,prev_win_cand,prev_win_party,prev_win_votes,prev_win_pct,prev_sec_cand,prev_sec_party,prev_sec_votes,prev_sec_pct,prev_margin
+1,Paresh Chandra Adhikary,AITC,99338,49.98,Dadhiram Ray,BJP,84653,42.59,14685
+2,Sushil Barman,BJP,113249,52.87,Girindra Nath Barman,AITC,87115,40.67,26134
+3,Sukumar Roy,BJP,120483,49.4,Binay Krishna Barman,AITC,105868,43.4,14615
+4,Nikhil Ranjan Dey,BJP,96629,46.83,Avijit De Bhowmik,AITC,91830,44.31,4799
+5,Baren Chandra Barman,BJP,124955,50.8,Partha Pratim Ray,AITC,107140,43.56,17815
+6,Jagadish Barma Basunia,AITC,117908,49.42,Dipak Kumar Roy,BJP,107796,45.18,10112
+7,Nisith Pramanik,BJP,116035,47.6,Udayan Guha,AITC,115978,47.58,57
+8,Mihir Goswami,BJP,111743,51.45,Rabindra Nath Ghosh,AITC,88303,40.66,23440
+9,Malati Rava Roy,BJP,114503,54.69,Pranab Kumar Dey,AITC,83305,39.79,31198
+10,Manoj Kumar Oraon,BJP,111974,48.16,Leos Kujar,AITC,100973,43.43,11001
+11,Bishal Lama,BJP,103104,52.65,Pasang Lama,AITC,74528,38.06,28576
+12,Suman Kanjilal,BJP,107333,48.19,Sourav Chakraborty,AITC,91326,41.0,16007
+13,Dipak Barman,BJP,102993,46.71,Subhash Chanda Roy,AITC,99003,44.9,3990
+14,Manoj Tigga,BJP,90718,54.35,Rajesh Lakra,AITC,61033,36.56,29685
+15,Bishnu Pada Ray,BJP,104688,45.64,Mitali Roy,AITC,100333,43.75,4355
+16,Kaushik Roy,BJP,115306,48.84,Manoj Roy,AITC,103395,43.79,11911
+17,Pradip Kumar Barma,AITC,95668,42.34,Sujit Singha,BJP,94727,41.93,941
+18,Khageswar Roy,AITC,104641,48.5,Supen Roy,BJP,88868,41.19,15773
+19,Shikha Chatterjee,BJP,129088,49.85,Goutam Deb,AITC,101495,39.19,27593
+20,Bulu Chik Baraik,AITC,99086,46.46,Mahesh Bagey,BJP,93621,43.9,5465
+21,Puna Bhengra,BJP,70945,47.78,Joseph Munda,AITC,56543,38.08,14402
+22,Ruden Sada Lepcha,GJM(T),58206,37.59,Suva Pradhan,BJP,54336,35.09,3870
+23,Neeraj Zimba,BJP,68907,40.88,Keshav Raj Sharma,GJM(T),47631,28.26,21726
+24,Bishnu Prasad Sharma,BJP,73475,41.86,Tshering Lama Dahal,GJM(T),57960,33.02,15515
+25,Anandamoy Barman,BJP,139785,58.1,Rajen Sundas,AITC,68454,28.65,70848
+26,Shankar Ghosh,BJP,89370,50.03,Om Prakash Mishra,AITC,53784,30.11,35586
+27,Durga Murmu,BJP,105651,50.89,Choton Kisku,AITC,77940,37.55,27711
+28,Hamidul Rahman,AITC,124923,61.2,Mohammad Shahin Akhtar,BJP,59604,29.4,65319
+29,Abdul Karim Chowdhury,AITC,100131,58.91,Saumya Roop Mandal,BJP,62691,36.88,37440
+30,Mohammad Ghulam Rabbani,AITC,105649,65.4,Ghulam Sarwar,BJP,32135,19.89,73514
+31,Minhajul Arfin Azad,AITC,86311,49.78,Sachin Prasad,BJP,52474,30.26,33837
+32,Goutam Paul,AITC,116594,54.7,Subhash Singha,BJP,79968,37.52,36626
+33,Satyajit Barman,AITC,116425,52.14,Chandima Roy,BJP,89210,39.95,27215
+34,Soumen Roy,BJP,116768,48.71,Tapan Dev Singha,AITC,94948,39.61,21820
+35,Krishna Kalyani,BJP,79775,49.44,Kanaia Lal Agarwal,AITC,59027,36.58,20748
+36,Mosarraf Hossain,AITC,114645,59.1,Amit Kumar Kundu,BJP,70670,36.43,43975
+37,Rekha Roy,AITC,89968,48.88,Ranjit Kumar Roy,BJP,77384,42.08,12584
+38,Toraf Hossain Mandal,AITC,89117,52.58,Manas Sarkar,BJP,59736,35.24,29381
+39,Ashok Lahiri,BJP,70484,47.25,Shekhar Dasgupta,AITC,57585,38.6,12899
+40,Budhrai Tudu,BJP,84381,45.29,Kalpana Kisku,AITC,82731,44.41,1650
+41,Satyendra Nath Ray,BJP,88724,46.82,Goutam Das,AITC,84132,44.4,4592
+42,Biplab Mitra,AITC,96131,51.23,Nilanjan Roy,BJP,73459,39.15,22672
+43,Joyel Murmu,BJP,94075,47.52,Pradip Baskey,AITC,74558,37.66,19517
+44,Chinmoy Deb Barman,BJP,100131,45.5,Basanti Barman,AITC,98857,44.69,1798
+45,Nihar Ranjan Ghosh,AITC,115966,58.08,Dipankar Ram,BJP,48628,24.35,67338
+46,Tajmul Hossain,AITC,122527,60.31,Matibur Rahaman,BJP,45054,22.18,77473
+47,Abdur Rahim Bakshi,AITC,126157,68.02,Mousumi Das,BJP,34208,18.44,91949
+48,Samar Mukherjee,AITC,130674,59.63,Abhishek Singhania,BJP,55024,25.11,75650
+49,Sabitri Mitra,AITC,110234,53.26,Gour Chandra Mandal,BJP,76356,36.89,33878
+50,Gopal Chandra Saha,BJP,93998,45.23,Ujjwal Kumar Chowdhury,AITC,77942,37.75,15456
+51,Sreerupa Mitra Chaudhury,BJP,107755,49.96,Krishnendu Choudhury,AITC,87656,40.64,20099
+52,Sabina Yeasmin,AITC,97397,59.7,Shyamchand Ghosh,BJP,40824,25.02,56573
+53,Muhammad Abdul Ghani,AITC,152445,73.44,Isha Khan Choudhury,INC,22282,10.73,130163
+54,Chandana Sarkar,AITC,83061,39.81,Swadhin Kumar Sarkar,BJP,80590,38.62,2471
+55,Manirul Islam,AITC,102319,54.89,Hemanta Ghosh,BJP,42374,22.73,59945
+56,Amirul Islam,AITC,96417,51.13,Zaidur Rahaman,INC,70038,37.14,26379
+57,Emani Biswas,AITC,127351,58.87,Koushik Das,BJP,56650,26.19,70701
+58,Jakir Hossain,AITC,136444,68.82,Sujit Das,BJP,43964,22.17,92480
+59,Akhruzzaman,AITC,126834,66.59,Ghulam Modaswar,BJP,28521,14.97,98313
+60,Subrata Saha,AITC,95189,50.95,Mafuja Khatun,BJP,44983,24.08,50206
+61,Mohammad Ali,AITC,107860,56.64,Abu Hena,INC,47153,24.76,60707
+62,Idris Ali,AITC,153795,68.05,Mohammad Kamal Hossain,CPI(M),47787,21.15,106008
+63,Abdul Soumik Hossain,AITC,134957,60.79,Firoza Begam,INC,55255,24.89,79702
+64,Gouri Shankar Ghosh,BJP,95967,41.86,Shaoni Singha Roy,AITC,93476,40.78,2491
+65,Kanai Chandra Mondal,AITC,100455,48.18,Mohan Halder,BJP,64922,31.14,35533
+66,Ashish Marjit,AITC,93255,50.15,Aditya Moulik,BJP,60682,32.64,32573
+67,Jiban Krishna Saha,AITC,81890,46.32,Amiya Kumar Das,BJP,79141,44.76,2749
+68,Apurba Sarkar,AITC,95399,51.16,Goutam Roy,BJP,57319,30.74,38080
+69,Humayun Kabir,AITC,96226,50.9,Iman Kalyan Mukherjee,BJP,53143,28.11,43083
+70,Rabiul Alam Chowdhury,AITC,118494,56.31,Arabinda Biswas,BJP,50226,23.87,68268
+71,Sheikh Hasanuzzaman,AITC,112862,55.19,Sumit Ghosh,BJP,59030,28.86,53832
+72,Subrata Maitra,BJP,89340,45.21,Naru Gopal Mukherjee,AITC,62488,31.62,26852
+73,Niamot Sheikh,AITC,102660,47.51,Mir Alamgir,INC,88594,41.0,14066
+74,Sahina Mumtaz Begum,AITC,117684,58.16,Anupam Mondal,BJP,43531,21.51,74153
+75,Jafikul Islam,AITC,127671,56.45,Mostafizur Rahaman,CPI(M),80442,35.57,47229
+76,Abdur Razzak,AITC,123840,55.74,Saiful Islam Molla,CPI(M),44564,20.06,79276
+77,Bimalendu Sinha Roy,AITC,110911,50.07,Samarendra Nath Ghosh,BJP,87336,39.43,23575
+78,Tapas Kumar Saha,AITC,97848,44.86,Ashutosh Paul,BJP,90933,41.69,6915
+79,Manik Bhattacharya,AITC,110274,54.22,Bibhash Chandra Mandal,BJP,58938,28.98,51336
+80,Nasiruddin Ahamed,AITC,111696,53.35,Abhijit Ghosh,BJP,64709,30.91,46987
+81,Kallol Khan,AITC,104812,50.01,Santanu Dey,BJP,83541,39.86,21271
+82,Rukbanur Rahman,AITC,73866,34.65,Jeber Sheikh,IND,61748,28.97,12118
+83,Mukul Roy,BJP,109357,54.19,Koushani Mukherjee,AITC,74268,36.8,35089
+84,Pundarikakshya Saha,AITC,102170,48.52,Siddharth Shankar Naskar,BJP,83599,39.7,18571
+85,Ujjal Biswas,AITC,91738,46.88,Mahadev Sarkar,BJP,82433,42.13,9305
+86,Jagannath Sarkar,BJP,109722,49.94,Ajoy Dey,AITC,93844,42.72,15878
+87,Parthasarathi Chatterjee,BJP,113637,50.91,Shankar Singha,AITC,90509,40.55,23128
+88,Ashish Kumar Biswas,BJP,117668,50.73,Tapas Mandal,AITC,96391,41.56,21277
+89,Ashim Biswas,BJP,116786,54.39,Samir Kumar Poddar,AITC,85004,39.59,31782
+90,Mukut Mani Adhikari,BJP,119260,49.34,Barnali Dey Roy,AITC,102745,42.51,16515
+91,Bankim Chandra Ghosh,BJP,99368,46.86,Subhankar Singha,AITC,87688,41.35,11680
+92,Ambika Roy,BJP,97026,44.04,Aniruddha Biswas,AITC,94820,43.03,2206
+93,Ashim Kumar Sarkar,BJP,97666,46.31,Nilima Nag,AITC,82466,39.11,15200
+94,Biswajit Das,BJP,108111,49.41,Paritosh Kumar Saha,AITC,98319,44.94,9792
+95,Ashok Kirtania,BJP,97761,47.65,Shyamal Roy,AITC,87273,42.54,10488
+96,Swapan Majumder,BJP,97828,47.07,Alo Rani Sarkar,AITC,95824,46.11,2004
+97,Subrata Thakur,BJP,100808,47.27,Narottam Biswas,AITC,91230,42.78,9578
+98,Bina Mondal,AITC,99784,47.11,Brindaban Sarkar,BJP,64984,30.68,34800
+99,Abdur Rahim Qazi,AITC,109701,51.53,Sukalyan Baidya,BJP,53257,25.02,56444
+100,Jyotipriya Mallick,AITC,90533,44.34,Rahul Sinha,BJP,86692,42.46,3841
+101,Narayan Goswami,AITC,93587,43.18,Tanuja Chakraborty,BJP,70055,32.32,23532
+102,Rafiqur Rahaman,AITC,88935,42.0,Joydeb Manna,BJP,63455,29.97,25480
+103,Subodh Adhikary,AITC,66625,47.9,Subhranshu Roy,BJP,53278,38.3,13347
+104,Partha Bhowmick,AITC,77753,49.69,Phalguni Patra,BJP,58898,37.64,18855
+105,Pawan Kumar Singh,BJP,57244,53.4,Jitendra Shaw,AITC,43557,40.63,13687
+106,Somenath Shyam Ichini,AITC,87030,48.01,Arindam Bhattacharya,BJP,68666,37.88,18364
+107,Manju Basu,AITC,94203,48.9,Sunil Singh,BJP,67493,35.04,26710
+108,Raj Chakraborty,AITC,68887,46.47,Chandramani Shukla,BJP,59665,40.25,9222
+109,Kajal Sinha,AITC,89807,49.04,Shilbhadra Dutta,BJP,61667,33.67,28140
+110,Chandrima Bhattacharya,AITC,95465,44.79,Archana Majumdar,BJP,66966,31.42,28499
+111,Nirmal Ghosh,AITC,86495,49.61,Sanmoy Banerjee,BJP,61318,35.17,25177
+112,Madan Mitra,AITC,73845,51.17,Anindya Banerjee,BJP,38437,26.64,35408
+113,Tapas Roy,AITC,85615,53.42,Parno Mitra,BJP,50468,31.49,35147
+114,Bratya Basu,AITC,87999,47.48,Bimal Shankar Nanda,BJP,61368,33.06,26731
+115,Tapash Chatterjee,AITC,127374,54.22,Bhaskar Roy,BJP,70942,30.2,56432
+116,Sujit Bose,AITC,75912,46.85,Sabyasachi Dutta,BJP,67915,41.91,7997
+117,Aditi Munshi,AITC,87650,49.04,Samik Bhattacharya,BJP,62354,34.89,25296
+118,Rathin Ghosh,AITC,112741,48.93,Rajasree Rajbanshi,BJP,64615,28.04,48126
+119,Chiranjeet Chakraborty,AITC,104431,46.27,Shankar Chatterjee,BJP,80648,35.73,23783
+120,Rahima Mondal,AITC,100105,46.7,Karim Ali,ISF,67568,31.52,32537
+121,Haji Nurul Islam,AITC,130398,57.34,Kutubuddin Fathe,ISF,49420,21.73,80978
+122,Usha Rani Mondal,AITC,109818,51.72,Jayanta Mondal,BJP,53988,25.42,55830
+123,Sukumar Mahata,AITC,112450,54.64,Bhaskar Sardar,BJP,72765,35.36,39685
+124,Saptarshi Banerjee,AITC,115873,49.15,Tarak Nath Ghosh,BJP,91405,38.77,24468
+125,Rafikul Islam Mondal,AITC,137216,57.55,Mohammad Baijid Amin,ISF,47865,20.08,89351
+126,Debesh Mondal,AITC,104706,53.78,Nemai Das,BJP,79790,40.98,24916
+127,Jayanta Naskar,AITC,105723,53.99,Barun Pramanik,BJP,82014,41.88,23709
+128,Shyamal Mondal,AITC,111453,52.1,Ramesh Majhi,BJP,60811,28.43,50642
+129,Ganesh Chandra Mondal,AITC,117238,51.57,Mintu Halder,BJP,70061,30.82,47177
+130,Samir Kumar Jana,AITC,120181,51.85,Asit Kumar Haldar,BJP,98047,42.3,22134
+131,Manturam Pakhira,AITC,114493,52.14,Dipankar Jana,BJP,89191,40.62,25302
+132,Bankim Chandra Hazra,AITC,129000,53.96,Kamila Bikash,BJP,99154,41.48,29846
+133,Jogaranjan Halder,AITC,96577,50.01,Pranab Kumar Mallik,BJP,62759,32.5,33818
+134,Aloke Jaldata,AITC,115707,48.47,Santanu Bapuli,BJP,80139,33.57,35568
+135,Joydeb Halder,AITC,95834,48.04,Dilip Kumar Jatua,BJP,72342,36.26,23492
+136,Biswanath Das,AITC,104952,51.85,Rabin Sardar,BJP,66269,32.74,38683
+137,Bivas Sardar,AITC,123243,54.75,Chandan Mondal,BJP,73602,32.7,49641
+138,Paresh Ram Das,AITC,111059,50.86,Arnab Roy,BJP,75816,34.72,35243
+139,Saokat Molla,AITC,122301,52.54,Gazi Shahabuddin Siraji,ISF,69294,29.77,53007
+140,Biman Banerjee,AITC,121006,57.27,Debopam Chattopadhyaya,BJP,59096,27.97,61910
+141,Namita Saha,AITC,110945,53.82,Chandan Kumar Naskar,BJP,56866,27.58,54079
+142,Giasuddin Molla,AITC,97006,49.93,Manas Dhurjati Saha,BJP,50065,25.77,46941
+143,Pannalal Halder,AITC,98478,43.69,Dipak Kumar Halder,BJP,81482,36.15,16996
+144,Shankar Kumar Naskar,AITC,117179,56.35,Bidhan Parui,BJP,76405,36.75,40774
+145,Mohan Chandra Naskar,AITC,118635,50.37,Chandan Pal,BJP,95317,40.47,23318
+146,Dilip Mondal,AITC,136509,57.46,Agniswar Naskar,BJP,77677,32.7,58832
+147,Arundhuti Maitra,AITC,109222,46.92,Anjana Basu,BJP,83041,35.67,26181
+148,Nawsad Siddique,ISF,109237,45.1,Karim Rezaul,AITC,83086,34.31,26151
+149,Javed Ahmed Khan,AITC,121372,54.39,Indranil Khan,BJP,57750,25.88,63622
+150,Debabrata Majumdar,AITC,98100,45.54,Sujan Chakraborty,CPI(M),59231,27.5,38869
+151,Firdousi Begum,AITC,119957,49.88,Ranjan Baidya,BJP,83867,34.87,36090
+152,Aroop Biswas,AITC,101440,51.4,Babul Supriyo,BJP,51360,26.02,50080
+153,Ratna Chatterjee,AITC,110968,50.01,Payel Sarkar,BJP,73540,33.15,37428
+154,Partha Chatterjee,AITC,114778,49.51,Srabanti Chatterjee,BJP,63894,27.56,50884
+155,Dulal Chandra Das,AITC,124008,56.38,Umesh Das,BJP,66059,30.03,57949
+156,Ashok Kumar Deb,AITC,122357,56.41,Tarun Kumar Adak,BJP,77643,35.8,44714
+157,Abdul Khaleque Molla,AITC,151066,76.85,Ramjit Prasad,BJP,31462,16.0,119604
+158,Firhad Hakim,AITC,105543,69.23,Awadh Kishore Gupta,BJP,36989,24.26,68554
+159,Sovandeb Chattopadhyay,AITC,73505,57.71,Rudranil Ghosh,BJP,44786,35.16,28719
+160,Debasish Kumar,AITC,65704,52.79,Subrata Saha,BJP,44290,35.59,21414
+161,Subrata Mukherjee,AITC,106585,70.6,Lokenath Chatterjee,BJP,31226,20.68,75359
+162,Nayna Bandyopadhyay,AITC,70101,62.87,Devdutta Maji,BJP,24757,22.2,45344
+163,Swarna Kamal Saha,AITC,101709,64.83,Priyanka Tibrewal,BJP,43452,27.7,58257
+164,Paresh Paul,AITC,103182,65.1,Kashinath Biswas,BJP,36042,22.74,67140
+165,Vivek Gupta,AITC,52123,52.67,Meena Devi Purohit,BJP,39380,39.8,12743
+166,Shashi Panja,AITC,55785,54.18,Sandipan Biswas,BJP,33265,32.31,22520
+167,Sadhan Pande,AITC,67577,50.82,Kalyan Chaubey,BJP,47339,35.6,20238
+168,Atin Ghosh,AITC,76182,56.48,Sibaji Sinha Roy,BJP,40792,30.24,35390
+169,Rana Chatterjee,AITC,53347,42.38,Baishali Dalmiya,BJP,47110,37.43,6237
+170,Gautam Chowdhuri,AITC,71575,47.81,Umesh Rai,BJP,66053,44.12,5522
+171,Arup Roy,AITC,111554,57.16,Sanjay Singh,BJP,65007,33.31,46547
+172,Manoj Tiwary,AITC,92372,50.69,Rathin Chakrabarty,BJP,59769,32.8,32603
+173,Nandita Chowdhury,AITC,116839,53.85,Rantidev Sengupta,BJP,66270,30.55,50569
+174,Priya Paul,AITC,111888,50.37,Prabhakar Pandit,BJP,71461,32.17,40427
+175,Gulsan Mullick,AITC,104572,48.19,Mohit Lal Ghanti,BJP,71821,33.1,32751
+176,Bidesh Ranjan Bose,AITC,86526,44.83,Pratyush Mandal,BJP,69400,35.95,17126
+177,Nirmal Maji,AITC,91501,49.25,Chiran Bera,BJP,70498,37.95,21003
+178,Pulak Roy,AITC,101880,50.37,Papia Dey Adhikary,BJP,73442,36.31,28438
+179,Kalipada Mandal,AITC,114804,51.74,Tanusree Chakraborty,BJP,83293,37.54,31511
+180,Arunava Sen,AITC,106042,53.04,Anupam Mallik,BJP,75922,37.97,30120
+181,Sukanta Kumar Paul,AITC,102445,49.06,Debtanu Bhattacharya,BJP,76240,36.51,26205
+182,Samir Kumar Panja,AITC,101510,51.21,Sumit Ranjan Karar,BJP,87512,44.15,13998
+183,Sitanath Ghosh,AITC,116562,49.45,Anupam Ghosh,BJP,87366,37.06,29196
+184,Kalyan Ghosh,AITC,130499,52.0,Rajib Banerjee,BJP,87879,35.01,42620
+185,Kanchan Mullick,AITC,93878,46.96,Prabir Kumar Ghosal,BJP,57889,28.96,35989
+186,Sudipto Roy,AITC,93021,49.46,Kabir Shankar Bose,BJP,69588,37.0,23433
+187,Arindam Guin,AITC,100972,50.2,Dilip Singh,BJP,70894,35.25,30078
+188,Becharam Manna,AITC,101077,48.15,Rabindranath Bhattacharya,BJP,75154,35.8,25923
+189,Indranil Sen,AITC,86778,47.63,Dipanjan Guha,BJP,55749,30.6,31029
+190,Asit Mazumdar,AITC,117104,45.97,Locket Chatterjee,BJP,98687,38.74,18417
+191,Manoranjan Byapari,AITC,100364,45.63,Subhash Chandra Haldar,BJP,94580,43.0,5784
+192,Ratna De Nag,AITC,102874,45.99,Partha Sharma,BJP,71016,31.75,31858
+193,Tapan Dasgupta,AITC,93328,48.56,Debabrata Biswas,BJP,83556,43.48,9772
+194,Swati Khandoker,AITC,103118,49.79,Yash Dasgupta,BJP,61771,29.83,41347
+195,Snehasis Chakraborty,AITC,101885,48.42,Debjit Sarkar,BJP,83959,39.9,17926
+196,Karabi Manna,AITC,110215,49.92,Samiran Mitra,BJP,87143,39.47,23072
+197,Ashima Patra,AITC,124776,53.36,Tushar Kumar Majumdar,BJP,94617,40.46,30159
+198,Ramendu Sinharay,AITC,96698,46.96,Swapan Dasgupta,BJP,89214,43.33,7484
+199,Biman Ghosh,BJP,119334,53.5,Dilip Yadav,AITC,91156,40.86,28178
+200,Madhusudan Bag,BJP,103108,46.88,Sujata Mondal,AITC,95936,43.62,7172
+201,Biswanath Karak,BJP,102227,46.56,Manas Majumdar,AITC,98080,44.67,4147
+202,Susanta Ghosh,BJP,107403,49.27,Munshi Nazbul Karim,AITC,94519,43.36,12884
+203,Soumen Mahapatra,AITC,108243,45.86,Hare Krishna Bera,BJP,107450,45.52,793
+204,Biplab Roy Chowdhury,AITC,91213,45.97,Debabrata Pattanayek,BJP,81553,41.11,9660
+205,Firoja Bibi,AITC,111705,47.71,Sintu Senapati,BJP,102816,43.91,8889
+206,Ashok Dinda,BJP,108109,48.17,Sangram Kumar Dolai,AITC,106849,47.61,1260
+207,Sukumar De,AITC,108181,47.6,Nilanjan Adhikary,BJP,102775,45.22,5406
+208,Tilak Kumar Chakraborty,AITC,101986,46.49,Biswanath Banerjee,BJP,99600,45.41,2386
+209,Tapasi Mondal,BJP,104126,47.15,Swapan Naskar,AITC,89118,40.36,15008
+210,Suvendu Adhikari,BJP,110764,48.49,Mamata Banerjee,AITC,108808,47.64,1956
+211,Soham Chakraborty,AITC,109770,49.82,Pulak Kanti Guria,BJP,96298,43.71,13472
+212,Uttam Barik,AITC,105299,50.42,Ambujaksha Mahanti,BJP,95305,45.64,9994
+213,Sumita Sinha,BJP,113524,49.7,Tarun Kumar Jana,AITC,104194,45.62,9330
+214,Rabindranath Maity,BJP,121480,54.46,Ardhendu Maity,AITC,93931,42.19,27549
+215,Shantanu Pramanik,BJP,110407,51.93,Partha Pratim Das,AITC,92442,43.48,17965
+216,Arup Kumar Das,BJP,98477,50.58,Jyotirmoy Kar,AITC,88184,45.3,10293
+217,Akhil Giri,AITC,112622,50.72,Swadesh Ranjan Nayak,BJP,100105,45.08,12517
+218,Tarun Kumar Maity,AITC,125763,52.22,Arup Das,BJP,107272,44.55,18491
+219,Bikram Chandra Pradhan,AITC,94609,48.18,Shaktipada Nayak,BJP,93834,47.79,775
+220,Dulal Murmu,AITC,99825,52.52,Bakul Murmu,BJP,77089,40.55,22736
+221,Khagendra Nath Mahata,AITC,102710,52.34,Sanjit Mahata,BJP,79106,40.31,23604
+222,Birbaha Hansda,AITC,108044,54.34,Sukhamoy Satpathy,BJP,70048,35.23,37996
+223,Paresh Murmu,AITC,106366,50.01,Sonali Murmu,BJP,91036,42.8,15330
+224,Hiran Chatterjee,BJP,79607,46.45,Pradip Sarkar,AITC,75836,44.25,3771
+225,Surja Kanta Atta,AITC,100894,46.33,Ram Prasad Giri,BJP,98478,45.23,2416
+226,Manas Bhunia,AITC,112098,47.46,Amulya Maity,BJP,102234,43.28,9864
+227,Ajit Maity,AITC,112435,49.17,Antara Bhattacharya,BJP,105779,46.26,6656
+228,Dinen Roy,AITC,109727,54.85,Tapan Bhuiya,BJP,73497,36.74,36230
+229,Humayun Kabir,AITC,95850,46.79,Bharati Ghosh,BJP,84624,41.31,11226
+230,Mamata Bhunia,AITC,114753,51.58,Prashanth Bera,BJP,87911,39.52,26842
+231,Shital Kapat,BJP,105812,46.95,Shankar Dolai,AITC,104846,46.52,966
+232,Arup Dhara,AITC,121846,48.87,Shibram Das,BJP,110565,44.35,11281
+233,Uttara Singha,AITC,94928,45.71,Madan Ruidas,BJP,84356,40.62,10572
+234,Srikanta Mahata,AITC,126020,50.57,Rajib Kundu,BJP,93376,37.47,32644
+235,Siuli Saha,AITC,116992,50.81,Pritish Ranjan Kuar,BJP,96272,41.82,20720
+236,June Malia,AITC,121175,50.72,Shamit Das,BJP,96778,40.51,24397
+237,Debnath Hansda,AITC,99786,53.18,Palan Saren,BJP,60213,32.09,39573
+238,Rajib Lochan Saren,AITC,112183,47.07,Parsi Murmu,BJP,93298,39.14,18885
+239,Baneswar Mahato,BJP,88803,45.17,Shantiram Mahato,AITC,88530,45.03,273
+240,Sushanta Mahato,AITC,75245,36.76,Ashutosh Mahato,AJSU,61510,30.05,13735
+241,Narahari Mahato,BJP,73713,36.66,Phani Bhushan Kumar,INC,61611,30.64,12102
+242,Sudip Kumar Mukherjee,BJP,88899,43.33,Sujoy Banerjee,AITC,82134,40.12,6585
+243,Sandhya Rani Tudu,AITC,102169,48.39,Gouri Singh Sardar,BJP,86679,41.05,15490
+244,Kamalakanta Hansda,BJP,92061,47.68,Swapan Kumar Beltharia,AITC,84829,43.93,7240
+245,Nadiar Chand Bouri,BJP,86930,45.01,Umapada Bauri,AITC,82986,42.96,3944
+246,Vivekananda Bauri,BJP,94994,44.59,Bouri Hazari,AITC,89671,42.04,5323
+247,Chandana Bauri,BJP,91648,45.28,Santosh Kumar Mondal,AITC,87503,43.23,4145
+248,Satyanarayan Mukhopadhyay,BJP,90233,45.84,Subasish Batabyal,AITC,83069,42.2,7164
+249,Jyotsna Mandi,AITC,90928,43.06,Kshudiram Tudu,BJP,86989,41.19,3939
+250,Mrityunjoy Murmu,AITC,101043,51.96,Sudhanshu Hansda,BJP,81645,41.98,19398
+251,Arup Chakraborty,AITC,92026,45.29,Shyamal Kumar Sarkar,BJP,79649,39.2,12377
+252,Niladri Sekhar Dana,BJP,95466,43.79,Sayantika Banerjee,AITC,93998,43.12,1468
+253,Alok Mukherjee,AITC,93290,42.51,Supriti Chatterjee,BJP,90021,41.02,3269
+254,Amarnath Shakha,BJP,104940,46.48,Arup Kumar Khan,AITC,93389,41.37,11551
+255,Tanmay Ghosh,BJP,88743,46.79,Archita Bid,AITC,77610,40.92,11133
+256,Harakali Protiher,BJP,106022,47.31,Sangeeta Malik,AITC,94237,42.05,11785
+257,Nirmal Kumar Dhara,BJP,104936,48.04,Runu Mete,AITC,97716,44.73,7220
+258,Dibakar Gharami,BJP,98161,47.25,Shyamal Santra,AITC,87273,42.01,10888
+259,Nabin Chandra Bag,AITC,104264,47.85,Bijan Mandal,BJP,83378,38.26,20886
+260,Khokan Das,AITC,91015,44.32,Sandip Nandi,BJP,82910,40.38,8105
+261,Shampa Dhara,AITC,108752,47.46,Manik Roy,BJP,90547,39.51,18205
+262,Alok Kumar Majhi,AITC,96999,46.93,Balaram Bapari,BJP,79028,38.24,17971
+263,Siddiqullah Chowdhury,AITC,105460,50.45,Saikat Panja,BJP,73655,35.24,31805
+264,Deboprasad Bag,AITC,96073,45.98,Biswajit Kundu,BJP,88595,42.4,7478
+265,Madhusudan Bhattacharya,AITC,104851,47.92,Bhismadeb Bhattacharya,BJP,81773,37.37,23078
+266,Nisith Kumar Malik,AITC,111211,45.97,Radha Kanta Roy,BJP,93943,38.83,17268
+267,Mangobinda Adhikari,AITC,108028,50.44,Mahendranath Kowar,BJP,76287,35.62,31741
+268,Swapan Debnath,AITC,105698,49.08,Rajib Kumar Bhowmick,BJP,88288,41.0,17410
+269,Tapan Chatterjee,AITC,92421,43.52,Gobardhan Das,BJP,85715,40.37,6706
+270,Rabindranath Chatterjee,AITC,107894,48.07,Shyama Majumdar,BJP,98739,43.99,9155
+271,Sheikh Shahnawaz,AITC,100226,46.55,Anadi Ghosh,BJP,87543,40.66,12683
+272,Apurba Chowdhury,AITC,107596,49.51,Rana Protap Goswami,BJP,85259,39.23,22337
+273,Abhedananda Thander,AITC,100392,46.25,Kalita Maji,BJP,88577,40.8,11815
+274,Nepal Ghorui,AITC,109504,49.21,Bikash Biswas,BJP,90242,40.55,19262
+275,Narendranath Chakraborty,AITC,73922,44.99,Jitendra Tiwari,BJP,70119,42.68,3803
+276,Pradip Mazumdar,AITC,79303,41.16,Diptansu Chaudhury,BJP,75557,39.21,3746
+277,Lakshman Chandra Ghorui,BJP,91186,46.31,Biswanath Parial,AITC,76522,38.86,14664
+278,Tapas Banerjee,AITC,78164,42.9,Bijan Mukherjee,BJP,74608,40.95,3556
+279,Hareram Singh,AITC,71002,42.59,Tapas Kumar Roy,BJP,62951,37.76,8051
+280,Agnimitra Paul,BJP,87881,45.13,Saayoni Ghosh,AITC,83394,42.82,4487
+281,Moloy Ghatak,AITC,100931,52.32,Krishnendu Mukherjee,BJP,79821,41.38,21110
+282,Ajay Kumar Poddar,BJP,81112,46.41,Ujjal Chatterjee,AITC,80433,46.02,679
+283,Bidhan Upadhyay,AITC,88430,52.26,Arijit Roy,BJP,64973,38.4,23457
+284,Anup Kumar Saha,BJP,98083,47.94,Debabrata Saha,AITC,94220,46.05,3863
+285,Bikash Roy Choudhury,AITC,105871,48.43,Jagannath Chattopadhyay,BJP,98551,45.08,7320
+286,Chandranath Sinha,AITC,116443,50.57,Anirban Ganguly,BJP,94163,40.89,22280
+287,Bidhan Chandra Majhi,AITC,112116,47.64,Tarakeswar Saha,BJP,105446,44.81,6670
+288,Abhijit Sinha,AITC,108423,51.14,Biswajit Mondal,BJP,90448,42.66,17975
+289,Nilabati Saha,AITC,110572,49.84,Piya Saha,BJP,95329,42.97,15243
+290,Abhijit Roy,AITC,100425,50.36,Shyamapada Mondal,BJP,88350,44.3,12075
+291,Ashish Banerjee,AITC,103276,47.52,Subhasis Choudhury,BJP,94804,43.62,8472
+292,Ashok Chattopadhyaya,AITC,108289,51.42,Nikhil Banerjee,BJP,57676,27.39,50613
+293,Rajendra Prasad Singh,AITC,117438,56.54,Tapas Kumar Yadav,BJP,60533,29.15,56905
+294,Mosarraf Hossain,AITC,146496,67.23,Debasish Roy,BJP,48250,22.14,98246

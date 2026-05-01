@@ -1,0 +1,127 @@
+AC_NO,prev_win_cand,prev_win_party,prev_win_votes,prev_win_pct,prev_sec_cand,prev_sec_party,prev_sec_votes,prev_sec_pct,prev_margin
+1,Bijoy Malakar,BJP,84711,61.92,Sambhu Sing Mallah,INC,48490,35.44,36221
+2,Krishnendu Paul,BJP,74846,49.66,Sachin Sahoo,INC,70379,46.7,4467
+3,Kamalakhya Dey Purkayastha,INC,60998,41.57,Dr. Manash Das,BJP,52674,35.89,8324
+4,Siddique Ahmed,INC,88909,59.16,Aziz Ahmed Khan,AGP,56422,37.54,32487
+5,Abdul Aziz,AIUDF,74452,56.62,Biswarup Bhattacharjee,BJP,50504,38.41,23948
+6,Zakir Hussain Laskar,AIUDF,71057,55.15,Milan Das,BJP,47303,36.72,23754
+7,Sujam Uddin Laskar,AIUDF,79769,51.83,Subrata Nath,BJP,66798,43.41,12971
+8,Nizamuddin Choudhury,AIUDF,66785,49.46,Mun Swarnakar,BJP,49181,36.42,17604
+9,Dipayan Chakraborty,BJP,98558,56.17,Tamal Kanti Banik,INC,60980,34.75,37578
+10,Karim Uddin Barbhuiya,AIUDF,71937,48.83,Aminul Haque Laskar,BJP,52283,35.49,19654
+11,Parimal Suklabaidya,BJP,82568,55.03,Kamakhya Prasad Mala,INC,62176,41.44,20392
+12,Mihir Kanti Shome,BJP,61745,47.34,Ajit Singh,INC,59060,45.28,2685
+13,Kaushik Rai,BJP,55341,44.61,Mukesh Pandey,INC,42641,34.38,12700
+14,Misbahul Islam Laskar,INC,64433,51.77,Amalendu Das,BJP,57402,46.12,7031
+15,Khalil Uddin Mazumder,INC,83268,51.22,Gautam Roy,BJP,76329,46.95,6939
+16,Nandita Garlosa,BJP,67797,56.73,Nirmal Langthasa,INC,49199,41.16,18598
+17,Numal Momin,BJP,60726,51.05,Raton Engti,INC,42841,36.02,17885
+18,Dorsing Ronghang,BJP,57927,55.74,Sanjeeb Teron,INC,26244,25.25,31683
+19,Bidya Sing Engleng,BJP,77032,50.58,Sum Ronghang,INC,36504,23.97,40528
+20,Rupsing Teron,BJP,89715,55.0,Augustine Enghee,INC,36278,22.24,53437
+21,Adv. Aminul Islam,AIUDF,125873,60.72,Javed Islam,AGP,69033,33.3,56840
+22,Wazed Ali Choudhury,INC,146248,83.98,Nurul Islam Mollah,IND,10674,6.13,135574
+23,Nazrul Hoque,AIUDF,123913,70.24,Dr. Debamoy Sanyal,BJP,46100,26.13,77813
+24,Nijanur Rahman,AIUDF,112194,61.07,Banendra Mushahary,BJP,63349,34.48,48845
+25,Abdus Sobahun Ali Sarkar,INC,89870,48.96,Ashwini Roy Sarkar,BJP,79171,43.14,10699
+26,Hafiz Bashir Ahmed,AIUDF,90529,56.16,Ali Akbar Miah,IND,30771,19.09,59758
+27,Samsul Huda,AIUDF,116714,59.3,Ashok Kumar Singhi,BJP,66768,34.11,49300
+28,Majendra Narzary,BPF,70407,45.19,Somnath Narzary,UPPL,60064,38.55,10343
+29,Rabiram Narzary,BPF,77509,49.68,Manaranjan Brahma,UPPL,65438,41.94,12071
+30,Lawrence Islary,UPPL,82817,54.14,Pramila Rani Brahma,BPF,63420,41.11,19397
+31,Joyanta Basumatary,UPPL,97087,56.5,Chandan Brahma,BPF,65767,38.27,31320
+32,Phani Bhusan Choudhury,AGP,82800,53.9,Shankar Prasad Rai,INC,44633,29.05,38167
+33,Ajoy Kumar Ray,BJP,45733,32.69,Kamal Singh Narzary,BPF,44730,31.97,1003
+34,Abdul Batin Khandkar,INC,93276,58.58,Bhupen Ray,AGP,60495,38.0,32781
+35,Pradip Sarkar,INC,112954,61.04,Punendra Banikya,AGP,65869,35.59,47085
+36,Jadab Sawargiary,INC,78551,43.46,Shyamjit Rabha,BJP,77275,42.75,1276
+37,Abdul Kalam Rasheed Alam,INC,112995,57.81,Jyotish Das,AGP,67747,34.66,45248
+38,Md. Abdur Rashid Mandal,INC,85752,54.18,Sheikh Shah Alam,AGP,39728,25.1,46024
+39,Aftabuddin Mollah,INC,76026,50.75,Dr. Reza M. A. Amin,AIUDF,54046,36.08,21980
+40,Manoranjan Talukdar,CPI(M),96134,50.21,Sankar Chandra Das,BJP,85872,44.85,10262
+41,Phanidhar Talukdar,AIUDF,55975,44.57,Ranjit Deka,AGP,52748,42.0,3227
+42,Ranjeet Kumar Dass,BJP,81284,71.67,Santanu Sarma,INC,18431,16.25,62853
+43,Abdur Rahim Ahmed,INC,111083,61.04,Gunindra Nath Das,AGP,66364,36.47,44719
+44,Rafiqul Islam,AIUDF,156183,84.6,Shahidul Islam,BJP,11408,6.18,144775
+45,Sherman Ali Ahmed,INC,79357,52.46,Rajib Ahmed,AIUDF,65415,43.24,13942
+46,Jakir Hussain Sikdar,INC,77045,43.07,Kalpana Patowary,AGP,47504,26.56,29541
+47,Ashraful Hussain,AIUDF,75312,58.83,Rabiul Hussain,AGP,23373,18.76,51939
+48,Nandita Das,INC,120613,58.82,Jyoti Prasad Das,AGP,68147,33.23,52466
+49,Rekibuddin Ahmed,INC,93864,56.32,Kamala Kanta Kalita,AGP,65820,39.5,28044
+50,Hemanga Thakuria,BJP,68311,51.81,Pankaj Lochan Devgoswami,AJP,28641,21.72,39670
+51,Himanta Biswa Sarma,BJP,130762,77.39,Ramen Chandra Borthakur,INC,28851,17.07,101911
+52,Atul Bora,BJP,196043,64.0,Manjit Mahanta,INC,74386,24.28,121657
+53,Siddhartha Bhattacharya,BJP,113461,66.33,Ashima Bordoloi,INC,29361,17.16,84100
+54,Ramendra Narayan Kalita,AGP,137533,59.87,Mira Borthakur Goswami,INC,59084,25.72,78449
+55,Suman Haripriya,BJP,66165,43.63,Dulu Ahmed,AJP,51797,34.15,14368
+56,Diganta Kalita,BJP,81083,53.93,Kishor Bhattacharya,INC,62969,41.89,18114
+57,Bhabesh Kalita,BJP,84844,52.11,Bhagaban Dev Misra,CPI(M),64624,39.69,20220
+58,Leho Ram Boro,UPPL,78818,46.75,Ramdas Basumatary,BPF,46635,27.66,32183
+59,Jayanta Malla Baruah,BJP,106190,58.84,Pradyut Kumar Bhuyan,INC,56733,31.43,49457
+60,Diganta Barman,INC,85826,49.46,Narayan Deka,BJP,81772,47.13,4054
+61,Chandra Mohan Patowary,BJP,68362,56.73,Ratul Patowary,INC,43328,35.96,25034
+62,Bhupen Boro,UPPL,62385,46.78,Prabin Boro,BPF,38613,28.96,23772
+63,Urkhao Gwra Brahma,UPPL,61804,48.58,Hitesh Basumatary,BPF,35065,27.56,26739
+64,Biswajit Daimary,BJP,72639,60.82,Karuna Kanta Swargiary,BPF,36787,30.8,35852
+65,Durga Das Boro,BPF,60815,41.05,Madhu Ram Deka,BJP,53713,36.26,7102
+66,Parmananda Rajbongshi,BJP,74739,50.33,Kuldip Barua,INC,67605,45.52,7134
+67,Basanta Das,INC,111386,54.68,Guru Jyoti Das,BJP,87032,42.72,24354
+68,Mazibur Rahman,AIUDF,118342,55.2,Ilias Ali,INC,62959,29.37,55383
+69,Gobinda Chandra Basumatary,UPPL,61767,50.43,Rihon Daimari,BPF,56916,46.47,4851
+70,Charan Boro,BPF,54409,42.32,Jitu Kissan,BJP,38352,29.83,16057
+71,Ashok Singhal,BJP,93768,56.89,Benudhar Nath,INC,58698,35.62,35070
+72,Ganesh Kumar Limbu,BJP,70569,51.5,Ram Prasad Sarma,INC,52787,38.52,17782
+73,Prithiraj Rava,AGP,71454,47.69,Anuj Kumar Mech,INC,61331,40.93,10123
+74,Krishna Kamal Tanti,BJP,70172,53.2,Abhijit Hazarika,INC,47827,36.26,22345
+75,Padma Hazarika,BJP,84807,56.5,Praneswar Basumatary,INC,60432,40.26,24375
+76,Promod Borthakur,BJP,71201,50.8,Anjan Borah,INC,61991,44.23,9210
+77,Ranjit Dutta,BJP,53583,50.93,Jayanta Borah,IND,23744,22.57,29839
+78,Utpal Borah,BJP,93224,57.14,Ripun Bora,INC,63930,39.18,29294
+79,Pijush Hazarika,BJP,106643,53.54,Swapan Kumar Mandal,INC,77239,38.78,29404
+80,Rama Kanta Dewri,BJP,81657,52.15,Bani Kanta Das,AJP,45125,28.82,36532
+81,Dr. Asif Mohammad Nazar,INC,60932,37.3,Siddique Ahmed,IND,58904,36.06,2028
+82,Sashi Kanta Das,INC,89511,50.05,Bishnu Das,AGP,76453,42.75,13058
+83,Aminul Islam,AIUDF,145888,70.39,Mehboob Muktar,IND,42921,20.71,102947
+84,Sibamoni Bora,INC,84278,60.02,Angoorlata Deka,BJP,51458,36.64,32820
+85,Nurul Huda,INC,132091,73.0,Najir Hussain,BJP,25739,14.22,106352
+86,Rupak Sarmah,BJP,81098,52.01,Santanu Sarma,INC,70015,44.9,11083
+87,Jitu Goswami,BJP,70111,48.7,Suresh Borah,INC,69360,48.18,751
+88,Rakibul Hussain,INC,81123,58.09,Anil Saikia,BJP,55025,39.4,26098
+89,Keshab Mahanta,AGP,73677,59.06,Prasanta Kumar Saikia,INC,44957,36.04,28720
+90,Sirajuddin Ajmal,AIUDF,136902,73.14,Sadik Ullah Bhuyan,AGP,18342,9.8,118560
+91,Ramkrishna Ghosh,BJP,125790,56.64,Debabrata Saha,INC,92008,41.43,33782
+92,Sibu Misra,BJP,89108,51.04,Swapan Kar,INC,77377,44.32,11731
+93,Atul Bora,AGP,72930,60.56,Pranab Doley,IND,27749,23.04,45181
+94,Biswajit Phukan,BJP,107090,51.49,Roselina Tirkey,INC,67731,32.57,39359
+95,Ajanta Neog,BJP,81651,50.63,Bitupan Saikia,INC,72326,44.84,9325
+96,Mrinal Saikia,BJP,65655,56.49,Bismita Gogoi,INC,38522,33.14,27133
+97,Bhabendra Nath Bharali,AGP,64043,48.12,Bani Hazarika,INC,51546,38.73,12497
+98,Hitendra Nath Goswami,BJP,68321,48.84,Rana Goswami,INC,61833,44.2,6488
+99,Sarbananda Sonowal,BJP,71436,67.53,Rajib Lochan Pegu,INC,28244,26.7,43192
+100,Bhaskar Jyoti Baruah,INC,64303,52.89,Hemanta Kalita,BJP,50924,41.89,13397
+101,Rupjyoti Kurmi,INC,47308,49.36,Ramani Tanti,BJP,44862,46.81,2446
+102,Renupoma Rajkhowa,AGP,47555,45.78,Pallabi Gogoi,INC,46205,44.48,1350
+103,Prodip Hazarika,AGP,49891,48.03,Angkita Dutta,INC,43712,42.08,6179
+104,Debabrata Saikia,INC,52387,47.56,Mayur Borgohain,BJP,51704,46.94,683
+105,Jogen Mohan,BJP,51282,45.18,Suruj Dehingia,INC,38147,33.61,13135
+106,Dharmeswar Konwar,BJP,69690,48.0,Sushil Kumar Suri,INC,54573,37.59,15117
+107,Sushanta Borgohain,INC,48026,49.56,Kushal Dowari,BJP,46020,47.49,2006
+108,Akhil Gogoi,IND,57219,46.06,Surabhi Rajkonwari,BJP,45344,36.5,11875
+109,Amiya Kumar Bhuyan,BJP,58979,48.53,Bhupen Kumar Borah,INC,48801,40.16,10178
+110,Bharat Chandra Narah,INC,52905,27.34,Ajijur Rahman,IND,49292,25.47,3613
+111,Manab Deka,BJP,70387,45.03,Dr. Joy Prakash Das,INC,67351,43.09,3036
+112,Naba Kumar Doley,BJP,86382,50.83,Padmalochan Doley,INC,76786,45.18,9596
+113,Ranoj Pegu,BJP,87681,45.33,Chittaranjan Basumatary,AJP,56889,29.41,30792
+114,Bhubon Pegu,BJP,168411,68.69,Hema Hari Prasanna Pegu,INC,57424,23.42,110987
+115,Chakradhar Gogoi,BJP,55604,49.68,Pranjal Ghatowar,INC,33263,29.72,22341
+116,Prasanta Phukan,BJP,68762,60.44,Rajkumar Nilanetra Neog,INC,30757,27.03,38005
+117,Binod Hazarika,BJP,59295,48.13,Manoj Dhanowar,INC,42047,34.13,17248
+118,Terash Gowalla,BJP,54762,43.35,Dhruba Gogoi,INC,46652,36.08,8110
+119,Bimal Borah,BJP,62675,52.66,Etuwa Munda,INC,34282,28.8,28394
+120,Taranga Gogoi,BJP,47268,42.57,Pranati Phukan,INC,32292,29.08,14976
+121,Ponakan Baruah,AGP,53554,41.4,Ajoy Phukan,INC,34824,26.92,18730
+122,Sanjoy Kishan,BJP,85857,65.58,Shamsher Singh,AJP,15060,11.5,70797
+123,Suren Phukan,BJP,59217,55.24,Shibanath Chetia,INC,32241,30.8,26976
+124,Bhaskar Sharma,BJP,86640,56.52,Manoranjan Borgohain,INC,28140,18.36,58500
+125,Rupesh Gowala,BJP,49119,41.72,Durga Bhumij,INC,40981,34.8,8138
+126,Bolin Chetia,BJP,64855,45.49,Lakhin Chandra Chetia,INC,42771,30.0,22084

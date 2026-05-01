@@ -3105,13 +3105,22 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
             /* Scale Bokeh map to fit phone screen */
             .map-container .bk-root {{
                 transform-origin: top left;
-                transform: scale(0.55);
-                width: 182% !important;
+                transform: scale(0.42);
+                width: 238% !important;
             }}
-            /* Voteshare: stack filter above chart on mobile */
+            /* Voteshare: center filter above chart on mobile */
             #view-voteshare > div:first-child {{
                 flex-direction: column !important;
-                align-items: flex-start !important;
+                align-items: center !important;
+                text-align: center !important;
+                width: 100% !important;
+            }}
+            #view-voteshare > div:first-child label {{
+                text-align: center !important;
+            }}
+            #view-voteshare > div:first-child select {{
+                width: 100% !important;
+                max-width: 320px !important;
             }}
             header h1 {{
                 font-size: 1.8em;

@@ -21,6 +21,15 @@ from state_config import ALL_STATES, DEFAULT_STATE, get_state_config, get_party_
 app = Flask(__name__)
 app.secret_key = os.environ.get('SECRET_KEY', 'dev-key-for-local-testing')
 
+import time as _time
+
+# ── Page-level response cache (keyed by state_code) ──────────────────────────
+_PAGE_CACHE_TTL = 5 * 60  # 5 minutes
+_page_cache = {}          # state_code -> (timestamp, html)
+
+# ── Previous election CSV cache (static — never changes) ─────────────────────
+_prev_csv_cache = {}      # state_code -> prev_data dict
+
 # ── Previous election results cache + fetcher ─────────────────────────────────
 _prev_results_cache = {}
 
@@ -368,8 +377,7 @@ def create_state_map(state_name):
             tools="pan,wheel_zoom,box_zoom,reset,save",
             x_axis_type="mercator",
             y_axis_type="mercator",
-            background_fill_color="#f0f0f0",
-            x_range=(x_range[0] - x_pad, x_range[1] + x_pad),
+            background_fill_color="white",
             y_range=(y_range[0] - y_pad, y_range[1] + y_pad)
         )
         
@@ -586,8 +594,7 @@ def create_election_map(state_name, state_code=None):
             toolbar_location=None,  # Remove toolbar
             x_axis_type="mercator",
             y_axis_type="mercator",
-            background_fill_color="#f0f0f0",
-            x_range=init_x_range,
+            background_fill_color="white",
             y_range=init_y_range
         )
         
@@ -2487,8 +2494,16 @@ def index():
         return f"<h1>Error</h1><p>Unknown state: {state_code}</p>", 404
     
     state_name = sc['name']
-    print(f"Generating election map for {state_name}")
-    
+
+    # ── Serve from cache if fresh ─────────────────────────────────────────────
+    cached = _page_cache.get(state_code)
+    if cached:
+        ts, html = cached
+        if _time.time() - ts < _PAGE_CACHE_TTL:
+            print(f"[CACHE HIT] {state_name} ({int(_PAGE_CACHE_TTL - (_time.time() - ts))}s remaining)")
+            return html
+
+    print(f"[CACHE MISS] Generating election map for {state_name}")
     try:
         plot, summary, party_vote_shares, party_vote_totals, actual_party_seats, district_vote_totals, district_party_seats_map, seat_data = create_election_map(state_name, state_code=state_code)
         
@@ -2498,41 +2513,46 @@ def index():
         # Generate Bokeh HTML
         bokeh_html = file_html(plot, CDN, f"{state_name} Election Results")
 
-        # Load previous election results from GitHub
-        prev_data = {}
-        prev_csv_path = f"prev_results_{state_code}.csv"
-        prev_url, prev_token = get_github_url(prev_csv_path)
-        try:
-            prev_hdrs = {}
-            if prev_token:
-                prev_hdrs['Authorization'] = f'token {prev_token}'
-            prev_resp = requests.get(prev_url, timeout=10, headers=prev_hdrs)
-            if prev_resp.status_code == 200:
+        # Load previous election results (cached permanently — never changes)
+        if state_code in _prev_csv_cache:
+            prev_data = _prev_csv_cache[state_code]
+            print(f"[PREV CACHE HIT] {state_code} ({len(prev_data)} rows)")
+        else:
+            prev_data = {}
+            prev_csv_path = f"prev_results_{state_code}.csv"
+            prev_url, prev_token = get_github_url(prev_csv_path)
+            try:
+                prev_hdrs = {}
                 if prev_token:
-                    import base64 as _b64
-                    prev_content = _b64.b64decode(json.loads(prev_resp.text)['content']).decode('utf-8')
-                else:
-                    prev_content = prev_resp.text
-                prev_df = pd.read_csv(StringIO(prev_content))
-                for _, prev_row in prev_df.iterrows():
-                    try:
-                        ac = int(prev_row['AC_NO'])
-                        prev_data[str(ac)] = {
-                            'win_cand':  str(prev_row.get('prev_win_cand', '')),
-                            'win_party': str(prev_row.get('prev_win_party', '')),
-                            'win_votes': int(prev_row.get('prev_win_votes', 0) or 0),
-                            'win_pct':   float(prev_row.get('prev_win_pct', 0) or 0),
-                            'sec_cand':  str(prev_row.get('prev_sec_cand', '')),
-                            'sec_party': str(prev_row.get('prev_sec_party', '')),
-                            'sec_votes': int(prev_row.get('prev_sec_votes', 0) or 0),
-                            'sec_pct':   float(prev_row.get('prev_sec_pct', 0) or 0),
-                            'margin':    int(prev_row.get('prev_margin', 0) or 0),
-                        }
-                    except Exception:
-                        pass
-                print(f"Loaded {len(prev_data)} prev rows from GitHub:{prev_csv_path}")
-        except Exception as e:
-            print(f"Could not load {prev_csv_path} from GitHub: {e}")
+                    prev_hdrs['Authorization'] = f'token {prev_token}'
+                prev_resp = requests.get(prev_url, timeout=10, headers=prev_hdrs)
+                if prev_resp.status_code == 200:
+                    if prev_token:
+                        import base64 as _b64
+                        prev_content = _b64.b64decode(json.loads(prev_resp.text)['content']).decode('utf-8')
+                    else:
+                        prev_content = prev_resp.text
+                    prev_df = pd.read_csv(StringIO(prev_content))
+                    for _, prev_row in prev_df.iterrows():
+                        try:
+                            ac = int(prev_row['AC_NO'])
+                            prev_data[str(ac)] = {
+                                'win_cand':  str(prev_row.get('prev_win_cand', '')),
+                                'win_party': str(prev_row.get('prev_win_party', '')),
+                                'win_votes': int(prev_row.get('prev_win_votes', 0) or 0),
+                                'win_pct':   float(prev_row.get('prev_win_pct', 0) or 0),
+                                'sec_cand':  str(prev_row.get('prev_sec_cand', '')),
+                                'sec_party': str(prev_row.get('prev_sec_party', '')),
+                                'sec_votes': int(prev_row.get('prev_sec_votes', 0) or 0),
+                                'sec_pct':   float(prev_row.get('prev_sec_pct', 0) or 0),
+                                'margin':    int(prev_row.get('prev_margin', 0) or 0),
+                            }
+                        except Exception:
+                            pass
+                    print(f"Loaded {len(prev_data)} prev rows from GitHub:{prev_csv_path}")
+                    _prev_csv_cache[state_code] = prev_data
+            except Exception as e:
+                print(f"Could not load {prev_csv_path} from GitHub: {e}")
         _prev_data_json = json.dumps(prev_data)
 
         # Build SVG pie chart from party_vote_totals
@@ -3082,6 +3102,17 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
                 width: 100%;
                 box-sizing: border-box;
             }}
+            /* Scale Bokeh map to fit phone screen */
+            .map-container .bk-root {{
+                transform-origin: top left;
+                transform: scale(0.55);
+                width: 182% !important;
+            }}
+            /* Voteshare: stack filter above chart on mobile */
+            #view-voteshare > div:first-child {{
+                flex-direction: column !important;
+                align-items: flex-start !important;
+            }}
             header h1 {{
                 font-size: 1.8em;
             }}
@@ -3443,6 +3474,7 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
 """
         
         print(f"{state_name} map generated successfully with {total_seats} constituencies")
+        _page_cache[state_code] = (_time.time(), final_html)
         return final_html
         
     except Exception as e:

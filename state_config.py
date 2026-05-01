@@ -237,10 +237,10 @@ KERALA = {
     'csv_file': 'election_results_kerala.csv',
     'electors_file': 'electors_after_deletion_kerala.csv',
 
-    'parties': ['CPIM', 'CPI', 'INC', 'RJD','IUML', 'KC(M)', 'NCP', 'BJP', 'RSP', 'JD(S)', 'KEC', 'OTH', 'ISJD','AWAITED'],
+    'parties': ['CPI(M)', 'CPI', 'INC', 'RJD','IUML', 'KC(M)', 'NCP', 'BJP', 'RSP', 'JD(S)', 'KEC', 'OTH', 'ISJD','AWAITED'],
 
     'party_colors': {
-        'CPIM': '#FF0000',
+        'CPI(M)': '#FF0000',
         'CPI': '#CC0000',
         'INC': '#1471C7',
         'IUML': '#006400',
@@ -260,9 +260,9 @@ KERALA = {
 
     'alliances': {
         'LDF': {
-            'parties': ['CPIM', 'CPI', 'RSP(L)', 'JD(S)', 'KEC', 'NCP', 'RJD', 'KC(M)', 'ISJD'],
+            'parties': ['CPI(M)', 'CPI', 'RSP(L)', 'JD(S)', 'KEC', 'NCP', 'RJD', 'KC(M)', 'ISJD'],
             'color': '#FF0000',
-            'description': 'CPIM, CPI, RSP(L), JD(S), KEC, NCP, RJD, KC(M), ISJD',
+            'description': 'CPI(M), CPI, RSP(L), JD(S), KEC, NCP, RJD, KC(M), ISJD',
         },
         'UDF': {
             'parties': ['INC', 'IUML', 'KC','RSP'],

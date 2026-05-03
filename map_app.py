@@ -830,32 +830,8 @@ def create_election_map(state_name, state_code=None):
                                         <p style="
                                             color: #888;
                                             font-size: 14px;
-                                            margin: 0 0 20px 0;
+                                            margin: 0;
                                         ">Counting has not started for this constituency yet</p>
-                                        
-                                        <!-- Random contesting parties preview -->
-                                        <div style="
-                                            margin-top: 20px;
-                                            padding: 15px;
-                                            background: white;
-                                            border-radius: 8px;
-                                        ">
-                                            <p style="
-                                                color: #999;
-                                                font-size: 12px;
-                                                margin: 0 0 12px 0;
-                                                text-transform: uppercase;
-                                                letter-spacing: 1px;
-                                            ">Expected Contesting Parties</p>
-                                            <div style="
-                                                display: flex;
-                                                justify-content: center;
-                                                gap: 15px;
-                                                flex-wrap: wrap;
-                                            ">
-                                                __TOP_PARTIES__
-                                            </div>
-                                        </div>
                                     </div>
                                 ` : `
                                     <!-- Vote Counting Progress -->
@@ -3574,6 +3550,6 @@ def get_states():
 if __name__ == '__main__':
     import os
     # Use PORT from environment (for Render/Railway) or default to 5080
-    port = int(os.environ.get('PORT', 5085))
+    port = int(os.environ.get('PORT', 5084))
     # Set debug=False for production
     app.run(host='0.0.0.0', port=port, debug=False)

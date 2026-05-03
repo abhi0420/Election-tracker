@@ -62,17 +62,25 @@ def get_constituency_data(option_value, option_text, ac_no, election_event):
             constituency_url = f"https://results.eci.gov.in/{election_event}/candidateswise-{option_value}.htm"
             driver.get(constituency_url)
 
-            # Wait for the "Constituency Wise Table View" link (increased timeout)
-            table_view_link = WebDriverWait(driver, 15).until(
-                EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
-            )
-            table_view_link.click()
+            # Primary: click "Constituency Wise Table View" link (standard ECI layout)
+            try:
+                table_view_link = WebDriverWait(driver, 15).until(
+                    EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
+                )
+                table_view_link.click()
 
-            # Wait for the new page to load and locate the table (increased timeout)
-            WebDriverWait(driver, 10).until(
-                EC.presence_of_element_located((By.XPATH, "//table"))
-            )
-            table = driver.find_element(By.XPATH, "//table")
+                # Wait for the new page to load and locate the table
+                WebDriverWait(driver, 10).until(
+                    EC.presence_of_element_located((By.XPATH, "//table"))
+                )
+                table = driver.find_element(By.XPATH, "//table")
+            except Exception:
+                # Fallback: ECI may show table directly without the click step
+                logging.warning(f"Table-view link not found for {option_text}, trying direct table on page")
+                tables = driver.find_elements(By.XPATH, "//table")
+                if not tables:
+                    raise RuntimeError(f"No table found at all for {option_text}")
+                table = tables[0]
 
             # Extract header and rows
             header = [th.text for th in table.find_elements(By.TAG_NAME, "th")]
@@ -156,24 +164,36 @@ def main(state_code=None, ac_start=None, ac_end=None):
             url = f"https://results.eci.gov.in/{election_event}/statewise{eci_state_code}{page_num}.htm"
             
             logging.info(f"Fetching constituency list from page {page_num}/{total_pages}...")
-            driver.get(url)
-            time.sleep(1)
-            
-            # Find all table rows
-            table = driver.find_element(By.TAG_NAME, "table")
-            rows = table.find_elements(By.TAG_NAME, "tr")
-            
-            for row in rows:
-                cells = row.find_elements(By.TAG_NAME, "td")
-                if len(cells) >= 2:  # Has constituency name and number
-                    constituency_name = cells[0].text.strip()
-                    constituency_num = cells[1].text.strip()
-                    
-                    if constituency_name and constituency_num and constituency_num.isdigit():
-                        all_constituencies.append({
-                            "name": constituency_name,
-                            "number": constituency_num
-                        })
+            try:
+                driver.get(url)
+                time.sleep(1)
+                
+                # Primary: original ECI layout — single <table> with constituency rows
+                try:
+                    table = driver.find_element(By.TAG_NAME, "table")
+                    rows = table.find_elements(By.TAG_NAME, "tr")
+                except Exception:
+                    # Fallback: ECI changed layout — try any available table
+                    tables = driver.find_elements(By.TAG_NAME, "table")
+                    if not tables:
+                        logging.warning(f"No table found on page {page_num}, skipping")
+                        continue
+                    logging.warning(f"Primary table lookup failed on page {page_num}, using fallback")
+                    rows = tables[0].find_elements(By.TAG_NAME, "tr")
+                
+                for row in rows:
+                    cells = row.find_elements(By.TAG_NAME, "td")
+                    if len(cells) >= 2:  # Has constituency name and number
+                        constituency_name = cells[0].text.strip()
+                        constituency_num = cells[1].text.strip()
+                        
+                        if constituency_name and constituency_num and constituency_num.isdigit():
+                            all_constituencies.append({
+                                "name": constituency_name,
+                                "number": constituency_num
+                            })
+            except Exception as e:
+                logging.warning(f"Error fetching page {page_num}: {e}, skipping")
         
         logging.info(f"Found {len(all_constituencies)} constituencies to process")
         
@@ -388,7 +408,7 @@ def _merge_electors(election_df, electors_file):
         election_df = election_df.merge(electors_df[['AC_NO', 'total_votes_cast']], on='AC_NO', how='left')
         election_df['votes_pct'] = (
             (election_df['tot_votes'] / election_df['total_votes_cast'] * 100)
-            .fillna(0).clip(upper=100).round(2)
+            .fillna(0).clip(upper=99.9).round(2)
         )
         election_df = election_df.drop(columns=['total_votes_cast'])
         logging.info("✓ Merged with electors data and calculated votes_pct")

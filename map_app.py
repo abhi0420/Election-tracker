@@ -281,7 +281,7 @@ def auto_merge_election_data(state_code=None):
                     if 'tot_votes' in df_clean.columns:
                         df_clean['votes_pct'] = (
                             df_clean['tot_votes'] / df_clean['Total_Electors'] * 100
-                        ).fillna(0).clip(upper=100).round(2)
+                        ).fillna(0).clip(upper=99.9).round(2)
                     df_clean = df_clean.drop(columns=['Total_Electors'])
                     print(f"[AUTO-MERGE] Computed votes_pct from electors file: {electors_file}")
                 else:
@@ -539,7 +539,7 @@ def create_election_map(state_name, state_code=None):
         state_gdf['sec_votes'] = pd.to_numeric(state_gdf['sec_votes'], errors='coerce').fillna(0)
         state_gdf['thi_votes'] = pd.to_numeric(state_gdf['thi_votes'], errors='coerce').fillna(0)
         state_gdf['tot_votes'] = pd.to_numeric(state_gdf['tot_votes'], errors='coerce').fillna(0)
-        state_gdf['votes_pct'] = pd.to_numeric(state_gdf['votes_pct'], errors='coerce').fillna(0).clip(upper=100)
+        state_gdf['votes_pct'] = pd.to_numeric(state_gdf['votes_pct'], errors='coerce').fillna(0).clip(upper=99.9)
         
         # Calculate percentages and margins (round to 2 decimal places)
         state_gdf['winner_percent'] = ((state_gdf['win_votes'] / state_gdf['tot_votes'].replace(0, 1) * 100) * 100).round() / 100
@@ -3131,6 +3131,7 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
         <header>
             <h1>🗺️ {state_name} Election Results {sc['year']}</h1>
             <p class="subtitle">Live Interactive Analysis</p>
+            __ASSAM_DISCLAIMER__
             <nav style="margin-top: 15px; display: flex; gap: 8px;">
                 {state_nav_html}
             </nav>
@@ -3472,7 +3473,16 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
 </body>
 </html>
 """
-        
+
+        _assam_disclaimer = (
+            '<p style="margin: 6px 0 0; font-size: 0.8em; color: #c0392b; '
+            'background: #fdf3f2; border: 1px solid #e8b4b0; border-radius: 6px; '
+            'padding: 6px 12px; display: inline-block;">'
+            '⚠️ Map boundaries are based on pre-2023 delimitation and may not match current constituency limits.'
+            '</p>'
+        ) if sc.get('code') == 'assam' else ''
+        final_html = final_html.replace('__ASSAM_DISCLAIMER__', _assam_disclaimer)
+
         print(f"{state_name} map generated successfully with {total_seats} constituencies")
         _page_cache[state_code] = (_time.time(), final_html)
         return final_html

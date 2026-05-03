@@ -30,10 +30,17 @@ def merge_electors(election_df, electors_file):
     try:
         electors_df = pd.read_csv(electors_file)
         electors_df = electors_df.rename(columns={'AC_No': 'AC_NO', 'Total Votes': 'total_votes_cast'})
+        if 'total_votes_cast' not in electors_df.columns:
+            if 'Total_Electors' in electors_df.columns and 'Turnout_Pct' in electors_df.columns:
+                electors_df['total_votes_cast'] = (
+                    electors_df['Total_Electors'] * electors_df['Turnout_Pct'] / 100
+                ).round(0).astype('Int64')
+            elif 'Total_Electors' in electors_df.columns:
+                electors_df = electors_df.rename(columns={'Total_Electors': 'total_votes_cast'})
         election_df = election_df.merge(electors_df[['AC_NO', 'total_votes_cast']], on='AC_NO', how='left')
         election_df['votes_pct'] = (
             (election_df['tot_votes'] / election_df['total_votes_cast'] * 100)
-            .fillna(0).clip(upper=100).round(2)
+            .fillna(0).clip(upper=99.9).round(2)
         )
         election_df = election_df.drop(columns=['total_votes_cast'])
         logging.info("  ✓ Merged electors data")

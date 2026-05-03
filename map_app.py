@@ -3131,7 +3131,6 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
         <header>
             <h1>🗺️ {state_name} Election Results {sc['year']}</h1>
             <p class="subtitle">Live Interactive Analysis</p>
-            __ASSAM_DISCLAIMER__
             <nav style="margin-top: 15px; display: flex; gap: 8px;">
                 {state_nav_html}
             </nav>
@@ -3161,6 +3160,7 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
         </div>
 
         <!-- Map + vertical toggle on the right -->
+        __ASSAM_DISCLAIMER__
         <div id="views-wrapper" style="display:flex; align-items:flex-start;">
 
             <div id="view-map" class="map-container" style="flex:1; min-width:0;">
@@ -3475,9 +3475,9 @@ function renderDistrictPieChart(partyVotes, partySeats, title) {
 """
 
         _assam_disclaimer = (
-            '<p style="margin: 6px 0 0; font-size: 0.8em; color: #c0392b; '
+            '<p style="margin: 0 0 12px; font-size: 0.82em; color: #c0392b; '
             'background: #fdf3f2; border: 1px solid #e8b4b0; border-radius: 6px; '
-            'padding: 6px 12px; display: inline-block;">'
+            'padding: 8px 14px;">'
             '⚠️ Map boundaries are based on pre-2023 delimitation and may not match current constituency limits.'
             '</p>'
         ) if sc.get('code') == 'assam' else ''

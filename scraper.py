@@ -373,7 +373,18 @@ def _merge_electors(election_df, electors_file):
     """Merge election results with electors data to compute votes_pct."""
     try:
         electors_df = pd.read_csv(electors_file)
+        # Support two formats:
+        # Old (Bihar): AC_No, Total Votes
+        # New: AC_NO, Total_Electors, Turnout_Pct  ->  total_votes_cast = Total_Electors * Turnout_Pct / 100
         electors_df = electors_df.rename(columns={'AC_No': 'AC_NO', 'Total Votes': 'total_votes_cast'})
+        if 'total_votes_cast' not in electors_df.columns:
+            if 'Total_Electors' in electors_df.columns and 'Turnout_Pct' in electors_df.columns:
+                electors_df['total_votes_cast'] = (
+                    electors_df['Total_Electors'] * electors_df['Turnout_Pct'] / 100
+                ).round(0).astype('Int64')
+            elif 'Total_Electors' in electors_df.columns:
+                # Fallback: use tot_votes directly as a % of Total_Electors
+                electors_df = electors_df.rename(columns={'Total_Electors': 'total_votes_cast'})
         election_df = election_df.merge(electors_df[['AC_NO', 'total_votes_cast']], on='AC_NO', how='left')
         election_df['votes_pct'] = (
             (election_df['tot_votes'] / election_df['total_votes_cast'] * 100)

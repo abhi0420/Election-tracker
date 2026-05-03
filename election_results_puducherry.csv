@@ -1,31 +1,31 @@
 AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi_cand,thi_party,thi_votes,margin,tot_votes,votes_pct
-1,Mannadipet,D. Patel,TVK,66421,M. Gupta,ADMK,54501,C. Sharma,NR,13035,11920,146345,59.12
-2,Thirubhuvanai (Sc),A. Kumar,INC,82969,D. Patel,DMK,57381,W. Banerjee,ADMK,12665,25588,164557,76.39
-3,Oussudu (Sc),D. Patel,AINRC,59478,X. Sen,INC,41218,F. Nair,BJP,10111,18260,117159,68.71
-4,Mangalam,P. Bose,INC,52991,I. Mehta,ADMK,39115,F. Nair,BJP,6387,13876,105527,68.37
-5,Villianur,Y. Ghosh,AINRC,44090,A. Kumar,INC,32300,W. Banerjee,OTH,7547,11790,89501,77.32
-6,Ozhukarai,B. Singh,AINRC,79139,V. Mukherjee,ADMK,60762,R. Sinha,OTH,9381,18377,165592,62.71
-7,Kadirgamam,Y. Ghosh,TVK,68651,G. Rao,DMK,38259,I. Mehta,ADMK,6600,30392,118967,79.73
-8,Indira Nagar,V. Mukherjee,AINRC,72254,C. Sharma,DMK,60240,I. Mehta,OTH,18877,12014,168233,59.18
-9,Thattanchavady,K. Iyer,AINRC,49794,S. Tiwari,INC,43347,W. Banerjee,BJP,8141,6447,113292,58.02
-10,Kamraj Nagar,A. Kumar,TVK,42798,N. Joshi,AINRC,31716,W. Banerjee,DMK,7943,11082,98237,75.38
-11,Lawspet,C. Sharma,DMK,60180,H. Das,AINRC,42032,P. Bose,INC,14262,18148,133148,68.4
-12,Kalapet,I. Mehta,OTH,66926,D. Patel,ADMK,51638,V. Mukherjee,DMK,11939,15288,148141,72.34
-13,Muthialpet,V. Mukherjee,INC,43810,P. Bose,OTH,37030,C. Sharma,BJP,10090,6780,104302,71.01
-14,Raj Bhavan,A. Kumar,TVK,80680,I. Mehta,NR,44221,B. Singh,OTH,10699,36459,147620,73.93
-15,Oupalam,L. Verma,DMK,40497,Q. Menon,INC,28367,J. Pillai,BJP,5606,12130,91353,69.95
-16,Orleampeth,E. Reddy,OTH,83394,J. Pillai,NR,42439,M. Gupta,BJP,17327,40955,154957,71.2
-17,Nellithope,X. Sen,INC,43713,K. Iyer,DMK,28488,L. Verma,BJP,12766,15225,94035,75.04
-18,Mudaliarpet,M. Gupta,DMK,45626,R. Sinha,BJP,26101,K. Iyer,NR,11538,19525,89411,78.84
-19,Ariankuppam,C. Sharma,INC,78437,G. Rao,BJP,68599,U. Chatterjee,DMK,10110,9838,163426,65.66
-20,Manavely,G. Rao,AINRC,48589,I. Mehta,DMK,31131,P. Bose,OTH,9317,17458,104450,60.04
-21,Embalam (Sc),L. Verma,BJP,45297,N. Joshi,ADMK,31711,O. Mishra,INC,9450,13586,98559,74.01
-22,Nettapakkam (Sc),Y. Ghosh,BJP,70374,M. Gupta,ADMK,59580,O. Mishra,INC,13630,10794,157385,58.82
-23,Bahour,O. Mishra,DMK,49780,J. Pillai,AINRC,38154,Q. Menon,ADMK,6445,11626,101617,72.87
-24,Nedungadu (Sc),A. Kumar,INC,62230,R. Sinha,BJP,43965,M. Gupta,DMK,11210,18265,134565,64.33
-25,Thirunallar,C. Sharma,AINRC,41123,O. Mishra,OTH,30995,B. Singh,NR,6125,10128,90391,78.93
-26,Karaikal North,Q. Menon,DMK,79605,X. Sen,OTH,62144,P. Bose,AINRC,15598,17461,169294,73.39
-27,Karaikal South,U. Chatterjee,INC,40972,X. Sen,DMK,31161,W. Banerjee,AINRC,5716,9811,90311,78.61
-28,Neravy- T.R. Pattin,S. Tiwari,INC,30471,W. Banerjee,BJP,20956,F. Nair,NR,8146,9515,70870,64.94
-29,Mahe,G. Rao,AINRC,82179,O. Mishra,INC,64867,F. Nair,NR,16052,17312,176833,71.46
-30,Yanam,N. Joshi,AINRC,45013,Y. Ghosh,BJP,36564,C. Sharma,OTH,6989,8449,95904,61.73
+1,Mannadipet,,,,,,,,,,,,
+2,Thirubhuvanai (Sc),,,,,,,,,,,,
+3,Oussudu (Sc),,,,,,,,,,,,
+4,Mangalam,,,,,,,,,,,,
+5,Villianur,,,,,,,,,,,,
+6,Ozhukarai,,,,,,,,,,,,
+7,Kadirgamam,,,,,,,,,,,,
+8,Indira Nagar,,,,,,,,,,,,
+9,Thattanchavady,,,,,,,,,,,,
+10,Kamraj Nagar,,,,,,,,,,,,
+11,Lawspet,,,,,,,,,,,,
+12,Kalapet,,,,,,,,,,,,
+13,Muthialpet,,,,,,,,,,,,
+14,Raj Bhavan,,,,,,,,,,,,
+15,Oupalam,,,,,,,,,,,,
+16,Orleampeth,,,,,,,,,,,,
+17,Nellithope,,,,,,,,,,,,
+18,Mudaliarpet,,,,,,,,,,,,
+19,Ariankuppam,,,,,,,,,,,,
+20,Manavely,,,,,,,,,,,,
+21,Embalam (Sc),,,,,,,,,,,,
+22,Nettapakkam (Sc),,,,,,,,,,,,
+23,Bahour,,,,,,,,,,,,
+24,Nedungadu (Sc),,,,,,,,,,,,
+25,Thirunallar,,,,,,,,,,,,
+26,Karaikal North,,,,,,,,,,,,
+27,Karaikal South,,,,,,,,,,,,
+28,Neravy- T.R. Pattin,,,,,,,,,,,,
+29,Mahe,,,,,,,,,,,,
+30,Yanam,,,,,,,,,,,,

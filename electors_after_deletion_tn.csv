@@ -1,0 +1,235 @@
+AC_NO,AC_NAME,Total_Electors,Turnout_Pct
+1,Gummidipoondi,254129,90.84
+2,Ponneri (SC),251397,89.76
+3,Tiruttani,261857,90.01
+4,Thiruvallur,251018,89.49
+5,Poonamallee (SC),368634,83.3
+6,Avadi,436177,78.74
+7,Maduravoyal,373283,78.36
+8,Ambattur,337019,76.84
+9,Madavaram,431796,83.38
+10,Tiruvottiyur,244903,84.24
+11,Dr.Radhakrishnan Naga,199359,90.56
+12,Perambur,226296,89.74
+13,Kolathur,211772,86.12
+14,Villivakkam,163372,86.01
+15,Thiru-Vi-Ka-Nagar(SC),181621,78.66
+16,Egmore (SC),138775,85.55
+17,Royapuram,159654,79.14
+18,Harbour,120126,82.53
+19,Chepauk-Thiruvalliken,166023,84.28
+20,Thousand Lights,157529,82.76
+21,Anna Nagar,188861,85.65
+22,Virugampakkam,200578,85.51
+23,Saidapet,204146,77.85
+24,Thiyagarayanagar,158757,83.55
+25,Mylapore,199465,74.84
+26,Velachery,217171,84.36
+27,Shozhinganallur,553905,80.39
+28,Alandur,301055,86.12
+29,Sriperumbudur (SC),381750,86.09
+30,Pallavaram,336963,83.63
+31,Tambaram,330060,83.92
+32,Chengalpattu,372839,86.34
+33,Thiruporur,294410,88.58
+34,Cheyyur (SC),203998,90.84
+35,Madurantakam (SC),212639,92.3
+36,Uthiramerur,246177,91.08
+37,Kancheepuram,278775,87.08
+38,Arakkonam (SC),200773,90.15
+39,Sholingur,257522,89.97
+40,Katpadi,228736,88.09
+41,Ranipet,248244,88.5
+42,Arcot,245319,91
+43,Vellore,214504,88
+44,Anaikattu,238715,89.67
+45,Kilvaithinankuppam(SC,215304,87.25
+46,Gudiyattam (SC),251588,90.5
+47,Vaniyambadi,242540,87.01
+48,Ambur,214469,90.61
+49,Jolarpet,236127,89.28
+50,Tiruppattur,226691,88.69
+51,Uthangarai (SC),235451,86.03
+52,Bargur,239318,87.94
+53,Krishnagiri,267366,89.79
+54,Veppanahalli,246093,89.79
+55,Hosur,342989,80.34
+56,Thalli,240322,85.78
+57,Palacodu,240322,92.57
+58,Pennagaram,226296,90.66
+59,Dharmapuri,260751,89.44
+60,Pappireddippatti,256640,90.34
+61,Harur (SC),245692,87.63
+62,Chengam (SC),268997,89.39
+63,Tiruvannamalai,249848,87.17
+64,Kilpennathur,240823,90.24
+65,Kalasapakkam,232847,90.83
+66,Polur,233774,89.39
+67,Arani,254963,89.23
+68,Cheyyar,239856,91.97
+69,Vandavasi (SC),213474,88.63
+70,Vandavasi (SC),242667,88.38
+71,Mailam,209016,89.64
+72,Tindivanam (SC),219256,88.52
+73,Vanur (SC),209824,91.05
+74,Viluppuram,245899,86.66
+75,Vikravandi,228995,90.41
+76,Tirukkoyilur,243105,88.47
+77,Ulundurpettai,300699,89.25
+78,Rishivandiyam,273571,88.88
+79,Sankarapuram,265951,87.56
+80,Kallakurichi (SC),281582,87.77
+81,Gangavalli (SC),218317,88.78
+82,Attur(SC),228153,90.18
+83,Yercaud (ST),272829,92
+84,Omalur,294593,90.91
+85,Mettur,255665,89.2
+86,Edappadi,276387,92.08
+87,Sankari,260525,92.54
+88,Salem (West),257950,90.06
+89,Salem (North),238637,87.42
+90,Salem (South),226851,91.02
+91,Veerapandi,250449,93.36
+92,Rasipuram (SC),222252,90.58
+93,Senthamangalam(ST),229398,90.14
+94,Namakkal,205147,87.7
+95,Paramathi-Velur,205147,90.19
+96,Tiruchengodu,209072,90.05
+97,Kumarapalayam,220048,92.61
+98,Erode (East),179566,89.8
+99,Erode (West),250177,87.98
+100,Modakkurichi,207664,90.34
+101,Dharapuram (SC),222406,88.84
+102,Kangayam,219553,91.58
+103,Perundurai,214431,92.47
+104,Bhavani,223172,91.92
+105,Anthiyur,207355,88.23
+106,Gobichettipalayam,239179,90.69
+107,Bhavanisagar,237613,89.36
+108,Udhagamandalam,188826,77.6
+109,Gudalur (SC),185398,80.8
+110,Coonoor,177782,78.38
+111,Mettuppalayam,282179,85.9
+112,Avanashi (SC),253361,90.57
+113,Tiruppur (North),315837,82.99
+114,Tiruppur (South),197091,90.67
+115,Palladam,329849,90.59
+116,Sulur,307616,88.28
+117,Kavundampalayam,422138,85.51
+118,Coimbatore(North),296939,75.51
+119,Thondamuthur,293324,87.52
+120,Coimbatore(South),188878,82.13
+121,Singanallur,269941,81.03
+122,Kinathukadavu,305878,87.08
+123,Pollachi,203971,88.1
+124,Valparai (SC),173608,85.97
+125,Udumalaipettai,230976,87.37
+126,Madathukulam,214809,86.81
+127,Palani,239795,86.25
+128,Oddanchatram,220238,90.76
+129,Athoor,261843,89.39
+130,Nilakkottai (SC),221094,88.47
+131,Natham,261152,90.96
+132,Dindigul,241926,86.33
+133,Vedasandur,243774,92.16
+134,Aravakurichi,195517,91.77
+135,Karur,229995,93.41
+136,Krishnarayapuram(SC),202994,92.46
+137,Kulithalai,223184,92.79
+138,Manapparai,267999,88.81
+139,Srirangam,287027,87.9
+140,Tiruchirappalli,238920,81.32
+141,Tiruchirappalli,220191,81.77
+142,Thiruverumbur,259546,81.2
+143,Lalgudi,212177,86.43
+144,Manachanallur,236500,87.67
+145,Musiri,214006,86.69
+146,Thuraiyur (SC),210685,86.52
+147,Perambalur (SC),290666,85.88
+148,Kunnam,268095,84.86
+149,Ariyalur,262942,88.99
+150,Jayankondam,263450,85.86
+151,Tittakudi (SC),208984,83.25
+152,Vriddhachalam,240783,85.96
+153,Neyveli,191271,87.07
+154,Panruti,241767,86.09
+155,Cuddalore,223149,83.73
+156,Kurinjipadi,238189,88.9
+157,Bhuvanagiri,233259,87.76
+158,Chidambaram,231236,83.64
+159,Kattumannarkoil(SC),226333,82.02
+160,Sirkazhi (SC),241319,82.39
+161,Mayiladuthurai,234554,79.59
+162,Poompuhar,259262,84.06
+163,Nagapattinam,174683,85.83
+164,Kilvelur (SC),170558,87.9
+165,Vedaranyam,187439,85.03
+166,Thiruthuraipoondi(SC),226845,83.41
+167,Mannargudi,234430,82.04
+168,Thiruvarur,260027,83.04
+169,Nannilam,267432,85.85
+170,Thiruvidaimarudur,256930,80.81
+171,Kumbakonam,254318,81.05
+172,Papanasam,256518,80.36
+173,Thiruvaiyaru,258374,85.13
+174,Thanjavur,252676,77.53
+175,Orathanadu,233542,82.9
+176,Pattukkottai,242420,75.26
+177,Peravurani,213946,81.77
+178,Gandharvakottai(SC),196024,84.8
+179,Viralimalai,225090,89.81
+180,Pudukkottai,225944,83.26
+181,Thirumayam,220568,82.23
+182,Alangudi,212078,84.36
+183,Aranthangi,229792,78.77
+184,Karaikudi,305925,74.2
+185,Tiruppattur,275904,77.47
+186,Sivaganga,278124,76.01
+187,Manamadurai(SC),259382,79.11
+188,Melur,229821,82.23
+189,Madurai East,336527,79.73
+190,Sholavandan(SC),214785,87.11
+191,Madurai North,221174,72.22
+192,Madurai South,179919,78.2
+193,Madurai Central,199618,73.89
+194,Madurai West,275516,77.75
+195,Thiruparankundram,311400,81.32
+196,Thirumangalam,261238,86.98
+197,Usilampatti,266192,82.96
+198,Andipatti,256529,83.67
+199,Periyakulam,265830,78.54
+200,Bodinayakanur,263292,82.77
+201,Cumbum,255888,81.18
+202,Rajapalayam,214192,84.39
+203,Srivilliputhur(SC),224122,84.95
+204,Sattur,229330,85.65
+205,Sivakasi,228205,84.12
+206,Virudhunagar,200618,82.77
+207,Aruppukkottai,207750,84.76
+208,Tiruchuli,205301,87.23
+209,Paramakudi (SC),234608,79.59
+210,Tiruvadanai,283864,76.85
+211,Ramanathapuram,312303,75.28
+212,Mudhukulathur,298958,76.37
+213,Vilathikulam,204982,84.18
+214,Thoothukkudi,250587,80.92
+215,Tiruchendur,232933,78.86
+216,Srivaikuntam,214268,80.96
+217,Ottapidaram(SC),243756,79.25
+218,Kovilpatti,241660,79.37
+219,Sankarankovil(SC),238082,81.04
+220,Vasudevanallur(SC),228557,81.3
+221,Kadayanallur,269220,81.41
+222,Tenkasi,281624,82.37
+223,Alangulam,255457,85.22
+224,Tirunelveli,275857,78.21
+225,Ambasamudram,227878,82.82
+226,Palayamkottai,257329,68.9
+227,Nanguneri,257177,80.23
+228,Radhapuram,247061,79.96
+229,Kanniyakumari,288867,81.34
+230,Nagercoil,258928,74.66
+231,Colachel,265015,74.02
+232,Padmanabhapuram,235511,75.46
+233,Vilavancode,226658,75.71
+234,Killiyoor,245359,71.26

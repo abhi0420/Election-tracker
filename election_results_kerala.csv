@@ -1,141 +1,141 @@
 AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi_cand,thi_party,thi_votes,margin,tot_votes,votes_pct
-1,Manjeshwar,G. Rao,IUML,39554,M. Gupta,CPIM,32115,Q. Menon,KEC,10292,7439,100791,65.88
-2,Kasaragod,N. Joshi,INC,62926,I. Mehta,CPI,50457,K. Iyer,KC(M),10955,12469,133245,57.84
-3,Udma,O. Mishra,CPIM,59584,Q. Menon,KC(M),50987,T. Pandey,NCP,8797,8597,128836,58.41
-4,Kanhangad,F. Nair,CPIM,78118,V. Mukherjee,NCP,44185,B. Singh,KEC,19246,33933,147924,62.85
-5,Trikaripur,L. Verma,CPIM,72174,W. Banerjee,CPI,61611,X. Sen,RSP,19745,10563,160832,60.9
-6,Payyannur,Q. Menon,CPI,97391,W. Banerjee,KEC,56204,T. Pandey,INC,20324,41187,182819,70.0
-7,Kalliasseri,X. Sen,BJP,53303,M. Gupta,NCP,35210,H. Das,OTH,8801,18093,106812,65.99
-8,Taliparamba,P. Bose,CPIM,92673,S. Tiwari,OTH,55952,L. Verma,INC,13678,36721,178488,61.16
-9,Irikkur,P. Bose,CPIM,77246,X. Sen,IUML,60434,L. Verma,BJP,21274,16812,164524,76.04
-10,Azhikode,I. Mehta,IUML,57590,S. Tiwari,CPIM,45148,N. Joshi,KC(M),13647,12442,132612,58.05
-11,Kannur,A. Kumar,KC(M),43959,N. Joshi,JD(S),36546,J. Pillai,RSP,7940,7413,96891,76.49
-12,Dharmadam,Y. Ghosh,CPIM,65453,U. Chatterjee,JD(S),54889,N. Joshi,BJP,19744,10564,153141,66.78
-13,Thalassery,D. Patel,INC,51536,G. Rao,BJP,34629,Y. Ghosh,RSP,10523,16907,115015,68.69
-14,Kuthuparamba,U. Chatterjee,INC,34303,O. Mishra,CPIM,25450,W. Banerjee,IUML,6984,8853,81171,57.06
-15,Mattannur,T. Pandey,CPIM,98913,W. Banerjee,KEC,65723,N. Joshi,IUML,20438,33190,192261,61.52
-16,Peravoor,G. Rao,IUML,49526,C. Sharma,BJP,41748,P. Bose,NCP,14886,7778,125649,69.26
-17,Mananthavady (St),U. Chatterjee,CPIM,58438,T. Pandey,INC,52281,W. Banerjee,KEC,7025,6157,134233,76.3
-18,Sulthanbathery (S,T. Pandey,CPIM,49650,I. Mehta,OTH,26686,E. Reddy,RSP,8223,22964,89790,72.96
-19,Kalpetta,H. Das,INC,56603,X. Sen,JD(S),46669,G. Rao,INC,7204,9934,127705,67.35
-20,Vadakara,G. Rao,CPIM,45456,K. Iyer,KC(M),31928,X. Sen,OTH,6311,13528,93449,79.4
-21,Kuttiadi,L. Verma,CPIM,72796,T. Pandey,JD(S),41449,X. Sen,KC(M),9778,31347,134319,79.36
-22,Nadapuram,W. Banerjee,INC,41413,N. Joshi,KC(M),32483,U. Chatterjee,RSP,6093,8930,88836,66.77
-23,Quilandy,A. Kumar,INC,68709,J. Pillai,OTH,60191,S. Tiwari,CPIM,15636,8518,151702,79.2
-24,Perambra,I. Mehta,CPI,77513,F. Nair,OTH,66115,S. Tiwari,IUML,8565,11398,162391,72.76
-25,Balusseri (Sc),K. Iyer,INC,76255,B. Singh,NCP,63593,F. Nair,CPI,14884,12662,166778,62.07
-26,Elathur,Q. Menon,KC(M),75451,K. Iyer,OTH,61299,O. Mishra,NCP,16625,14152,160853,68.89
-27,Kozhikode North,G. Rao,OTH,42578,E. Reddy,RSP,32018,B. Singh,CPIM,6767,10560,94016,65.91
-28,Kozhikode South,O. Mishra,OTH,68625,L. Verma,RSP,49505,Y. Ghosh,CPIM,16764,19120,154096,58.7
-29,Beypore,F. Nair,INC,75982,G. Rao,KC(M),64449,S. Tiwari,NCP,17090,11533,172081,79.95
-30,Kunnamangalam,N. Joshi,CPIM,81244,C. Sharma,OTH,47723,I. Mehta,IUML,13191,33521,151815,72.03
-31,Koduvally,S. Tiwari,IUML,35632,D. Patel,RSP,27609,L. Verma,BJP,9969,8023,86071,66.35
-32,Thiruvambadi,K. Iyer,OTH,87278,B. Singh,KEC,53002,W. Banerjee,CPIM,16352,34276,173663,77.67
-33,Kondotty,B. Singh,BJP,62357,V. Mukherjee,CPI,49667,K. Iyer,IUML,10804,12690,137695,64.53
-34,Ernad,Y. Ghosh,INC,43036,M. Gupta,IUML,23642,C. Sharma,KC(M),8646,19394,84992,71.18
-35,Nilambur,J. Pillai,OTH,90215,Q. Menon,CPI,55673,O. Mishra,INC,17283,34542,170322,63.98
-36,Wandoor (Sc),G. Rao,CPIM,83835,Q. Menon,BJP,55730,P. Bose,KEC,18041,28105,164084,73.91
-37,Manjeri,N. Joshi,BJP,33009,V. Mukherjee,OTH,24875,O. Mishra,CPI,7600,8134,74157,71.19
-38,Perinthalmanna,U. Chatterjee,IUML,37143,V. Mukherjee,JD(S),27055,Q. Menon,KEC,10329,10088,87352,62.51
-39,Mankada,Q. Menon,OTH,55556,N. Joshi,KC(M),39333,J. Pillai,IUML,8213,16223,109865,67.77
-40,Malappuram,I. Mehta,INC,57426,M. Gupta,JD(S),44424,J. Pillai,OTH,9087,13002,126776,66.57
-41,Vengara,C. Sharma,BJP,49127,O. Mishra,RSP,39473,Y. Ghosh,CPIM,12260,9654,113231,70.6
-42,Vallikunnu,F. Nair,CPIM,59767,C. Sharma,IUML,31216,V. Mukherjee,KC(M),9963,28551,106041,64.87
-43,Tirurangadi,V. Mukherjee,CPIM,78350,Y. Ghosh,JD(S),59747,T. Pandey,BJP,20697,18603,169704,72.27
-44,Tanur,C. Sharma,OTH,31758,F. Nair,BJP,26340,G. Rao,KC(M),8077,5418,74258,76.48
-45,Tirur,N. Joshi,CPIM,38566,V. Mukherjee,IUML,31689,S. Tiwari,KC(M),6340,6877,88507,55.55
-46,Kottakkal,P. Bose,CPIM,84767,Q. Menon,IUML,54714,A. Kumar,JD(S),13611,30053,171681,75.85
-47,Thavanur,U. Chatterjee,CPIM,69894,X. Sen,INC,55401,N. Joshi,CPI,12333,14493,151709,79.98
-48,Ponnani,Q. Menon,CPIM,89717,T. Pandey,RSP,76102,V. Mukherjee,JD(S),11190,13615,183003,68.21
-49,Thrithala,C. Sharma,INC,71085,J. Pillai,BJP,37256,W. Banerjee,KEC,12604,33829,136532,63.67
-50,Pattambi,J. Pillai,IUML,59257,Y. Ghosh,CPIM,39276,G. Rao,CPI,9251,19981,127678,72.12
-51,Shornur,J. Pillai,OTH,71086,Y. Ghosh,RSP,59230,X. Sen,CPI,12738,11856,160089,64.01
-52,Ottappalam,G. Rao,INC,65444,K. Iyer,IUML,50337,Y. Ghosh,OTH,11072,15107,134414,70.14
-53,Kongad(Sc),J. Pillai,CPIM,54983,H. Das,RSP,38410,G. Rao,JD(S),17082,16573,121324,71.92
-54,Mannarkkad,C. Sharma,CPIM,44954,L. Verma,KEC,25722,P. Bose,INC,6236,19232,86136,79.84
-55,Malampuzha,I. Mehta,BJP,88131,E. Reddy,CPIM,68563,Y. Ghosh,KEC,19344,19568,188211,74.97
-56,Palakkad,T. Pandey,OTH,38600,D. Patel,INC,23538,S. Tiwari,OTH,4981,15062,75484,77.77
-57,Tarur (Sc),Y. Ghosh,CPIM,92250,Q. Menon,NCP,50090,P. Bose,JD(S),13282,42160,174043,58.44
-58,Chittur,Y. Ghosh,KC(M),96950,A. Kumar,JD(S),61050,I. Mehta,RSP,16167,35900,180563,61.65
-59,Nemmara,U. Chatterjee,IUML,49999,W. Banerjee,RSP,35581,H. Das,BJP,10496,14418,103336,75.04
-60,Alathur,Q. Menon,INC,36791,W. Banerjee,RSP,29925,L. Verma,JD(S),8409,6866,88601,78.59
-61,Chelakkara (Sc),Y. Ghosh,CPIM,37745,F. Nair,BJP,22434,O. Mishra,RSP,10089,15311,77741,77.56
-62,Kunnamkulam,N. Joshi,CPIM,79176,M. Gupta,KEC,51368,X. Sen,NCP,17527,27808,167967,63.6
-63,Guruvayoor,E. Reddy,BJP,66301,X. Sen,KEC,56594,N. Joshi,OTH,12976,9707,150999,71.3
-64,Manalur,J. Pillai,IUML,62719,C. Sharma,RSP,50362,B. Singh,KC(M),15315,12357,135460,68.01
-65,Wadakkanchery,Q. Menon,INC,62023,S. Tiwari,KC(M),48222,J. Pillai,CPI,7659,13801,137490,74.91
-66,Ollur,X. Sen,CPI,46897,N. Joshi,KC(M),39234,R. Sinha,NCP,6441,7663,105886,63.86
-67,Thrissur,J. Pillai,CPIM,58238,T. Pandey,CPI,38725,A. Kumar,JD(S),14246,19513,125737,69.14
-68,Nattika(Sc),H. Das,OTH,56698,M. Gupta,JD(S),46855,K. Iyer,KEC,10567,9843,121413,72.86
-69,Kaipamangalam,K. Iyer,INC,54152,R. Sinha,KC(M),34467,U. Chatterjee,CPI,5983,19685,111261,65.64
-70,Irinjalakuda,N. Joshi,INC,47503,E. Reddy,CPI,32598,R. Sinha,CPIM,9391,14905,104129,68.97
-71,Puthukkad,P. Bose,BJP,67161,V. Mukherjee,KC(M),58928,N. Joshi,OTH,13936,8233,151855,75.6
-72,Chalakudy,W. Banerjee,CPIM,78008,O. Mishra,IUML,57005,E. Reddy,JD(S),16995,21003,164469,66.83
-73,Kodungallur,D. Patel,IUML,35344,U. Chatterjee,KEC,27621,O. Mishra,BJP,4989,7723,75465,57.94
-74,Perumbavoor,J. Pillai,INC,69545,Q. Menon,BJP,57239,A. Kumar,NCP,14608,12306,161043,62.63
-75,Angamaly,A. Kumar,CPIM,45692,E. Reddy,IUML,31781,T. Pandey,JD(S),10518,13911,98065,69.14
-76,Aluva,X. Sen,OTH,67937,T. Pandey,BJP,53863,E. Reddy,RSP,18583,14074,156314,66.23
-77,Kalamassery,T. Pandey,KC(M),57145,W. Banerjee,BJP,48761,U. Chatterjee,INC,9856,8384,121512,78.95
-78,Paravur,F. Nair,OTH,73770,X. Sen,KC(M),59790,A. Kumar,INC,11098,13980,160228,58.09
-79,Vypeen,R. Sinha,CPI,70307,T. Pandey,KC(M),56612,B. Singh,OTH,13181,13695,145405,58.01
-80,Kochi,I. Mehta,OTH,92699,G. Rao,CPI,79208,J. Pillai,CPIM,15306,13491,205433,68.34
-81,Thripunithura,P. Bose,INC,53004,A. Kumar,OTH,34604,L. Verma,CPIM,11936,18400,110802,61.43
-82,Ernakulam,F. Nair,CPIM,41692,K. Iyer,CPI,26927,E. Reddy,KEC,7429,14765,87720,71.97
-83,Thrikkakara,A. Kumar,CPIM,50957,X. Sen,BJP,34642,C. Sharma,IUML,9393,16315,105303,61.45
-84,Kunnathunad (Sc),G. Rao,OTH,62301,I. Mehta,INC,46963,V. Mukherjee,CPIM,13377,15338,129526,61.73
-85,Piravom,C. Sharma,INC,63598,Q. Menon,KEC,54893,A. Kumar,RSP,6844,8705,139412,79.09
-86,Muvattupuzha,U. Chatterjee,IUML,66635,E. Reddy,KC(M),40322,K. Iyer,KEC,14599,26313,129889,74.57
-87,Kothamangalam,H. Das,CPIM,91962,S. Tiwari,KEC,51210,O. Mishra,IUML,21320,40752,183080,70.52
-88,Devikulam (Sc),B. Singh,IUML,63373,Q. Menon,CPI,50378,J. Pillai,CPIM,18995,12995,151548,70.81
-89,Udumbanchola,B. Singh,CPI,55982,G. Rao,KEC,39333,T. Pandey,NCP,15209,16649,129130,58.49
-90,Thodupuzha,G. Rao,CPI,76579,U. Chatterjee,NCP,60634,R. Sinha,RSP,13696,15945,160191,79.49
-91,Idukki,V. Mukherjee,IUML,47557,K. Iyer,NCP,36059,L. Verma,KC(M),5499,11498,105450,58.34
-92,Peerumade,A. Kumar,OTH,44450,B. Singh,KEC,37886,X. Sen,RSP,10195,6564,110023,64.82
-93,Pala,A. Kumar,CPIM,62988,W. Banerjee,CPI,54232,P. Bose,KEC,12834,8756,144905,63.95
-94,Kaduthuruthy,O. Mishra,CPIM,48653,L. Verma,INC,39897,G. Rao,CPI,14254,8756,118954,78.03
-95,Vaikom (Sc),U. Chatterjee,INC,43251,J. Pillai,CPI,32458,Y. Ghosh,OTH,8218,10793,93526,67.32
-96,Ettumanoor,A. Kumar,IUML,49097,H. Das,OTH,35619,W. Banerjee,KC(M),11215,13478,103724,68.79
-97,Kottayam,F. Nair,IUML,48326,C. Sharma,OTH,26659,U. Chatterjee,KEC,11166,21667,105167,60.7
-98,Puthuppally,V. Mukherjee,INC,77086,A. Kumar,NCP,48894,Y. Ghosh,KC(M),15061,28192,153478,55.05
-99,Changanassery,N. Joshi,INC,46636,O. Mishra,CPIM,32317,I. Mehta,BJP,7225,14319,103613,56.09
-100,Kanjirappally,N. Joshi,IUML,42632,S. Tiwari,CPIM,31568,P. Bose,NCP,6767,11064,95335,75.19
-101,Poonjar,C. Sharma,OTH,42232,I. Mehta,IUML,26128,H. Das,BJP,9523,16104,83339,67.0
-102,Aroor,I. Mehta,BJP,56498,H. Das,OTH,40247,D. Patel,NCP,7644,16251,114854,67.99
-103,Cherthala,T. Pandey,CPIM,71149,O. Mishra,CPI,43307,D. Patel,OTH,19146,27842,139148,64.43
-104,Alappuzha,B. Singh,OTH,56428,P. Bose,INC,38763,C. Sharma,CPI,6827,17665,107932,68.98
-105,Ambalappuzha,T. Pandey,CPIM,90844,N. Joshi,RSP,70001,H. Das,INC,9809,20843,181944,66.61
-106,Kuttanad,K. Iyer,INC,64865,V. Mukherjee,OTH,50868,X. Sen,INC,16645,13997,139147,57.57
-107,Haripad,G. Rao,CPI,73884,T. Pandey,INC,49706,E. Reddy,OTH,13687,24178,152449,66.12
-108,Kayamkulam,J. Pillai,CPIM,79805,T. Pandey,INC,63691,O. Mishra,IUML,10570,16114,173569,68.53
-109,Mavelikkara (Sc),T. Pandey,CPIM,69825,K. Iyer,JD(S),48300,J. Pillai,NCP,12325,21525,137819,56.43
-110,Chengannur,N. Joshi,INC,50805,L. Verma,KEC,30374,G. Rao,CPIM,5821,20431,95102,71.7
-111,Thiruvalla,W. Banerjee,IUML,83670,K. Iyer,JD(S),61598,T. Pandey,OTH,12229,22072,165155,57.62
-112,Ranni,H. Das,KC(M),53375,A. Kumar,CPIM,36921,W. Banerjee,JD(S),7091,16454,110263,73.36
-113,Aranmula,G. Rao,OTH,103170,N. Joshi,NCP,64008,F. Nair,BJP,10385,39162,183054,68.87
-114,Konni,U. Chatterjee,CPIM,46741,S. Tiwari,JD(S),25623,L. Verma,KC(M),5993,21118,86944,77.13
-115,Adoor (Sc),H. Das,IUML,31902,F. Nair,BJP,22551,I. Mehta,KEC,4727,9351,77802,71.94
-116,Karunagappally,G. Rao,INC,47257,K. Iyer,CPI,33013,Q. Menon,BJP,6910,14244,100813,79.43
-117,Chavara,D. Patel,OTH,71451,F. Nair,BJP,54671,G. Rao,INC,18161,16780,154492,69.99
-118,Kunnathur (Sc),Y. Ghosh,OTH,54581,T. Pandey,IUML,33005,S. Tiwari,CPIM,6328,21576,102963,56.33
-119,Kottarakkara,S. Tiwari,BJP,64219,P. Bose,CPI,49301,G. Rao,KEC,16909,14918,136491,59.19
-120,Pathanapuram,P. Bose,INC,42870,R. Sinha,KEC,30289,O. Mishra,BJP,10202,12581,100086,78.89
-121,Punalur,U. Chatterjee,INC,33192,S. Tiwari,OTH,28138,W. Banerjee,RSP,6923,5054,77093,64.9
-122,Chadayamangalam,F. Nair,INC,55835,M. Gupta,RSP,45697,J. Pillai,OTH,10750,10138,125782,63.79
-123,Kundara,T. Pandey,CPI,61706,K. Iyer,JD(S),42948,O. Mishra,KEC,14791,18758,129639,61.83
-124,Kollam,I. Mehta,CPIM,67383,V. Mukherjee,JD(S),40385,C. Sharma,KC(M),10816,26998,132540,71.09
-125,Eravipuram,D. Patel,BJP,39040,C. Sharma,IUML,25771,N. Joshi,INC,8268,13269,82175,62.57
-126,Chathannoor,W. Banerjee,BJP,96124,T. Pandey,KC(M),76503,E. Reddy,IUML,21869,19621,199635,74.25
-127,Varkala,M. Gupta,CPIM,36244,T. Pandey,BJP,26426,W. Banerjee,RSP,8423,9818,78538,76.64
-128,Attingal (Sc),H. Das,CPIM,84284,R. Sinha,KC(M),59525,U. Chatterjee,JD(S),19584,24759,173974,74.8
-129,Chirayinkeezhu,Y. Ghosh,INC,47043,W. Banerjee,KC(M),39493,N. Joshi,RSP,5599,7550,99411,69.44
-130,Nedumangad,V. Mukherjee,CPIM,47528,L. Verma,INC,37443,K. Iyer,JD(S),8571,10085,111299,72.26
-131,Vamanapuram,S. Tiwari,CPIM,54623,B. Singh,OTH,49475,F. Nair,INC,8990,5148,131181,70.08
-132,Kazhakoottam,M. Gupta,CPI,50648,C. Sharma,RSP,33906,T. Pandey,IUML,11740,16742,108691,70.98
-133,Vattiyoorkavu(Sc),V. Mukherjee,INC,43388,R. Sinha,IUML,31988,F. Nair,CPI,4368,11400,88004,56.74
-134,Thiruvananthapura,H. Das,OTH,54138,K. Iyer,KC(M),37730,X. Sen,IUML,12835,16408,112518,63.17
-135,Nemom,D. Patel,OTH,60092,F. Nair,BJP,35060,T. Pandey,CPI,15757,25032,130092,60.16
-136,Aruvikkara,W. Banerjee,KC(M),47455,V. Mukherjee,NCP,41368,P. Bose,RSP,9186,6087,111241,72.92
-137,Parassala,E. Reddy,INC,80845,P. Bose,KC(M),66741,C. Sharma,CPIM,16327,14104,183827,69.23
-138,Kattakkada,B. Singh,INC,56426,Y. Ghosh,JD(S),48828,D. Patel,OTH,8744,7598,132803,72.79
-139,Kovalam,N. Joshi,CPIM,93743,H. Das,OTH,64334,F. Nair,IUML,15228,29409,189103,59.59
-140,Neyyattinkara,H. Das,CPI,93067,F. Nair,RSP,58950,K. Iyer,CPIM,22334,34117,190787,73.16
+1,Manjeshwar,,,,,,,,,,,,
+2,Kasaragod,,,,,,,,,,,,
+3,Udma,,,,,,,,,,,,
+4,Kanhangad,,,,,,,,,,,,
+5,Trikaripur,,,,,,,,,,,,
+6,Payyannur,,,,,,,,,,,,
+7,Kalliasseri,,,,,,,,,,,,
+8,Taliparamba,,,,,,,,,,,,
+9,Irikkur,,,,,,,,,,,,
+10,Azhikode,,,,,,,,,,,,
+11,Kannur,,,,,,,,,,,,
+12,Dharmadam,,,,,,,,,,,,
+13,Thalassery,,,,,,,,,,,,
+14,Kuthuparamba,,,,,,,,,,,,
+15,Mattannur,,,,,,,,,,,,
+16,Peravoor,,,,,,,,,,,,
+17,Mananthavady (St),,,,,,,,,,,,
+18,Sulthanbathery (ST). Pandey,,,,,,,,,,,,
+19,Kalpetta,,,,,,,,,,,,
+20,Vadakara,,,,,,,,,,,,
+21,Kuttiadi,,,,,,,,,,,,
+22,Nadapuram,,,,,,,,,,,,
+23,Quilandy,,,,,,,,,,,,
+24,Perambra,,,,,,,,,,,,
+25,Balusseri (Sc),,,,,,,,,,,,
+26,Elathur,,,,,,,,,,,,
+27,Kozhikode North,,,,,,,,,,,,
+28,Kozhikode South,,,,,,,,,,,,
+29,Beypore,,,,,,,,,,,,
+30,Kunnamangalam,,,,,,,,,,,,
+31,Koduvally,,,,,,,,,,,,
+32,Thiruvambadi,,,,,,,,,,,,
+33,Kondotty,,,,,,,,,,,,
+34,Ernad,,,,,,,,,,,,
+35,Nilambur,,,,,,,,,,,,
+36,Wandoor (Sc),,,,,,,,,,,,
+37,Manjeri,,,,,,,,,,,,
+38,Perinthalmanna,,,,,,,,,,,,
+39,Mankada,,,,,,,,,,,,
+40,Malappuram,,,,,,,,,,,,
+41,Vengara,,,,,,,,,,,,
+42,Vallikunnu,,,,,,,,,,,,
+43,Tirurangadi,,,,,,,,,,,,
+44,Tanur,,,,,,,,,,,,
+45,Tirur,,,,,,,,,,,,
+46,Kottakkal,,,,,,,,,,,,
+47,Thavanur,,,,,,,,,,,,
+48,Ponnani,,,,,,,,,,,,
+49,Thrithala,,,,,,,,,,,,
+50,Pattambi,,,,,,,,,,,,
+51,Shornur,,,,,,,,,,,,
+52,Ottappalam,,,,,,,,,,,,
+53,Kongad(Sc),,,,,,,,,,,,
+54,Mannarkkad,,,,,,,,,,,,
+55,Malampuzha,,,,,,,,,,,,
+56,Palakkad,,,,,,,,,,,,
+57,Tarur (Sc),,,,,,,,,,,,
+58,Chittur,,,,,,,,,,,,
+59,Nemmara,,,,,,,,,,,,
+60,Alathur,,,,,,,,,,,,
+61,Chelakkara (Sc),,,,,,,,,,,,
+62,Kunnamkulam,,,,,,,,,,,,
+63,Guruvayoor,,,,,,,,,,,,
+64,Manalur,,,,,,,,,,,,
+65,Wadakkanchery,,,,,,,,,,,,
+66,Ollur,,,,,,,,,,,,
+67,Thrissur,,,,,,,,,,,,
+68,Nattika(Sc),,,,,,,,,,,,
+69,Kaipamangalam,,,,,,,,,,,,
+70,Irinjalakuda,,,,,,,,,,,,
+71,Puthukkad,,,,,,,,,,,,
+72,Chalakudy,,,,,,,,,,,,
+73,Kodungallur,,,,,,,,,,,,
+74,Perumbavoor,,,,,,,,,,,,
+75,Angamaly,,,,,,,,,,,,
+76,Aluva,,,,,,,,,,,,
+77,Kalamassery,,,,,,,,,,,,
+78,Paravur,,,,,,,,,,,,
+79,Vypeen,,,,,,,,,,,,
+80,Kochi,,,,,,,,,,,,
+81,Thripunithura,,,,,,,,,,,,
+82,Ernakulam,,,,,,,,,,,,
+83,Thrikkakara,,,,,,,,,,,,
+84,Kunnathunad (Sc),,,,,,,,,,,,
+85,Piravom,,,,,,,,,,,,
+86,Muvattupuzha,,,,,,,,,,,,
+87,Kothamangalam,,,,,,,,,,,,
+88,Devikulam (Sc),,,,,,,,,,,,
+89,Udumbanchola,,,,,,,,,,,,
+90,Thodupuzha,,,,,,,,,,,,
+91,Idukki,,,,,,,,,,,,
+92,Peerumade,,,,,,,,,,,,
+93,Pala,,,,,,,,,,,,
+94,Kaduthuruthy,,,,,,,,,,,,
+95,Vaikom (Sc),,,,,,,,,,,,
+96,Ettumanoor,,,,,,,,,,,,
+97,Kottayam,,,,,,,,,,,,
+98,Puthuppally,,,,,,,,,,,,
+99,Changanassery,,,,,,,,,,,,
+100,Kanjirappally,,,,,,,,,,,,
+101,Poonjar,,,,,,,,,,,,
+102,Aroor,,,,,,,,,,,,
+103,Cherthala,,,,,,,,,,,,
+104,Alappuzha,,,,,,,,,,,,
+105,Ambalappuzha,,,,,,,,,,,,
+106,Kuttanad,,,,,,,,,,,,
+107,Haripad,,,,,,,,,,,,
+108,Kayamkulam,,,,,,,,,,,,
+109,Mavelikkara (Sc),,,,,,,,,,,,
+110,Chengannur,,,,,,,,,,,,
+111,Thiruvalla,,,,,,,,,,,,
+112,Ranni,,,,,,,,,,,,
+113,Aranmula,,,,,,,,,,,,
+114,Konni,,,,,,,,,,,,
+115,Adoor (Sc),,,,,,,,,,,,
+116,Karunagappally,,,,,,,,,,,,
+117,Chavara,,,,,,,,,,,,
+118,Kunnathur (Sc),,,,,,,,,,,,
+119,Kottarakkara,,,,,,,,,,,,
+120,Pathanapuram,,,,,,,,,,,,
+121,Punalur,,,,,,,,,,,,
+122,Chadayamangalam,,,,,,,,,,,,
+123,Kundara,,,,,,,,,,,,
+124,Kollam,,,,,,,,,,,,
+125,Eravipuram,,,,,,,,,,,,
+126,Chathannoor,,,,,,,,,,,,
+127,Varkala,,,,,,,,,,,,
+128,Attingal (Sc),,,,,,,,,,,,
+129,Chirayinkeezhu,,,,,,,,,,,,
+130,Nedumangad,,,,,,,,,,,,
+131,Vamanapuram,,,,,,,,,,,,
+132,Kazhakoottam,,,,,,,,,,,,
+133,Vattiyoorkavu(Sc),,,,,,,,,,,,
+134,Thiruvananthapura,,,,,,,,,,,,
+135,Nemom,,,,,,,,,,,,
+136,Aruvikkara,,,,,,,,,,,,
+137,Parassala,,,,,,,,,,,,
+138,Kattakkada,,,,,,,,,,,,
+139,Kovalam,,,,,,,,,,,,
+140,Neyyattinkara,,,,,,,,,,,,

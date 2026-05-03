@@ -1,295 +1,295 @@
 AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi_cand,thi_party,thi_votes,margin,tot_votes,votes_pct
-1,Mekliganj (Sc),F. Nair,OTH,80000,S. Tiwari,BJP,56950,G. Rao,RSP,8171,7000,126805,120
-2,Mathabhanga (Sc),M. Gupta,TMC,76237,A. Kumar,OTH,59308,V. Mukherjee,RSP,15115,16929,167206,60.37
-3,Coochbehar Uttar (Sc),S. Tiwari,TMC,44222,D. Patel,OTH,44200,T. Pandey,BJP,6058,15560,94930,76.57
-4,Coochbehar Dakshin,T. Pandey,BJP,61440,M. Gupta,OTH,40518,V. Mukherjee,CPIM,14352,20922,131424,59.31
-5,Sitalkuchi (Sc),S. Tiwari,BJP,40255,C. Sharma,CPIM,27010,X. Sen,ISF,5676,13245,84057,72.34
-6,Sitai (Sc),E. Reddy,BJP,52438,T. Pandey,RSP,41363,N. Joshi,ISF,13347,11075,122719,78.27
-7,Dinhata,J. Pillai,BJP,62846,E. Reddy,INC,46707,G. Rao,RSP,13406,16139,128116,67.12
-8,Natabari,Q. Menon,TMC,65067,V. Mukherjee,RSP,43788,P. Bose,ISF,14537,21279,136398,59.18
-9,Tufanganj,B. Singh,BJP,61349,J. Pillai,INC,50272,I. Mehta,CPIM,13480,11077,142758,74.15
-10,Kumargram (St),D. Patel,BJP,103007,J. Pillai,TMC,72255,T. Pandey,ISF,19349,30752,212062,72.97
-11,Kalchini (St),X. Sen,BJP,62481,U. Chatterjee,RSP,30618,H. Das,TMC,8140,31863,120365,75.42
-12,Alipurduars,G. Rao,TMC,71558,Y. Ghosh,BJP,57123,T. Pandey,INC,16060,14435,152460,70.4
-13,Falakata (Sc),S. Tiwari,BJP,54842,L. Verma,INC,32542,T. Pandey,TMC,13849,22300,111027,62.23
-14,Madarihat (St),D. Patel,TMC,48141,F. Nair,ISF,40853,P. Bose,OTH,5168,7288,113351,58.32
-15,Dhupguri (Sc),Y. Ghosh,TMC,54552,V. Mukherjee,CPIM,43188,M. Gupta,INC,13542,11364,122428,66.3
-16,Maynaguri (Sc),Q. Menon,BJP,91902,Y. Ghosh,TMC,57743,I. Mehta,RSP,19931,34159,179938,69.55
-17,Jalpaiguri (Sc),X. Sen,CPIM,81763,O. Mishra,OTH,68667,V. Mukherjee,TMC,17656,13096,179602,60.45
-18,Rajganj (Sc),I. Mehta,TMC,57097,L. Verma,INC,33655,K. Iyer,RSP,13628,23442,122295,63.59
-19,Dabgram-Phulbari,U. Chatterjee,BJP,51597,O. Mishra,TMC,27659,A. Kumar,BJP,7891,23938,99156,60.06
-20,Mal (St),J. Pillai,BJP,44356,F. Nair,INC,27236,K. Iyer,OTH,7012,17120,98411,71.22
-21,Nagrakata (St),X. Sen,TMC,65554,W. Banerjee,OTH,51429,H. Das,CPIM,6823,14125,136618,56.95
-22,Kalimpong,O. Mishra,BJP,71672,A. Kumar,ISF,45243,B. Singh,OTH,18867,26429,152153,58.3
-23,Darjeeling,X. Sen,TMC,51275,D. Patel,RSP,34742,E. Reddy,BJP,9297,16533,113640,73.83
-24,Kurseong,C. Sharma,TMC,38289,R. Sinha,OTH,22567,U. Chatterjee,INC,6049,15722,75395,70.7
-25,Matigara-Naxalbari(Sc),V. Mukherjee,TMC,48359,O. Mishra,RSP,25773,G. Rao,ISF,5355,22586,96447,64.6
-26,Siliguri,H. Das,OTH,36383,J. Pillai,INC,28212,W. Banerjee,BJP,9148,8171,83411,74.47
-27,Phansidewa (St),G. Rao,BJP,56912,R. Sinha,OTH,41740,V. Mukherjee,CPIM,13978,15172,130471,77.45
-28,Chopra,H. Das,OTH,57488,Q. Menon,CPIM,48468,W. Banerjee,TMC,8025,9020,124897,78.35
-29,Islampur,L. Verma,TMC,51583,S. Tiwari,ISF,45504,X. Sen,RSP,10667,6079,113027,69.68
-30,Goalpokhar,B. Singh,TMC,55920,N. Joshi,INC,39736,S. Tiwari,BJP,9295,16184,121449,65.06
-31,Chakulia,I. Mehta,BJP,40864,C. Sharma,ISF,25384,L. Verma,BJP,9628,15480,89664,63.17
-32,Karandighi,C. Sharma,BJP,68120,K. Iyer,OTH,57120,Y. Ghosh,ISF,7423,11000,139075,78.12
-33,Hemtabad (Sc),J. Pillai,TMC,68198,W. Banerjee,ISF,44460,X. Sen,TMC,10554,23738,128397,59.1
-34,Kaliaganj (Sc),I. Mehta,OTH,48314,F. Nair,RSP,41037,N. Joshi,OTH,9789,7277,106074,74.29
-35,Raiganj,Q. Menon,TMC,94485,C. Sharma,RSP,69996,J. Pillai,CPIM,14689,24489,192538,64
-36,Itahar,L. Verma,TMC,67208,F. Nair,ISF,52686,J. Pillai,INC,18243,14522,146879,73.52
-37,Kushmandi (Sc),B. Singh,TMC,69531,Q. Menon,BJP,38002,M. Gupta,INC,15262,31529,128374,68.82
-38,Kumarganj,H. Das,ISF,71742,L. Verma,OTH,43677,I. Mehta,CPIM,14508,28065,144291,64.32
-39,Balurghat,H. Das,BJP,48219,R. Sinha,TMC,37069,B. Singh,INC,9246,11150,113375,62.77
-40,Tapan(St),L. Verma,TMC,78011,G. Rao,RSP,62024,K. Iyer,BJP,10308,15987,161376,69.79
-41,Gangarampur (Sc),R. Sinha,TMC,43366,H. Das,INC,20665,E. Reddy,OTH,7106,22701,86556,75.99
-42,Harirampur,Y. Ghosh,CPIM,95184,V. Mukherjee,INC,59443,M. Gupta,TMC,12311,35741,175840,65.5
-43,Habibpur (St),I. Mehta,OTH,58419,C. Sharma,BJP,40744,B. Singh,ISF,10930,17675,121195,66.46
-44,Gazole (Sc),Q. Menon,BJP,80402,E. Reddy,ISF,61168,W. Banerjee,TMC,10191,19234,167614,79.11
-45,Chanchal,W. Banerjee,TMC,53609,Y. Ghosh,CPIM,34417,K. Iyer,RSP,14121,19192,109377,74.5
-46,Harischandrapur,F. Nair,BJP,52256,P. Bose,INC,38815,Q. Menon,TMC,14239,13441,113711,66.3
-47,Malatipur,V. Mukherjee,TMC,80643,J. Pillai,BJP,49122,Y. Ghosh,INC,18840,31521,156035,57.28
-48,Ratua,Q. Menon,TMC,47909,B. Singh,CPIM,41838,X. Sen,RSP,6217,6071,107589,76.37
-49,Manikchak,D. Patel,BJP,94308,P. Bose,ISF,51041,E. Reddy,INC,10068,43267,173212,79.56
-50,Maldaha (Sc),V. Mukherjee,TMC,42455,U. Chatterjee,RSP,26675,W. Banerjee,CPIM,9728,15780,84215,79.93
-51,English Bazar,E. Reddy,TMC,34440,C. Sharma,OTH,26607,M. Gupta,RSP,5932,7833,81381,65.83
-52,Mothabari,M. Gupta,BJP,43193,W. Banerjee,RSP,36924,O. Mishra,TMC,7108,6269,99532,77.09
-53,Sujapur,U. Chatterjee,TMC,70558,J. Pillai,ISF,48042,Q. Menon,BJP,7522,22516,137397,58.43
-54,Baisnabnagar,U. Chatterjee,TMC,65897,R. Sinha,ISF,42178,A. Kumar,INC,11466,23719,132481,63.6
-55,Farakka,I. Mehta,BJP,57173,F. Nair,CPIM,31053,A. Kumar,RSP,13001,26120,110829,56.46
-56,Samserganj,Y. Ghosh,OTH,37343,S. Tiwari,RSP,29872,H. Das,INC,6928,7471,92517,74.78
-57,Suti,M. Gupta,BJP,40955,L. Verma,INC,28960,F. Nair,ISF,10479,11995,91272,77.85
-58,Jangipur,S. Tiwari,TMC,83005,T. Pandey,OTH,69295,E. Reddy,CPIM,16415,13710,181779,68.55
-59,Raghunathganj,H. Das,TMC,37612,U. Chatterjee,BJP,20661,I. Mehta,TMC,9438,16951,76011,75.16
-60,Sagardighi,B. Singh,TMC,77022,A. Kumar,INC,43465,G. Rao,CPIM,9062,33557,143171,76.52
-61,Lalgola,V. Mukherjee,OTH,38911,M. Gupta,INC,26839,T. Pandey,ISF,11031,12072,93779,78.72
-62,Bhagabangola,K. Iyer,BJP,75095,F. Nair,RSP,65348,Y. Ghosh,OTH,16147,9747,165247,71.64
-63,Raninagar,X. Sen,INC,37278,W. Banerjee,RSP,24187,J. Pillai,CPIM,9586,13091,85436,64.79
-64,Murshidabad,F. Nair,OTH,101098,U. Chatterjee,RSP,56508,L. Verma,TMC,16664,44590,187399,58.52
-65,Nabagram (Sc),K. Iyer,BJP,106374,F. Nair,INC,88090,W. Banerjee,CPIM,18996,18284,230408,77.17
-66,Khargram (Sc),H. Das,TMC,50542,X. Sen,CPIM,32863,C. Sharma,INC,6308,17679,101036,65.96
-67,Burwan (Sc),P. Bose,TMC,64426,M. Gupta,INC,53603,L. Verma,RSP,15946,10823,148445,71.27
-68,Kandi,C. Sharma,BJP,34188,B. Singh,INC,29602,L. Verma,RSP,4560,4586,76137,77.2
-69,Bharatpur,C. Sharma,TMC,84811,L. Verma,BJP,65950,V. Mukherjee,ISF,12865,18861,179335,59.12
-70,Rejinagar,D. Patel,CPIM,45302,L. Verma,BJP,33889,H. Das,TMC,12041,11413,105081,61.63
-71,Beldanga,B. Singh,TMC,78754,N. Joshi,INC,43101,U. Chatterjee,BJP,11442,35653,145302,57.19
-72,Baharampur,P. Bose,INC,32631,G. Rao,OTH,25705,D. Patel,ISF,9870,6926,80964,76.09
-73,Hariharpara,V. Mukherjee,TMC,75306,I. Mehta,RSP,45851,C. Sharma,CPIM,18380,29455,150589,59.66
-74,Naoda,H. Das,TMC,33489,J. Pillai,RSP,26941,U. Chatterjee,INC,5000,6548,81376,63.59
-75,Domkal,R. Sinha,BJP,85117,B. Singh,ISF,74759,N. Joshi,INC,18370,10358,191025,69.32
-76,Jalangi,M. Gupta,TMC,67691,X. Sen,CPIM,48829,B. Singh,BJP,13123,18862,144805,58.69
-77,Karimpur,F. Nair,ISF,34612,H. Das,CPIM,24577,I. Mehta,BJP,9443,10035,76940,79.93
-78,Tehatta,K. Iyer,BJP,39087,Y. Ghosh,ISF,27486,C. Sharma,CPIM,6656,11601,82754,67.99
-79,Palashipara,T. Pandey,ISF,79171,S. Tiwari,TMC,55740,Q. Menon,OTH,11015,23431,160558,69.57
-80,Kaliganj,Y. Ghosh,OTH,88545,D. Patel,TMC,58891,K. Iyer,ISF,15256,29654,173967,71.37
-81,Nakashipara,F. Nair,BJP,46822,J. Pillai,RSP,36400,O. Mishra,TMC,7722,10422,102428,77.24
-82,Chapra,X. Sen,TMC,83868,P. Bose,INC,57703,I. Mehta,BJP,20855,26165,172520,62.01
-83,Krishnanagar Uttar,H. Das,TMC,77847,E. Reddy,OTH,64687,L. Verma,TMC,12221,13160,166583,70.12
-84,Nabadwip,N. Joshi,TMC,81389,Y. Ghosh,RSP,55178,Q. Menon,INC,9683,26211,164217,58.97
-85,Krishnanagar Dakshin,E. Reddy,TMC,32239,R. Sinha,ISF,27163,U. Chatterjee,RSP,5367,5076,70713,61.24
-86,Santipur,G. Rao,TMC,83227,J. Pillai,CPIM,57640,N. Joshi,OTH,21540,25587,178567,55.76
-87,Ranaghat Uttar Paschim,F. Nair,TMC,63943,Q. Menon,ISF,41052,U. Chatterjee,RSP,17147,22891,139412,75.77
-88,Krishnaganj (Sc),B. Singh,TMC,98938,G. Rao,BJP,83501,U. Chatterjee,RSP,17367,15437,215909,60.17
-89,Ranaghat Uttar Purba(Sc),Y. Ghosh,BJP,75661,V. Mukherjee,ISF,56910,A. Kumar,TMC,13088,18751,150797,60.59
-90,Ranaghat Dakshin (Sc),W. Banerjee,BJP,71718,U. Chatterjee,CPIM,60332,I. Mehta,OTH,11132,11386,151757,66.67
-91,Chakdaha,S. Tiwari,BJP,80857,D. Patel,ISF,72274,A. Kumar,RSP,15992,8583,183321,71.18
-92,Kalyani (Sc),D. Patel,BJP,67953,Q. Menon,CPIM,50704,C. Sharma,OTH,13686,17249,141621,71.4
-93,Haringhata (Sc),G. Rao,OTH,71783,E. Reddy,ISF,46086,S. Tiwari,INC,19838,25697,155978,70
-94,Bagda (Sc),X. Sen,BJP,79781,A. Kumar,OTH,45695,V. Mukherjee,INC,11513,34086,148350,73.42
-95,Bangaon Uttar (Sc),K. Iyer,BJP,53182,Y. Ghosh,ISF,40332,X. Sen,INC,9091,12850,118612,63.96
-96,Bangaon Dakshin (Sc),R. Sinha,TMC,41214,F. Nair,INC,33109,K. Iyer,OTH,9350,8105,97832,74.07
-97,Gaighata (Sc),U. Chatterjee,TMC,49951,C. Sharma,OTH,42082,I. Mehta,CPIM,10053,7869,121616,63.28
-98,Swarupnagar,D. Patel,TMC,92304,Q. Menon,CPIM,68257,B. Singh,RSP,18087,24047,191384,77.24
-99,Baduria,Q. Menon,BJP,45647,J. Pillai,OTH,24715,O. Mishra,RSP,10403,20932,91379,65.23
-100,Habra,K. Iyer,BJP,66677,X. Sen,RSP,49531,F. Nair,INC,21681,17146,148023,70.86
-101,Ashoknagar,Y. Ghosh,TMC,68780,F. Nair,CPIM,56608,T. Pandey,INC,18846,12172,151354,70.36
-102,Amdanga,M. Gupta,BJP,58468,A. Kumar,RSP,42519,C. Sharma,CPIM,7645,15949,118911,73.92
-103,Bijpur,A. Kumar,BJP,53589,V. Mukherjee,TMC,34539,I. Mehta,OTH,6472,19050,105884,67.58
-104,Naihati,J. Pillai,TMC,71938,P. Bose,BJP,50161,S. Tiwari,CPIM,15512,21777,144803,63.57
-105,Bhatpara,F. Nair,CPIM,43410,N. Joshi,INC,37756,A. Kumar,BJP,7122,5654,93647,69.74
-106,Jagatdal,U. Chatterjee,TMC,93169,B. Singh,CPIM,75487,N. Joshi,OTH,18245,17682,201631,79.87
-107,Noapara,B. Singh,BJP,59082,X. Sen,OTH,35967,E. Reddy,TMC,9113,23115,120661,58.83
-108,Barrackpur,J. Pillai,BJP,44985,O. Mishra,OTH,27902,X. Sen,TMC,8614,17083,88748,65.47
-109,Khardaha,T. Pandey,CPIM,48131,D. Patel,ISF,33515,K. Iyer,OTH,8794,14616,108186,61.57
-110,Dum Dum Uttar,W. Banerjee,BJP,36153,N. Joshi,INC,28157,J. Pillai,CPIM,6519,7996,83704,63.27
-111,Panihati,D. Patel,TMC,54985,T. Pandey,OTH,37231,X. Sen,BJP,12423,17754,121493,73.09
-112,Kamarhati,O. Mishra,CPIM,50709,J. Pillai,OTH,42087,I. Mehta,BJP,15661,8622,127420,62.26
-113,Baranagar,X. Sen,INC,96101,D. Patel,CPIM,49666,E. Reddy,RSP,21004,46435,182639,71.18
-114,Dum Dum,I. Mehta,TMC,66093,Y. Ghosh,RSP,37228,C. Sharma,ISF,10056,28865,125856,61.8
-115,Rajarhat New Town,F. Nair,TMC,84816,D. Patel,RSP,75637,G. Rao,OTH,18683,9179,185835,65.4
-116,Bidhannagar,O. Mishra,BJP,65643,F. Nair,ISF,48773,V. Mukherjee,OTH,14324,16870,148157,75.96
-117,Rajarhat Gopalpur,P. Bose,OTH,49482,D. Patel,BJP,36573,O. Mishra,CPIM,9918,12909,112516,76.71
-118,Madhyamgram,X. Sen,BJP,88031,S. Tiwari,OTH,61515,H. Das,ISF,16473,26516,181148,57.38
-119,Barasat,L. Verma,BJP,70053,W. Banerjee,INC,58496,X. Sen,RSP,14616,11557,158206,56.36
-120,Deganga,P. Bose,BJP,44931,Q. Menon,INC,28220,F. Nair,ISF,6570,16711,89278,56.26
-121,Haroa,M. Gupta,TMC,61513,H. Das,OTH,46195,C. Sharma,RSP,7872,15318,128746,66.18
-122,Minakhan (Sc),U. Chatterjee,TMC,57465,A. Kumar,RSP,43026,E. Reddy,OTH,6645,14439,113625,74.79
-123,Sandeshkhali (St),Q. Menon,OTH,80295,S. Tiwari,ISF,70488,G. Rao,INC,12506,9807,169178,75.41
-124,Basirhat Dakshin,Y. Ghosh,INC,70059,T. Pandey,CPIM,45478,U. Chatterjee,ISF,11599,24581,133732,73.98
-125,Basirhat Uttar,J. Pillai,TMC,63267,S. Tiwari,CPIM,33376,R. Sinha,OTH,7932,29891,111876,75.55
-126,Hingalganj (Sc),I. Mehta,BJP,39128,U. Chatterjee,RSP,32753,G. Rao,TMC,6807,6375,97197,74.54
-127,Gosaba (Sc),B. Singh,BJP,58885,V. Mukherjee,TMC,49756,X. Sen,RSP,12891,9129,136187,78.9
-128,Basanti (Sc),Q. Menon,TMC,81908,Y. Ghosh,RSP,68455,B. Singh,BJP,12781,13453,176472,74.53
-129,Kultali (Sc),F. Nair,ISF,40000,Y. Ghosh,OTH,30557,E. Reddy,RSP,10460,9443,94276,77.03
-130,Patharpratima,Y. Ghosh,TMC,71719,H. Das,ISF,64165,J. Pillai,OTH,10796,7554,153865,58.45
-131,Kakdwip,J. Pillai,BJP,79590,X. Sen,OTH,64226,S. Tiwari,ISF,17112,15364,169488,60.02
-132,Sagar,L. Verma,BJP,83097,W. Banerjee,CPIM,73142,E. Reddy,OTH,14761,9955,187375,70.92
-133,Kulpi,P. Bose,BJP,82387,T. Pandey,CPIM,63540,U. Chatterjee,ISF,18849,18847,178523,62.15
-134,Raidighi,D. Patel,INC,35717,A. Kumar,TMC,25101,O. Mishra,ISF,6803,10616,85491,59.02
-135,Mandirbazar (Sc),B. Singh,TMC,53445,X. Sen,CPIM,27376,K. Iyer,INC,11419,26069,98919,70.4
-136,Jaynagar (Sc),X. Sen,BJP,52063,U. Chatterjee,ISF,42760,R. Sinha,INC,13872,9303,118407,72.32
-137,Baruipur Purba(Sc),V. Mukherjee,TMC,30693,K. Iyer,RSP,22913,S. Tiwari,CPIM,8133,7780,79533,76.51
-138,Canning Paschim(Sc),W. Banerjee,TMC,64230,X. Sen,INC,46136,U. Chatterjee,OTH,11824,18094,139906,73.12
-139,Canning Purba,V. Mukherjee,TMC,51082,C. Sharma,RSP,28111,G. Rao,INC,5431,22971,94196,68.91
-140,Baruipur Paschim,A. Kumar,TMC,92998,L. Verma,ISF,44896,Q. Menon,CPIM,19897,48102,172570,56.27
-141,Magrahat Purba(Sc),J. Pillai,ISF,64132,Q. Menon,RSP,52531,U. Chatterjee,OTH,10989,11601,136255,78.92
-142,Magrahat Paschim,N. Joshi,BJP,48950,S. Tiwari,ISF,35229,T. Pandey,INC,8628,13721,103244,63.28
-143,Diamond Harbour,R. Sinha,TMC,45977,V. Mukherjee,ISF,31543,A. Kumar,CPIM,10768,14434,103342,77.97
-144,Falta,K. Iyer,TMC,52402,N. Joshi,BJP,42222,D. Patel,OTH,6754,10180,114846,75.55
-145,Satgachhia,P. Bose,TMC,94975,B. Singh,ISF,60855,K. Iyer,RSP,11026,34120,173428,59.18
-146,Bishnupur (Sc),U. Chatterjee,OTH,79886,C. Sharma,RSP,48260,H. Das,TMC,16446,31626,163283,57.6
-147,Sonarpur Dakshin,U. Chatterjee,BJP,35528,C. Sharma,OTH,28968,X. Sen,CPIM,5273,6560,75969,56.36
-148,Bhangar,S. Tiwari,BJP,57055,H. Das,ISF,44087,J. Pillai,TMC,10715,12968,117133,64.74
-149,Kasba,X. Sen,TMC,89397,T. Pandey,BJP,46394,C. Sharma,OTH,19587,43003,166238,78.2
-150,Jadavpur,T. Pandey,TMC,96524,C. Sharma,OTH,61260,K. Iyer,CPIM,19391,35264,182679,66.85
-151,Sonarpur Uttar,M. Gupta,BJP,61786,S. Tiwari,INC,49482,J. Pillai,OTH,18592,12304,147885,76.68
-152,Tollyganj,R. Sinha,BJP,30002,E. Reddy,TMC,23970,D. Patel,ISF,7487,6032,67853,62.62
-153,Behala Purba,G. Rao,BJP,86701,O. Mishra,OTH,52603,W. Banerjee,CPIM,12541,34098,170521,61.32
-154,Behala Paschim,B. Singh,TMC,75658,S. Tiwari,OTH,48771,P. Bose,ISF,9000,26887,140037,59.94
-155,Maheshtala,V. Mukherjee,BJP,37899,U. Chatterjee,CPIM,23973,H. Das,BJP,5916,13926,80748,66.27
-156,Budge Budge,S. Tiwari,BJP,65252,E. Reddy,CPIM,44573,U. Chatterjee,OTH,12341,20679,127245,62.83
-157,Metiaburuz,N. Joshi,BJP,47426,I. Mehta,OTH,30417,M. Gupta,ISF,8159,17009,98298,63.97
-158,Kolkata Port,F. Nair,TMC,47037,V. Mukherjee,ISF,39701,U. Chatterjee,BJP,5426,7336,105988,59.91
-159,Bhabanipur,X. Sen,BJP,86385,C. Sharma,OTH,48743,A. Kumar,TMC,17362,37642,164127,74.23
-160,Rashbehari,I. Mehta,TMC,68212,S. Tiwari,BJP,39282,T. Pandey,ISF,10992,28930,138091,74.3
-161,Ballygunge,O. Mishra,BJP,39444,R. Sinha,CPIM,28934,S. Tiwari,INC,8855,10510,96126,79.1
-162,Chowrangee,Y. Ghosh,OTH,52880,Q. Menon,ISF,41041,E. Reddy,BJP,12409,11839,125620,79.19
-163,Entally,B. Singh,BJP,40018,I. Mehta,RSP,30145,R. Sinha,CPIM,5849,9873,84399,67.95
-164,Beleghata,B. Singh,BJP,45395,C. Sharma,RSP,38998,W. Banerjee,CPIM,11555,6397,105428,75.87
-165,Jorasanko,M. Gupta,TMC,59788,V. Mukherjee,ISF,51214,N. Joshi,BJP,7090,8574,127213,64.41
-166,Shyampukur,L. Verma,CPIM,82094,M. Gupta,ISF,62242,R. Sinha,RSP,15654,19852,167266,66
-167,Maniktala,I. Mehta,TMC,39863,G. Rao,ISF,31249,E. Reddy,OTH,11200,8614,98143,60.76
-168,Kashipurbelgachhia,P. Bose,INC,55992,W. Banerjee,OTH,37817,Q. Menon,TMC,15468,18175,114644,61.09
-169,Bally,E. Reddy,TMC,44965,V. Mukherjee,ISF,24136,R. Sinha,INC,5248,20829,82298,67.92
-170,Howrah Uttar,A. Kumar,TMC,76315,Y. Ghosh,ISF,48628,W. Banerjee,OTH,15282,27687,152948,76.68
-171,Howrah Madhya,E. Reddy,TMC,77920,T. Pandey,RSP,48202,G. Rao,ISF,16280,29718,153016,78.06
-172,Shibpur,M. Gupta,BJP,33292,N. Joshi,TMC,26183,E. Reddy,INC,10709,7109,86396,65.49
-173,Howrah Dakshin,P. Bose,TMC,44732,U. Chatterjee,BJP,31481,V. Mukherjee,INC,8738,13251,91477,67.06
-174,Sankrail (Sc),Y. Ghosh,TMC,62052,V. Mukherjee,ISF,41948,U. Chatterjee,TMC,7243,20104,124923,65.72
-175,Panchla,S. Tiwari,ISF,57468,Y. Ghosh,CPIM,40326,X. Sen,INC,12969,17142,119572,77.75
-176,Uluberia Purba,I. Mehta,TMC,86254,G. Rao,ISF,43481,A. Kumar,CPIM,14973,42773,158223,55.18
-177,Uluberia Uttar (Sc),N. Joshi,BJP,43646,L. Verma,OTH,33009,D. Patel,CPIM,6848,10637,97286,65.59
-178,Uluberia Dakshin,M. Gupta,TMC,77212,G. Rao,CPIM,53290,P. Bose,OTH,11566,23922,156159,67.09
-179,Shyampur,Y. Ghosh,OTH,66626,W. Banerjee,RSP,55939,M. Gupta,INC,10292,10687,141621,66.16
-180,Bagnan,G. Rao,BJP,76450,R. Sinha,INC,57618,N. Joshi,TMC,18082,18832,168730,56.3
-181,Amta,C. Sharma,TMC,69352,F. Nair,OTH,41062,R. Sinha,BJP,10397,28290,127122,70.23
-182,Udaynarayanpur,U. Chatterjee,BJP,94035,Q. Menon,RSP,45734,J. Pillai,ISF,18046,48301,165686,71.01
-183,Jagatballavpur,Q. Menon,TMC,42775,J. Pillai,INC,30012,G. Rao,OTH,8346,12763,96212,59.24
-184,Domjur,A. Kumar,TMC,58772,G. Rao,INC,37489,D. Patel,OTH,9021,21283,119884,60.01
-185,Uttarpara,C. Sharma,TMC,90382,S. Tiwari,OTH,78408,K. Iyer,BJP,13027,11974,200178,61.91
-186,Sreerampur,M. Gupta,BJP,43976,T. Pandey,INC,33471,A. Kumar,RSP,10177,10505,100867,62.36
-187,Champdani,R. Sinha,ISF,74987,T. Pandey,RSP,51680,I. Mehta,INC,14338,23307,149990,73.94
-188,Singur,O. Mishra,OTH,53439,T. Pandey,CPIM,36501,A. Kumar,ISF,13509,16938,112059,71.92
-189,Chandannagar,L. Verma,TMC,39837,R. Sinha,CPIM,24388,T. Pandey,RSP,5698,15449,81459,71.84
-190,Chunchura,F. Nair,INC,49740,Q. Menon,TMC,38376,L. Verma,ISF,7933,11364,113274,72.08
-191,Balagarh (Sc),G. Rao,CPIM,78355,I. Mehta,RSP,53190,J. Pillai,OTH,21081,25165,171328,70.46
-192,Pandua,V. Mukherjee,TMC,56371,W. Banerjee,BJP,47172,P. Bose,TMC,18782,9199,141218,67.06
-193,Saptagram,I. Mehta,BJP,96068,Q. Menon,RSP,56819,F. Nair,ISF,11809,39249,179144,58.21
-194,Chanditala,B. Singh,BJP,68708,R. Sinha,RSP,55578,M. Gupta,ISF,10792,13130,142050,72.46
-195,Jangipara,A. Kumar,TMC,60481,W. Banerjee,OTH,39449,H. Das,BJP,12051,21032,121235,59.68
-196,Haripal,T. Pandey,TMC,46821,K. Iyer,CPIM,29308,M. Gupta,RSP,10311,17513,97539,64.13
-197,Dhanekhali(Sc),S. Tiwari,TMC,67238,E. Reddy,RSP,44103,U. Chatterjee,INC,11706,23135,131910,68.88
-198,Tarakeswar,E. Reddy,CPIM,44797,Q. Menon,BJP,27649,A. Kumar,OTH,11607,17148,99385,67.93
-199,Pursurah,I. Mehta,BJP,37061,S. Tiwari,RSP,29287,U. Chatterjee,CPIM,4675,7774,89356,61.36
-200,Arambag (Sc),X. Sen,INC,53733,K. Iyer,TMC,40491,I. Mehta,RSP,13584,13242,118446,55.5
-201,Goghat (Sc),G. Rao,TMC,79257,T. Pandey,OTH,46479,U. Chatterjee,ISF,17281,32778,153835,63.13
-202,Khanakul,C. Sharma,BJP,52047,N. Joshi,OTH,45441,V. Mukherjee,RSP,13022,6606,126005,75.19
-203,Tamluk,S. Tiwari,TMC,34557,M. Gupta,OTH,24291,C. Sharma,ISF,6522,10266,75143,72.76
-204,Panskura Purba,O. Mishra,BJP,80531,L. Verma,RSP,51993,U. Chatterjee,CPIM,9322,28538,147224,58.13
-205,Panskura Paschim,W. Banerjee,TMC,41251,Y. Ghosh,CPIM,27824,C. Sharma,OTH,5860,13427,94331,66.83
-206,Moyna,Y. Ghosh,TMC,54182,C. Sharma,RSP,30274,E. Reddy,ISF,13180,23908,109023,62.73
-207,Nandakumar,U. Chatterjee,TMC,77159,E. Reddy,CPIM,38187,F. Nair,RSP,14374,38972,148816,77.88
-208,Mahisadal,I. Mehta,CPIM,53144,S. Tiwari,RSP,41053,P. Bose,ISF,6096,12091,115083,66.41
-209,Haldia (Sc),Q. Menon,BJP,61775,V. Mukherjee,ISF,43318,W. Banerjee,RSP,13163,18457,136440,57.24
-210,Nandigram,E. Reddy,TMC,36378,K. Iyer,RSP,29386,A. Kumar,CPIM,4763,6992,80225,66.73
-211,Chandipur,A. Kumar,TMC,62705,O. Mishra,RSP,39672,K. Iyer,INC,12051,23033,126173,77.05
-212,Patashpur,X. Sen,TMC,80274,U. Chatterjee,INC,53378,M. Gupta,OTH,15003,26896,157579,67.92
-213,Kanthi Uttar,V. Mukherjee,BJP,82263,I. Mehta,ISF,67749,K. Iyer,OTH,13018,14514,182013,56.71
-214,Bhagabanpur,O. Mishra,TMC,56688,U. Chatterjee,BJP,39735,P. Bose,OTH,8379,16953,112294,56.24
-215,Khejuri (Sc),J. Pillai,BJP,76043,I. Mehta,INC,43631,E. Reddy,TMC,9784,32412,134699,67.34
-216,Kanthi Dakshin,L. Verma,TMC,65472,P. Bose,CPIM,46763,Y. Ghosh,RSP,18839,18709,138467,56.4
-217,Ramnagar,P. Bose,BJP,102314,F. Nair,TMC,84569,H. Das,ISF,21314,17745,215195,79.36
-218,Egra,X. Sen,BJP,69788,B. Singh,RSP,37700,H. Das,BJP,13565,32088,129468,66.82
-219,Dantan,U. Chatterjee,BJP,95463,Y. Ghosh,CPIM,66375,B. Singh,BJP,12029,29088,189328,62.47
-220,Nayagram (St),G. Rao,TMC,71184,D. Patel,BJP,41074,J. Pillai,OTH,17209,30110,144046,57.99
-221,Gopiballavpur,W. Banerjee,BJP,60253,P. Bose,TMC,49410,Y. Ghosh,ISF,10660,10843,133513,57.29
-222,Jhargram,B. Singh,BJP,49111,M. Gupta,OTH,40128,W. Banerjee,TMC,5891,8983,103942,62.92
-223,Keshiary (St),O. Mishra,BJP,40393,Y. Ghosh,OTH,26270,G. Rao,CPIM,4920,14123,91306,55.99
-224,Kharagpur Sadar,R. Sinha,BJP,48592,X. Sen,ISF,35530,P. Bose,CPIM,7619,13062,104415,61.88
-225,Narayangarh,C. Sharma,INC,56829,R. Sinha,ISF,38717,F. Nair,BJP,10514,18112,111071,74.4
-226,Sabang,A. Kumar,BJP,86139,U. Chatterjee,OTH,55570,M. Gupta,INC,9891,30569,165430,75.48
-227,Pingla,Y. Ghosh,TMC,65203,R. Sinha,OTH,47094,E. Reddy,RSP,11632,18109,130506,68.08
-228,Kharagpur,G. Rao,TMC,38866,D. Patel,INC,30465,R. Sinha,TMC,11409,8401,96519,67.25
-229,Debra,B. Singh,BJP,78686,M. Gupta,ISF,40259,I. Mehta,CPIM,18249,38427,152937,67.29
-230,Daspur,U. Chatterjee,CPIM,76370,B. Singh,TMC,65379,M. Gupta,RSP,16468,10991,176229,72.71
-231,Ghatal (Sc),B. Singh,INC,77790,Y. Ghosh,CPIM,67160,D. Patel,ISF,22202,10630,173743,57.53
-232,Chandrakona (Sc),G. Rao,TMC,52249,R. Sinha,RSP,45649,X. Sen,INC,10031,6600,122073,65.38
-233,Garbeta,L. Verma,TMC,83124,W. Banerjee,OTH,70829,P. Bose,ISF,10613,12295,172521,68.75
-234,Salboni,R. Sinha,BJP,66937,U. Chatterjee,OTH,47543,O. Mishra,INC,15113,19394,148435,64.29
-235,Keshpur (Sc),K. Iyer,BJP,70618,U. Chatterjee,RSP,47632,H. Das,OTH,13614,22986,149063,61.35
-236,Medinipur,X. Sen,OTH,55845,B. Singh,CPIM,40659,K. Iyer,TMC,17756,15186,119367,62.51
-237,Binpur (St),Y. Ghosh,TMC,68999,W. Banerjee,CPIM,51398,I. Mehta,BJP,13733,17601,140674,55.94
-238,Bandwan (St),L. Verma,TMC,44353,T. Pandey,INC,30995,H. Das,CPIM,9941,13358,99612,77.95
-239,Balarampur,P. Bose,BJP,99723,F. Nair,OTH,77458,R. Sinha,CPIM,20209,22265,203952,69.88
-240,Baghmundi,M. Gupta,TMC,75472,C. Sharma,OTH,63877,B. Singh,ISF,14556,11595,173123,58.01
-241,Joypur,A. Kumar,BJP,46955,V. Mukherjee,OTH,36683,W. Banerjee,RSP,9415,10272,107308,58.74
-242,Purulia,V. Mukherjee,BJP,69282,Y. Ghosh,INC,50570,M. Gupta,TMC,7793,18712,139721,62.24
-243,Manbazar (St),C. Sharma,TMC,63943,Q. Menon,INC,48668,U. Chatterjee,CPIM,9942,15275,135774,65.86
-244,Kashipur,R. Sinha,BJP,63330,G. Rao,INC,37618,Q. Menon,RSP,12274,25712,130275,68.11
-245,Para (Sc),K. Iyer,TMC,34174,W. Banerjee,CPIM,25686,T. Pandey,RSP,6932,8488,74912,63.02
-246,Raghunathpur(Sc),F. Nair,BJP,102857,M. Gupta,TMC,67507,V. Mukherjee,CPIM,11300,35350,187399,78.11
-247,Saltora (Sc),E. Reddy,TMC,47166,Y. Ghosh,OTH,28238,C. Sharma,CPIM,8854,18928,91677,76.72
-248,Chhatna,W. Banerjee,INC,61744,D. Patel,TMC,41400,K. Iyer,CPIM,14149,20344,125764,60.1
-249,Ranibandh (St),P. Bose,BJP,83798,U. Chatterjee,CPIM,43373,E. Reddy,ISF,15538,40425,158580,68.17
-250,Raipur (St),G. Rao,TMC,41671,X. Sen,BJP,33475,U. Chatterjee,CPIM,5845,8196,92358,71.51
-251,Taldangra,D. Patel,BJP,102014,A. Kumar,OTH,65394,L. Verma,CPIM,22969,36620,203708,79.42
-252,Bankura,T. Pandey,TMC,40705,R. Sinha,CPIM,35172,C. Sharma,RSP,9320,5533,101870,55.54
-253,Barjora,K. Iyer,TMC,67724,Q. Menon,ISF,49404,N. Joshi,CPIM,13252,18320,145623,62.56
-254,Onda,B. Singh,OTH,83421,V. Mukherjee,RSP,73662,J. Pillai,INC,23288,9759,194463,78.73
-255,Bishnupur,V. Mukherjee,TMC,74912,E. Reddy,CPIM,65253,C. Sharma,RSP,16314,9659,171727,72.16
-256,Katulpur (Sc),N. Joshi,TMC,54169,J. Pillai,ISF,33059,V. Mukherjee,INC,11783,21110,113530,68.53
-257,Indus (Sc),W. Banerjee,INC,75115,X. Sen,BJP,65088,Q. Menon,CPIM,23568,10027,171149,71.41
-258,Sonamukhi (Sc),C. Sharma,BJP,65131,S. Tiwari,INC,47653,T. Pandey,CPIM,19447,17478,149143,55.74
-259,Khandaghosh (Sc),O. Mishra,TMC,71551,Y. Ghosh,RSP,58621,V. Mukherjee,INC,10159,12930,148357,55.65
-260,Bardhaman Dakshin,T. Pandey,OTH,51744,S. Tiwari,RSP,31876,V. Mukherjee,INC,5714,19868,95636,72.2
-261,Raina (Sc),W. Banerjee,TMC,54183,U. Chatterjee,ISF,37306,L. Verma,CPIM,6207,16877,105862,60.66
-262,Jamalpur (Sc),N. Joshi,TMC,53458,H. Das,BJP,28067,X. Sen,CPIM,12246,25391,105968,76.68
-263,Monteswar,H. Das,TMC,65129,O. Mishra,CPIM,53234,N. Joshi,RSP,13926,11895,142415,64.85
-264,Kalna (Sc),Q. Menon,ISF,65510,V. Mukherjee,RSP,46940,Y. Ghosh,ISF,15014,18570,146845,56.06
-265,Memari,X. Sen,OTH,59271,B. Singh,RSP,45331,S. Tiwari,CPIM,6990,13940,121362,65.99
-266,Bardhaman Uttar,F. Nair,CPIM,85603,O. Mishra,INC,65960,K. Iyer,RSP,18162,19643,182320,75.75
-267,Bhatar,D. Patel,TMC,96485,G. Rao,OTH,54354,U. Chatterjee,ISF,15570,42131,178796,55.62
-268,Purbasthali Dakshin,O. Mishra,TMC,59810,C. Sharma,OTH,51545,J. Pillai,INC,12952,8265,141076,73.33
-269,Purbasthali Uttar,U. Chatterjee,TMC,73058,L. Verma,OTH,57851,C. Sharma,RSP,17580,15207,163517,78.74
-270,Katwa,Y. Ghosh,TMC,80799,F. Nair,RSP,68346,L. Verma,BJP,9455,12453,165969,59.47
-271,Ketugram,J. Pillai,BJP,56013,Y. Ghosh,RSP,31891,P. Bose,CPIM,6977,24122,103204,55.09
-272,Mangalkot,P. Bose,BJP,65255,Q. Menon,TMC,54848,T. Pandey,RSP,12386,10407,147136,71.49
-273,Ausgram (Sc),T. Pandey,TMC,59000,U. Chatterjee,RSP,35076,A. Kumar,BJP,10535,23924,123047,75.63
-274,Galsi (Sc),U. Chatterjee,TMC,51583,L. Verma,INC,39349,B. Singh,BJP,10763,12234,111584,63.28
-275,Pandabeswar,F. Nair,TMC,55378,G. Rao,BJP,43284,X. Sen,RSP,10747,12094,127308,69.05
-276,Durgapur Purba,L. Verma,OTH,74073,B. Singh,ISF,52500,D. Patel,RSP,13830,21573,146511,73.96
-277,Durgapur Paschim,P. Bose,INC,89265,E. Reddy,TMC,55255,D. Patel,CPIM,13506,34010,166464,72.4
-278,Raniganj,X. Sen,BJP,40872,U. Chatterjee,TMC,32117,Q. Menon,ISF,10555,8755,100124,62.18
-279,Jamuria,S. Tiwari,BJP,45867,U. Chatterjee,CPIM,32573,L. Verma,ISF,9801,13294,101395,67.31
-280,Asansol Dakshin,W. Banerjee,TMC,29968,J. Pillai,ISF,22797,G. Rao,INC,8483,7171,78330,76.2
-281,Asansol Uttar,K. Iyer,BJP,88647,M. Gupta,RSP,46784,T. Pandey,TMC,11896,41863,156941,61.36
-282,Kulti,R. Sinha,TMC,46241,K. Iyer,CPIM,29794,A. Kumar,ISF,9559,16447,100686,79
-283,Barabani,K. Iyer,INC,72440,W. Banerjee,BJP,54777,Q. Menon,CPIM,11902,17663,154395,66.52
-284,Dubrajpur (Sc),N. Joshi,CPIM,86054,Y. Ghosh,INC,63870,B. Singh,RSP,18467,22184,182487,68.4
-285,Suri,L. Verma,TMC,60498,C. Sharma,OTH,37828,F. Nair,CPIM,8904,22670,120983,76.06
-286,Bolpur,T. Pandey,BJP,89938,D. Patel,RSP,70230,K. Iyer,INC,11899,19708,178489,67.43
-287,Nanoor (Sc),G. Rao,TMC,38339,R. Sinha,RSP,31588,K. Iyer,CPIM,10751,6751,100642,57.32
-288,Labpur,E. Reddy,BJP,71181,H. Das,RSP,50593,M. Gupta,ISF,14951,20588,144072,74.24
-289,Sainthia (Sc),E. Reddy,TMC,59942,H. Das,ISF,50514,B. Singh,OTH,8147,9428,128698,78.31
-290,Mayureswar,K. Iyer,BJP,42465,P. Bose,ISF,32875,B. Singh,TMC,6721,9590,96523,73.96
-291,Rampurhat,G. Rao,BJP,53067,H. Das,INC,43121,L. Verma,CPIM,11274,9946,116929,58.73
-292,Hansan,R. Sinha,TMC,49094,Q. Menon,BJP,36092,D. Patel,ISF,7385,13002,109111,75.1
-293,Nalhati,J. Pillai,BJP,66184,U. Chatterjee,INC,40435,L. Verma,TMC,12513,25749,135199,56.26
-294,Murarai,M. Gupta,TMC,83535,F. Nair,BJP,62254,Y. Ghosh,RSP,15545,21281,173638,70.41
+1,Mekliganj (Sc),,,,,,,,,,,,
+2,Mathabhanga (Sc),,,,,,,,,,,,
+3,Coochbehar Uttar (Sc),,,,,,,,,,,,
+4,Coochbehar Dakshin,,,,,,,,,,,,
+5,Sitalkuchi (Sc),,,,,,,,,,,,
+6,Sitai (Sc),,,,,,,,,,,,
+7,Dinhata,,,,,,,,,,,,
+8,Natabari,,,,,,,,,,,,
+9,Tufanganj,,,,,,,,,,,,
+10,Kumargram (St),,,,,,,,,,,,
+11,Kalchini (St),,,,,,,,,,,,
+12,Alipurduars,,,,,,,,,,,,
+13,Falakata (Sc),,,,,,,,,,,,
+14,Madarihat (St),,,,,,,,,,,,
+15,Dhupguri (Sc),,,,,,,,,,,,
+16,Maynaguri (Sc),,,,,,,,,,,,
+17,Jalpaiguri (Sc),,,,,,,,,,,,
+18,Rajganj (Sc),,,,,,,,,,,,
+19,Dabgram-Phulbari,,,,,,,,,,,,
+20,Mal (St),,,,,,,,,,,,
+21,Nagrakata (St),,,,,,,,,,,,
+22,Kalimpong,,,,,,,,,,,,
+23,Darjeeling,,,,,,,,,,,,
+24,Kurseong,,,,,,,,,,,,
+25,Matigara-Naxalbari(Sc),,,,,,,,,,,,
+26,Siliguri,,,,,,,,,,,,
+27,Phansidewa (St),,,,,,,,,,,,
+28,Chopra,,,,,,,,,,,,
+29,Islampur,,,,,,,,,,,,
+30,Goalpokhar,,,,,,,,,,,,
+31,Chakulia,,,,,,,,,,,,
+32,Karandighi,,,,,,,,,,,,
+33,Hemtabad (Sc),,,,,,,,,,,,
+34,Kaliaganj (Sc),,,,,,,,,,,,
+35,Raiganj,,,,,,,,,,,,
+36,Itahar,,,,,,,,,,,,
+37,Kushmandi (Sc),,,,,,,,,,,,
+38,Kumarganj,,,,,,,,,,,,
+39,Balurghat,,,,,,,,,,,,
+40,Tapan(St),,,,,,,,,,,,
+41,Gangarampur (Sc),,,,,,,,,,,,
+42,Harirampur,,,,,,,,,,,,
+43,Habibpur (St),,,,,,,,,,,,
+44,Gazole (Sc),,,,,,,,,,,,
+45,Chanchal,,,,,,,,,,,,
+46,Harischandrapur,,,,,,,,,,,,
+47,Malatipur,,,,,,,,,,,,
+48,Ratua,,,,,,,,,,,,
+49,Manikchak,,,,,,,,,,,,
+50,Maldaha (Sc),,,,,,,,,,,,
+51,English Bazar,,,,,,,,,,,,
+52,Mothabari,,,,,,,,,,,,
+53,Sujapur,,,,,,,,,,,,
+54,Baisnabnagar,,,,,,,,,,,,
+55,Farakka,,,,,,,,,,,,
+56,Samserganj,,,,,,,,,,,,
+57,Suti,,,,,,,,,,,,
+58,Jangipur,,,,,,,,,,,,
+59,Raghunathganj,,,,,,,,,,,,
+60,Sagardighi,,,,,,,,,,,,
+61,Lalgola,,,,,,,,,,,,
+62,Bhagabangola,,,,,,,,,,,,
+63,Raninagar,,,,,,,,,,,,
+64,Murshidabad,,,,,,,,,,,,
+65,Nabagram (Sc),,,,,,,,,,,,
+66,Khargram (Sc),,,,,,,,,,,,
+67,Burwan (Sc),,,,,,,,,,,,
+68,Kandi,,,,,,,,,,,,
+69,Bharatpur,,,,,,,,,,,,
+70,Rejinagar,,,,,,,,,,,,
+71,Beldanga,,,,,,,,,,,,
+72,Baharampur,,,,,,,,,,,,
+73,Hariharpara,,,,,,,,,,,,
+74,Naoda,,,,,,,,,,,,
+75,Domkal,,,,,,,,,,,,
+76,Jalangi,,,,,,,,,,,,
+77,Karimpur,,,,,,,,,,,,
+78,Tehatta,,,,,,,,,,,,
+79,Palashipara,,,,,,,,,,,,
+80,Kaliganj,,,,,,,,,,,,
+81,Nakashipara,,,,,,,,,,,,
+82,Chapra,,,,,,,,,,,,
+83,Krishnanagar Uttar,,,,,,,,,,,,
+84,Nabadwip,,,,,,,,,,,,
+85,Krishnanagar Dakshin,,,,,,,,,,,,
+86,Santipur,,,,,,,,,,,,
+87,Ranaghat Uttar Paschim,,,,,,,,,,,,
+88,Krishnaganj (Sc),,,,,,,,,,,,
+89,Ranaghat Uttar Purba(Sc),,,,,,,,,,,,
+90,Ranaghat Dakshin (Sc),,,,,,,,,,,,
+91,Chakdaha,,,,,,,,,,,,
+92,Kalyani (Sc),,,,,,,,,,,,
+93,Haringhata (Sc),,,,,,,,,,,,
+94,Bagda (Sc),,,,,,,,,,,,
+95,Bangaon Uttar (Sc),,,,,,,,,,,,
+96,Bangaon Dakshin (Sc),,,,,,,,,,,,
+97,Gaighata (Sc),,,,,,,,,,,,
+98,Swarupnagar,,,,,,,,,,,,
+99,Baduria,,,,,,,,,,,,
+100,Habra,,,,,,,,,,,,
+101,Ashoknagar,,,,,,,,,,,,
+102,Amdanga,,,,,,,,,,,,
+103,Bijpur,,,,,,,,,,,,
+104,Naihati,,,,,,,,,,,,
+105,Bhatpara,,,,,,,,,,,,
+106,Jagatdal,,,,,,,,,,,,
+107,Noapara,,,,,,,,,,,,
+108,Barrackpur,,,,,,,,,,,,
+109,Khardaha,,,,,,,,,,,,
+110,Dum Dum Uttar,,,,,,,,,,,,
+111,Panihati,,,,,,,,,,,,
+112,Kamarhati,,,,,,,,,,,,
+113,Baranagar,,,,,,,,,,,,
+114,Dum Dum,,,,,,,,,,,,
+115,Rajarhat New Town,,,,,,,,,,,,
+116,Bidhannagar,,,,,,,,,,,,
+117,Rajarhat Gopalpur,,,,,,,,,,,,
+118,Madhyamgram,,,,,,,,,,,,
+119,Barasat,,,,,,,,,,,,
+120,Deganga,,,,,,,,,,,,
+121,Haroa,,,,,,,,,,,,
+122,Minakhan (Sc),,,,,,,,,,,,
+123,Sandeshkhali (St),,,,,,,,,,,,
+124,Basirhat Dakshin,,,,,,,,,,,,
+125,Basirhat Uttar,,,,,,,,,,,,
+126,Hingalganj (Sc),,,,,,,,,,,,
+127,Gosaba (Sc),,,,,,,,,,,,
+128,Basanti (Sc),,,,,,,,,,,,
+129,Kultali (Sc),,,,,,,,,,,,
+130,Patharpratima,,,,,,,,,,,,
+131,Kakdwip,,,,,,,,,,,,
+132,Sagar,,,,,,,,,,,,
+133,Kulpi,,,,,,,,,,,,
+134,Raidighi,,,,,,,,,,,,
+135,Mandirbazar (Sc),,,,,,,,,,,,
+136,Jaynagar (Sc),,,,,,,,,,,,
+137,Baruipur Purba(Sc),,,,,,,,,,,,
+138,Canning Paschim(Sc),,,,,,,,,,,,
+139,Canning Purba,,,,,,,,,,,,
+140,Baruipur Paschim,,,,,,,,,,,,
+141,Magrahat Purba(Sc),,,,,,,,,,,,
+142,Magrahat Paschim,,,,,,,,,,,,
+143,Diamond Harbour,,,,,,,,,,,,
+144,Falta,,,,,,,,,,,,
+145,Satgachhia,,,,,,,,,,,,
+146,Bishnupur (Sc),,,,,,,,,,,,
+147,Sonarpur Dakshin,,,,,,,,,,,,
+148,Bhangar,,,,,,,,,,,,
+149,Kasba,,,,,,,,,,,,
+150,Jadavpur,,,,,,,,,,,,
+151,Sonarpur Uttar,,,,,,,,,,,,
+152,Tollyganj,,,,,,,,,,,,
+153,Behala Purba,,,,,,,,,,,,
+154,Behala Paschim,,,,,,,,,,,,
+155,Maheshtala,,,,,,,,,,,,
+156,Budge Budge,,,,,,,,,,,,
+157,Metiaburuz,,,,,,,,,,,,
+158,Kolkata Port,,,,,,,,,,,,
+159,Bhabanipur,,,,,,,,,,,,
+160,Rashbehari,,,,,,,,,,,,
+161,Ballygunge,,,,,,,,,,,,
+162,Chowrangee,,,,,,,,,,,,
+163,Entally,,,,,,,,,,,,
+164,Beleghata,,,,,,,,,,,,
+165,Jorasanko,,,,,,,,,,,,
+166,Shyampukur,,,,,,,,,,,,
+167,Maniktala,,,,,,,,,,,,
+168,Kashipurbelgachhia,,,,,,,,,,,,
+169,Bally,,,,,,,,,,,,
+170,Howrah Uttar,,,,,,,,,,,,
+171,Howrah Madhya,,,,,,,,,,,,
+172,Shibpur,,,,,,,,,,,,
+173,Howrah Dakshin,,,,,,,,,,,,
+174,Sankrail (Sc),,,,,,,,,,,,
+175,Panchla,,,,,,,,,,,,
+176,Uluberia Purba,,,,,,,,,,,,
+177,Uluberia Uttar (Sc),,,,,,,,,,,,
+178,Uluberia Dakshin,,,,,,,,,,,,
+179,Shyampur,,,,,,,,,,,,
+180,Bagnan,,,,,,,,,,,,
+181,Amta,,,,,,,,,,,,
+182,Udaynarayanpur,,,,,,,,,,,,
+183,Jagatballavpur,,,,,,,,,,,,
+184,Domjur,,,,,,,,,,,,
+185,Uttarpara,,,,,,,,,,,,
+186,Sreerampur,,,,,,,,,,,,
+187,Champdani,,,,,,,,,,,,
+188,Singur,,,,,,,,,,,,
+189,Chandannagar,,,,,,,,,,,,
+190,Chunchura,,,,,,,,,,,,
+191,Balagarh (Sc),,,,,,,,,,,,
+192,Pandua,,,,,,,,,,,,
+193,Saptagram,,,,,,,,,,,,
+194,Chanditala,,,,,,,,,,,,
+195,Jangipara,,,,,,,,,,,,
+196,Haripal,,,,,,,,,,,,
+197,Dhanekhali(Sc),,,,,,,,,,,,
+198,Tarakeswar,,,,,,,,,,,,
+199,Pursurah,,,,,,,,,,,,
+200,Arambag (Sc),,,,,,,,,,,,
+201,Goghat (Sc),,,,,,,,,,,,
+202,Khanakul,,,,,,,,,,,,
+203,Tamluk,,,,,,,,,,,,
+204,Panskura Purba,,,,,,,,,,,,
+205,Panskura Paschim,,,,,,,,,,,,
+206,Moyna,,,,,,,,,,,,
+207,Nandakumar,,,,,,,,,,,,
+208,Mahisadal,,,,,,,,,,,,
+209,Haldia (Sc),,,,,,,,,,,,
+210,Nandigram,,,,,,,,,,,,
+211,Chandipur,,,,,,,,,,,,
+212,Patashpur,,,,,,,,,,,,
+213,Kanthi Uttar,,,,,,,,,,,,
+214,Bhagabanpur,,,,,,,,,,,,
+215,Khejuri (Sc),,,,,,,,,,,,
+216,Kanthi Dakshin,,,,,,,,,,,,
+217,Ramnagar,,,,,,,,,,,,
+218,Egra,,,,,,,,,,,,
+219,Dantan,,,,,,,,,,,,
+220,Nayagram (St),,,,,,,,,,,,
+221,Gopiballavpur,,,,,,,,,,,,
+222,Jhargram,,,,,,,,,,,,
+223,Keshiary (St),,,,,,,,,,,,
+224,Kharagpur Sadar,,,,,,,,,,,,
+225,Narayangarh,,,,,,,,,,,,
+226,Sabang,,,,,,,,,,,,
+227,Pingla,,,,,,,,,,,,
+228,Kharagpur,,,,,,,,,,,,
+229,Debra,,,,,,,,,,,,
+230,Daspur,,,,,,,,,,,,
+231,Ghatal (Sc),,,,,,,,,,,,
+232,Chandrakona (Sc),,,,,,,,,,,,
+233,Garbeta,,,,,,,,,,,,
+234,Salboni,,,,,,,,,,,,
+235,Keshpur (Sc),,,,,,,,,,,,
+236,Medinipur,,,,,,,,,,,,
+237,Binpur (St),,,,,,,,,,,,
+238,Bandwan (St),,,,,,,,,,,,
+239,Balarampur,,,,,,,,,,,,
+240,Baghmundi,,,,,,,,,,,,
+241,Joypur,,,,,,,,,,,,
+242,Purulia,,,,,,,,,,,,
+243,Manbazar (St),,,,,,,,,,,,
+244,Kashipur,,,,,,,,,,,,
+245,Para (Sc),,,,,,,,,,,,
+246,Raghunathpur(Sc),,,,,,,,,,,,
+247,Saltora (Sc),,,,,,,,,,,,
+248,Chhatna,,,,,,,,,,,,
+249,Ranibandh (St),,,,,,,,,,,,
+250,Raipur (St),,,,,,,,,,,,
+251,Taldangra,,,,,,,,,,,,
+252,Bankura,,,,,,,,,,,,
+253,Barjora,,,,,,,,,,,,
+254,Onda,,,,,,,,,,,,
+255,Bishnupur,,,,,,,,,,,,
+256,Katulpur (Sc),,,,,,,,,,,,
+257,Indus (Sc),,,,,,,,,,,,
+258,Sonamukhi (Sc),,,,,,,,,,,,
+259,Khandaghosh (Sc),,,,,,,,,,,,
+260,Bardhaman Dakshin,,,,,,,,,,,,
+261,Raina (Sc),,,,,,,,,,,,
+262,Jamalpur (Sc),,,,,,,,,,,,
+263,Monteswar,,,,,,,,,,,,
+264,Kalna (Sc),,,,,,,,,,,,
+265,Memari,,,,,,,,,,,,
+266,Bardhaman Uttar,,,,,,,,,,,,
+267,Bhatar,,,,,,,,,,,,
+268,Purbasthali Dakshin,,,,,,,,,,,,
+269,Purbasthali Uttar,,,,,,,,,,,,
+270,Katwa,,,,,,,,,,,,
+271,Ketugram,,,,,,,,,,,,
+272,Mangalkot,,,,,,,,,,,,
+273,Ausgram (Sc),,,,,,,,,,,,
+274,Galsi (Sc),,,,,,,,,,,,
+275,Pandabeswar,,,,,,,,,,,,
+276,Durgapur Purba,,,,,,,,,,,,
+277,Durgapur Paschim,,,,,,,,,,,,
+278,Raniganj,,,,,,,,,,,,
+279,Jamuria,,,,,,,,,,,,
+280,Asansol Dakshin,,,,,,,,,,,,
+281,Asansol Uttar,,,,,,,,,,,,
+282,Kulti,,,,,,,,,,,,
+283,Barabani,,,,,,,,,,,,
+284,Dubrajpur (Sc),,,,,,,,,,,,
+285,Suri,,,,,,,,,,,,
+286,Bolpur,,,,,,,,,,,,
+287,Nanoor (Sc),,,,,,,,,,,,
+288,Labpur,,,,,,,,,,,,
+289,Sainthia (Sc),,,,,,,,,,,,
+290,Mayureswar,,,,,,,,,,,,
+291,Rampurhat,,,,,,,,,,,,
+292,Hansan,,,,,,,,,,,,
+293,Nalhati,,,,,,,,,,,,
+294,Murarai,,,,,,,,,,,,

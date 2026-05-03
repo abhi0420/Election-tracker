@@ -1,0 +1,141 @@
+AC_NO,AC_NAME,Total_Electors,Turnout_Pct
+1,Ma njeshwar,230113,81.04
+2,Kasaragod,210923,79.61
+3,Udma,228512,78.08
+4,Kanhangad,223980,77.24
+5,Trikaripur,210090,79.64
+6,Payyannur,188935,80.48
+7,Kalliasseri,203796,76.99
+8,Taliparamba,232280,81.01
+9,Irikkur,199326,74.32
+10,Azhikode,188250,77.71
+11,Kannur,182682,75.61
+12,Dharmadam,206000,81.44
+13,Thalassery,185841,76.33
+14,Kuthuparamba,205771,78.46
+15,Mattannur,201719,82.24
+16,Peravoor,182384,79.1
+17,Mananthavady (ST),205415,78.96
+18,Sulthanbathery (S,225329,77.21
+19,Kalpetta,212881,80.35
+20,Vadakara,176832,79.51
+21,Kuttiadi,215940,80.98
+22,Nadapuram,233690,79.46
+23,Quilandy,213254,79.51
+24,Perambra,205970,81.56
+25,Balusseri (SC),228689,81.83
+26,Elathur,211105,82.45
+27,Kozhikode North,173205,80.23
+28,Kozhikode South,155972,81.07
+29,Beypore,218558,83.77
+30,Kunnamangalam,241980,84.83
+31,Koduvally,201668,80.98
+32,Thiruvambadi,191954,80.36
+33,Kondotty,229370,82.5
+34,Ernad,199556,83029
+35,Nilambur,236576,79.19
+36,Wandoor (SC),247184,81.33
+37,Manjeri,227762,82.52
+38,Perinthalmanna,229525,80.25
+39,Mankada,230838,80.34
+40,Malappuram,238080,81.8
+41,Vengara,211630,79.83
+42,Vallikunnu,221036,80.92
+43,Tirurangadi,222792,78.54
+44,Tanur,214101,79.97
+45,Tirur,255441,77
+46,Kottakkal,243014,77.93
+47,Thavanur,208776,77.91
+48,Ponnani,216529,74.23
+49,Thrithala,203700,78.73
+50,Pattambi,210790,79.45
+51,Shornur,199620,79.02
+52,Ottappalam,209627,79.94
+53,Kongad(SC),182603,80.3
+54,Mannarkkad,206436,80.82
+55,Malampuzha,195429,81.89
+56,Palakkad,176224,82.33
+57,Tarur (SC),164930,79.09
+58,Chittur,172015,84.63
+59,Nemmara,181690,81.43
+60,Alathur,165657,79.84
+61,Chelakkara (SC),203956,78.93
+62,Kunnamkulam,196839,77.14
+63,Guruvayoor,218704,73.37
+64,Manalur,222278,75.89
+65,Wadakkanchery,201786,79.67
+66,Ollur,188395,79.6
+67,Thrissur,161225,75.7
+68,Nattika(SC),203427,76.38
+69,Kaipamangalam,182716,77.07
+70,Irinjalakuda,194592,76.87
+71,Puthukkad,192377,78.98
+72,Chalakudy,179208,75.55
+73,Kodungallur,187212,77.57
+74,Perumbavoor,180299,80.4
+75,Angamaly,170404,75.62
+76,Aluva,194360,80.78
+77,Kalamassery,197712,81.6
+78,Paravur,191646,81.97
+79,Vypeen,161285,80.5
+80,Kochi,165675,80.33
+81,Thripunithura,187923,81.41
+82,Ernakulam,136223,78.17
+83,Thrikkakara,176387,78.85
+84,Kunnathunad (SC),188291,84.09
+85,Piravom,195421,76.43
+86,Muvattupuzha,186254,78.11
+87,Kothamangalam,171968,79.3
+88,Devikulam (SC),142265,77.87
+89,Udumbanchola,150303,79.51
+90,Thodupuzha,188495,75.97
+91,Idukki,167822,75.4
+92,Peerumade,156542,77.52
+93,Pala,176585,75.07
+94,Kaduthuruthy,175905,69.25
+95,Vaikom (SC),155957,79.31
+96,Ettumanoor,158256,76.09
+97,Kottayam,149573,74.71
+98,Puthuppally,170254,73.74
+99,Changanassery,162885,73.16
+100,Kanjirappally,177500,74.91
+101,Poonjar,184665,76.99
+102,Aroor,191465,83.35
+103,Cherthala,206016,82.07
+104,Alappuzha,191880,81.29
+105,Ambalappuzha,171203,80.75
+106,Kuttanad,153981,71.84
+107,Haripad,184457,76.83
+108,Kayamkulam,201394,75.71
+109,Mavelikkara (SC),192435,72.62
+110,Chengannur,189866,71.05
+111,Thiruvalla,198395,69.47
+112,Ranni,176015,68.99
+113,Aranmula,215168,71.5
+114,Konni,189366,70.03
+115,Adoor (SC),201200,73.51
+116,Karunagappally,214513,78.82
+117,Chavara,178798,77.93
+118,Kunnathur (SC),205694,77.81
+119,Kottarakkara,193272,75.12
+120,Pathanapuram,179783,75.17
+121,Punalur,197346,71.02
+122,Chadayamangalam,201716,74.43
+123,Kundara,206464,78.23
+124,Kollam,164541,77.43
+125,Eravipuram,168865,77.33
+126,Chathannoor,177000,75.89
+127,Varkala,183280,73.96
+128,Attingal (SC),197945,73.82
+129,Chirayinkeezhu,195296,74.13
+130,Nedumangad,198042,78.37
+131,Vamanapuram,187828,77.46
+132,Kazhakoottam,164561,78.62
+133,Vattiyoorkavu(SC),165272,76.92
+134,Thiruvananthapura,158545,74.89
+135,Nemom,171178,80.62
+136,Aruvikkara,181308,79.11
+137,Parassala,195648,77.59
+138,Kattakkada,177094,80.72
+139,Kovalam,201200,75.47
+140,Neyyattinkara,167377,77.54

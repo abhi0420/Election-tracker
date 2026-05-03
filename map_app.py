@@ -268,11 +268,31 @@ def auto_merge_election_data(state_code=None):
         
         df_clean = df.rename(columns=rename_map)
         
-        # Add votes_pct column if missing (default to 100%)
-        if 'votes_pct' not in df_clean.columns:
+        # Compute votes_pct from electors file (tot_votes / Total_Electors * 100)
+        electors_file = sc.get('electors_file')
+        if electors_file and os.path.exists(electors_file):
+            try:
+                electors_df = pd.read_csv(electors_file)
+                if 'AC_No' in electors_df.columns:
+                    electors_df = electors_df.rename(columns={'AC_No': 'AC_NO'})
+                electors_df['AC_NO'] = electors_df['AC_NO'].astype(int)
+                if 'Total_Electors' in electors_df.columns and electors_df['Total_Electors'].notna().any():
+                    df_clean = df_clean.merge(electors_df[['AC_NO', 'Total_Electors']], on='AC_NO', how='left')
+                    if 'tot_votes' in df_clean.columns:
+                        df_clean['votes_pct'] = (
+                            df_clean['tot_votes'] / df_clean['Total_Electors'] * 100
+                        ).fillna(0).clip(upper=100).round(2)
+                    df_clean = df_clean.drop(columns=['Total_Electors'])
+                    print(f"[AUTO-MERGE] Computed votes_pct from electors file: {electors_file}")
+                else:
+                    df_clean['votes_pct'] = 100.0
+            except Exception as e:
+                print(f"[AUTO-MERGE] Electors merge failed: {e}")
+                df_clean['votes_pct'] = df_clean.get('votes_pct', pd.Series(100.0, index=df_clean.index)).fillna(100.0)
+        elif 'votes_pct' not in df_clean.columns:
             df_clean['votes_pct'] = 100.0
             print("   Added default votes_pct column (100%)")
-        
+
         # Keep only the columns that exist
         cols_to_keep = ['AC_NO']
         for col in ['win_party', 'win_cand', 'win_votes', 
@@ -839,7 +859,7 @@ def create_election_map(state_name, state_code=None):
                                     </div>
                                 ` : `
                                     <!-- Vote Counting Progress -->
-                                    <div style="margin-bottom: 20px;">
+                                    <div style="margin-bottom: 20px; display: ${__SHOW_VOTES_PCT__ ? 'block' : 'none'}">
                                         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
                                             <span style="color: #666; font-size: 14px; font-weight: 600;">Votes Counted</span>
                                             <span style="color: #28a745; font-size: 16px; font-weight: bold;">${votes_counted}%</span>
@@ -983,7 +1003,7 @@ def create_election_map(state_name, state_code=None):
                     closeButton.addEventListener('click', restoreFilter);
                 }
             }
-        """.replace('__PARTY_COLORS__', _colors_js).replace('__TOP_PARTIES__', _top_parties_js).replace('__CUR_YEAR__', str(sc['year'])).replace('__PREV_YEAR__', str(sc.get('prev_year', 'Previous'))))
+        """.replace('__PARTY_COLORS__', _colors_js).replace('__TOP_PARTIES__', _top_parties_js).replace('__CUR_YEAR__', str(sc['year'])).replace('__PREV_YEAR__', str(sc.get('prev_year', 'Previous'))).replace('__SHOW_VOTES_PCT__', 'false' if sc.get('code') == 'puducherry' else 'true'))
         
         geosource.selected.js_on_change('indices', callback)
         
@@ -3554,6 +3574,6 @@ def get_states():
 if __name__ == '__main__':
     import os
     # Use PORT from environment (for Render/Railway) or default to 5080
-    port = int(os.environ.get('PORT', 5087))
+    port = int(os.environ.get('PORT', 5085))
     # Set debug=False for production
     app.run(host='0.0.0.0', port=port, debug=False)

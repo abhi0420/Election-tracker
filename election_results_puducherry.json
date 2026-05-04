@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T09:05:07.501563Z",
-  "total_seats": 19,
+  "last_updated": "2026-05-04T09:16:15.090998Z",
+  "total_seats": 21,
   "data": [
     {
       "AC_NO": 1,
@@ -55,15 +55,15 @@
       "Constituency": "Kadirgamam",
       "win_cand": "AZHAGU @ AZHAGANANTHAM",
       "win_party": "OTH",
-      "win_votes": 12228,
+      "win_votes": 14633,
       "sec_cand": "K.S.P @ S. RAMESH",
       "sec_party": "AINRC",
-      "sec_votes": 6320,
+      "sec_votes": 7629,
       "thi_cand": "JAYANTHI RAJAVELU",
       "thi_party": "TVK",
-      "thi_votes": 2286,
-      "margin": 5908,
-      "tot_votes": 23278,
+      "thi_votes": 3024,
+      "margin": 7004,
+      "tot_votes": 28497,
       "votes_pct": 0.0
     },
     {
@@ -87,15 +87,15 @@
       "Constituency": "Kamraj Nagar",
       "win_cand": "JOSE CHARLES MARTIN",
       "win_party": "OTH",
-      "win_votes": 8152,
+      "win_votes": 8376,
       "sec_cand": "P.K. DEVADOSS",
       "sec_party": "INC",
-      "sec_votes": 3480,
+      "sec_votes": 3593,
       "thi_cand": "SUMAN",
       "thi_party": "TVK",
-      "thi_votes": 2812,
-      "margin": 4672,
-      "tot_votes": 15396,
+      "thi_votes": 2869,
+      "margin": 4783,
+      "tot_votes": 15825,
       "votes_pct": 0.0
     },
     {
@@ -131,6 +131,22 @@
       "votes_pct": 0.0
     },
     {
+      "AC_NO": 14,
+      "Constituency": "Raj Bhavan",
+      "win_cand": "V. P. RAMALINGAME",
+      "win_party": "BJP",
+      "win_votes": 1491,
+      "sec_cand": "VIGNESH KANNAN",
+      "sec_party": "DMK",
+      "sec_votes": 919,
+      "thi_cand": "R KUMARAN",
+      "thi_party": "INC",
+      "thi_votes": 615,
+      "margin": 572,
+      "tot_votes": 3621,
+      "votes_pct": 0.0
+    },
+    {
       "AC_NO": 15,
       "Constituency": "Oupalam",
       "win_cand": "A ANBALAGAN",
@@ -151,15 +167,15 @@
       "Constituency": "Orleampeth",
       "win_cand": "G. NEHRU ALIAS COUPPOUSSAMY",
       "win_party": "OTH",
-      "win_votes": 2524,
+      "win_votes": 5278,
       "sec_cand": "S. GOPAL",
       "sec_party": "DMK",
-      "sec_votes": 2290,
+      "sec_votes": 4620,
       "thi_cand": "A. GANDHI",
       "thi_party": "ADMK",
-      "thi_votes": 96,
-      "margin": 234,
-      "tot_votes": 5109,
+      "thi_votes": 176,
+      "margin": 658,
+      "tot_votes": 10408,
       "votes_pct": 0.0
     },
     {
@@ -192,6 +208,22 @@
       "thi_votes": 5424,
       "margin": 603,
       "tot_votes": 34510,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 20,
+      "Constituency": "Manavely",
+      "win_cand": "B.RAMU",
+      "win_party": "TVK",
+      "win_votes": 3550,
+      "sec_cand": "EMBALAM SELVAM @ SELVAM. R",
+      "sec_party": "BJP",
+      "sec_votes": 2460,
+      "thi_cand": "R K R. ANANTHARAMAN",
+      "thi_party": "INC",
+      "thi_votes": 1662,
+      "margin": 1090,
+      "tot_votes": 8148,
       "votes_pct": 0.0
     },
     {

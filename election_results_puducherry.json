@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T06:32:47.940877Z",
+  "last_updated": "2026-05-04T06:38:01.712191Z",
   "total_seats": 17,
   "data": [
     {
@@ -23,15 +23,15 @@
       "Constituency": "Oussudu (SC)",
       "win_cand": "P. KARTHIKEYAN",
       "win_party": "INC",
-      "win_votes": 8756,
+      "win_votes": 12152,
       "sec_cand": "E. THEEPPAINTHAN",
       "sec_party": "BJP",
-      "sec_votes": 6267,
+      "sec_votes": 8638,
       "thi_cand": "S. SARAGANABAVA",
       "thi_party": "TVK",
-      "thi_votes": 1538,
-      "margin": 2489,
-      "tot_votes": 16950,
+      "thi_votes": 2503,
+      "margin": 3514,
+      "tot_votes": 23862,
       "votes_pct": 0.0
     },
     {
@@ -167,15 +167,15 @@
       "Constituency": "Embalam (SC)",
       "win_cand": "E. MOHANDOSS",
       "win_party": "AINRC",
-      "win_votes": 13969,
+      "win_votes": 16017,
       "sec_cand": "M. CANDASSAMY",
       "sec_party": "INC",
-      "sec_votes": 10512,
+      "sec_votes": 11956,
       "thi_cand": "V. TAMILSELVAN",
       "thi_party": "TVK",
-      "thi_votes": 2447,
-      "margin": 3457,
-      "tot_votes": 27697,
+      "thi_votes": 2708,
+      "margin": 4061,
+      "tot_votes": 31542,
       "votes_pct": 0.0
     },
     {

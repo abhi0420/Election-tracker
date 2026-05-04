@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T07:20:15.188567Z",
+  "last_updated": "2026-05-04T07:23:34.211261Z",
   "total_seats": 17,
   "data": [
     {
@@ -23,15 +23,15 @@
       "Constituency": "Oussudu (SC)",
       "win_cand": "P. KARTHIKEYAN",
       "win_party": "INC",
-      "win_votes": 12152,
+      "win_votes": 15400,
       "sec_cand": "E. THEEPPAINTHAN",
       "sec_party": "BJP",
-      "sec_votes": 8638,
+      "sec_votes": 11382,
       "thi_cand": "S. SARAGANABAVA",
       "thi_party": "TVK",
-      "thi_votes": 2503,
-      "margin": 3514,
-      "tot_votes": 23862,
+      "thi_votes": 3698,
+      "margin": 4018,
+      "tot_votes": 31301,
       "votes_pct": 0.0
     },
     {

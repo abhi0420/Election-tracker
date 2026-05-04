@@ -1,7 +1,39 @@
 {
-  "last_updated": "2026-05-04T04:11:09.615085Z",
-  "total_seats": 42,
+  "last_updated": "2026-05-04T04:16:19.832866Z",
+  "total_seats": 53,
   "data": [
+    {
+      "AC_NO": 8,
+      "Constituency": "DHUBRI",
+      "win_cand": "BABY BEGUM",
+      "win_party": "INC",
+      "win_votes": 4848,
+      "sec_cand": "UTTAM PRASAD",
+      "sec_party": "BJP",
+      "sec_votes": 3785,
+      "thi_cand": "NAZRUL HOQUE",
+      "thi_party": "AIUDF",
+      "thi_votes": 1427,
+      "margin": 1063,
+      "tot_votes": 10185,
+      "votes_pct": 4.63
+    },
+    {
+      "AC_NO": 16,
+      "Constituency": "ABHAYAPURI",
+      "win_cand": "PRADIP SARKAR",
+      "win_party": "INC",
+      "win_votes": 5512,
+      "sec_cand": "BHUPEN ROY",
+      "sec_party": "BJP",
+      "sec_votes": 4679,
+      "thi_cand": "KAUSHIK RANJAN DAS",
+      "thi_party": "OTH",
+      "thi_votes": 93,
+      "margin": 833,
+      "tot_votes": 10424,
+      "votes_pct": 6.28
+    },
     {
       "AC_NO": 17,
       "Constituency": "SRIJANGRAM",
@@ -17,6 +49,22 @@
       "margin": 2234,
       "tot_votes": 10595,
       "votes_pct": 4.73
+    },
+    {
+      "AC_NO": 18,
+      "Constituency": "BONGAIGAON",
+      "win_cand": "GIRISH BARUAH",
+      "win_party": "INC",
+      "win_votes": 5387,
+      "sec_cand": "DIPTIMAYEE CHOUDHURY",
+      "sec_party": "AGP",
+      "sec_votes": 3593,
+      "thi_cand": "CHAKRADHAR DAS",
+      "thi_party": "OTH",
+      "thi_votes": 1569,
+      "margin": 1794,
+      "tot_votes": 10770,
+      "votes_pct": 6.93
     },
     {
       "AC_NO": 21,
@@ -115,6 +163,22 @@
       "votes_pct": 5.71
     },
     {
+      "AC_NO": 35,
+      "Constituency": "NEW GUWAHATI",
+      "win_cand": "DIPLU RANJAN SARMAH",
+      "win_party": "BJP",
+      "win_votes": 4877,
+      "sec_cand": "SANTANU BORA",
+      "sec_party": "INC",
+      "sec_votes": 2726,
+      "thi_cand": "NOTA",
+      "thi_party": "OTH",
+      "thi_votes": 167,
+      "margin": 2151,
+      "tot_votes": 7987,
+      "votes_pct": 5.74
+    },
+    {
       "AC_NO": 39,
       "Constituency": "NALBARI",
       "win_cand": "JAYANTA MALLABARUAH",
@@ -161,6 +225,22 @@
       "margin": 3688,
       "tot_votes": 8886,
       "votes_pct": 5.59
+    },
+    {
+      "AC_NO": 43,
+      "Constituency": "TAMULPUR",
+      "win_cand": "BISWAJIT DAIMARY",
+      "win_party": "BJP",
+      "win_votes": 5290,
+      "sec_cand": "PRAMOD BORO",
+      "sec_party": "OTH",
+      "sec_votes": 2913,
+      "thi_cand": "RAFEL DAIMARY",
+      "thi_party": "INC",
+      "thi_votes": 1782,
+      "margin": 2377,
+      "tot_votes": 10606,
+      "votes_pct": 5.96
     },
     {
       "AC_NO": 45,
@@ -215,16 +295,16 @@
       "Constituency": "TANGLA",
       "win_cand": "BIKAN CHANDRA DEKA",
       "win_party": "BJP",
-      "win_votes": 4974,
+      "win_votes": 9584,
       "sec_cand": "ROHIT PARIGA",
       "sec_party": "INC",
-      "sec_votes": 2524,
+      "sec_votes": 3827,
       "thi_cand": "JAYANTA KUMAR RABHA",
       "thi_party": "OTH",
-      "thi_votes": 730,
-      "margin": 2450,
-      "tot_votes": 9499,
-      "votes_pct": 6.22
+      "thi_votes": 2541,
+      "margin": 5757,
+      "tot_votes": 19217,
+      "votes_pct": 12.59
     },
     {
       "AC_NO": 49,
@@ -291,6 +371,22 @@
       "votes_pct": 8.62
     },
     {
+      "AC_NO": 53,
+      "Constituency": "LAHARIGHAT",
+      "win_cand": "DR ASIF MOHAMMAD NAZAR",
+      "win_party": "INC",
+      "win_votes": 8430,
+      "sec_cand": "SIDDIQUE AHMED",
+      "sec_party": "AIUDF",
+      "sec_votes": 3725,
+      "thi_cand": "MD KHALILUR RAHMAN",
+      "thi_party": "AGP",
+      "thi_votes": 257,
+      "margin": 4705,
+      "tot_votes": 12562,
+      "votes_pct": 4.3
+    },
+    {
       "AC_NO": 54,
       "Constituency": "MORIGAON",
       "win_cand": "BANI KANTA DAS",
@@ -355,6 +451,22 @@
       "votes_pct": 4.21
     },
     {
+      "AC_NO": 62,
+      "Constituency": "BINNAKANDI",
+      "win_cand": "REJAUL KARIM CHOWDHURY",
+      "win_party": "AJP",
+      "win_votes": 3681,
+      "sec_cand": "MOHAMMED BADRUDDIN AJMAL",
+      "sec_party": "AIUDF",
+      "sec_votes": 3650,
+      "thi_cand": "SHAHAB UDDIN MAJUMDAR",
+      "thi_party": "AGP",
+      "thi_votes": 1117,
+      "margin": 31,
+      "tot_votes": 9039,
+      "votes_pct": 3.83
+    },
+    {
       "AC_NO": 70,
       "Constituency": "BISWANATH",
       "win_cand": "PALLAB LOCHAN DAS",
@@ -369,6 +481,22 @@
       "margin": 1441,
       "tot_votes": 8152,
       "votes_pct": 5.09
+    },
+    {
+      "AC_NO": 71,
+      "Constituency": "BEHALI",
+      "win_cand": "MUNINDRA DAS (BAPTI)",
+      "win_party": "BJP",
+      "win_votes": 4824,
+      "sec_cand": "GYANENDRA SARKAR",
+      "sec_party": "CPI",
+      "sec_votes": 1189,
+      "thi_cand": "AJOY KUMAR SINGHA",
+      "thi_party": "OTH",
+      "thi_votes": 1071,
+      "margin": 3635,
+      "tot_votes": 7394,
+      "votes_pct": 5.6
     },
     {
       "AC_NO": 72,
@@ -433,6 +561,22 @@
       "margin": 1211,
       "tot_votes": 8279,
       "votes_pct": 4.63
+    },
+    {
+      "AC_NO": 82,
+      "Constituency": "DOOMDOOMA",
+      "win_cand": "RUPESH GOWALA",
+      "win_party": "BJP",
+      "win_votes": 4463,
+      "sec_cand": "DURGA BHUMIJ",
+      "sec_party": "INC",
+      "sec_votes": 1770,
+      "thi_cand": "NOTA",
+      "thi_party": "OTH",
+      "thi_votes": 319,
+      "margin": 2693,
+      "tot_votes": 6552,
+      "votes_pct": 5.41
     },
     {
       "AC_NO": 85,
@@ -563,6 +707,22 @@
       "votes_pct": 10.68
     },
     {
+      "AC_NO": 98,
+      "Constituency": "MAJULI",
+      "win_cand": "BHUBAN GAM",
+      "win_party": "BJP",
+      "win_votes": 6367,
+      "sec_cand": "DR. INDRANEEL PEGU",
+      "sec_party": "INC",
+      "sec_votes": 2973,
+      "thi_cand": "BHAITY RICHONG",
+      "thi_party": "OTH",
+      "thi_votes": 85,
+      "margin": 3394,
+      "tot_votes": 9492,
+      "votes_pct": 7.8
+    },
+    {
       "AC_NO": 100,
       "Constituency": "JORHAT",
       "win_cand": "HITENDRA NATH GOSWAMI",
@@ -657,6 +817,22 @@
       "margin": 4512,
       "tot_votes": 7487,
       "votes_pct": 6.83
+    },
+    {
+      "AC_NO": 112,
+      "Constituency": "AMRI",
+      "win_cand": "HABBEY TERON",
+      "win_party": "BJP",
+      "win_votes": 6051,
+      "sec_cand": "BIKRAM HANSE",
+      "sec_party": "OTH",
+      "sec_votes": 1836,
+      "thi_cand": "NOTA",
+      "thi_party": "OTH",
+      "thi_votes": 168,
+      "margin": 4215,
+      "tot_votes": 8151,
+      "votes_pct": 10.24
     },
     {
       "AC_NO": 126,

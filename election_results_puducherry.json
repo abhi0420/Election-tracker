@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T04:11:09.615085Z",
-  "total_seats": 9,
+  "last_updated": "2026-05-04T04:16:19.832866Z",
+  "total_seats": 11,
   "data": [
     {
       "AC_NO": 3,
@@ -16,6 +16,22 @@
       "thi_votes": 758,
       "margin": 1425,
       "tot_votes": 8039,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 5,
+      "Constituency": "VILLIANUR",
+      "win_cand": "B.RAVICOUMAR",
+      "win_party": "AINRC",
+      "win_votes": 3418,
+      "sec_cand": "R.SIVA",
+      "sec_party": "DMK",
+      "sec_votes": 2574,
+      "thi_cand": "R.RAMESH",
+      "thi_party": "TVK",
+      "thi_votes": 1396,
+      "margin": 844,
+      "tot_votes": 7628,
       "votes_pct": 0.0
     },
     {
@@ -112,6 +128,22 @@
       "thi_votes": 1234,
       "margin": 60,
       "tot_votes": 7479,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 26,
+      "Constituency": "KARAIKAL NORTH",
+      "win_cand": "P.R.N. THIRUMURUGAN",
+      "win_party": "AINRC",
+      "win_votes": 5218,
+      "sec_cand": "A.M. RANJITH",
+      "sec_party": "INC",
+      "sec_votes": 3166,
+      "thi_cand": "A. VENGADESH",
+      "thi_party": "TVK",
+      "thi_votes": 1583,
+      "margin": 2052,
+      "tot_votes": 10385,
       "votes_pct": 0.0
     },
     {

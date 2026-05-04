@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T06:07:36.299720Z",
+  "last_updated": "2026-05-04T06:11:03.666089Z",
   "total_seats": 17,
   "data": [
     {
@@ -39,15 +39,15 @@
       "Constituency": "Villianur",
       "win_cand": "B.RAVICOUMAR",
       "win_party": "AINRC",
-      "win_votes": 9620,
+      "win_votes": 9965,
       "sec_cand": "R.SIVA",
       "sec_party": "DMK",
-      "sec_votes": 9269,
+      "sec_votes": 9512,
       "thi_cand": "R.RAMESH",
       "thi_party": "TVK",
-      "thi_votes": 3887,
-      "margin": 351,
-      "tot_votes": 23432,
+      "thi_votes": 3933,
+      "margin": 453,
+      "tot_votes": 24084,
       "votes_pct": 0.0
     },
     {
@@ -167,15 +167,15 @@
       "Constituency": "Embalam (SC)",
       "win_cand": "E. MOHANDOSS",
       "win_party": "AINRC",
-      "win_votes": 11229,
+      "win_votes": 13969,
       "sec_cand": "M. CANDASSAMY",
       "sec_party": "INC",
-      "sec_votes": 7694,
+      "sec_votes": 10512,
       "thi_cand": "V. TAMILSELVAN",
       "thi_party": "TVK",
-      "thi_votes": 2168,
-      "margin": 3535,
-      "tot_votes": 21728,
+      "thi_votes": 2447,
+      "margin": 3457,
+      "tot_votes": 27697,
       "votes_pct": 0.0
     },
     {

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T07:40:30.963979Z",
+  "last_updated": "2026-05-04T07:46:35.919725Z",
   "total_seats": 17,
   "data": [
     {
@@ -55,15 +55,15 @@
       "Constituency": "Kadirgamam",
       "win_cand": "AZHAGU @ AZHAGANANTHAM",
       "win_party": "OTH",
-      "win_votes": 11940,
+      "win_votes": 12228,
       "sec_cand": "K.S.P @ S. RAMESH",
       "sec_party": "AINRC",
-      "sec_votes": 6192,
+      "sec_votes": 6320,
       "thi_cand": "JAYANTHI RAJAVELU",
       "thi_party": "TVK",
-      "thi_votes": 2241,
-      "margin": 5748,
-      "tot_votes": 22762,
+      "thi_votes": 2286,
+      "margin": 5908,
+      "tot_votes": 23278,
       "votes_pct": 0.0
     },
     {
@@ -215,15 +215,15 @@
       "Constituency": "Karaikal North",
       "win_cand": "P.R.N. THIRUMURUGAN",
       "win_party": "AINRC",
-      "win_votes": 9219,
+      "win_votes": 12731,
       "sec_cand": "A.M. RANJITH",
       "sec_party": "INC",
-      "sec_votes": 6947,
+      "sec_votes": 10078,
       "thi_cand": "A. VENGADESH",
       "thi_party": "TVK",
-      "thi_votes": 3772,
-      "margin": 2272,
-      "tot_votes": 20969,
+      "thi_votes": 5033,
+      "margin": 2653,
+      "tot_votes": 29208,
       "votes_pct": 0.0
     },
     {

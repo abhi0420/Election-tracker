@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T09:16:15.090998Z",
-  "total_seats": 21,
+  "last_updated": "2026-05-04T09:29:59.829986Z",
+  "total_seats": 23,
   "data": [
     {
       "AC_NO": 1,
@@ -16,6 +16,22 @@
       "thi_votes": 3032,
       "margin": 6110,
       "tot_votes": 29502,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 2,
+      "Constituency": "Thirubhuvanai (SC)",
+      "win_cand": "B. KOBIGA",
+      "win_party": "AINRC",
+      "win_votes": 2463,
+      "sec_cand": "AK. SAI J SARAVANAN KUMAR",
+      "sec_party": "TVK",
+      "sec_votes": 2002,
+      "thi_cand": "P. ANGALANE",
+      "thi_party": "DMK",
+      "thi_votes": 1830,
+      "margin": 461,
+      "tot_votes": 7748,
       "votes_pct": 0.0
     },
     {
@@ -256,6 +272,22 @@
       "thi_votes": 5382,
       "margin": 6689,
       "tot_votes": 28718,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 23,
+      "Constituency": "Bahour",
+      "win_cand": "R. SENTHIL KUMAR",
+      "win_party": "DMK",
+      "win_votes": 2939,
+      "sec_cand": "T. THIAGARAJAN",
+      "sec_party": "AINRC",
+      "sec_votes": 2663,
+      "thi_cand": "N. DHANAVELOU",
+      "thi_party": "TVK",
+      "thi_votes": 1083,
+      "margin": 276,
+      "tot_votes": 6917,
       "votes_pct": 0.0
     },
     {

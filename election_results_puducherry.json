@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T10:16:24.807098Z",
+  "last_updated": "2026-05-04T10:19:51.872788Z",
   "total_seats": 25,
   "data": [
     {
@@ -103,15 +103,15 @@
       "Constituency": "Kamraj Nagar",
       "win_cand": "JOSE CHARLES MARTIN",
       "win_party": "OTH",
-      "win_votes": 11992,
+      "win_votes": 16592,
       "sec_cand": "P.K. DEVADOSS",
       "sec_party": "INC",
-      "sec_votes": 5041,
+      "sec_votes": 6387,
       "thi_cand": "SUMAN",
       "thi_party": "TVK",
-      "thi_votes": 4478,
-      "margin": 6951,
-      "tot_votes": 23007,
+      "thi_votes": 6289,
+      "margin": 10205,
+      "tot_votes": 31226,
       "votes_pct": 0.0
     },
     {
@@ -263,15 +263,15 @@
       "Constituency": "Manavely",
       "win_cand": "B.RAMU",
       "win_party": "TVK",
-      "win_votes": 10193,
+      "win_votes": 13551,
       "sec_cand": "EMBALAM SELVAM @ SELVAM. R",
       "sec_party": "BJP",
-      "sec_votes": 8476,
+      "sec_votes": 10630,
       "thi_cand": "R K R. ANANTHARAMAN",
       "thi_party": "INC",
-      "thi_votes": 3998,
-      "margin": 1717,
-      "tot_votes": 23991,
+      "thi_votes": 5697,
+      "margin": 2921,
+      "tot_votes": 31719,
       "votes_pct": 0.0
     },
     {

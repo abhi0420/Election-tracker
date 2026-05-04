@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T11:03:37.933628Z",
-  "total_seats": 27,
+  "last_updated": "2026-05-04T11:09:59.788745Z",
+  "total_seats": 28,
   "data": [
     {
       "AC_NO": 1,
@@ -99,6 +99,22 @@
       "votes_pct": 0.0
     },
     {
+      "AC_NO": 8,
+      "Constituency": "Indira Nagar",
+      "win_cand": "S. MOUROUGANE",
+      "win_party": "TVK",
+      "win_votes": 3778,
+      "sec_cand": "P.V. AROUMOUGAME @ AKD",
+      "sec_party": "AINRC",
+      "sec_votes": 3740,
+      "thi_cand": "N. RAJAKUMAR",
+      "thi_party": "INC",
+      "thi_votes": 498,
+      "margin": 38,
+      "tot_votes": 8570,
+      "votes_pct": 0.0
+    },
+    {
       "AC_NO": 9,
       "Constituency": "Thattanchavady",
       "win_cand": "N. RANGASAMY",
@@ -151,15 +167,15 @@
       "Constituency": "Kalapet",
       "win_cand": "SENTHIL @ RAMESH",
       "win_party": "DMK",
-      "win_votes": 6717,
+      "win_votes": 6865,
       "sec_cand": "P.M.L. KALYANASUNDARAM",
       "sec_party": "BJP",
-      "sec_votes": 6491,
+      "sec_votes": 6673,
       "thi_cand": "D. SASIKUMAR",
       "thi_party": "TVK",
-      "thi_votes": 2250,
-      "margin": 226,
-      "tot_votes": 16978,
+      "thi_votes": 2275,
+      "margin": 192,
+      "tot_votes": 17386,
       "votes_pct": 0.0
     },
     {

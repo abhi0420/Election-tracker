@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T06:25:02.134683Z",
+  "last_updated": "2026-05-04T06:29:21.742362Z",
   "total_seats": 17,
   "data": [
     {
@@ -87,15 +87,15 @@
       "Constituency": "Lawspet",
       "win_cand": "V.P. SIVAKOLUNDHU",
       "win_party": "AINRC",
-      "win_votes": 9201,
+      "win_votes": 10578,
       "sec_cand": "M. VAITHIANATHAN",
       "sec_party": "INC",
-      "sec_votes": 8220,
+      "sec_votes": 9161,
       "thi_cand": "V. SAMINATHAN",
       "thi_party": "TVK",
-      "thi_votes": 4799,
-      "margin": 981,
-      "tot_votes": 23418,
+      "thi_votes": 5647,
+      "margin": 1417,
+      "tot_votes": 26766,
       "votes_pct": 0.0
     },
     {
@@ -135,15 +135,15 @@
       "Constituency": "Nellithope",
       "win_cand": "V. CARTIGUEYANE",
       "win_party": "DMK",
-      "win_votes": 6993,
+      "win_votes": 8226,
       "sec_cand": "OMSAKTHISEKAR",
       "sec_party": "OTH",
-      "sec_votes": 6179,
+      "sec_votes": 7376,
       "thi_cand": "S. VIGNESHWARAN",
       "thi_party": "TVK",
-      "thi_votes": 4182,
-      "margin": 814,
-      "tot_votes": 21088,
+      "thi_votes": 4763,
+      "margin": 850,
+      "tot_votes": 24770,
       "votes_pct": 0.0
     },
     {

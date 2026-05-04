@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T16:25:42.868081Z",
+  "last_updated": "2026-05-04T17:09:18.887596Z",
   "total_seats": 30,
   "data": [
     {
@@ -87,15 +87,15 @@
       "Constituency": "Ozhukarai",
       "win_cand": "K.NARAYANASAMY ALIAS NITHYANANDAM",
       "win_party": "AINRC",
-      "win_votes": 10562,
+      "win_votes": 12635,
       "sec_cand": "SASIBALAN",
       "sec_party": "TVK",
-      "sec_votes": 7061,
+      "sec_votes": 8401,
       "thi_cand": "N. SARAVANAN",
       "thi_party": "OTH",
-      "thi_votes": 6587,
-      "margin": 3501,
-      "tot_votes": 30735,
+      "thi_votes": 7446,
+      "margin": 4234,
+      "tot_votes": 35893,
       "votes_pct": 0.0
     },
     {

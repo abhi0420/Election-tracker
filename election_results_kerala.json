@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T12:03:06.666278Z",
+  "last_updated": "2026-05-04T12:09:35.000219Z",
   "total_seats": 140,
   "data": [
     {
@@ -1671,15 +1671,15 @@
       "Constituency": "Ambalappuzha",
       "win_cand": "G.SUDHAKARAN",
       "win_party": "OTH",
-      "win_votes": 74818,
+      "win_votes": 75184,
       "sec_cand": "H. SALAM",
       "sec_party": "CPI(M)",
-      "sec_votes": 46946,
+      "sec_votes": 47249,
       "thi_cand": "ARUN ANIRUDHAN",
       "thi_party": "BJP",
-      "thi_votes": 16204,
-      "margin": 27872,
-      "tot_votes": 139964,
+      "thi_votes": 16348,
+      "margin": 27935,
+      "tot_votes": 140781,
       "votes_pct": 99.9
     },
     {

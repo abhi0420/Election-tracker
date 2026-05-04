@@ -44,84 +44,56 @@ def get_chrome_driver():
 
 def get_constituency_data(option_value, option_text, ac_no, election_event):
     driver = None
-    max_retries = 3
-    retry_count = 0
-    
-    while retry_count < max_retries:
+    try:
+        logging.info(f"Processing constituency {ac_no}: {option_text}")
+
+        driver = get_chrome_driver()
+        driver.set_page_load_timeout(60)
+
+        constituency_url = f"https://results.eci.gov.in/{election_event}/candidateswise-{option_value}.htm"
+        driver.get(constituency_url)
+
+        # Primary: click "Constituency Wise Table View" link (standard ECI layout)
         try:
-            if retry_count > 0:
-                logging.info(f"Retry {retry_count}/{max_retries} for constituency {ac_no}: {option_text}")
-            else:
-                logging.info(f"Processing constituency {ac_no}: {option_text}")
-            
-            # Initialize WebDriver
-            driver = get_chrome_driver()
-            driver.set_page_load_timeout(60)  # 60 second page load timeout
-
-            # Construct the URL for the constituency
-            constituency_url = f"https://results.eci.gov.in/{election_event}/candidateswise-{option_value}.htm"
-            driver.get(constituency_url)
-
-            # Primary: click "Constituency Wise Table View" link (standard ECI layout)
-            try:
-                table_view_link = WebDriverWait(driver, 30).until(
-                    EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
-                )
-                table_view_link.click()
-
-                # Wait for the new page to load and locate the table
-                WebDriverWait(driver, 20).until(
-                    EC.presence_of_element_located((By.XPATH, "//table"))
-                )
-                table = driver.find_element(By.XPATH, "//table")
-            except Exception:
-                # Fallback: ECI may show table directly without the click step
-                logging.warning(f"Table-view link not found for {option_text}, trying direct table on page")
-                tables = driver.find_elements(By.XPATH, "//table")
-                if not tables:
-                    raise RuntimeError(f"No table found at all for {option_text}")
-                table = tables[0]
-
-            # Extract header and rows
-            header = [th.text for th in table.find_elements(By.TAG_NAME, "th")]
-            rows = table.find_elements(By.TAG_NAME, "tr")
-            table_data = [
-                [td.text for td in row.find_elements(By.TAG_NAME, "td")]
-                for row in rows if row.find_elements(By.TAG_NAME, "td")
-            ]
-            
-            # IMPORTANT: Only return if we have data
-            if not table_data or len(table_data) == 0:
-                logging.warning(f"No table data found for {option_text}")
-                if driver:
-                    driver.quit()
-                    driver = None
-                retry_count += 1
-                if retry_count >= max_retries:
-                    return ac_no, option_text, None, None
-                time.sleep(2)  # Wait before retry
-                continue
-
-            # Success - return the extracted data with AC number
-            return ac_no, option_text, header, table_data
-
-        except Exception as e:
-            logging.error(f"Error processing constituency {option_text}: {e}")
-            retry_count += 1
-            if retry_count >= max_retries:
-                logging.error(f"Failed after {max_retries} retries for {option_text}")
+            table_view_link = WebDriverWait(driver, 30).until(
+                EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
+            )
+            table_view_link.click()
+            WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//table"))
+            )
+            table = driver.find_element(By.XPATH, "//table")
+        except Exception:
+            # Fallback: ECI may show table directly without the click step
+            logging.warning(f"Table-view link not found for {option_text}, trying direct table on page")
+            tables = driver.find_elements(By.XPATH, "//table")
+            if not tables:
+                logging.warning(f"No table found for {option_text}, skipping")
                 return ac_no, option_text, None, None
-            time.sleep(2)  # Wait before retry
-        finally:
-            if driver:
-                try:
-                    driver.quit()
-                except:
-                    pass
-                driver = None
-    
-    # If we get here, all retries failed
-    return ac_no, option_text, None, None
+            table = tables[0]
+
+        header = [th.text for th in table.find_elements(By.TAG_NAME, "th")]
+        rows = table.find_elements(By.TAG_NAME, "tr")
+        table_data = [
+            [td.text for td in row.find_elements(By.TAG_NAME, "td")]
+            for row in rows if row.find_elements(By.TAG_NAME, "td")
+        ]
+
+        if not table_data:
+            logging.warning(f"No table data for {option_text}, skipping")
+            return ac_no, option_text, None, None
+
+        return ac_no, option_text, header, table_data
+
+    except Exception as e:
+        logging.error(f"Error processing constituency {option_text}: {e}")
+        return ac_no, option_text, None, None
+    finally:
+        if driver:
+            try:
+                driver.quit()
+            except:
+                pass
 
 
 def main(state_code=None, ac_start=None, ac_end=None):

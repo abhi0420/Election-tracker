@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T13:37:59.195352Z",
+  "last_updated": "2026-05-04T13:52:51.898566Z",
   "total_seats": 140,
   "data": [
     {
@@ -119,15 +119,15 @@
       "Constituency": "Taliparamba",
       "win_cand": "T K GOVINDAN MASTER S/O KUNHIKKANNAN NAMBIAR",
       "win_party": "OTH",
-      "win_votes": 90946,
+      "win_votes": 91339,
       "sec_cand": "P K SHYAMALA TEACHER",
       "sec_party": "CPI(M)",
-      "sec_votes": 78378,
+      "sec_votes": 78788,
       "thi_cand": "N HARIDAS",
       "thi_party": "BJP",
-      "thi_votes": 16010,
-      "margin": 12568,
-      "tot_votes": 191268,
+      "thi_votes": 16089,
+      "margin": 12551,
+      "tot_votes": 192175,
       "votes_pct": 99.9
     },
     {

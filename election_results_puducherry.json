@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T13:37:59.195352Z",
+  "last_updated": "2026-05-04T13:52:51.898566Z",
   "total_seats": 30,
   "data": [
     {
@@ -55,15 +55,15 @@
       "Constituency": "Mangalam",
       "win_cand": "N. RANGASAMY",
       "win_party": "AINRC",
-      "win_votes": 15023,
+      "win_votes": 17917,
       "sec_cand": "S.S. RANGAN",
       "sec_party": "DMK",
-      "sec_votes": 9243,
+      "sec_votes": 10867,
       "thi_cand": "M.K. SATHIA MANIKKAVASAGANE",
       "thi_party": "TVK",
-      "thi_votes": 3579,
-      "margin": 5780,
-      "tot_votes": 29962,
+      "thi_votes": 4202,
+      "margin": 7050,
+      "tot_votes": 35405,
       "votes_pct": 0.0
     },
     {

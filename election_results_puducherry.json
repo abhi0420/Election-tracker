@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T05:50:38.885937Z",
+  "last_updated": "2026-05-04T05:56:35.769804Z",
   "total_seats": 17,
   "data": [
     {
@@ -87,15 +87,15 @@
       "Constituency": "Lawspet",
       "win_cand": "V.P. SIVAKOLUNDHU",
       "win_party": "AINRC",
-      "win_votes": 6706,
+      "win_votes": 9201,
       "sec_cand": "M. VAITHIANATHAN",
       "sec_party": "INC",
-      "sec_votes": 6454,
+      "sec_votes": 8220,
       "thi_cand": "V. SAMINATHAN",
       "thi_party": "TVK",
-      "thi_votes": 3568,
-      "margin": 252,
-      "tot_votes": 17631,
+      "thi_votes": 4799,
+      "margin": 981,
+      "tot_votes": 23418,
       "votes_pct": 0.0
     },
     {

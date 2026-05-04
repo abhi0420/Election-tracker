@@ -308,6 +308,11 @@ def auto_merge_election_data(state_code=None):
         # Merge on AC_NO
         print("[AUTO-MERGE] Merging data...")
         gdf_merged = gdf.merge(df_clean, on='AC_NO', how='left')
+
+        # Override AC_NAME with Constituency name from CSV (ECI names, not old shapefile names)
+        if 'Constituency' in df.columns:
+            name_map = df.set_index('AC_NO')['Constituency'].to_dict()
+            gdf_merged['AC_NAME'] = gdf_merged['AC_NO'].map(name_map).fillna(gdf_merged['AC_NAME'])
         
         # Fill missing data with "Awaiting Results"
         print("[AUTO-MERGE] Filling missing constituencies with 'Awaiting Results'...")
@@ -361,6 +366,10 @@ def get_live_election_data(state_code=None):
         return df
     except Exception as e:
         print(f"[GITHUB DATA] Failed to fetch {csv_file}: {e}")
+        # Fallback to local file
+        if os.path.exists(csv_file):
+            print(f"[GITHUB DATA] Falling back to local {csv_file}")
+            return pd.read_csv(csv_file)
         return None
 
 def get_available_states():
@@ -492,6 +501,10 @@ def create_election_map(state_name, state_code=None):
             # Merge with live data based on AC_NO (AC_NO must exist in shapefile!)
             if 'AC_NO' in state_gdf.columns:
                 state_gdf = state_gdf.merge(live_data, on='AC_NO', how='left')
+                # Override AC_NAME with ECI constituency names from CSV
+                if 'Constituency' in live_data.columns:
+                    name_map = live_data.dropna(subset=['Constituency']).set_index('AC_NO')['Constituency'].to_dict()
+                    state_gdf['AC_NAME'] = state_gdf['AC_NO'].map(name_map).fillna(state_gdf['AC_NAME'])
                 print("[MERGE] Merged live data with shapefile on AC_NO")
             else:
                 print("[ERROR] AC_NO not found in shapefile - cannot merge!")

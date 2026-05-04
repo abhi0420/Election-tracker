@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T17:09:18.887596Z",
-  "total_seats": 139,
+  "last_updated": "2026-05-04T17:52:30.333613Z",
+  "total_seats": 140,
   "data": [
     {
       "AC_NO": 1,
@@ -1568,6 +1568,22 @@
       "thi_votes": 11544,
       "margin": 52907,
       "tot_votes": 128180,
+      "votes_pct": 99.9
+    },
+    {
+      "AC_NO": 99,
+      "Constituency": "Changanassery",
+      "win_cand": "VINU JOB KUZHIMANNIL",
+      "win_party": "KC",
+      "win_votes": 55991,
+      "sec_cand": "ADV. JOB MAICHIL",
+      "sec_party": "KC(M)",
+      "sec_votes": 47623,
+      "thi_cand": "B RADHAKRISHNA MENON",
+      "thi_party": "BJP",
+      "thi_votes": 14803,
+      "margin": 8368,
+      "tot_votes": 121150,
       "votes_pct": 99.9
     },
     {

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T17:09:18.887596Z",
+  "last_updated": "2026-05-04T17:52:30.333613Z",
   "total_seats": 234,
   "data": [
     {
@@ -615,16 +615,16 @@
       "Constituency": "Sholingur",
       "win_cand": "G.KAPIL",
       "win_party": "TVK",
-      "win_votes": 77916,
+      "win_votes": 84506,
       "sec_cand": "K.SARAVANAN",
       "sec_party": "PMK",
-      "sec_votes": 74753,
+      "sec_votes": 78820,
       "thi_cand": "A.M.MUNIRATHINAM",
       "thi_party": "INC",
-      "thi_votes": 53095,
-      "margin": 3163,
-      "tot_votes": 217130,
-      "votes_pct": 93.71
+      "thi_votes": 57997,
+      "margin": 5686,
+      "tot_votes": 233684,
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 40,

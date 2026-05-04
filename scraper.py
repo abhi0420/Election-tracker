@@ -357,7 +357,8 @@ def main(state_code=None, ac_start=None, ac_end=None):
         logging.error(f"Fatal error in main: {e}")
         raise
     finally:
-        driver.quit()
+        if driver is not None:
+            driver.quit()
 
 
 def _merge_electors(election_df, electors_file):

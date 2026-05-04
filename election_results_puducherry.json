@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T11:09:59.788745Z",
-  "total_seats": 28,
+  "last_updated": "2026-05-04T11:18:20.635215Z",
+  "total_seats": 30,
   "data": [
     {
       "AC_NO": 1,
@@ -80,6 +80,22 @@
       "thi_votes": 6248,
       "margin": 1970,
       "tot_votes": 39346,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 6,
+      "Constituency": "Ozhukarai",
+      "win_cand": "K.NARAYANASAMY ALIAS NITHYANANDAM",
+      "win_party": "AINRC",
+      "win_votes": 2649,
+      "sec_cand": "SASIBALAN",
+      "sec_party": "TVK",
+      "sec_votes": 1833,
+      "thi_cand": "N. SARAVANAN",
+      "thi_party": "OTH",
+      "thi_votes": 1317,
+      "margin": 816,
+      "tot_votes": 7336,
       "votes_pct": 0.0
     },
     {
@@ -167,15 +183,15 @@
       "Constituency": "Kalapet",
       "win_cand": "SENTHIL @ RAMESH",
       "win_party": "DMK",
-      "win_votes": 6865,
+      "win_votes": 8655,
       "sec_cand": "P.M.L. KALYANASUNDARAM",
       "sec_party": "BJP",
-      "sec_votes": 6673,
+      "sec_votes": 8261,
       "thi_cand": "D. SASIKUMAR",
       "thi_party": "TVK",
-      "thi_votes": 2275,
-      "margin": 192,
-      "tot_votes": 17386,
+      "thi_votes": 3257,
+      "margin": 394,
+      "tot_votes": 22411,
       "votes_pct": 0.0
     },
     {
@@ -371,6 +387,22 @@
       "votes_pct": 0.0
     },
     {
+      "AC_NO": 25,
+      "Constituency": "Thirunallar",
+      "win_cand": "G.N.S. RAJASEKARAN",
+      "win_party": "BJP",
+      "win_votes": 6250,
+      "sec_cand": "R. KAMALAKANNAN",
+      "sec_party": "INC",
+      "sec_votes": 3925,
+      "thi_cand": "A. RAJA MOHAMED",
+      "thi_party": "TVK",
+      "thi_votes": 1271,
+      "margin": 2325,
+      "tot_votes": 11693,
+      "votes_pct": 0.0
+    },
+    {
       "AC_NO": 26,
       "Constituency": "Karaikal North",
       "win_cand": "P.R.N. THIRUMURUGAN",
@@ -391,15 +423,15 @@
       "Constituency": "Karaikal South",
       "win_cand": "A.M.H. NAZEEM",
       "win_party": "DMK",
-      "win_votes": 218,
+      "win_votes": 5688,
       "sec_cand": "AVS SAKTHIVEL PRABU",
       "sec_party": "INC",
-      "sec_votes": 86,
-      "thi_cand": "M. ARUL MURUGAN",
-      "thi_party": "BJP",
-      "thi_votes": 43,
-      "margin": 132,
-      "tot_votes": 387,
+      "sec_votes": 2716,
+      "thi_cand": "K.A.U. ASSANA",
+      "thi_party": "TVK",
+      "thi_votes": 1956,
+      "margin": 2972,
+      "tot_votes": 11185,
       "votes_pct": 0.0
     },
     {

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T17:52:30.333613Z",
+  "last_updated": "2026-05-04T18:40:08.411722Z",
   "total_seats": 234,
   "data": [
     {
@@ -431,7 +431,7 @@
       "thi_party": "ADMK",
       "thi_votes": 74112,
       "margin": 96780,
-      "tot_votes": 447296,
+      "tot_votes": 447295,
       "votes_pct": 99.9
     },
     {

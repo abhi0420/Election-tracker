@@ -1,23 +1,7 @@
 {
-  "last_updated": "2026-05-04T17:52:30.333613Z",
-  "total_seats": 126,
+  "last_updated": "2026-05-04T18:40:08.411722Z",
+  "total_seats": 124,
   "data": [
-    {
-      "AC_NO": 1,
-      "Constituency": "Gossaigaon",
-      "win_cand": "SABHARAM BASUMATARY",
-      "win_party": "BPF",
-      "win_votes": 44394,
-      "sec_cand": "PHEDRICSON HANSDAK",
-      "sec_party": "OTH",
-      "sec_votes": 21417,
-      "thi_cand": "ANINDA BASUMATARY",
-      "thi_party": "OTH",
-      "thi_votes": 17431,
-      "margin": 22977,
-      "tot_votes": 100093,
-      "votes_pct": 99.9
-    },
     {
       "AC_NO": 2,
       "Constituency": "Dotma (ST)",
@@ -96,22 +80,6 @@
       "thi_votes": 2485,
       "margin": 30782,
       "tot_votes": 194312,
-      "votes_pct": 99.9
-    },
-    {
-      "AC_NO": 7,
-      "Constituency": "Gauripur",
-      "win_cand": "ABDUS SOBAHAN ALI SARKAR",
-      "win_party": "INC",
-      "win_votes": 182971,
-      "sec_cand": "NIZANUR RAHMAN",
-      "sec_party": "AIUDF",
-      "sec_votes": 63874,
-      "thi_cand": "MEHETABUL HAQUE",
-      "thi_party": "AGP",
-      "thi_votes": 33142,
-      "margin": 119097,
-      "tot_votes": 299353,
       "votes_pct": 99.9
     },
     {

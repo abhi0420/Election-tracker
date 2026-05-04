@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T17:52:30.333613Z",
+  "last_updated": "2026-05-04T18:40:08.411722Z",
   "total_seats": 293,
   "data": [
     {
@@ -183,15 +183,15 @@
       "Constituency": "ALIPURDUARS",
       "win_cand": "PARITOSH DAS",
       "win_party": "BJP",
-      "win_votes": 142348,
+      "win_votes": 143242,
       "sec_cand": "SUMAN KANJILAL",
       "sec_party": "TMC",
-      "sec_votes": 72494,
+      "sec_votes": 72822,
       "thi_cand": "SHYAMAL ROY",
       "thi_party": "CPIM",
-      "thi_votes": 7259,
-      "margin": 69854,
-      "tot_votes": 231161,
+      "thi_votes": 7301,
+      "margin": 70420,
+      "tot_votes": 232466,
       "votes_pct": 99.9
     },
     {
@@ -1255,16 +1255,16 @@
       "Constituency": "PALASHIPARA",
       "win_cand": "RUKBANUR RAHMAN",
       "win_party": "TMC",
-      "win_votes": 79786,
+      "win_votes": 89241,
       "sec_cand": "ANIMA DUTTA",
       "sec_party": "BJP",
-      "sec_votes": 71931,
+      "sec_votes": 77787,
       "thi_cand": "MD SAMSUR ALI MALLICK",
       "thi_party": "OTH",
-      "thi_votes": 31043,
-      "margin": 7855,
-      "tot_votes": 194816,
-      "votes_pct": 91.36
+      "thi_votes": 34584,
+      "margin": 11454,
+      "tot_votes": 214650,
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 80,
@@ -2279,16 +2279,16 @@
       "Constituency": "DIAMOND HARBOUR",
       "win_cand": "PANNA LAL HALDER",
       "win_party": "TMC",
-      "win_votes": 117724,
+      "win_votes": 119320,
       "sec_cand": "DIPAK KUMAR HALDER",
       "sec_party": "BJP",
-      "sec_votes": 86509,
+      "sec_votes": 88054,
       "thi_cand": "SAMAR NAIYA",
       "thi_party": "CPIM",
-      "thi_votes": 17381,
-      "margin": 31215,
-      "tot_votes": 228764,
-      "votes_pct": 99.02
+      "thi_votes": 17594,
+      "margin": 31266,
+      "tot_votes": 232238,
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 145,
@@ -2304,7 +2304,7 @@
       "thi_votes": 11736,
       "margin": 401,
       "tot_votes": 239370,
-      "votes_pct": 0.1
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 146,
@@ -4647,16 +4647,16 @@
       "Constituency": "HANSAN",
       "win_cand": "FAYEZUL HAQUE (KAJAL SK)",
       "win_party": "TMC",
-      "win_votes": 95322,
+      "win_votes": 103223,
       "sec_cand": "NIKHIL BANERJEE",
       "sec_party": "BJP",
-      "sec_votes": 69502,
+      "sec_votes": 74925,
       "thi_cand": "KAMAL HASAN",
       "thi_party": "CPIM",
-      "thi_votes": 20575,
-      "margin": 25820,
-      "tot_votes": 209998,
-      "votes_pct": 93.24
+      "thi_votes": 22111,
+      "margin": 28298,
+      "tot_votes": 226555,
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 293,

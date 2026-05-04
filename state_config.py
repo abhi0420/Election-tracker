@@ -9,7 +9,7 @@ TAMIL_NADU = {
     'name': 'Tamil Nadu',
     'code': 'tn',
     'year': 2026,
-    'election_event': 'https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm',  # placeholder – update when ECI publishes
+    'election_event': 'ResultAcGenMay2026',
     'prev_year': 2021,
     'eci_state_code': 'S22',
     'total_pages': 12,  # 234 seats / ~20 per page

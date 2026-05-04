@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T10:43:18.259102Z",
-  "total_seats": 25,
+  "last_updated": "2026-05-04T10:52:51.600827Z",
+  "total_seats": 26,
   "data": [
     {
       "AC_NO": 1,
@@ -23,15 +23,15 @@
       "Constituency": "Thirubhuvanai (SC)",
       "win_cand": "B. KOBIGA",
       "win_party": "AINRC",
-      "win_votes": 5136,
+      "win_votes": 6923,
       "sec_cand": "AK. SAI J SARAVANAN KUMAR",
       "sec_party": "TVK",
-      "sec_votes": 4160,
+      "sec_votes": 6896,
       "thi_cand": "P. ANGALANE",
       "thi_party": "DMK",
-      "thi_votes": 3912,
-      "margin": 976,
-      "tot_votes": 15618,
+      "thi_votes": 5646,
+      "margin": 27,
+      "tot_votes": 23175,
       "votes_pct": 0.0
     },
     {
@@ -48,6 +48,22 @@
       "thi_votes": 3698,
       "margin": 4018,
       "tot_votes": 31301,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 4,
+      "Constituency": "Mangalam",
+      "win_cand": "N. RANGASAMY",
+      "win_party": "AINRC",
+      "win_votes": 3824,
+      "sec_cand": "S.S. RANGAN",
+      "sec_party": "DMK",
+      "sec_votes": 2575,
+      "thi_cand": "M.K. SATHIA MANIKKAVASAGANE",
+      "thi_party": "TVK",
+      "thi_votes": 764,
+      "margin": 1249,
+      "tot_votes": 7725,
       "votes_pct": 0.0
     },
     {
@@ -133,17 +149,17 @@
     {
       "AC_NO": 12,
       "Constituency": "Kalapet",
-      "win_cand": "P.M.L. KALYANASUNDARAM",
-      "win_party": "BJP",
-      "win_votes": 4513,
-      "sec_cand": "SENTHIL @ RAMESH",
-      "sec_party": "DMK",
-      "sec_votes": 4441,
+      "win_cand": "SENTHIL @ RAMESH",
+      "win_party": "DMK",
+      "win_votes": 6717,
+      "sec_cand": "P.M.L. KALYANASUNDARAM",
+      "sec_party": "BJP",
+      "sec_votes": 6491,
       "thi_cand": "D. SASIKUMAR",
       "thi_party": "TVK",
-      "thi_votes": 1510,
-      "margin": 72,
-      "tot_votes": 11408,
+      "thi_votes": 2250,
+      "margin": 226,
+      "tot_votes": 16978,
       "votes_pct": 0.0
     },
     {

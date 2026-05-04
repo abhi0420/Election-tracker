@@ -26,17 +26,21 @@ def get_chrome_driver():
     chrome_options = Options()
     chrome_options.add_argument("--headless=new")
     chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--window-size=1920,1080")
+    chrome_options.add_argument("--window-size=1280,720")
     chrome_options.add_argument("--disable-dev-shm-usage")
     chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-setuid-sandbox")
-    chrome_options.add_argument("--disable-crash-reporter")  # Prevent crash dumps
+    chrome_options.add_argument("--disable-crash-reporter")
     chrome_options.add_argument("--disable-extensions")
     chrome_options.add_argument("--disable-in-process-stack-traces")
     chrome_options.add_argument("--disable-logging")
     chrome_options.add_argument("--disable-dev-tools")
-    chrome_options.add_argument("--log-level=3")  # Suppress logs
+    chrome_options.add_argument("--log-level=3")
     chrome_options.add_argument("--silent")
+    chrome_options.add_argument("--disable-images")
+    chrome_options.add_argument("--blink-settings=imagesEnabled=false")
+    chrome_options.add_argument("--js-flags=--max-old-space-size=128")
+    chrome_options.add_argument("--memory-pressure-off")
     chrome_options.add_argument("--user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.121 Safari/537.36")
     
     # Use system Chrome (works on GitHub Actions)
@@ -135,7 +139,7 @@ def main(state_code=None, ac_start=None, ac_end=None):
 
         # Use ThreadPoolExecutor for concurrent scraping
         # Reduced workers to prevent crashes and timeouts (8 workers for stability)
-        with concurrent.futures.ThreadPoolExecutor(max_workers=8) as executor:
+        with concurrent.futures.ThreadPoolExecutor(max_workers=4) as executor:
             futures = []
             for constituency in all_constituencies:
                 # New URL format: candidateswise-{eci_state_code}{number}.htm

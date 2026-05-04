@@ -1,15 +1,15 @@
 name: Election Data Scraper
 
 # Schedule (all times UTC — India is UTC+5:30)
-# Peak    IST  9:00am–3:00pm  =  UTC  3:30am–9:30am   →  */5  3-9  * * *
+# Peak    IST  9:00am–3:00pm  =  UTC  3:30am–9:30am   →  */5 3-9 * * *
 # Mid     IST  3:00pm–7:00pm  =  UTC  9:30am–1:30pm   →  */10 10-13 * * *
 # Off-peak IST 7:00pm–9:00am  =  UTC  1:30pm–3:30am   →  */15 14-23,0-2 * * *
 on:
   schedule:
-    - cron: '*/5  3-9  * * *'    # Peak:     every 5 min  (IST 9am–3pm)
+    - cron: '*/5 3-9 * * *'      # Peak:     every 5 min  (IST 9am–3pm)
     - cron: '*/10 10-13 * * *'   # Mid:      every 10 min (IST 3pm–7pm)
     - cron: '*/15 14-23 * * *'   # Off-peak: every 15 min (IST 7pm–5:30am)
-    - cron: '*/15 0-2   * * *'   # Off-peak: every 15 min (IST 5:30am–8:30am)
+    - cron: '*/15 0-2 * * *'     # Off-peak: every 15 min (IST 5:30am–8:30am)
   workflow_dispatch:              # Allow manual trigger at any time
 
 # Cancel any in-progress run when a new trigger fires — always use freshest data

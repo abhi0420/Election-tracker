@@ -9,6 +9,8 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 import json
+import requests
+from bs4 import BeautifulSoup
 import sys
 from datetime import datetime
 import logging
@@ -43,28 +45,27 @@ def get_chrome_driver():
     return webdriver.Chrome(options=chrome_options)
 
 def get_constituency_data(option_value, option_text, ac_no, election_event):
-    driver = None
+    """Fetch constituency table using plain HTTP — no Chrome needed, table is server-rendered HTML."""
     try:
         logging.info(f"Processing constituency {ac_no}: {option_text}")
 
-        driver = get_chrome_driver()
-        driver.set_page_load_timeout(60)
-
-        # Go directly to the table view page — skip the intermediate candidateswise page
-        # URL pattern: Constituencywise{state_code}{ac_no}.htm
         table_url = f"https://results.eci.gov.in/{election_event}/Constituencywise{option_value}.htm"
-        driver.get(table_url)
+        resp = requests.get(table_url, timeout=30, headers={
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36'
+        })
+        resp.raise_for_status()
 
-        WebDriverWait(driver, 30).until(
-            EC.presence_of_element_located((By.XPATH, "//table"))
-        )
-        table = driver.find_element(By.XPATH, "//table")
+        soup = BeautifulSoup(resp.text, 'html.parser')
+        table = soup.find('table')
+        if not table:
+            logging.warning(f"No table found for {option_text}, skipping")
+            return ac_no, option_text, None, None
 
-        header = [th.text for th in table.find_elements(By.TAG_NAME, "th")]
-        rows = table.find_elements(By.TAG_NAME, "tr")
+        header = [th.get_text(strip=True) for th in table.find_all('th')]
         table_data = [
-            [td.text for td in row.find_elements(By.TAG_NAME, "td")]
-            for row in rows if row.find_elements(By.TAG_NAME, "td")
+            [td.get_text(strip=True) for td in row.find_all('td')]
+            for row in table.find_all('tr')
+            if row.find_all('td')
         ]
 
         if not table_data:
@@ -76,12 +77,6 @@ def get_constituency_data(option_value, option_text, ac_no, election_event):
     except Exception as e:
         logging.error(f"Error processing constituency {option_text}: {e}")
         return ac_no, option_text, None, None
-    finally:
-        if driver:
-            try:
-                driver.quit()
-            except:
-                pass
 
 
 def main(state_code=None, ac_start=None, ac_end=None):

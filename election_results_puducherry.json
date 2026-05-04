@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T10:19:51.872788Z",
+  "last_updated": "2026-05-04T10:37:10.304001Z",
   "total_seats": 25,
   "data": [
     {
@@ -199,15 +199,15 @@
       "Constituency": "Orleampeth",
       "win_cand": "G. NEHRU ALIAS COUPPOUSSAMY",
       "win_party": "OTH",
-      "win_votes": 8553,
+      "win_votes": 9960,
       "sec_cand": "S. GOPAL",
       "sec_party": "DMK",
-      "sec_votes": 7398,
+      "sec_votes": 8759,
       "thi_cand": "A. GANDHI",
       "thi_party": "ADMK",
-      "thi_votes": 272,
-      "margin": 1155,
-      "tot_votes": 16725,
+      "thi_votes": 300,
+      "margin": 1201,
+      "tot_votes": 19594,
       "votes_pct": 0.0
     },
     {
@@ -263,15 +263,15 @@
       "Constituency": "Manavely",
       "win_cand": "B.RAMU",
       "win_party": "TVK",
-      "win_votes": 13551,
+      "win_votes": 13822,
       "sec_cand": "EMBALAM SELVAM @ SELVAM. R",
       "sec_party": "BJP",
-      "sec_votes": 10630,
+      "sec_votes": 10729,
       "thi_cand": "R K R. ANANTHARAMAN",
       "thi_party": "INC",
-      "thi_votes": 5697,
-      "margin": 2921,
-      "tot_votes": 31719,
+      "thi_votes": 5932,
+      "margin": 3093,
+      "tot_votes": 32386,
       "votes_pct": 0.0
     },
     {

@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T07:23:34.211261Z",
+  "last_updated": "2026-05-04T07:35:39.661369Z",
   "total_seats": 17,
   "data": [
     {
@@ -231,15 +231,15 @@
       "Constituency": "Neravy- T.R. Pattin",
       "win_cand": "TKSM MEENATCHISUNDARAM",
       "win_party": "BJP",
-      "win_votes": 8060,
+      "win_votes": 10818,
       "sec_cand": "M. NAGATHIYAGARAJAN (NTR)",
       "sec_party": "DMK",
-      "sec_votes": 7153,
-      "thi_cand": "GANESH @ PRANADARTI GARESWARAN",
-      "thi_party": "TVK",
-      "thi_votes": 2157,
-      "margin": 907,
-      "tot_votes": 20029,
+      "sec_votes": 8800,
+      "thi_cand": "V.M.C.S. MANOHAREN",
+      "thi_party": "OTH",
+      "thi_votes": 3296,
+      "margin": 2018,
+      "tot_votes": 26545,
       "votes_pct": 0.0
     },
     {
@@ -247,15 +247,15 @@
       "Constituency": "Mahe",
       "win_cand": "ADV. T. ASHOK KUMAR",
       "win_party": "OTH",
-      "win_votes": 5957,
+      "win_votes": 8375,
       "sec_cand": "RAMESH PARAMBATH",
       "sec_party": "INC",
-      "sec_votes": 5664,
+      "sec_votes": 7260,
       "thi_cand": "A. DINESAN",
       "thi_party": "BJP",
-      "thi_votes": 5295,
-      "margin": 293,
-      "tot_votes": 17790,
+      "thi_votes": 6969,
+      "margin": 1115,
+      "tot_votes": 23801,
       "votes_pct": 0.0
     },
     {

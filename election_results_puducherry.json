@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T07:35:39.661369Z",
+  "last_updated": "2026-05-04T07:40:30.963979Z",
   "total_seats": 17,
   "data": [
     {
@@ -39,15 +39,15 @@
       "Constituency": "Villianur",
       "win_cand": "B.RAVICOUMAR",
       "win_party": "AINRC",
-      "win_votes": 13881,
+      "win_votes": 16970,
       "sec_cand": "R.SIVA",
       "sec_party": "DMK",
-      "sec_votes": 12721,
+      "sec_votes": 15000,
       "thi_cand": "R.RAMESH",
       "thi_party": "TVK",
-      "thi_votes": 5238,
-      "margin": 1160,
-      "tot_votes": 32760,
+      "thi_votes": 6248,
+      "margin": 1970,
+      "tot_votes": 39346,
       "votes_pct": 0.0
     },
     {
@@ -183,15 +183,15 @@
       "Constituency": "Nettapakkam (SC)",
       "win_cand": "P. RAJAVELU",
       "win_party": "AINRC",
-      "win_votes": 9968,
+      "win_votes": 12698,
       "sec_cand": "G. ANBARASAN",
       "sec_party": "INC",
-      "sec_votes": 4575,
+      "sec_votes": 6106,
       "thi_cand": "L PERIASAMY",
       "thi_party": "TVK",
-      "thi_votes": 4295,
-      "margin": 5393,
-      "tot_votes": 20894,
+      "thi_votes": 5209,
+      "margin": 6592,
+      "tot_votes": 26629,
       "votes_pct": 0.0
     },
     {

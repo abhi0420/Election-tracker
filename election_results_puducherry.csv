@@ -1,31 +1,10 @@
 AC_NO,Constituency,win_cand,win_party,win_votes,sec_cand,sec_party,sec_votes,thi_cand,thi_party,thi_votes,margin,tot_votes,votes_pct
-1,Mannadipet,,,,,,,,,,,,
-2,Thirubhuvanai (Sc),,,,,,,,,,,,
-3,Oussudu (Sc),,,,,,,,,,,,
-4,Mangalam,,,,,,,,,,,,
-5,Villianur,,,,,,,,,,,,
-6,Ozhukarai,,,,,,,,,,,,
-7,Kadirgamam,,,,,,,,,,,,
-8,Indira Nagar,,,,,,,,,,,,
-9,Thattanchavady,,,,,,,,,,,,
-10,Kamraj Nagar,,,,,,,,,,,,
-11,Lawspet,,,,,,,,,,,,
-12,Kalapet,,,,,,,,,,,,
-13,Muthialpet,,,,,,,,,,,,
-14,Raj Bhavan,,,,,,,,,,,,
-15,Oupalam,,,,,,,,,,,,
-16,Orleampeth,,,,,,,,,,,,
-17,Nellithope,,,,,,,,,,,,
-18,Mudaliarpet,,,,,,,,,,,,
-19,Ariankuppam,,,,,,,,,,,,
-20,Manavely,,,,,,,,,,,,
-21,Embalam (Sc),,,,,,,,,,,,
-22,Nettapakkam (Sc),,,,,,,,,,,,
-23,Bahour,,,,,,,,,,,,
-24,Nedungadu (Sc),,,,,,,,,,,,
-25,Thirunallar,,,,,,,,,,,,
-26,Karaikal North,,,,,,,,,,,,
-27,Karaikal South,,,,,,,,,,,,
-28,Neravy- T.R. Pattin,,,,,,,,,,,,
-29,Mahe,,,,,,,,,,,,
-30,Yanam,,,,,,,,,,,,
+3,OUSSUDU,P. KARTHIKEYAN,INC,4279,E. THEEPPAINTHAN,BJP,2854,S. SARAGANABAVA,TVK,758,1425,8039,0.0
+9,THATTANCHAVADY,N. RANGASAMY,AINRC,3447,E. VINAYAGAM,OTH,1520,K. SETHU @ SETHUSELVAM,OTH,1415,1927,7466,0.0
+11,LAWSPET,M. VAITHIANATHAN,INC,2124,V.P. SIVAKOLUNDHU,AINRC,1927,V. SAMINATHAN,TVK,1270,197,5566,0.0
+13,MUTHIALPET,VAIYAPURI MANIKANDAN,AINRC,1938,EERAM G. RAJENDRAN,INC,1901,M. PRABAGARAN,OTH,1200,37,6258,0.0
+15,OUPALAM,A ANBALAGAN,ADMK,4731,S SIVA,TVK,3545,ANNIBAL KENNEDY,DMK,3019,1186,11539,0.0
+17,NELLITHOPE,V. CARTIGUEYANE,DMK,2500,OMSAKTHISEKAR,OTH,2394,S. VIGNESHWARAN,TVK,1416,106,7747,0.0
+19,ARIANKUPPAM,C. AIYAPPAN @ MOUTTAYAPPAN,AINRC,3031,VIZAYALAKSHMY DJEAMOURTHY,INC,2971,KUMARAVELU,TVK,1234,60,7479,0.0
+29,MAHE,ADV. T. ASHOK KUMAR,OTH,1806,RAMESH PARAMBATH,INC,1378,A. DINESAN,BJP,1288,428,4774,0.0
+30,YANAM,MALLADI KRISHNA RAO,AINRC,4417,GOLLAPALLI SRINIVAS ASHOK,INC,3918,THOTA RAJU,TVK,45,499,8490,0.0

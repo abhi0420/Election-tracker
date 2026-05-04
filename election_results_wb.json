@@ -1,7 +1,23 @@
 {
-  "last_updated": "2026-05-04T04:02:14.755475Z",
-  "total_seats": 7,
+  "last_updated": "2026-05-04T04:11:09.615085Z",
+  "total_seats": 11,
   "data": [
+    {
+      "AC_NO": 7,
+      "Constituency": "DINHATA",
+      "win_cand": "AJAY RAY",
+      "win_party": "BJP",
+      "win_votes": 6333,
+      "sec_cand": "UDAYAN GUHA",
+      "sec_party": "TMC",
+      "sec_votes": 4686,
+      "thi_cand": "BIKAS MANDAL",
+      "thi_party": "OTH",
+      "thi_votes": 94,
+      "margin": 1647,
+      "tot_votes": 11338,
+      "votes_pct": 4.27
+    },
     {
       "AC_NO": 22,
       "Constituency": "KALIMPONG",
@@ -51,6 +67,22 @@
       "votes_pct": 5.44
     },
     {
+      "AC_NO": 149,
+      "Constituency": "KASBA",
+      "win_cand": "AHMED JAVED KHAN",
+      "win_party": "TMC",
+      "win_votes": 9215,
+      "sec_cand": "BANERJEE SANDIP",
+      "sec_party": "BJP",
+      "sec_votes": 802,
+      "thi_cand": "MD. HASIM ZESHAN AHMAD",
+      "thi_party": "INC",
+      "thi_votes": 178,
+      "margin": 8413,
+      "tot_votes": 10489,
+      "votes_pct": 4.38
+    },
+    {
       "AC_NO": 222,
       "Constituency": "JHARGRAM",
       "win_cand": "LAKSHMI KANTA SAU",
@@ -65,6 +97,38 @@
       "margin": 2872,
       "tot_votes": 20991,
       "votes_pct": 9.64
+    },
+    {
+      "AC_NO": 240,
+      "Constituency": "BAGHMUNDI",
+      "win_cand": "RAHIDAS MAHATO",
+      "win_party": "BJP",
+      "win_votes": 4634,
+      "sec_cand": "SUSHANTA MAHATO",
+      "sec_party": "TMC",
+      "sec_votes": 2947,
+      "thi_cand": "NEPAL CHANDRA MAHATO",
+      "thi_party": "INC",
+      "thi_votes": 1502,
+      "margin": 1687,
+      "tot_votes": 9616,
+      "votes_pct": 4.21
+    },
+    {
+      "AC_NO": 252,
+      "Constituency": "BANKURA",
+      "win_cand": "NILADRI SEKHAR DANA",
+      "win_party": "BJP",
+      "win_votes": 5993,
+      "sec_cand": "DR. ANUP MANDAL",
+      "sec_party": "TMC",
+      "sec_votes": 3565,
+      "thi_cand": "AVOYANANDA MUKHOPADHYAY",
+      "thi_party": "CPIM",
+      "thi_votes": 352,
+      "margin": 2428,
+      "tot_votes": 10460,
+      "votes_pct": 4.44
     },
     {
       "AC_NO": 263,

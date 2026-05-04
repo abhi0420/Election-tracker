@@ -95,7 +95,7 @@ WEST_BENGAL = {
     'election_event': 'ResultAcGenMay2026',
     'prev_election_event': 'ResultAcGenMay2021',
     'prev_year': 2021,
-    'eci_state_code': 'S28',
+    'eci_state_code': 'S25',
     'total_pages': 15,  # 294 seats / ~20 per page
     'total_seats': 294,
     'shapefile_st_name': 'WEST BENGAL',

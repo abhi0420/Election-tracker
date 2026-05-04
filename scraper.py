@@ -152,8 +152,8 @@ def main(state_code=None, ac_start=None, ac_end=None):
     try:
         driver.get(f"https://results.eci.gov.in/{election_event}/statewise{eci_state_code}1.htm")
         
-        # Wait for table to load
-        WebDriverWait(driver, 5).until(
+        # Wait for table to load — generous timeout, ECI can be slow under load
+        WebDriverWait(driver, 30).until(
             EC.presence_of_element_located((By.TAG_NAME, "table"))
         )
         

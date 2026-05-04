@@ -9,9 +9,9 @@ TAMIL_NADU = {
     'name': 'Tamil Nadu',
     'code': 'tn',
     'year': 2026,
-    'election_event': 'ResultAcGenMay2026',  # placeholder – update when ECI publishes
+    'election_event': 'https://results.eci.gov.in/ResultAcGenMay2026/partywiseresult-S22.htm',  # placeholder – update when ECI publishes
     'prev_year': 2021,
-    'eci_state_code': 'S23',
+    'eci_state_code': 'S22',
     'total_pages': 12,  # 234 seats / ~20 per page
     'total_seats': 234,
     'shapefile_st_name': 'TAMIL NADU',
@@ -49,9 +49,9 @@ TAMIL_NADU = {
             'description': 'DMK, INC, CPIM, CPI, VCK, MDMK, IUML, SDPI, KMDK, MMK',
         },
         'ADMK+': {
-            'parties': ['ADMK', 'BJP', 'PMK', 'TMC(M)'],
+            'parties': ['ADMK', 'BJP', 'PMK', 'TMC(M)', 'AMMK'],
             'color': '#006400',
-            'description': 'ADMK, BJP, PMK, TMC(M)',
+            'description': 'ADMK, BJP, PMK, TMC(M), AMMK',
         },
         'TVK': {
             'parties': ['TVK'],
@@ -59,7 +59,7 @@ TAMIL_NADU = {
             'description': 'Tamilaga Vettri Kazhagam',
         },
         'OTH': {
-            'parties': ['OTH', 'AMMK', 'NTK'],
+            'parties': ['OTH', 'NTK'],
             'color': '#95A5A6',
             'description': 'Other Parties & Independents',
         },
@@ -230,7 +230,7 @@ KERALA = {
     'election_event': 'ResultAcGenMay2026',
     'prev_election_event': 'ResultAcGenMay2021',
     'prev_year': 2021,
-    'eci_state_code': 'S12',
+    'eci_state_code': 'S11',
     'total_pages': 8,  # 140 seats / ~20 per page
     'total_seats': 140,
     'shapefile_st_name': 'KERALA',

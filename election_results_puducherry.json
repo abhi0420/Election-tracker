@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T07:03:17.928117Z",
+  "last_updated": "2026-05-04T07:10:02.688596Z",
   "total_seats": 17,
   "data": [
     {
@@ -199,15 +199,15 @@
       "Constituency": "Nedungadu (SC)",
       "win_cand": "DR. V. VIGNESWARAN",
       "win_party": "OTH",
-      "win_votes": 11599,
+      "win_votes": 14368,
       "sec_cand": "C. CHANDIRA PRIYANGA",
       "sec_party": "AINRC",
-      "sec_votes": 8479,
+      "sec_votes": 9869,
       "thi_cand": "U. KAMARAJ",
       "thi_party": "TVK",
-      "thi_votes": 1563,
-      "margin": 3120,
-      "tot_votes": 23579,
+      "thi_votes": 1865,
+      "margin": 4499,
+      "tot_votes": 28431,
       "votes_pct": 0.0
     },
     {

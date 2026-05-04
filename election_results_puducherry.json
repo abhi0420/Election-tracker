@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T06:54:26.650482Z",
+  "last_updated": "2026-05-04T06:59:57.551233Z",
   "total_seats": 17,
   "data": [
     {
@@ -183,15 +183,15 @@
       "Constituency": "Nettapakkam (SC)",
       "win_cand": "P. RAJAVELU",
       "win_party": "AINRC",
-      "win_votes": 7342,
+      "win_votes": 9968,
       "sec_cand": "G. ANBARASAN",
       "sec_party": "INC",
-      "sec_votes": 3642,
+      "sec_votes": 4575,
       "thi_cand": "L PERIASAMY",
       "thi_party": "TVK",
-      "thi_votes": 3311,
-      "margin": 3700,
-      "tot_votes": 16185,
+      "thi_votes": 4295,
+      "margin": 5393,
+      "tot_votes": 20894,
       "votes_pct": 0.0
     },
     {

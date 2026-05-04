@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T05:03:36.208775Z",
+  "last_updated": "2026-05-04T05:08:42.922866Z",
   "total_seats": 17,
   "data": [
     {
@@ -135,15 +135,15 @@
       "Constituency": "Nellithope",
       "win_cand": "V. CARTIGUEYANE",
       "win_party": "DMK",
-      "win_votes": 2618,
+      "win_votes": 4682,
       "sec_cand": "OMSAKTHISEKAR",
       "sec_party": "OTH",
-      "sec_votes": 2455,
+      "sec_votes": 4383,
       "thi_cand": "S. VIGNESHWARAN",
       "thi_party": "TVK",
-      "thi_votes": 1440,
-      "margin": 163,
-      "tot_votes": 8014,
+      "thi_votes": 2745,
+      "margin": 299,
+      "tot_votes": 14391,
       "votes_pct": 0.0
     },
     {

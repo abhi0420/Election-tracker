@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T12:53:59.269990Z",
+  "last_updated": "2026-05-04T13:37:59.195352Z",
   "total_seats": 140,
   "data": [
     {
@@ -119,15 +119,15 @@
       "Constituency": "Taliparamba",
       "win_cand": "T K GOVINDAN MASTER S/O KUNHIKKANNAN NAMBIAR",
       "win_party": "OTH",
-      "win_votes": 90610,
+      "win_votes": 90946,
       "sec_cand": "P K SHYAMALA TEACHER",
       "sec_party": "CPI(M)",
-      "sec_votes": 78185,
+      "sec_votes": 78378,
       "thi_cand": "N HARIDAS",
       "thi_party": "BJP",
-      "thi_votes": 15982,
-      "margin": 12425,
-      "tot_votes": 190696,
+      "thi_votes": 16010,
+      "margin": 12568,
+      "tot_votes": 191268,
       "votes_pct": 99.9
     },
     {
@@ -727,16 +727,16 @@
       "Constituency": "Kottakkal",
       "win_cand": "PROF. ABID HUSSAIN THANGAL",
       "win_party": "IUML",
-      "win_votes": 115398,
+      "win_votes": 118111,
       "sec_cand": "PREETHI KONCHATH",
       "sec_party": "CPI(M)",
-      "sec_votes": 54552,
+      "sec_votes": 55473,
       "thi_cand": "SUBRAMANNIAN C",
       "thi_party": "OTH",
-      "thi_votes": 10328,
-      "margin": 60846,
-      "tot_votes": 187199,
-      "votes_pct": 98.85
+      "thi_votes": 10558,
+      "margin": 62638,
+      "tot_votes": 191211,
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 47,

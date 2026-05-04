@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T18:40:08.411722Z",
+  "last_updated": "2026-05-04T19:14:34.136539Z",
   "total_seats": 293,
   "data": [
     {
@@ -2183,16 +2183,16 @@
       "Constituency": "BARUIPUR PURBA(SC)",
       "win_cand": "BIVAS SARDAR",
       "win_party": "TMC",
-      "win_votes": 109625,
+      "win_votes": 120987,
       "sec_cand": "TUMPA SARDAR",
       "sec_party": "BJP",
-      "sec_votes": 83820,
+      "sec_votes": 89172,
       "thi_cand": "SWAPAN NASKAR",
       "thi_party": "CPIM",
-      "thi_votes": 17713,
-      "margin": 25805,
-      "tot_votes": 218029,
-      "votes_pct": 93.67
+      "thi_votes": 19649,
+      "margin": 31815,
+      "tot_votes": 237319,
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 138,

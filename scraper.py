@@ -146,65 +146,31 @@ def main(state_code=None, ac_start=None, ac_end=None):
     else:
         logging.info(f"Starting election data scraper for {sc['name']}...")
 
-    # Set up initial WebDriver to get constituency list from table
-    driver = get_chrome_driver()
-    
-    try:
-        driver.get(f"https://results.eci.gov.in/{election_event}/statewise{eci_state_code}1.htm")
-        
-        # Wait for table to load — generous timeout, ECI can be slow under load
-        WebDriverWait(driver, 60).until(
-            EC.presence_of_element_located((By.TAG_NAME, "table"))
-        )
-        
-        # Get all constituency rows from all pages
-        all_constituencies = []
-        
-        for page_num in range(1, total_pages + 1):
-            url = f"https://results.eci.gov.in/{election_event}/statewise{eci_state_code}{page_num}.htm"
-            
-            logging.info(f"Fetching constituency list from page {page_num}/{total_pages}...")
+    # Build constituency list from known AC range — avoids slow statewise page entirely
+    # Load names from electors/CSV file if available, fall back to AC number as label
+    ac_names = {}
+    for name_file in [electors_file, csv_file]:
+        if name_file and os.path.exists(name_file):
             try:
-                driver.get(url)
-                time.sleep(1)
-                
-                # Primary: original ECI layout — single <table> with constituency rows
-                try:
-                    table = driver.find_element(By.TAG_NAME, "table")
-                    rows = table.find_elements(By.TAG_NAME, "tr")
-                except Exception:
-                    # Fallback: ECI changed layout — try any available table
-                    tables = driver.find_elements(By.TAG_NAME, "table")
-                    if not tables:
-                        logging.warning(f"No table found on page {page_num}, skipping")
-                        continue
-                    logging.warning(f"Primary table lookup failed on page {page_num}, using fallback")
-                    rows = tables[0].find_elements(By.TAG_NAME, "tr")
-                
-                for row in rows:
-                    cells = row.find_elements(By.TAG_NAME, "td")
-                    if len(cells) >= 2:  # Has constituency name and number
-                        constituency_name = cells[0].text.strip()
-                        constituency_num = cells[1].text.strip()
-                        
-                        if constituency_name and constituency_num and constituency_num.isdigit():
-                            all_constituencies.append({
-                                "name": constituency_name,
-                                "number": constituency_num
-                            })
+                ndf = pd.read_csv(name_file)
+                if 'AC_NO' in ndf.columns:
+                    col = next((c for c in ['Constituency', 'AC_NAME', 'AC_Name'] if c in ndf.columns), None)
+                    if col:
+                        ac_names = {int(r['AC_NO']): str(r[col]) for _, r in ndf.iterrows() if pd.notna(r[col])}
+                        logging.info(f"Loaded {len(ac_names)} constituency names from {name_file}")
+                        break
             except Exception as e:
-                logging.warning(f"Error fetching page {page_num}: {e}, skipping")
-        
-        logging.info(f"Found {len(all_constituencies)} constituencies to process")
-        
-        # Apply range filter in chunk mode
-        if chunk_mode:
-            all_constituencies = [
-                c for c in all_constituencies
-                if ac_start <= int(c['number']) <= ac_end
-            ]
-            logging.info(f"Chunk mode: filtered to {len(all_constituencies)} constituencies (ACs {ac_start}-{ac_end})")
-        
+                logging.warning(f"Could not load names from {name_file}: {e}")
+
+    ac_range = range(ac_start, ac_end + 1) if chunk_mode else range(1, sc['total_seats'] + 1)
+    all_constituencies = [
+        {"name": ac_names.get(n, f"AC {n}"), "number": str(n)}
+        for n in ac_range
+    ]
+    logging.info(f"Built constituency list: {len(all_constituencies)} ACs")
+
+    driver = None
+    try:
         # Dictionary to store results
         results = {}
 

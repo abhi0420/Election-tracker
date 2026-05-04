@@ -50,27 +50,15 @@ def get_constituency_data(option_value, option_text, ac_no, election_event):
         driver = get_chrome_driver()
         driver.set_page_load_timeout(60)
 
-        constituency_url = f"https://results.eci.gov.in/{election_event}/candidateswise-{option_value}.htm"
-        driver.get(constituency_url)
+        # Go directly to the table view page — skip the intermediate candidateswise page
+        # URL pattern: Constituencywise{state_code}{ac_no}.htm
+        table_url = f"https://results.eci.gov.in/{election_event}/Constituencywise{option_value}.htm"
+        driver.get(table_url)
 
-        # Primary: click "Constituency Wise Table View" link (standard ECI layout)
-        try:
-            table_view_link = WebDriverWait(driver, 30).until(
-                EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
-            )
-            table_view_link.click()
-            WebDriverWait(driver, 20).until(
-                EC.presence_of_element_located((By.XPATH, "//table"))
-            )
-            table = driver.find_element(By.XPATH, "//table")
-        except Exception:
-            # Fallback: ECI may show table directly without the click step
-            logging.warning(f"Table-view link not found for {option_text}, trying direct table on page")
-            tables = driver.find_elements(By.XPATH, "//table")
-            if not tables:
-                logging.warning(f"No table found for {option_text}, skipping")
-                return ac_no, option_text, None, None
-            table = tables[0]
+        WebDriverWait(driver, 30).until(
+            EC.presence_of_element_located((By.XPATH, "//table"))
+        )
+        table = driver.find_element(By.XPATH, "//table")
 
         header = [th.text for th in table.find_elements(By.TAG_NAME, "th")]
         rows = table.find_elements(By.TAG_NAME, "tr")

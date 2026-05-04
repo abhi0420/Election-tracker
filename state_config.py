@@ -265,9 +265,9 @@ KERALA = {
             'description': 'CPI(M), CPI, RSP(L), JD(S), KEC, NCP, RJD, KC(M), ISJD',
         },
         'UDF': {
-            'parties': ['INC', 'IUML', 'KC','RSP'],
+            'parties': ['INC', 'IUML','RSP'],
             'color': '#1471C7',
-            'description': 'INC, IUML, KC, RSP',
+            'description': 'INC, IUML, RSP',
         },
         'NDA': {
             'parties': ['BJP'],
@@ -275,9 +275,9 @@ KERALA = {
             'description': 'Bharatiya Janata Party',
         },
         'OTH': {
-            'parties': ['OTH'],
+            'parties': ['OTH','KC'],
             'color': '#95A5A6',
-            'description': 'Other Parties & Independents',
+            'description': 'KC, Other Parties & Independents',
         },
     },
 

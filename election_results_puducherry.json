@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T10:52:51.600827Z",
-  "total_seats": 26,
+  "last_updated": "2026-05-04T11:03:37.933628Z",
+  "total_seats": 27,
   "data": [
     {
       "AC_NO": 1,
@@ -247,15 +247,15 @@
       "Constituency": "Mudaliarpet",
       "win_cand": "A. JOHNKUMAR",
       "win_party": "BJP",
-      "win_votes": 5710,
+      "win_votes": 8617,
       "sec_cand": "L. SAMBATH",
       "sec_party": "DMK",
-      "sec_votes": 5239,
+      "sec_votes": 7738,
       "thi_cand": "N. MANIBALAN",
       "thi_party": "TVK",
-      "thi_votes": 2761,
-      "margin": 471,
-      "tot_votes": 14478,
+      "thi_votes": 4131,
+      "margin": 879,
+      "tot_votes": 21803,
       "votes_pct": 0.0
     },
     {
@@ -327,15 +327,15 @@
       "Constituency": "Bahour",
       "win_cand": "R. SENTHIL KUMAR",
       "win_party": "DMK",
-      "win_votes": 5921,
+      "win_votes": 6123,
       "sec_cand": "T. THIAGARAJAN",
       "sec_party": "AINRC",
-      "sec_votes": 4454,
+      "sec_votes": 4567,
       "thi_cand": "N. DHANAVELOU",
       "thi_party": "TVK",
-      "thi_votes": 4366,
-      "margin": 1467,
-      "tot_votes": 15170,
+      "thi_votes": 4469,
+      "margin": 1556,
+      "tot_votes": 15595,
       "votes_pct": 0.0
     },
     {
@@ -368,6 +368,22 @@
       "thi_votes": 5033,
       "margin": 2653,
       "tot_votes": 29208,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 27,
+      "Constituency": "Karaikal South",
+      "win_cand": "A.M.H. NAZEEM",
+      "win_party": "DMK",
+      "win_votes": 218,
+      "sec_cand": "AVS SAKTHIVEL PRABU",
+      "sec_party": "INC",
+      "sec_votes": 86,
+      "thi_cand": "M. ARUL MURUGAN",
+      "thi_party": "BJP",
+      "thi_votes": 43,
+      "margin": 132,
+      "tot_votes": 387,
       "votes_pct": 0.0
     },
     {

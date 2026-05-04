@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T15:33:13.468278Z",
+  "last_updated": "2026-05-04T15:37:49.945195Z",
   "total_seats": 126,
   "data": [
     {
@@ -135,16 +135,16 @@
       "Constituency": "Birsing-Jarua",
       "win_cand": "WAZED ALI CHOUDHURY",
       "win_party": "INC",
-      "win_votes": 113637,
+      "win_votes": 113775,
       "sec_cand": "ALI AKBAR MIAH",
       "sec_party": "AIUDF",
-      "sec_votes": 77788,
+      "sec_votes": 77810,
       "thi_cand": "REZA AMIN",
       "thi_party": "OTH",
-      "thi_votes": 68081,
-      "margin": 35849,
-      "tot_votes": 273267,
-      "votes_pct": 99.87
+      "thi_votes": 68544,
+      "margin": 35965,
+      "tot_votes": 273910,
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 10,
@@ -1975,16 +1975,16 @@
       "Constituency": "Karimganj South",
       "win_cand": "AMINUR RASHID CHOUDHURY",
       "win_party": "INC",
-      "win_votes": 135647,
+      "win_votes": 135930,
       "sec_cand": "EKBAL HUSSAIN",
       "sec_party": "AGP",
-      "sec_votes": 49942,
+      "sec_votes": 49968,
       "thi_cand": "AZIZ AHMED KHAN",
       "thi_party": "OTH",
-      "thi_votes": 39700,
-      "margin": 85705,
-      "tot_votes": 234792,
-      "votes_pct": 99.3
+      "thi_votes": 39811,
+      "margin": 85962,
+      "tot_votes": 235234,
+      "votes_pct": 99.48
     },
     {
       "AC_NO": 125,

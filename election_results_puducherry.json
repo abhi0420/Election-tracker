@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T06:29:21.742362Z",
+  "last_updated": "2026-05-04T06:32:47.940877Z",
   "total_seats": 17,
   "data": [
     {
@@ -7,15 +7,15 @@
       "Constituency": "Mannadipet",
       "win_cand": "A. NAMASSIVAYAM",
       "win_party": "BJP",
-      "win_votes": 9302,
+      "win_votes": 13371,
       "sec_cand": "T.P.R. SELVAME",
       "sec_party": "INC",
-      "sec_votes": 5693,
+      "sec_votes": 8346,
       "thi_cand": "K. BHARATHITHASAN",
       "thi_party": "TVK",
-      "thi_votes": 1723,
-      "margin": 3609,
-      "tot_votes": 17106,
+      "thi_votes": 2458,
+      "margin": 5025,
+      "tot_votes": 24814,
       "votes_pct": 0.0
     },
     {
@@ -263,15 +263,15 @@
       "Constituency": "Yanam",
       "win_cand": "MALLADI KRISHNA RAO",
       "win_party": "AINRC",
-      "win_votes": 13344,
+      "win_votes": 18066,
       "sec_cand": "GOLLAPALLI SRINIVAS ASHOK",
       "sec_party": "INC",
-      "sec_votes": 12622,
+      "sec_votes": 15126,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 145,
-      "margin": 722,
-      "tot_votes": 26469,
+      "thi_votes": 187,
+      "margin": 2940,
+      "tot_votes": 33823,
       "votes_pct": 0.0
     }
   ]

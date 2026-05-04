@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T14:48:41.507423Z",
+  "last_updated": "2026-05-04T15:02:02.321254Z",
   "total_seats": 126,
   "data": [
     {
@@ -1975,16 +1975,16 @@
       "Constituency": "Karimganj South",
       "win_cand": "AMINUR RASHID CHOUDHURY",
       "win_party": "INC",
-      "win_votes": 121183,
+      "win_votes": 126038,
       "sec_cand": "EKBAL HUSSAIN",
       "sec_party": "AGP",
-      "sec_votes": 44866,
+      "sec_votes": 47293,
       "thi_cand": "AZIZ AHMED KHAN",
       "thi_party": "OTH",
-      "thi_votes": 36499,
-      "margin": 76317,
-      "tot_votes": 211142,
-      "votes_pct": 89.3
+      "thi_votes": 38036,
+      "margin": 78745,
+      "tot_votes": 220316,
+      "votes_pct": 93.18
     },
     {
       "AC_NO": 125,

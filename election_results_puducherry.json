@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T14:48:41.507423Z",
+  "last_updated": "2026-05-04T15:02:02.321254Z",
   "total_seats": 30,
   "data": [
     {
@@ -87,15 +87,15 @@
       "Constituency": "Ozhukarai",
       "win_cand": "K.NARAYANASAMY ALIAS NITHYANANDAM",
       "win_party": "AINRC",
-      "win_votes": 8003,
+      "win_votes": 10562,
       "sec_cand": "SASIBALAN",
       "sec_party": "TVK",
-      "sec_votes": 5517,
+      "sec_votes": 7061,
       "thi_cand": "N. SARAVANAN",
       "thi_party": "OTH",
-      "thi_votes": 5049,
-      "margin": 2486,
-      "tot_votes": 23514,
+      "thi_votes": 6587,
+      "margin": 3501,
+      "tot_votes": 30735,
       "votes_pct": 0.0
     },
     {
@@ -119,15 +119,15 @@
       "Constituency": "Indira Nagar",
       "win_cand": "P.V. AROUMOUGAME @ AKD",
       "win_party": "AINRC",
-      "win_votes": 10171,
+      "win_votes": 12640,
       "sec_cand": "S. MOUROUGANE",
       "sec_party": "TVK",
-      "sec_votes": 10072,
+      "sec_votes": 12056,
       "thi_cand": "N. RAJAKUMAR",
       "thi_party": "INC",
-      "thi_votes": 1746,
-      "margin": 99,
-      "tot_votes": 24619,
+      "thi_votes": 2104,
+      "margin": 584,
+      "tot_votes": 30001,
       "votes_pct": 0.0
     },
     {

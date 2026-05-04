@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T19:56:14.226063Z",
+  "last_updated": "2026-05-04T20:35:21.582237Z",
   "total_seats": 234,
   "data": [
     {
@@ -2949,17 +2949,17 @@
     {
       "AC_NO": 185,
       "Constituency": "Tiruppattur",
-      "win_cand": "PERIAKARUPPAN. KR",
-      "win_party": "DMK",
-      "win_votes": 83226,
-      "sec_cand": "SEENIVASA SETHUPATHY. R",
-      "sec_party": "TVK",
-      "sec_votes": 83196,
+      "win_cand": "SEENIVASA SETHUPATHY. R",
+      "win_party": "TVK",
+      "win_votes": 83375,
+      "sec_cand": "PERIAKARUPPAN. KR",
+      "sec_party": "DMK",
+      "sec_votes": 83374,
       "thi_cand": "THIRUMARAN. K.C",
       "thi_party": "BJP",
-      "thi_votes": 29009,
-      "margin": 30,
-      "tot_votes": 215316,
+      "thi_votes": 29054,
+      "margin": 1,
+      "tot_votes": 215710,
       "votes_pct": 99.9
     },
     {

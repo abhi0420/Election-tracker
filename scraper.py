@@ -56,7 +56,7 @@ def get_constituency_data(option_value, option_text, ac_no, election_event):
             
             # Initialize WebDriver
             driver = get_chrome_driver()
-            driver.set_page_load_timeout(30)  # 30 second page load timeout
+            driver.set_page_load_timeout(60)  # 60 second page load timeout
 
             # Construct the URL for the constituency
             constituency_url = f"https://results.eci.gov.in/{election_event}/candidateswise-{option_value}.htm"
@@ -64,13 +64,13 @@ def get_constituency_data(option_value, option_text, ac_no, election_event):
 
             # Primary: click "Constituency Wise Table View" link (standard ECI layout)
             try:
-                table_view_link = WebDriverWait(driver, 15).until(
+                table_view_link = WebDriverWait(driver, 30).until(
                     EC.element_to_be_clickable((By.XPATH, "//a[contains(@href, 'Constituencywise')]"))
                 )
                 table_view_link.click()
 
                 # Wait for the new page to load and locate the table
-                WebDriverWait(driver, 10).until(
+                WebDriverWait(driver, 20).until(
                     EC.presence_of_element_located((By.XPATH, "//table"))
                 )
                 table = driver.find_element(By.XPATH, "//table")
@@ -153,7 +153,7 @@ def main(state_code=None, ac_start=None, ac_end=None):
         driver.get(f"https://results.eci.gov.in/{election_event}/statewise{eci_state_code}1.htm")
         
         # Wait for table to load — generous timeout, ECI can be slow under load
-        WebDriverWait(driver, 30).until(
+        WebDriverWait(driver, 60).until(
             EC.presence_of_element_located((By.TAG_NAME, "table"))
         )
         

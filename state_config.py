@@ -308,7 +308,7 @@ PUDUCHERRY = {
     'election_event': 'ResultAcGenMay2026',
     'prev_election_event': 'ResultAcGenMay2021',
     'prev_year': 2021,
-    'eci_state_code': 'U05',  # Union Territory
+    'eci_state_code': 'U07',  # Union Territory
     'total_pages': 2,  # 30 seats / ~20 per page
     'total_seats': 30,
     'shapefile_st_name': 'PUDUCHERRY',

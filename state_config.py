@@ -237,7 +237,7 @@ KERALA = {
     'csv_file': 'election_results_kerala.csv',
     'electors_file': 'electors_after_deletion_kerala.csv',
 
-    'parties': ['CPI(M)', 'CPI', 'INC', 'RJD','IUML', 'KC(M)', 'NCP', 'BJP', 'RSP', 'JD(S)', 'KEC', 'OTH', 'ISJD','AWAITED'],
+    'parties': ['CPI(M)', 'CPI', 'INC', 'RJD', 'IUML', 'KC(M)', 'NCP', 'BJP', 'RSP', 'JD(S)', 'KC', 'OTH', 'ISJD', 'AWAITED'],
 
     'party_colors': {
         'CPI(M)': '#FF0000',
@@ -249,7 +249,7 @@ KERALA = {
         'BJP': '#FF9900',
         'RSP(L)': '#DC143C',
         'JD(S)': '#228B22',
-        'KEC': '#8B008B',
+        'KC': '#8B008B',
         'OTH': '#95A5A6',
         'AWAITED': '#CCCCCC',
         'RJD': "#0C6249",   
@@ -260,7 +260,7 @@ KERALA = {
 
     'alliances': {
         'LDF': {
-            'parties': ['CPI(M)', 'CPI', 'RSP(L)', 'JD(S)', 'KEC', 'NCP', 'RJD', 'KC(M)', 'ISJD'],
+            'parties': ['CPI(M)', 'CPI', 'RSP(L)', 'JD(S)', 'KC', 'NCP', 'RJD', 'KC(M)', 'ISJD'],
             'color': '#FF0000',
             'description': 'CPI(M), CPI, RSP(L), JD(S), KEC, NCP, RJD, KC(M), ISJD',
         },
@@ -282,7 +282,7 @@ KERALA = {
     },
 
     'party_name_map': {
-        'Communist Party of India (Marxist)': 'CPIM',
+        'Communist Party of India (Marxist)': 'CPI(M)',
         'Communist Party of India': 'CPI',
         'Indian National Congress': 'INC',
         'Indian Union Muslim League': 'IUML',
@@ -291,12 +291,11 @@ KERALA = {
         'Bharatiya Janata Party': 'BJP',
         'Revolutionary Socialist Party': 'RSP',
         'Janata Dal (Secular)': 'JD(S)',
-        'Kerala Congress': 'KEC',
+        'Kerala Congress': 'KC',
         'Rashtriya Janata Dal': 'RJD',
         'Indian Socialist Janata Dal': 'ISJD',
-        'Kerala Congress': 'KC',
-        'Kerala Congress (M)': 'KC(M)',
         'Revolutionary Socialist Party (Leninist)': 'RSP(L)',
+        'Kerala Congress (Jacob)': 'KC(M)',
     },
 }
 

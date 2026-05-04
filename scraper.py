@@ -291,7 +291,12 @@ def main(state_code=None, ac_start=None, ac_end=None):
                     
                     margin = win_votes - sec_votes
                     total_votes = df[votes_col].sum()
-                    
+
+                    # Skip if no votes counted yet — ECI shows candidate lists before counting
+                    if total_votes == 0:
+                        logging.info(f"Skipping AC {ac_no} {result['name']}: no votes counted yet")
+                        continue
+
                     election_data.append({
                         'AC_NO': ac_no,
                         'Constituency': result['name'],

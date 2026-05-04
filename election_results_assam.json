@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T14:30:11.968783Z",
+  "last_updated": "2026-05-04T14:34:46.622529Z",
   "total_seats": 126,
   "data": [
     {
@@ -103,16 +103,16 @@
       "Constituency": "Gauripur",
       "win_cand": "ABDUS SOBAHAN ALI SARKAR",
       "win_party": "INC",
-      "win_votes": 143876,
+      "win_votes": 151822,
       "sec_cand": "NIZANUR RAHMAN",
       "sec_party": "AIUDF",
-      "sec_votes": 55730,
+      "sec_votes": 58093,
       "thi_cand": "MEHETABUL HAQUE",
       "thi_party": "AGP",
-      "thi_votes": 30669,
-      "margin": 88146,
-      "tot_votes": 247119,
-      "votes_pct": 82.8
+      "thi_votes": 31220,
+      "margin": 93729,
+      "tot_votes": 258647,
+      "votes_pct": 86.66
     },
     {
       "AC_NO": 8,
@@ -135,16 +135,16 @@
       "Constituency": "Birsing-Jarua",
       "win_cand": "WAZED ALI CHOUDHURY",
       "win_party": "INC",
-      "win_votes": 110695,
+      "win_votes": 113396,
       "sec_cand": "ALI AKBAR MIAH",
       "sec_party": "AIUDF",
-      "sec_votes": 77187,
+      "sec_votes": 77672,
       "thi_cand": "REZA AMIN",
       "thi_party": "OTH",
-      "thi_votes": 67865,
-      "margin": 33508,
-      "tot_votes": 269388,
-      "votes_pct": 98.45
+      "thi_votes": 67900,
+      "margin": 35724,
+      "tot_votes": 272666,
+      "votes_pct": 99.65
     },
     {
       "AC_NO": 10,
@@ -167,16 +167,16 @@
       "Constituency": "Mankachar",
       "win_cand": "Mohibur Rohman (Bappy)",
       "win_party": "INC",
-      "win_votes": 167730,
+      "win_votes": 168304,
       "sec_cand": "ZABED ISLAM",
       "sec_party": "AGP",
-      "sec_votes": 114944,
+      "sec_votes": 115403,
       "thi_cand": "ABDUL SALAM SHAH",
       "thi_party": "AIUDF",
-      "thi_votes": 9952,
-      "margin": 52786,
-      "tot_votes": 296509,
-      "votes_pct": 99.67
+      "thi_votes": 9964,
+      "margin": 52901,
+      "tot_votes": 297560,
+      "votes_pct": 99.9
     },
     {
       "AC_NO": 12,

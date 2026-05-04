@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T06:59:57.551233Z",
+  "last_updated": "2026-05-04T07:03:17.928117Z",
   "total_seats": 17,
   "data": [
     {
@@ -7,15 +7,15 @@
       "Constituency": "Mannadipet",
       "win_cand": "A. NAMASSIVAYAM",
       "win_party": "BJP",
-      "win_votes": 13371,
+      "win_votes": 15918,
       "sec_cand": "T.P.R. SELVAME",
       "sec_party": "INC",
-      "sec_votes": 8346,
+      "sec_votes": 9808,
       "thi_cand": "K. BHARATHITHASAN",
       "thi_party": "TVK",
-      "thi_votes": 2458,
-      "margin": 5025,
-      "tot_votes": 24814,
+      "thi_votes": 3032,
+      "margin": 6110,
+      "tot_votes": 29502,
       "votes_pct": 0.0
     },
     {

@@ -1012,13 +1012,15 @@ def create_election_map(state_name, state_code=None):
         
         # Calculate total votes per party across all constituencies (ALL votes, not just winners)
         party_vote_totals = {party: 0 for party in individual_parties}
-        grand_total_votes = 0
-        
+        # Use tot_votes (actual total votes cast) as the denominator so vote shares are accurate
+        grand_total_votes = state_gdf['total_votes'].dropna().sum()
+        if grand_total_votes == 0:
+            grand_total_votes = 0
+
         for constituency_votes in all_party_votes:
             for party, votes in constituency_votes.items():
                 if party in party_vote_totals:  # Only count if party is in our list
                     party_vote_totals[party] += votes
-                    grand_total_votes += votes
         
         # Aggregate votes to alliance level
         alliance_vote_totals = {}

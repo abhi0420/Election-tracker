@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T06:38:01.712191Z",
+  "last_updated": "2026-05-04T06:46:00.006072Z",
   "total_seats": 17,
   "data": [
     {
@@ -183,15 +183,15 @@
       "Constituency": "Nettapakkam (SC)",
       "win_cand": "P. RAJAVELU",
       "win_party": "AINRC",
-      "win_votes": 7166,
+      "win_votes": 7342,
       "sec_cand": "G. ANBARASAN",
       "sec_party": "INC",
-      "sec_votes": 3586,
+      "sec_votes": 3642,
       "thi_cand": "L PERIASAMY",
       "thi_party": "TVK",
-      "thi_votes": 3250,
-      "margin": 3580,
-      "tot_votes": 15842,
+      "thi_votes": 3311,
+      "margin": 3700,
+      "tot_votes": 16185,
       "votes_pct": 0.0
     },
     {
@@ -215,15 +215,15 @@
       "Constituency": "Karaikal North",
       "win_cand": "P.R.N. THIRUMURUGAN",
       "win_party": "AINRC",
-      "win_votes": 5421,
+      "win_votes": 9219,
       "sec_cand": "A.M. RANJITH",
       "sec_party": "INC",
-      "sec_votes": 3360,
+      "sec_votes": 6947,
       "thi_cand": "A. VENGADESH",
       "thi_party": "TVK",
-      "thi_votes": 1623,
-      "margin": 2061,
-      "tot_votes": 10840,
+      "thi_votes": 3772,
+      "margin": 2272,
+      "tot_votes": 20969,
       "votes_pct": 0.0
     },
     {
@@ -263,15 +263,15 @@
       "Constituency": "Yanam",
       "win_cand": "MALLADI KRISHNA RAO",
       "win_party": "AINRC",
-      "win_votes": 18066,
+      "win_votes": 19863,
       "sec_cand": "GOLLAPALLI SRINIVAS ASHOK",
       "sec_party": "INC",
-      "sec_votes": 15126,
+      "sec_votes": 15295,
       "thi_cand": "NOTA",
       "thi_party": "OTH",
-      "thi_votes": 187,
-      "margin": 2940,
-      "tot_votes": 33823,
+      "thi_votes": 195,
+      "margin": 4568,
+      "tot_votes": 35826,
       "votes_pct": 0.0
     }
   ]

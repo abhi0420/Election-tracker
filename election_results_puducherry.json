@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T10:37:10.304001Z",
+  "last_updated": "2026-05-04T10:43:18.259102Z",
   "total_seats": 25,
   "data": [
     {
@@ -165,17 +165,17 @@
     {
       "AC_NO": 14,
       "Constituency": "Raj Bhavan",
-      "win_cand": "V. P. RAMALINGAME",
-      "win_party": "BJP",
-      "win_votes": 5112,
-      "sec_cand": "VIGNESH KANNAN",
-      "sec_party": "DMK",
-      "sec_votes": 4971,
+      "win_cand": "VIGNESH KANNAN",
+      "win_party": "DMK",
+      "win_votes": 7304,
+      "sec_cand": "V. P. RAMALINGAME",
+      "sec_party": "BJP",
+      "sec_votes": 7017,
       "thi_cand": "V.J. CHANDRAN",
       "thi_party": "TVK",
-      "thi_votes": 1691,
-      "margin": 141,
-      "tot_votes": 13403,
+      "thi_votes": 2361,
+      "margin": 287,
+      "tot_votes": 18716,
       "votes_pct": 0.0
     },
     {

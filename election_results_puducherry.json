@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T08:56:31.785614Z",
+  "last_updated": "2026-05-04T09:05:07.501563Z",
   "total_seats": 19,
   "data": [
     {
@@ -87,15 +87,15 @@
       "Constituency": "Kamraj Nagar",
       "win_cand": "JOSE CHARLES MARTIN",
       "win_party": "OTH",
-      "win_votes": 3893,
+      "win_votes": 8152,
       "sec_cand": "P.K. DEVADOSS",
       "sec_party": "INC",
-      "sec_votes": 1952,
+      "sec_votes": 3480,
       "thi_cand": "SUMAN",
       "thi_party": "TVK",
-      "thi_votes": 1537,
-      "margin": 1941,
-      "tot_votes": 7913,
+      "thi_votes": 2812,
+      "margin": 4672,
+      "tot_votes": 15396,
       "votes_pct": 0.0
     },
     {

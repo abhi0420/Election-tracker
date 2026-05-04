@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T09:45:09.662682Z",
-  "total_seats": 24,
+  "last_updated": "2026-05-04T09:53:46.904061Z",
+  "total_seats": 25,
   "data": [
     {
       "AC_NO": 1,
@@ -131,6 +131,22 @@
       "votes_pct": 0.0
     },
     {
+      "AC_NO": 12,
+      "Constituency": "Kalapet",
+      "win_cand": "P.M.L. KALYANASUNDARAM",
+      "win_party": "BJP",
+      "win_votes": 2760,
+      "sec_cand": "SENTHIL @ RAMESH",
+      "sec_party": "DMK",
+      "sec_votes": 2243,
+      "thi_cand": "D. SASIKUMAR",
+      "thi_party": "TVK",
+      "thi_votes": 761,
+      "margin": 517,
+      "tot_votes": 6295,
+      "votes_pct": 0.0
+    },
+    {
       "AC_NO": 13,
       "Constituency": "Muthialpet",
       "win_cand": "VAIYAPURI MANIKANDAN",
@@ -183,15 +199,15 @@
       "Constituency": "Orleampeth",
       "win_cand": "G. NEHRU ALIAS COUPPOUSSAMY",
       "win_party": "OTH",
-      "win_votes": 5348,
+      "win_votes": 8553,
       "sec_cand": "S. GOPAL",
       "sec_party": "DMK",
-      "sec_votes": 4684,
+      "sec_votes": 7398,
       "thi_cand": "A. GANDHI",
       "thi_party": "ADMK",
-      "thi_votes": 181,
-      "margin": 664,
-      "tot_votes": 10550,
+      "thi_votes": 272,
+      "margin": 1155,
+      "tot_votes": 16725,
       "votes_pct": 0.0
     },
     {
@@ -247,15 +263,15 @@
       "Constituency": "Manavely",
       "win_cand": "B.RAMU",
       "win_party": "TVK",
-      "win_votes": 6658,
+      "win_votes": 10030,
       "sec_cand": "EMBALAM SELVAM @ SELVAM. R",
       "sec_party": "BJP",
-      "sec_votes": 5585,
+      "sec_votes": 8213,
       "thi_cand": "R K R. ANANTHARAMAN",
       "thi_party": "INC",
-      "thi_votes": 2816,
-      "margin": 1073,
-      "tot_votes": 15836,
+      "thi_votes": 3876,
+      "margin": 1817,
+      "tot_votes": 23399,
       "votes_pct": 0.0
     },
     {

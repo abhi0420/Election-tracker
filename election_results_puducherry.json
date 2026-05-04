@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T07:14:34.380086Z",
+  "last_updated": "2026-05-04T07:20:15.188567Z",
   "total_seats": 17,
   "data": [
     {
@@ -151,15 +151,15 @@
       "Constituency": "Ariankuppam",
       "win_cand": "C. AIYAPPAN @ MOUTTAYAPPAN",
       "win_party": "AINRC",
-      "win_votes": 12574,
+      "win_votes": 14210,
       "sec_cand": "VIZAYALAKSHMY DJEAMOURTHY",
       "sec_party": "INC",
-      "sec_votes": 11488,
+      "sec_votes": 13607,
       "thi_cand": "KUMARAVELU",
       "thi_party": "TVK",
-      "thi_votes": 4614,
-      "margin": 1086,
-      "tot_votes": 29749,
+      "thi_votes": 5424,
+      "margin": 603,
+      "tot_votes": 34510,
       "votes_pct": 0.0
     },
     {

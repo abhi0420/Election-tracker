@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-04T06:46:00.006072Z",
+  "last_updated": "2026-05-04T06:51:27.368033Z",
   "total_seats": 17,
   "data": [
     {
@@ -39,15 +39,15 @@
       "Constituency": "Villianur",
       "win_cand": "B.RAVICOUMAR",
       "win_party": "AINRC",
-      "win_votes": 9965,
+      "win_votes": 13881,
       "sec_cand": "R.SIVA",
       "sec_party": "DMK",
-      "sec_votes": 9512,
+      "sec_votes": 12721,
       "thi_cand": "R.RAMESH",
       "thi_party": "TVK",
-      "thi_votes": 3933,
-      "margin": 453,
-      "tot_votes": 24084,
+      "thi_votes": 5238,
+      "margin": 1160,
+      "tot_votes": 32760,
       "votes_pct": 0.0
     },
     {
@@ -247,15 +247,15 @@
       "Constituency": "Mahe",
       "win_cand": "ADV. T. ASHOK KUMAR",
       "win_party": "OTH",
-      "win_votes": 4047,
-      "sec_cand": "A. DINESAN",
-      "sec_party": "BJP",
-      "sec_votes": 3354,
-      "thi_cand": "RAMESH PARAMBATH",
-      "thi_party": "INC",
-      "thi_votes": 3274,
-      "margin": 693,
-      "tot_votes": 11213,
+      "win_votes": 5957,
+      "sec_cand": "RAMESH PARAMBATH",
+      "sec_party": "INC",
+      "sec_votes": 5664,
+      "thi_cand": "A. DINESAN",
+      "thi_party": "BJP",
+      "thi_votes": 5295,
+      "margin": 293,
+      "tot_votes": 17790,
       "votes_pct": 0.0
     },
     {

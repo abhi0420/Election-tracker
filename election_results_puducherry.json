@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-04T08:46:55.540230Z",
-  "total_seats": 18,
+  "last_updated": "2026-05-04T08:53:27.872632Z",
+  "total_seats": 19,
   "data": [
     {
       "AC_NO": 1,
@@ -144,6 +144,22 @@
       "thi_votes": 5327,
       "margin": 1026,
       "tot_votes": 23030,
+      "votes_pct": 0.0
+    },
+    {
+      "AC_NO": 16,
+      "Constituency": "Orleampeth",
+      "win_cand": "G. NEHRU ALIAS COUPPOUSSAMY",
+      "win_party": "OTH",
+      "win_votes": 2524,
+      "sec_cand": "S. GOPAL",
+      "sec_party": "DMK",
+      "sec_votes": 2290,
+      "thi_cand": "A. GANDHI",
+      "thi_party": "ADMK",
+      "thi_votes": 96,
+      "margin": 234,
+      "tot_votes": 5109,
       "votes_pct": 0.0
     },
     {

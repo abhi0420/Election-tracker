@@ -15,7 +15,7 @@ on:
 # Cancel any in-progress run when a new trigger fires — always use freshest data
 concurrency:
   group: election-scraper
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 permissions:
   contents: write

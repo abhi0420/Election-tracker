@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-05-05T12:09:51.670233Z",
+  "last_updated": "2026-05-05T12:44:30.657302Z",
   "total_seats": 293,
   "data": [
     {
@@ -1829,17 +1829,17 @@
     {
       "AC_NO": 115,
       "Constituency": "RAJARHAT NEW TOWN",
-      "win_cand": "TAPASH CHATTERJEE",
-      "win_party": "TMC",
-      "win_votes": 106250,
-      "sec_cand": "PIYUSH KANODIA",
-      "sec_party": "BJP",
-      "sec_votes": 105927,
+      "win_cand": "PIYUSH KANODIA",
+      "win_party": "BJP",
+      "win_votes": 106564,
+      "sec_cand": "TAPASH CHATTERJEE",
+      "sec_party": "TMC",
+      "sec_votes": 106248,
       "thi_cand": "SAPTARSHI DEB",
       "thi_party": "CPIM",
-      "thi_votes": 32245,
-      "margin": 323,
-      "tot_votes": 251912,
+      "thi_votes": 32246,
+      "margin": 316,
+      "tot_votes": 252560,
       "votes_pct": 99.9
     },
     {

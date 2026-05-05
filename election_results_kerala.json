@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-05T22:51:25.149650Z",
-  "total_seats": 139,
+  "last_updated": "2026-05-05T23:23:39.287791Z",
+  "total_seats": 140,
   "data": [
     {
       "AC_NO": 1,
@@ -2064,6 +2064,22 @@
       "thi_votes": 32920,
       "margin": 1422,
       "tot_votes": 147566,
+      "votes_pct": 99.9
+    },
+    {
+      "AC_NO": 130,
+      "Constituency": "Nedumangad",
+      "win_cand": "G R ANIL",
+      "win_party": "CPI",
+      "win_votes": 69206,
+      "sec_cand": "MEENANKAL KUMAR",
+      "sec_party": "INC",
+      "sec_votes": 47623,
+      "thi_cand": "YUVRAJ GOKUL",
+      "thi_party": "BJP",
+      "thi_votes": 38999,
+      "margin": 21583,
+      "tot_votes": 158894,
       "votes_pct": 99.9
     },
     {

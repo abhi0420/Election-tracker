@@ -1,6 +1,6 @@
 {
-  "last_updated": "2026-05-06T02:21:49.745505Z",
-  "total_seats": 232,
+  "last_updated": "2026-05-06T03:47:41.892894Z",
+  "total_seats": 234,
   "data": [
     {
       "AC_NO": 1,
@@ -3664,6 +3664,38 @@
       "thi_votes": 72977,
       "margin": 214,
       "tot_votes": 239150,
+      "votes_pct": 99.9
+    },
+    {
+      "AC_NO": 230,
+      "Constituency": "Nagercoil",
+      "win_cand": "AUSTIN",
+      "win_party": "DMK",
+      "win_votes": 69880,
+      "sec_cand": "BERVIN KINGS G",
+      "sec_party": "TVK",
+      "sec_votes": 62310,
+      "thi_cand": "GANDHI M R",
+      "thi_party": "BJP",
+      "thi_votes": 52355,
+      "margin": 7570,
+      "tot_votes": 196280,
+      "votes_pct": 99.9
+    },
+    {
+      "AC_NO": 231,
+      "Constituency": "Colachel",
+      "win_cand": "THARAHAI CUTHBERT",
+      "win_party": "INC",
+      "win_votes": 66207,
+      "sec_cand": "PREM ALEX LAWRENCE",
+      "sec_party": "TVK",
+      "sec_votes": 63374,
+      "thi_cand": "SIVAKUMAR. T",
+      "thi_party": "BJP",
+      "thi_votes": 54384,
+      "margin": 2833,
+      "tot_votes": 199013,
       "votes_pct": 99.9
     },
     {

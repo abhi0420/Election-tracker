@@ -2574,7 +2574,7 @@ def index():
         _alliance_colors_trends = get_alliance_colors(sc)
         total_seats = len(seat_data)
         reporting = sum(1 for s in seat_data if s['votes_pct'] > 0)
-        declared  = sum(1 for s in seat_data if s['votes_pct'] >= 99.9)
+        declared  = sum(1 for s in seat_data if s['votes_pct'] > 0)
         # Per-alliance won/leading counts
         from collections import defaultdict
         _al_won     = defaultdict(int)
@@ -2583,10 +2583,8 @@ def index():
             if s['win_party'] == 'AWAITED':
                 continue
             al = _p2a_trends.get(s['win_party'], s['win_party'])
-            if s['votes_pct'] >= 99.9:
+            if s['votes_pct'] > 0:
                 _al_won[al] += 1
-            elif s['votes_pct'] > 0:
-                _al_leading[al] += 1
         # Build table rows sorted by total (won+leading)
         _all_alliances = sorted(
             set(list(_al_won.keys()) + list(_al_leading.keys())),
@@ -2605,8 +2603,7 @@ def index():
                     <strong>{al}</strong>
                 </td>
                 <td style="padding:8px 10px;text-align:center;color:#27ae60;font-weight:700;">{won_n}</td>
-                <td style="padding:8px 10px;text-align:center;color:#e67e22;font-weight:700;">{lead_n}</td>
-                <td style="padding:8px 10px;text-align:center;font-weight:800;font-size:1.05em;">{total_n}</td>
+                <td style="padding:8px 10px;text-align:center;font-weight:800;font-size:1.05em;">{won_n}</td>
             </tr>'''
         majority = total_seats // 2 + 1
         trends_html = f'''
@@ -2635,13 +2632,12 @@ def index():
                     <tr style="background:#f0f4ff;">
                         <th style="padding:10px 10px;text-align:left;font-size:0.85em;color:#555;">ALLIANCE / PARTY</th>
                         <th style="padding:10px;text-align:center;font-size:0.85em;color:#27ae60;">✅ WON</th>
-                        <th style="padding:10px;text-align:center;font-size:0.85em;color:#e67e22;">📊 LEADING</th>
                         <th style="padding:10px;text-align:center;font-size:0.85em;color:#333;">TOTAL</th>
                     </tr>
                 </thead>
                 <tbody>{_trends_rows}</tbody>
             </table>
-            <p style="font-size:0.75em;color:#aaa;margin-top:10px;">Won = counting complete (100%). Leading = counting in progress.</p>
+            <p style="font-size:0.75em;color:#aaa;margin-top:10px;">Results as declared by ECI.</p>
         </div>'''
 
         # ── Swing Seats view ─────────────────────────────────────────────────
@@ -2687,7 +2683,7 @@ def index():
         for sw in sorted(_swing_seats, key=lambda x: (-x['votes_pct'], -x['margin'])):
             frm_color = _alliance_colors_trends.get(sw['prev_al'], '#95A5A6')
             to_color  = _alliance_colors_trends.get(sw['curr_al'], '#95A5A6')
-            status = '✅' if sw['votes_pct'] >= 99.9 else '📊'
+            status = '✅' if sw['votes_pct'] > 0 else '⏳'
             margin_str = f"+{sw['margin']:,}" if sw['margin'] >= 0 else f"{sw['margin']:,}"
             _seat_rows += f'''
             <tr style="border-bottom:1px solid #f0f0f0;">

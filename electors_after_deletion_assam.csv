@@ -1,127 +1,127 @@
-AC_NO,AC_NAME,Total_Electors,Turnout_Pct
-1,Gossaigaon,115014,86.45
-2,Dotma (ST),107923,86.47
-3,Kokrajhar (ST),145083,83.38
-4,Baokhungri,165792,89.29
-5,ParParbatjhora,174993,93.29
-6,Golakganj,204481,94.52
-7,Gauripur,310667,96.07
-8,Dhubri,232359,94.61
-9,Birsing-Jarua,283439,96.54
-10,Bilasipara,190345,93.26
-11,Mankachar,311159,95.61
-12,Jaleswar,242974,96.28
-13,Goalpara West (ST),161541,90.89
-14,Goalpara East,228629,94.79
-15,Dudhnoi (ST),175799,89.3
-16,Abhayapuri,182780,90.8
-17,Srijangram,233557,95.82
-18,Bongaigaon,171343,90.72
-19,Sidli Chirang (ST),219623,85.33
-20,Bijni,183464,88.93
-21,Bhawanipur-Sorbhog,215510,89.42
-22,Mandia,279924,93087
-23,Chenga,256407,95.33
-24,Barpeta (SC),170893,87.06
-25,Pakabetbari,276143,94.76
-26,Bajali,165508,85.18
-27,Chamaria,247640,94.53
-28,Boko-Chaygaon (ST),196460,85.11
-29,Palasbari,217258,85.57
-30,Hajo-Sualkuchi (SC),194081,87.47
-31,Rangia,210572,87.48
-32,Kamalpur,185387,88.02
-33,Dispur,244725,75.04
-34,Dimoria (SC),218158,81.79
-35,New Guwahati,192148,72.37
-36,Guwahati Central,192615,76.07
-37,Jalukbari,207642,82.04
-38,Barkhetri,220484,91
-39,Nalbari,200359,90.46
-40,Tihu,204770,87.02
-41,Manas,204945,85.64
-42,Baksa (ST),198442,80.07
-43,Tamulpur (ST),214513,82.89
-44,Goreswar,206059,82.32
-45,Bhergaon,160803,82.48
-46,Udalguri (ST),170122,81.93
-47,Mazbat,186341,84.45
-48,Tangla,180658,84.49
-49,Sipajhar,203093,87.34
-50,Mangaldai,201732,89.8
-51,Dalgaon,317360,95.56
-52,Jagiroad (SC),250427,87.33
-53,Laharighat,308272,94.72
-54,Morigaon,207889,84.67
-55,Dhing,237063,92.55
-56,Rupahihat,232926,94.28
-57,Kaliabor,189648,86.04
-58,Samaguri,227082,93.47
-59,Barhampur,232576,84.03
-60,Nagaon-Batadraba,199081,84.08
-61,Raha (SC),244469,84.76
-62,Binnakandi,269001,87.75
-63,Hojai,251279,88.73
-64,Lumding,244339,88.73
-65,Dhekiajuli,224186,83.29
-66,Barchalla,190398,83
-67,Tezpur,176493,83.11
-68,Rangapara,169666,84.37
-69,Naduar,202957,84.12
-70,Biswanath,189361,84.54
-71,Behali (SC),155846,84.69
-72,Gohpur,173437,84.04
-73,Bihpuria,166726,83.65
-74,Rongonadi,178033,89.73
-75,Nowboicha (SC),173182,88.43
-76,Lakhimpur,164453,86.32
-77,Dhakuakhana (ST),163082,83.03
-78,Dhemaji (ST),178880,79.32
-79,Sissibargaon,182018,79.4
-80,Jonai (ST),222307,80.36
-81,Sadiya,202879,78.45
-82,Doom Dooma,148786,81.43
-83,Margherita,176919,78.78
-84,Digboi,147715,78.76
-85,Makum,159217,81.14
-86,Tinsukia,173190,78.12
-87,Chabua-Lahowal,178397,82.02
-88,Dibrugarh,197752,79.07
-89,Khowang,157768,83.22
-90,Duliajan,177552,80.45
-91,Tingkhong,178201,81.15
-92,Naharkatia,156361,79.33
-93,Sonari,172652,82.83
-94,Mahmora,149456,83.77
-95,Demow,178953,83.3
-96,Nazira,210484,82.36
-97,Sibsagar,182884,85.22
-98,Majuli (ST),145331,83.76
-99,Teok,198903,80.42
-100,Jorhat,148886,78.64
-101,Mariani,165417,81.52
-102,Titabor,201680,81.49
-103,Golaghat,201788,81.37
-104,Dergaon,177767,83.09
-105,Bokakhat,164627,82.11
-106,Khumtai,172008,84.48
-107,Sarupathar,188367,79.62
-108,Bokajan (ST),157690,80.93
-109,Howraghat (ST),190462,81.22
-110,Howraghat (ST),182883,78.18
-111,Rongkhang (ST),132583,82.63
-112,Amri (ST),100831,78.97
-113,Haflong,158640,82.48
-114,Lakhipur,178539,85.57
-115,Udharbond,185629,83.81
-116,Katigorah,214190,88.39
-117,Borkhola,205807,85.64
-118,Silchar,212413,80.68
-119,Sonai,195392,81.73
-120,Dholai (SC),196571,83.81
-121,Hailakandi,221624,84.27
-122,Algapur-Katlicherra,278364,81.23
-123,Karimganj North,260281,86.15
-124,Karimganj South,285846,82.72
-125,Patharkandi,178484,84.85
-126,Ram Krishna Nagar (SC),217500,86.7
+AC_NO,AC_NAME,Total_Electors,Turnout_Pct,,,,
+1,Gossaigaon,115014,86.45,,,,
+2,Dotma (ST),107923,86.47,,,,
+3,Kokrajhar (ST),145083,83.38,,,,
+4,Baokhungri,165792,89.29,,,,
+5,ParParbatjhora,174993,93.29,,,,
+6,Golakganj,204481,94.52,,,,
+7,Gauripur,310667,96.07,,,,
+8,Dhubri,232359,94.61,,,,
+9,Birsing-Jarua,283439,96.54,,,,
+10,Bilasipara,190345,93.26,,,,
+11,Mankachar,311159,95.61,,,,
+12,Jaleswar,242974,96.28,,,,
+13,Goalpara West (ST),161541,90.89,,,,
+14,Goalpara East,228629,94.79,,,,
+15,Dudhnoi (ST),175799,89.3,,,,
+16,Abhayapuri,182780,90.8,,,,
+17,Srijangram,233557,95.82,,,,
+18,Bongaigaon,171343,90.72,,,,
+19,Sidli Chirang (ST),219623,85.33,,,,
+20,Bijni,183464,88.93,,,,
+21,Bhawanipur-Sorbhog,215510,89.42,,,,
+22,Mandia,279924,93087,,,,
+23,Chenga,256407,95.33,,,,
+24,Barpeta (SC),170893,87.06,,,,
+25,Pakabetbari,276143,94.76,,,,
+26,Bajali,165508,85.18,,,,
+27,Chamaria,247640,94.53,,,,
+28,Boko-Chaygaon (ST),196460,85.11,,,,
+29,Palasbari,217258,85.57,,,,
+30,Hajo-Sualkuchi (SC),194081,87.47,,,,
+31,Rangia,210572,87.48,,,,
+32,Kamalpur,185387,88.02,,,,
+33,Dispur,244725,75.04,,,,
+34,Dimoria (SC),218158,81.79,,,,
+35,New Guwahati,192148,72.37,,,,
+36,Guwahati Central,192615,76.07,,,,
+37,Jalukbari,207642,82.04,,,,
+38,Barkhetri,220484,91,,,,
+39,Nalbari,200359,90.46,,,,
+40,Tihu,204770,87.02,,,,
+41,Manas,204945,85.64,,,,
+42,Baksa (ST),198442,80.07,,,,
+43,Tamulpur (ST),214513,82.89,,,,
+44,Goreswar,206059,82.32,,,,
+45,Bhergaon,160803,82.48,,,,
+46,Udalguri (ST),170122,81.93,,,,
+47,Mazbat,186341,84.45,,,,
+48,Tangla,180658,84.49,,,,
+49,Sipajhar,203093,87.34,,,,
+50,Mangaldai,201732,89.8,,,,
+51,Dalgaon,317360,95.56,,,,
+52,Jagiroad (SC),250427,87.33,,,,
+53,Laharighat,308272,94.72,,,,
+54,Morigaon,207889,84.67,,,,
+55,Dhing,237063,92.55,,,,
+56,Rupahihat,232926,94.28,,,,
+57,Kaliabor,189648,86.04,,,,
+58,Samaguri,227082,93.47,,,,
+59,Barhampur,232576,84.03,,,,
+60,Nagaon-Batadraba,199081,84.08,,,,
+61,Raha (SC),244469,84.76,,,,
+62,Binnakandi,269001,87.75,,,,
+63,Hojai,251279,88.73,,,,
+64,Lumding,244339,88.73,,,,
+65,Dhekiajuli,224186,83.29,,,,
+66,Barchalla,190398,83,,,,
+67,Tezpur,176493,83.11,,,,
+68,Rangapara,169666,84.37,,,,
+69,Naduar,202957,84.12,,,,
+70,Biswanath,189361,84.54,,,,
+71,Behali (SC),155846,84.69,,,,
+72,Gohpur,173437,84.04,,,,
+73,Bihpuria,166726,83.65,,,,
+74,Rongonadi,178033,89.73,,,,
+75,Nowboicha (SC),173182,88.43,,,,
+76,Lakhimpur,164453,86.32,,,,
+77,Dhakuakhana (ST),163082,83.03,,,,
+78,Dhemaji (ST),178880,79.32,,,,
+79,Sissibargaon,182018,79.4,,,,
+80,Jonai (ST),222307,80.36,,,,
+81,Sadiya,202879,78.45,,,,
+82,Doom Dooma,148786,81.43,,,,s
+83,Margherita,176919,78.78,,,,
+84,Digboi,147715,78.76,,,,
+85,Makum,159217,81.14,,,,
+86,Tinsukia,173190,78.12,,,,
+87,Chabua-Lahowal,178397,82.02,,,,
+88,Dibrugarh,197752,79.07,,,,
+89,Khowang,157768,83.22,,,,
+90,Duliajan,177552,80.45,,,,
+91,Tingkhong,178201,81.15,,,,
+92,Naharkatia,156361,79.33,,,,
+93,Sonari,172652,82.83,,,,
+94,Mahmora,149456,83.77,,,,
+95,Demow,178953,83.3,,,,
+96,Nazira,210484,82.36,,,,
+97,Sibsagar,182884,85.22,,,,
+98,Majuli (ST),145331,83.76,,,,
+99,Teok,198903,80.42,,,,
+100,Jorhat,148886,78.64,,,,
+101,Mariani,165417,81.52,,,,
+102,Titabor,201680,81.49,,,,
+103,Golaghat,201788,81.37,,,,
+104,Dergaon,177767,83.09,,,,
+105,Bokakhat,164627,82.11,,,,
+106,Khumtai,172008,84.48,,,,
+107,Sarupathar,188367,79.62,,,,
+108,Bokajan (ST),157690,80.93,,,,
+109,Howraghat (ST),190462,81.22,,,,
+110,Howraghat (ST),182883,78.18,,,,
+111,Rongkhang (ST),132583,82.63,,,,
+112,Amri (ST),100831,78.97,,,,
+113,Haflong,158640,82.48,,,,
+114,Lakhipur,178539,85.57,,,,
+115,Udharbond,185629,83.81,,,,
+116,Katigorah,214190,88.39,,,,
+117,Borkhola,205807,85.64,,,,
+118,Silchar,212413,80.68,,,,
+119,Sonai,195392,81.73,,,,
+120,Dholai (SC),196571,83.81,,,,
+121,Hailakandi,221624,84.27,,,,
+122,Algapur-Katlicherra,278364,81.23,,,,
+123,Karimganj North,260281,86.15,,,,
+124,Karimganj South,285846,82.72,,,,
+125,Patharkandi,178484,84.85,,,,
+126,Ram Krishna Nagar (SC),217500,86.7,,,,
